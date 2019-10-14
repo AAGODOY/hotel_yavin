@@ -90,3 +90,50 @@ F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\Hotel Yavin\bin\Debug\
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\Hotel Yavin\bin\Debug\DAL.pdb
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\Hotel Yavin\bin\Debug\HELPER.pdb
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.csproj.CopyComplete
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\Hotel Yavin.exe.config
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\Hotel Yavin.exe
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\Hotel Yavin.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\BLL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\DAL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\HELPER.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\BLL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\DAL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\bin\Debug\HELPER.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.csprojAssemblyReference.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarCliente.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarCobranza.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarFamilia.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarReserva.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarServAdicionales.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarUsuario.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AltaHabitacion.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AltaServAdicionales.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Bitacora.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Cliente.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ConsultaHabitaciones.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AltaHuesped.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Familia.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Generar_Copia_de_Seguridad.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Log_In.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Menu.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarCliente.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Modificar_Contrasena.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarHuesped.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarIdioma.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarPagoProvisorio.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarPatente.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AdministrarPatente.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Reserva.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarReserva.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Restaurar_copia_de_seguridad.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.AltaUsuario.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.Properties.Resources.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.VerDatosDeUsuario.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel_Yavin.ModificarUsuario.resources
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.csproj.GenerateResource.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.csproj.CoreCompileInputs.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.csproj.CopyComplete
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.exe
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\Hotel Yavin\obj\Debug\Hotel Yavin.pdb

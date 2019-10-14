@@ -18,3 +18,14 @@ F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\DAL\obj\Debug\DAL.cspr
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\DAL\obj\Debug\DAL.csproj.CopyComplete
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\DAL\obj\Debug\DAL.dll
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\DAL\obj\Debug\DAL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\DAL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\DAL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\HELPER.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\bin\Debug\HELPER.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\obj\Debug\DAL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\DAL\obj\Debug\DAL.pdb
