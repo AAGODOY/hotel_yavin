@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{84ED8A8F-3A6C-418A-906B-4F4A229B27E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hotel_Yavin</RootNamespace>
+    <AssemblyName>Hotel Yavin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarCliente.Designer.cs">
+      <DependentUpon>AdministrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarCobranza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarCobranza.Designer.cs">
+      <DependentUpon>AdministrarCobranza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarFamilia.Designer.cs">
+      <DependentUpon>AdministrarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarReserva.Designer.cs">
+      <DependentUpon>AdministrarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarServAdicionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarServAdicionales.Designer.cs">
+      <DependentUpon>AdministrarServAdicionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarUsuario.Designer.cs">
+      <DependentUpon>AdministrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AltaHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaHabitacion.Designer.cs">
+      <DependentUpon>AltaHabitacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AltaServAdicionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaServAdicionales.Designer.cs">
+      <DependentUpon>AltaServAdicionales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora.Designer.cs">
+      <DependentUpon>Bitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaHabitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaHabitaciones.Designer.cs">
+      <DependentUpon>ConsultaHabitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AltaHuesped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaHuesped.Designer.cs">
+      <DependentUpon>AltaHuesped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Familia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Familia.Designer.cs">
+      <DependentUpon>Familia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Generar Copia de Seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar Copia de Seguridad.Designer.cs">
+      <DependentUpon>Generar Copia de Seguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log-In.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log-In.Designer.cs">
+      <DependentUpon>Log-In.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarCliente.Designer.cs">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarContrasena.Designer.cs">
+      <DependentUpon>ModificarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarHuesped.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarHuesped.Designer.cs">
+      <DependentUpon>ModificarHuesped.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarIdioma.Designer.cs">
+      <DependentUpon>ModificarIdioma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPagoProvisorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarPagoProvisorio.Designer.cs">
+      <DependentUpon>ModificarPagoProvisorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarPatente.Designer.cs">
+      <DependentUpon>ModificarPatente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarPatente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarPatente.Designer.cs">
+      <DependentUpon>AdministrarPatente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alta Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Alta Reserva.Designer.cs">
+      <DependentUpon>Alta Reserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarReserva.Designer.cs">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Restaurar copia de seguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Restaurar copia de seguridad.Designer.cs">
+      <DependentUpon>Restaurar copia de seguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaUsuario.Designer.cs">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerDatosDeUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerDatosDeUsuario.Designer.cs">
+      <DependentUpon>VerDatosDeUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarUsuario.Designer.cs">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdministrarCliente.resx">
+      <DependentUpon>AdministrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarCobranza.resx">
+      <DependentUpon>AdministrarCobranza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarFamilia.resx">
+      <DependentUpon>AdministrarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarReserva.resx">
+      <DependentUpon>AdministrarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarServAdicionales.resx">
+      <DependentUpon>AdministrarServAdicionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarUsuario.resx">
+      <DependentUpon>AdministrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaHabitacion.resx">
+      <DependentUpon>AltaHabitacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaServAdicionales.resx">
+      <DependentUpon>AltaServAdicionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora.resx">
+      <DependentUpon>Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaHabitaciones.resx">
+      <DependentUpon>ConsultaHabitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaHuesped.resx">
+      <DependentUpon>AltaHuesped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Familia.resx">
+      <DependentUpon>Familia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar Copia de Seguridad.resx">
+      <DependentUpon>Generar Copia de Seguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log-In.resx">
+      <DependentUpon>Log-In.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarCliente.resx">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarContrasena.resx">
+      <DependentUpon>ModificarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarHuesped.resx">
+      <DependentUpon>ModificarHuesped.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarIdioma.resx">
+      <DependentUpon>ModificarIdioma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarPagoProvisorio.resx">
+      <DependentUpon>ModificarPagoProvisorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarPatente.resx">
+      <DependentUpon>ModificarPatente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarPatente.resx">
+      <DependentUpon>AdministrarPatente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Alta Reserva.resx">
+      <DependentUpon>Alta Reserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarReserva.resx">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Restaurar copia de seguridad.resx">
+      <DependentUpon>Restaurar copia de seguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AltaUsuario.resx">
+      <DependentUpon>AltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="VerDatosDeUsuario.resx">
+      <DependentUpon>VerDatosDeUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuario.resx">
+      <DependentUpon>ModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{f08b2b45-ca93-4c44-8d92-8ab5fd936480}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{a0aed858-5db1-40ed-85d4-d8adbe4672f0}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

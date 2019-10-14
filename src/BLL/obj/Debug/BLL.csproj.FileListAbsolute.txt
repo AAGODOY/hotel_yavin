@@ -1,0 +1,24 @@
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\BLL.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\BLL.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\BE.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\DAL.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\HELPER.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\BE.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\DAL.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\bin\Debug\HELPER.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\obj\Debug\BLL.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\BLL\obj\Debug\BLL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\BLL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\BLL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\DAL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\HELPER.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\DAL.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\bin\Debug\HELPER.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\obj\Debug\BLL.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BLL\obj\Debug\BLL.pdb

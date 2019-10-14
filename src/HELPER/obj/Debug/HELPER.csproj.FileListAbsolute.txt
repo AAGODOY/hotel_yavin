@@ -1,0 +1,16 @@
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\bin\Debug\HELPER.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\bin\Debug\HELPER.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\obj\Debug\HELPER.csprojResolveAssemblyReference.cache
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\obj\Debug\HELPER.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\obj\Debug\HELPER.pdb
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\bin\Debug\BE.dll
+D:\Personal\Facultad\CAMPO I\2019\Forms\Hotel Yavin\HELPER\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\bin\Debug\HELPER.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\bin\Debug\HELPER.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\bin\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\obj\Debug\HELPER.csprojAssemblyReference.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\obj\Debug\HELPER.csproj.CoreCompileInputs.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\obj\Debug\HELPER.csproj.CopyComplete
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\obj\Debug\HELPER.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\HELPER\obj\Debug\HELPER.pdb
