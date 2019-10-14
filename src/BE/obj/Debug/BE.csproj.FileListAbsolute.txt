@@ -9,3 +9,9 @@ F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BE\obj\Debug\BE.csproj
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BE\obj\Debug\BE.dll
 F:\Mis Documentos\Aldi (temporal)\DIPLOMA\Hotel Yavin\src\BE\obj\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\bin\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\bin\Debug\BE.pdb
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\obj\Debug\BE.csprojAssemblyReference.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\obj\Debug\BE.dll
+F:\Mis Documentos\Aldi (temporal)\DIPLOMA\hotel_yavin\src\BE\obj\Debug\BE.pdb

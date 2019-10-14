@@ -58,21 +58,21 @@
             this.txt_NombreUsu.Location = new System.Drawing.Point(12, 32);
             this.txt_NombreUsu.Name = "txt_NombreUsu";
             this.txt_NombreUsu.Size = new System.Drawing.Size(196, 20);
-            this.txt_NombreUsu.TabIndex = 2;
+            this.txt_NombreUsu.TabIndex = 1;
             // 
             // txt_contraseña
             // 
             this.txt_contraseña.Location = new System.Drawing.Point(12, 83);
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.Size = new System.Drawing.Size(196, 20);
-            this.txt_contraseña.TabIndex = 3;
+            this.txt_contraseña.TabIndex = 2;
             // 
             // btn_Ingresar
             // 
             this.btn_Ingresar.Location = new System.Drawing.Point(76, 126);
             this.btn_Ingresar.Name = "btn_Ingresar";
             this.btn_Ingresar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Ingresar.TabIndex = 4;
+            this.btn_Ingresar.TabIndex = 3;
             this.btn_Ingresar.Text = "INGRESAR";
             this.btn_Ingresar.UseVisualStyleBackColor = true;
             this.btn_Ingresar.Click += new System.EventHandler(this.btn_Ingresar_Click);

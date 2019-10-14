@@ -76,10 +76,10 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public bool Update(BE.Usuario objUpdate)
+        public int Update(BE.Usuario objUpdate)
         {
             string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'," + "area='" + objUpdate.area + "'" + "";
-            //return helper.ExecuteNonQuery(query);
+            return helper.ExecuteNonQuery(query);
             throw new NotImplementedException();
         }
 

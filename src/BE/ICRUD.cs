@@ -10,7 +10,7 @@ namespace BE
     {
         int Add(T objAlta);
         bool Delete(T objBaja);
-        bool Update(T objUpdate);
+        int Update(T objUpdate);
         List<T> SelectAll();
     }
 }

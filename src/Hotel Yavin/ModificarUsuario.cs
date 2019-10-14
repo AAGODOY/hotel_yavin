@@ -13,6 +13,7 @@ namespace Hotel_Yavin
     public partial class ModificarUsuario : Form
     {
         BE.Usuario usu_BE = new BE.Usuario();
+        BLL.Usuario usu_BLL = new BLL.Usuario();
 
         public ModificarUsuario()
         {
@@ -51,6 +52,8 @@ namespace Hotel_Yavin
             usu_BE.telefono = txt_Telefono.Text;
             usu_BE.domicilio = txt_Domicilio.Text;
             usu_BE.area = comboBox1.Text;
+
+            usu_BLL.Update(usu_BE);
 
         }
     }

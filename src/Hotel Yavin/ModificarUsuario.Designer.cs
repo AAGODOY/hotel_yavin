@@ -457,7 +457,7 @@
             this.Controls.Add(this.btn_CancelarUsuario);
             this.Controls.Add(this.tabControl1);
             this.Name = "ModificarUsuario";
-            this.Text = "Ver Usuario";
+            this.Text = "Modificar Usuario";
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

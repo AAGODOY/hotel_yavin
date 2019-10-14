@@ -18,6 +18,9 @@ namespace Hotel_Yavin
         public Log_In()
         {
             InitializeComponent();
+            //TEST
+            txt_NombreUsu.Text = "aldana";
+            txt_contraseña.Text = "asd";
         }
 
         private void btn_Ingresar_Click(object sender, EventArgs e)

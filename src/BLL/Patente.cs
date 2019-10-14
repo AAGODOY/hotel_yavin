@@ -32,7 +32,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool Update(BE.Patente objUpdate)
+        public int Update(BE.Patente objUpdate)
         {
             throw new NotImplementedException();
         }

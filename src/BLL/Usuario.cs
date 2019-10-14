@@ -92,8 +92,10 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool Update(BE.Usuario objUpdate)
+        public int Update(BE.Usuario objUpdate)
         {
+            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario + objUpdate.nombre + objUpdate.apellido + objUpdate.documento.ToString() + objUpdate.domicilio + objUpdate.telefono + objUpdate.email + objUpdate.area + objUpdate.contraseña + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
+            objUpdate.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
             return GetInstance().Update(objUpdate);
         }
 
