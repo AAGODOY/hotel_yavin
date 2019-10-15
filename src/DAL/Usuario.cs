@@ -12,12 +12,11 @@ namespace DAL
 {
     public class Usuario : BE.ICRUD<BE.Usuario>
     {
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
         public BE.Usuario validarUsu(string nom_usu, string pw)
         {
-            string query = "SELECT * from Usuario where nombre_usuario='" + nom_usu + "'";
-            BE.Usuario usu = new BE.Usuario();
+            string query = "SELECT * from Usuario where nombre_usuario='" + nom_usu + "'";            BE.Usuario usu = new BE.Usuario();
 
             SqlDataReader Reader;
             try
@@ -101,7 +100,7 @@ namespace DAL
 
         public BE.Usuario SelectById(int id)
         {
-            string query = $"Select * From Usuario where Id = {id}";
+            string query = "Select * From Usuario where Id =" + id + "";
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 BE.Usuario usu = new BE.Usuario();

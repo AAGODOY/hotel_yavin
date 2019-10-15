@@ -29,27 +29,29 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Buscar = new System.Windows.Forms.Button();
+            this.btn_baja = new System.Windows.Forms.Button();
+            this.btn_modificar = new System.Windows.Forms.Button();
+            this.btn_alta = new System.Windows.Forms.Button();
+            this.btn_AltaReserva = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_habilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_habilitar);
+            this.groupBox1.Controls.Add(this.btn_Buscar);
+            this.groupBox1.Controls.Add(this.btn_baja);
+            this.groupBox1.Controls.Add(this.btn_modificar);
+            this.groupBox1.Controls.Add(this.btn_alta);
+            this.groupBox1.Controls.Add(this.btn_AltaReserva);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -63,50 +65,50 @@
             this.groupBox1.Text = "Filtrar Busqueda";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button5
+            // btn_Buscar
             // 
-            this.button5.Location = new System.Drawing.Point(25, 187);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Buscar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_Buscar.Location = new System.Drawing.Point(25, 187);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Buscar.TabIndex = 8;
+            this.btn_Buscar.Text = "Buscar";
+            this.btn_Buscar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_baja
             // 
-            this.button4.Location = new System.Drawing.Point(519, 187);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Baja";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_baja.Location = new System.Drawing.Point(438, 187);
+            this.btn_baja.Name = "btn_baja";
+            this.btn_baja.Size = new System.Drawing.Size(75, 23);
+            this.btn_baja.TabIndex = 7;
+            this.btn_baja.Text = "Baja";
+            this.btn_baja.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_modificar
             // 
-            this.button3.Location = new System.Drawing.Point(438, 187);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_modificar.Location = new System.Drawing.Point(358, 187);
+            this.btn_modificar.Name = "btn_modificar";
+            this.btn_modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_modificar.TabIndex = 6;
+            this.btn_modificar.Text = "Modificar";
+            this.btn_modificar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_alta
             // 
-            this.button2.Location = new System.Drawing.Point(357, 187);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Nuevo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_alta.Location = new System.Drawing.Point(277, 187);
+            this.btn_alta.Name = "btn_alta";
+            this.btn_alta.Size = new System.Drawing.Size(75, 23);
+            this.btn_alta.TabIndex = 5;
+            this.btn_alta.Text = "Nuevo";
+            this.btn_alta.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_AltaReserva
             // 
-            this.button1.Location = new System.Drawing.Point(106, 187);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Reservar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_AltaReserva.Location = new System.Drawing.Point(106, 187);
+            this.btn_AltaReserva.Name = "btn_AltaReserva";
+            this.btn_AltaReserva.Size = new System.Drawing.Size(75, 23);
+            this.btn_AltaReserva.TabIndex = 4;
+            this.btn_AltaReserva.Text = "Reservar";
+            this.btn_AltaReserva.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -149,6 +151,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
+            // btn_habilitar
+            // 
+            this.btn_habilitar.Location = new System.Drawing.Point(519, 187);
+            this.btn_habilitar.Name = "btn_habilitar";
+            this.btn_habilitar.Size = new System.Drawing.Size(75, 23);
+            this.btn_habilitar.TabIndex = 9;
+            this.btn_habilitar.Text = "Habilitar";
+            this.btn_habilitar.UseVisualStyleBackColor = true;
+            // 
             // ConsultaHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,10 +183,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_baja;
+        private System.Windows.Forms.Button btn_modificar;
+        private System.Windows.Forms.Button btn_alta;
+        private System.Windows.Forms.Button btn_AltaReserva;
+        private System.Windows.Forms.Button btn_Buscar;
+        private System.Windows.Forms.Button btn_habilitar;
     }
 }

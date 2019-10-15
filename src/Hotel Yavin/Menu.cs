@@ -119,5 +119,10 @@ namespace Hotel_Yavin
             this.Close();
 
         }
+
+        private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

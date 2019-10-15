@@ -10,8 +10,8 @@ namespace DAL
 {
     public class UsuarioPatente : BE.ICRUD<BE.UsuarioPatente>
     {
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
 
         public int Add(BE.UsuarioPatente objAlta)
         {
@@ -36,7 +36,8 @@ namespace DAL
 
         public List<BE.UsuarioPatente> SelectById(int id)
         {
-            string query = $"Select * From UsuarioPatente where Id = {id}";
+            //string query = $"Select * From UsuarioPatente where Id = {id}";
+            string query = "Select * From UsuarioPatente where Id =" + id + "";
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 List<BE.UsuarioPatente> usuPat = new List<BE.UsuarioPatente>();
@@ -52,7 +53,8 @@ namespace DAL
 
         public List<BE.Patente> GetPatentes(int id_usuario)
         {
-            string query = $"SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.id_patente = Patente.id_patente WHERE id_usuario = {id_usuario}";
+            string query = "SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.id_patente = Patente.id_patente WHERE id_usuario =" + id_usuario + ""; 
+            //string query = $"SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.id_patente = Patente.id_patente WHERE id_usuario = {id_usuario}";
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 List<BE.Patente> patente_list = new List<BE.Patente>();
