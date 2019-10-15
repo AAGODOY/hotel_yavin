@@ -62,7 +62,7 @@
             this.lbl_Telefono = new System.Windows.Forms.Label();
             this.lbl_NumDoc = new System.Windows.Forms.Label();
             this.lbl_Apellido = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbx_area = new System.Windows.Forms.ComboBox();
             this.lbl_Area = new System.Windows.Forms.Label();
             this.lbl_Email = new System.Windows.Forms.Label();
             this.lbl_Nombre = new System.Windows.Forms.Label();
@@ -128,9 +128,11 @@
             this.dgv_patentesAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_patentesAsociadas.Location = new System.Drawing.Point(337, 65);
             this.dgv_patentesAsociadas.Name = "dgv_patentesAsociadas";
+            this.dgv_patentesAsociadas.RowHeadersVisible = false;
             this.dgv_patentesAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_patentesAsociadas.Size = new System.Drawing.Size(194, 210);
             this.dgv_patentesAsociadas.TabIndex = 18;
+            this.dgv_patentesAsociadas.SelectionChanged += new System.EventHandler(this.Dgv_patentesAsociadas_SelectionChanged);
             // 
             // dgv_patentesDisponibles
             // 
@@ -168,11 +170,12 @@
             // 
             // btn_Negar
             // 
+            this.btn_Negar.Enabled = false;
             this.btn_Negar.Location = new System.Drawing.Point(255, 118);
             this.btn_Negar.Name = "btn_Negar";
             this.btn_Negar.Size = new System.Drawing.Size(46, 106);
             this.btn_Negar.TabIndex = 12;
-            this.btn_Negar.Text = "Negar";
+            this.btn_Negar.Text = "Negar ✍";
             this.btn_Negar.UseVisualStyleBackColor = true;
             this.btn_Negar.Click += new System.EventHandler(this.btn_Negar_Click);
             // 
@@ -297,7 +300,7 @@
             this.tabPage1.Controls.Add(this.lbl_Telefono);
             this.tabPage1.Controls.Add(this.lbl_NumDoc);
             this.tabPage1.Controls.Add(this.lbl_Apellido);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cbx_area);
             this.tabPage1.Controls.Add(this.lbl_Area);
             this.tabPage1.Controls.Add(this.lbl_Email);
             this.tabPage1.Controls.Add(this.lbl_Nombre);
@@ -405,13 +408,13 @@
             this.lbl_Apellido.TabIndex = 10;
             this.lbl_Apellido.Text = "Apellido";
             // 
-            // comboBox1
+            // cbx_area
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(134, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 8;
+            this.cbx_area.FormattingEnabled = true;
+            this.cbx_area.Location = new System.Drawing.Point(134, 213);
+            this.cbx_area.Name = "cbx_area";
+            this.cbx_area.Size = new System.Drawing.Size(121, 21);
+            this.cbx_area.TabIndex = 8;
             // 
             // lbl_Area
             // 
@@ -520,7 +523,7 @@
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_NomUsu;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbx_area;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button btn_Negar;
         private System.Windows.Forms.PictureBox pictureBox1;
