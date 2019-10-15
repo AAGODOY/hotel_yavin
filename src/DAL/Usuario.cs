@@ -99,6 +99,21 @@ namespace DAL
             }
         }
 
+        public BE.Usuario SelectById(int id)
+        {
+            string query = $"Select * From Usuario where Id = {id}";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                BE.Usuario usu = new BE.Usuario();
+                while (dataReader.Read())
+                {
+                    usu = MapDataReader(dataReader);
+                }
+
+                return usu;
+            }
+        }
+
         public Boolean modificarContraseña(string pwActual, string nuevaPw)
         {
             string validacionPw = "SELECT * from Usuario where contraseña ='" + pwActual + "'";
