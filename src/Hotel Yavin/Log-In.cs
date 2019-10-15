@@ -14,6 +14,7 @@ namespace Hotel_Yavin
     {
         BE.Usuario usu_BE = new BE.Usuario();
         static BLL.Usuario usu_BLL = new BLL.Usuario();
+        static BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
 
         public Log_In()
         {
@@ -47,11 +48,14 @@ namespace Hotel_Yavin
                         {
                             //ValidarPrimerLogin(usu_BE);
                             MessageBox.Show("Se ingresó al sistema");
+                            //CONFIGURACION GLOBAL
+                            this.FijarPermisos();
+
                             menuPrincipal.Show(this);
                             //this.Owner.Hide();
                             this.Hide();  
-                        }                                  
-                    }      
+                        }
+                    }
                 }
                 else
                 {
@@ -62,6 +66,12 @@ namespace Hotel_Yavin
             {
                 MessageBox.Show("Debe completar el campo 'Nombre de Usuario'", "Hotel Yavin", MessageBoxButtons.OK);
             }
+        }
+
+        private void FijarPermisos()
+        {
+            //CONFIGURACION GLOBAL
+            BE.ConfigUsuario.patentes = usuPat_BLL.GetPatentes(usu_BE.id);
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)
@@ -98,15 +108,6 @@ namespace Hotel_Yavin
                 return false;
 	        }
         }
-   
-        //private Boolean ValidarPrimerLogin(BE.Usuario usu)
-        //{
-        //    if (usu.es_primer_login)
-        //    {
-        //        Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
-        //        mod_contraseña.Show(this);
-        //        this.Hide();   
-        //    }
-        //}
+        
     }
  }
