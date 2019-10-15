@@ -15,7 +15,6 @@ namespace Hotel_Yavin
     {
         BE.Usuario usu_BE = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
-        BE.Patente pat_BE = new BE.Patente();
         BLL.Patente pat_BLL = new BLL.Patente();
         BE.UsuarioPatente usuPat_BE = new BE.UsuarioPatente();
         BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
@@ -36,7 +35,6 @@ namespace Hotel_Yavin
             txt_Telefono.Text = "4362223";
             txt_Domicilio.Text = "Italia 77";
             cbx_area.Text = "Algo más";
-
 
             //DataGridView Patentes disponibles
             dgv_patentesDisponibles.DataSource = null;
@@ -128,6 +126,10 @@ namespace Hotel_Yavin
                 usuPat_BLL.Add(usuPat_BE);
             }
 
+            //PASO 3: Mensaje al usuario y volver atrás
+            MessageBox.Show("Usuario generado con éxito");
+            this.Close();
+
             #region REFLECTION: Implementación v2
             //var items = BLL.Services.GetPropertyValues("ObjectCollection", lst_PatentesAsociadas);
             //foreach (BE.Patente item in items)
@@ -142,7 +144,7 @@ namespace Hotel_Yavin
             this.Close();
         }
 
-        //CONDICION: para contralar el estado del botón negar
+        //CONDICION: para controlar el estado del botón negar
         private void Dgv_patentesAsociadas_SelectionChanged(object sender, EventArgs e)
         {
             if(dgv_patentesAsociadas.SelectedRows.Count >= 1)
