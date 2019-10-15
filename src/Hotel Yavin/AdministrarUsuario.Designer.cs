@@ -34,12 +34,14 @@
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_refresh);
             this.groupBox1.Controls.Add(this.btn_habilitar);
             this.groupBox1.Controls.Add(this.btn_alta);
             this.groupBox1.Controls.Add(this.btn_baja);
@@ -98,6 +100,17 @@
             this.dataGridView1.Size = new System.Drawing.Size(414, 211);
             this.dataGridView1.TabIndex = 0;
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(392, 30);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(28, 32);
+            this.btn_refresh.TabIndex = 11;
+            this.btn_refresh.Text = "🔄";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.Btn_refresh_Click);
+            // 
             // AdministrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,5 +134,6 @@
         private System.Windows.Forms.Button btn_baja;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

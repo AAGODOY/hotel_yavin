@@ -64,5 +64,9 @@ namespace Hotel_Yavin
             
         }
 
+        private void Btn_refresh_Click(object sender, EventArgs e)
+        {
+            this.ActualizarGrilla();
+        }
     }
 }
