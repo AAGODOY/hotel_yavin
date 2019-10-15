@@ -62,6 +62,12 @@
     <Compile Include="AdministrarFamilia.Designer.cs">
       <DependentUpon>AdministrarFamilia.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdministrarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministrarPago.Designer.cs">
+      <DependentUpon>AdministrarPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarReserva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarFamilia.resx">
       <DependentUpon>AdministrarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministrarPago.resx">
+      <DependentUpon>AdministrarPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdministrarReserva.resx">
       <DependentUpon>AdministrarReserva.cs</DependentUpon>
