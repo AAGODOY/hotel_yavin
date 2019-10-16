@@ -43,12 +43,6 @@
             this.lbl_PatentesAsociadas = new System.Windows.Forms.Label();
             this.lbl_PatentesDisponibles = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_DesasociarFamilias = new System.Windows.Forms.Button();
-            this.btn_AsociarFamilias = new System.Windows.Forms.Button();
-            this.lst_FamiliasAsociadas = new System.Windows.Forms.ListBox();
-            this.lst_FamiliasDisponibles = new System.Windows.Forms.ListBox();
-            this.lbl_FamiliasAsociadas = new System.Windows.Forms.Label();
-            this.lbl_FamiliasDisponibles = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_Domicilio = new System.Windows.Forms.TextBox();
@@ -69,6 +63,14 @@
             this.lbl_NomUsu = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_FamiliasAsociadas = new System.Windows.Forms.DataGridView();
+            this.dgv_FamiliasDisponibles = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_DesasociarFamilia = new System.Windows.Forms.Button();
+            this.btn_AsociarFamilia = new System.Windows.Forms.Button();
+            this.lbl_FamiliasAsociadas = new System.Windows.Forms.Label();
+            this.lbl_familiasDisponibles = new System.Windows.Forms.Label();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesAsociadas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesDisponibles)).BeginInit();
@@ -77,6 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FamiliasAsociadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FamiliasDisponibles)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_GuardarUsuario
@@ -220,70 +224,20 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage3.Controls.Add(this.btn_DesasociarFamilias);
-            this.tabPage3.Controls.Add(this.btn_AsociarFamilias);
-            this.tabPage3.Controls.Add(this.lst_FamiliasAsociadas);
-            this.tabPage3.Controls.Add(this.lst_FamiliasDisponibles);
+            this.tabPage3.Controls.Add(this.dgv_FamiliasAsociadas);
+            this.tabPage3.Controls.Add(this.dgv_FamiliasDisponibles);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.btn_DesasociarFamilia);
+            this.tabPage3.Controls.Add(this.btn_AsociarFamilia);
             this.tabPage3.Controls.Add(this.lbl_FamiliasAsociadas);
-            this.tabPage3.Controls.Add(this.lbl_FamiliasDisponibles);
+            this.tabPage3.Controls.Add(this.lbl_familiasDisponibles);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(550, 315);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Familia";
-            // 
-            // btn_DesasociarFamilias
-            // 
-            this.btn_DesasociarFamilias.Location = new System.Drawing.Point(246, 208);
-            this.btn_DesasociarFamilias.Name = "btn_DesasociarFamilias";
-            this.btn_DesasociarFamilias.Size = new System.Drawing.Size(46, 37);
-            this.btn_DesasociarFamilias.TabIndex = 5;
-            this.btn_DesasociarFamilias.Text = "<";
-            this.btn_DesasociarFamilias.UseVisualStyleBackColor = true;
-            // 
-            // btn_AsociarFamilias
-            // 
-            this.btn_AsociarFamilias.Location = new System.Drawing.Point(246, 73);
-            this.btn_AsociarFamilias.Name = "btn_AsociarFamilias";
-            this.btn_AsociarFamilias.Size = new System.Drawing.Size(46, 37);
-            this.btn_AsociarFamilias.TabIndex = 4;
-            this.btn_AsociarFamilias.Text = ">";
-            this.btn_AsociarFamilias.UseVisualStyleBackColor = true;
-            // 
-            // lst_FamiliasAsociadas
-            // 
-            this.lst_FamiliasAsociadas.FormattingEnabled = true;
-            this.lst_FamiliasAsociadas.Location = new System.Drawing.Point(298, 52);
-            this.lst_FamiliasAsociadas.Name = "lst_FamiliasAsociadas";
-            this.lst_FamiliasAsociadas.Size = new System.Drawing.Size(231, 238);
-            this.lst_FamiliasAsociadas.TabIndex = 3;
-            // 
-            // lst_FamiliasDisponibles
-            // 
-            this.lst_FamiliasDisponibles.FormattingEnabled = true;
-            this.lst_FamiliasDisponibles.Location = new System.Drawing.Point(28, 52);
-            this.lst_FamiliasDisponibles.Name = "lst_FamiliasDisponibles";
-            this.lst_FamiliasDisponibles.Size = new System.Drawing.Size(212, 238);
-            this.lst_FamiliasDisponibles.TabIndex = 2;
-            // 
-            // lbl_FamiliasAsociadas
-            // 
-            this.lbl_FamiliasAsociadas.AutoSize = true;
-            this.lbl_FamiliasAsociadas.Location = new System.Drawing.Point(295, 25);
-            this.lbl_FamiliasAsociadas.Name = "lbl_FamiliasAsociadas";
-            this.lbl_FamiliasAsociadas.Size = new System.Drawing.Size(144, 13);
-            this.lbl_FamiliasAsociadas.TabIndex = 1;
-            this.lbl_FamiliasAsociadas.Text = "Familias Asociadas al usuario";
-            // 
-            // lbl_FamiliasDisponibles
-            // 
-            this.lbl_FamiliasDisponibles.AutoSize = true;
-            this.lbl_FamiliasDisponibles.Location = new System.Drawing.Point(25, 25);
-            this.lbl_FamiliasDisponibles.Name = "lbl_FamiliasDisponibles";
-            this.lbl_FamiliasDisponibles.Size = new System.Drawing.Size(101, 13);
-            this.lbl_FamiliasDisponibles.TabIndex = 0;
-            this.lbl_FamiliasDisponibles.Text = "Familias Disponibles";
             // 
             // tabPage1
             // 
@@ -464,6 +418,93 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Tag = "";
             // 
+            // dgv_FamiliasAsociadas
+            // 
+            this.dgv_FamiliasAsociadas.AllowUserToAddRows = false;
+            this.dgv_FamiliasAsociadas.AllowUserToDeleteRows = false;
+            this.dgv_FamiliasAsociadas.AllowUserToResizeColumns = false;
+            this.dgv_FamiliasAsociadas.AllowUserToResizeRows = false;
+            this.dgv_FamiliasAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_FamiliasAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FamiliasAsociadas.Location = new System.Drawing.Point(337, 65);
+            this.dgv_FamiliasAsociadas.Name = "dgv_FamiliasAsociadas";
+            this.dgv_FamiliasAsociadas.RowHeadersVisible = false;
+            this.dgv_FamiliasAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_FamiliasAsociadas.Size = new System.Drawing.Size(194, 210);
+            this.dgv_FamiliasAsociadas.TabIndex = 26;
+            // 
+            // dgv_FamiliasDisponibles
+            // 
+            this.dgv_FamiliasDisponibles.AllowUserToAddRows = false;
+            this.dgv_FamiliasDisponibles.AllowUserToDeleteRows = false;
+            this.dgv_FamiliasDisponibles.AllowUserToResizeColumns = false;
+            this.dgv_FamiliasDisponibles.AllowUserToResizeRows = false;
+            this.dgv_FamiliasDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_FamiliasDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_FamiliasDisponibles.Location = new System.Drawing.Point(29, 65);
+            this.dgv_FamiliasDisponibles.Name = "dgv_FamiliasDisponibles";
+            this.dgv_FamiliasDisponibles.RowHeadersVisible = false;
+            this.dgv_FamiliasDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_FamiliasDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_FamiliasDisponibles.Size = new System.Drawing.Size(194, 210);
+            this.dgv_FamiliasDisponibles.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(3, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(544, 10);
+            this.label2.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(542, 10);
+            this.label3.TabIndex = 23;
+            // 
+            // btn_DesasociarFamilia
+            // 
+            this.btn_DesasociarFamilia.Location = new System.Drawing.Point(255, 239);
+            this.btn_DesasociarFamilia.Name = "btn_DesasociarFamilia";
+            this.btn_DesasociarFamilia.Size = new System.Drawing.Size(46, 37);
+            this.btn_DesasociarFamilia.TabIndex = 22;
+            this.btn_DesasociarFamilia.Text = "<";
+            this.btn_DesasociarFamilia.UseVisualStyleBackColor = true;
+            this.btn_DesasociarFamilia.Click += new System.EventHandler(this.btn_DesasociarFamilia_Click);
+            // 
+            // btn_AsociarFamilia
+            // 
+            this.btn_AsociarFamilia.Location = new System.Drawing.Point(255, 66);
+            this.btn_AsociarFamilia.Name = "btn_AsociarFamilia";
+            this.btn_AsociarFamilia.Size = new System.Drawing.Size(46, 37);
+            this.btn_AsociarFamilia.TabIndex = 21;
+            this.btn_AsociarFamilia.Text = ">";
+            this.btn_AsociarFamilia.UseVisualStyleBackColor = true;
+            this.btn_AsociarFamilia.Click += new System.EventHandler(this.btn_AsociarFamilia_Click);
+            // 
+            // lbl_FamiliasAsociadas
+            // 
+            this.lbl_FamiliasAsociadas.AutoSize = true;
+            this.lbl_FamiliasAsociadas.Location = new System.Drawing.Point(334, 36);
+            this.lbl_FamiliasAsociadas.Name = "lbl_FamiliasAsociadas";
+            this.lbl_FamiliasAsociadas.Size = new System.Drawing.Size(144, 13);
+            this.lbl_FamiliasAsociadas.TabIndex = 20;
+            this.lbl_FamiliasAsociadas.Text = "Familias Asociadas al usuario";
+            // 
+            // lbl_familiasDisponibles
+            // 
+            this.lbl_familiasDisponibles.AutoSize = true;
+            this.lbl_familiasDisponibles.Location = new System.Drawing.Point(26, 36);
+            this.lbl_familiasDisponibles.Name = "lbl_familiasDisponibles";
+            this.lbl_familiasDisponibles.Size = new System.Drawing.Size(101, 13);
+            this.lbl_familiasDisponibles.TabIndex = 19;
+            this.lbl_familiasDisponibles.Text = "Familias Disponibles";
+            // 
             // AltaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +527,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FamiliasAsociadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_FamiliasDisponibles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -500,12 +543,6 @@
         private System.Windows.Forms.Label lbl_PatentesAsociadas;
         private System.Windows.Forms.Label lbl_PatentesDisponibles;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btn_DesasociarFamilias;
-        private System.Windows.Forms.Button btn_AsociarFamilias;
-        private System.Windows.Forms.ListBox lst_FamiliasAsociadas;
-        private System.Windows.Forms.ListBox lst_FamiliasDisponibles;
-        private System.Windows.Forms.Label lbl_FamiliasAsociadas;
-        private System.Windows.Forms.Label lbl_FamiliasDisponibles;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_Domicilio;
         private System.Windows.Forms.TextBox txt_Telefono;
@@ -531,6 +568,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_patentesAsociadas;
         private System.Windows.Forms.DataGridView dgv_patentesDisponibles;
+        private System.Windows.Forms.DataGridView dgv_FamiliasAsociadas;
+        private System.Windows.Forms.DataGridView dgv_FamiliasDisponibles;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_DesasociarFamilia;
+        private System.Windows.Forms.Button btn_AsociarFamilia;
+        private System.Windows.Forms.Label lbl_FamiliasAsociadas;
+        private System.Windows.Forms.Label lbl_familiasDisponibles;
     }
 }
 

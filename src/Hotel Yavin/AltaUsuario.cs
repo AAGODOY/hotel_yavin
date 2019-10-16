@@ -18,6 +18,9 @@ namespace Hotel_Yavin
         BLL.Patente pat_BLL = new BLL.Patente();
         BE.UsuarioPatente usuPat_BE = new BE.UsuarioPatente();
         BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
+        BLL.Familia familia_BLL = new BLL.Familia();
+        BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
+        BLL.FamiliaUsuario famUsu_BLL = new BLL.FamiliaUsuario();
 
         public AltaUsuario()
         {
@@ -47,14 +50,30 @@ namespace Hotel_Yavin
             dgv_patentesAsociadas.Columns.Add("descripcion", "Descripción");
             dgv_patentesAsociadas.Columns.Add("negada", "Negada");
             dgv_patentesAsociadas.Columns[0].Visible = false;
-            ActualizarGrilla();
+            //DataGridView Familias disponibles
+            dgv_FamiliasDisponibles.DataSource = null;
+            dgv_FamiliasDisponibles.Columns.Add("id", "Id");
+            dgv_FamiliasDisponibles.Columns.Add("descripcion", "Descripción");
+            dgv_FamiliasDisponibles.Columns[0].Visible = false;
+            //DataGridView Familias asociadas
+            dgv_FamiliasAsociadas.DataSource = null;
+            dgv_FamiliasAsociadas.Columns.Add("id", "Id");
+            dgv_FamiliasAsociadas.Columns.Add("descripcion", "Descripcion");
+            dgv_FamiliasAsociadas.Columns[0].Visible = false;
+
+            ActualizarGrillas();
         }
 
-        public void ActualizarGrilla()
+        public void ActualizarGrillas()
         {
-            foreach (var patente in pat_BLL.SelectAll())
+            foreach (BE.Patente patente in pat_BLL.SelectAll())
             {
                 dgv_patentesDisponibles.Rows.Add(patente.id, patente.descripcion, patente.activo);
+            }
+
+            foreach (BE.Familia familia in familia_BLL.SelectAll())
+            {
+                dgv_FamiliasDisponibles.Rows.Add(familia.id, familia.descripcion, familia.activo);
             }
         }
 
@@ -118,13 +137,26 @@ namespace Hotel_Yavin
             int idUsuario = usu_BLL.Add(usu_BE);
 
             //PASO 2: Asociación de patentes a usuario
-            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
+            if (dgv_patentesAsociadas.Rows.Count >= 1)
             {
-                usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                usuPat_BE.id_usuario = idUsuario;
-                usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
-                usuPat_BLL.Add(usuPat_BE);
+                foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
+                {
+                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                    usuPat_BE.id_usuario = idUsuario;
+                    usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
+                    usuPat_BLL.Add(usuPat_BE);
+                }
             }
+            if (dgv_FamiliasAsociadas.Rows.Count >= 1)
+            {
+                foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
+                {
+                    famUsu_BE.id_usuario = idUsuario;
+                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                    famUsu_BLL.Add(famUsu_BE);
+                }
+            }
+            
 
             //PASO 3: Mensaje al usuario y volver atrás
             MessageBox.Show("Usuario generado con éxito");
@@ -150,6 +182,28 @@ namespace Hotel_Yavin
             if(dgv_patentesAsociadas.SelectedRows.Count >= 1)
             {
                 this.btn_Negar.Enabled = true;
+            }
+        }
+
+        private void btn_AsociarFamilia_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in dgv_FamiliasDisponibles.SelectedRows)
+            {
+                //Familias asociadas (+)
+                dgv_FamiliasAsociadas.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value);
+                //Familias disponibles (-)
+                dgv_FamiliasDisponibles.Rows.RemoveAt(fila.Index);
+            }
+        }
+
+        private void btn_DesasociarFamilia_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.SelectedRows)
+            {
+                //Familias disponibles (+)
+                dgv_FamiliasDisponibles.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value);
+                //Familias asociadas (-)
+                dgv_FamiliasAsociadas.Rows.RemoveAt(fila.Index);
             }
         }
     }

@@ -42,6 +42,7 @@
     <Compile Include="DigitoVerificador.cs" />
     <Compile Include="Encriptador.cs" />
     <Compile Include="Familia.cs" />
+    <Compile Include="FamiliaUsuario.cs" />
     <Compile Include="Patente.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Usuario.cs" />
