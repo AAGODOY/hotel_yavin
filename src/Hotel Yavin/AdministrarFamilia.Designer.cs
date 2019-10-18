@@ -33,9 +33,9 @@
             this.btn_alta = new System.Windows.Forms.Button();
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_familias = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familias)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -44,7 +44,7 @@
             this.groupBox1.Controls.Add(this.btn_alta);
             this.groupBox1.Controls.Add(this.btn_baja);
             this.groupBox1.Controls.Add(this.btn_modificar);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgv_familias);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(433, 288);
@@ -89,13 +89,17 @@
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv_familias
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(414, 211);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv_familias.AllowUserToAddRows = false;
+            this.dgv_familias.AllowUserToDeleteRows = false;
+            this.dgv_familias.AllowUserToOrderColumns = true;
+            this.dgv_familias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_familias.Location = new System.Drawing.Point(6, 30);
+            this.dgv_familias.Name = "dgv_familias";
+            this.dgv_familias.RowHeadersVisible = false;
+            this.dgv_familias.Size = new System.Drawing.Size(414, 211);
+            this.dgv_familias.TabIndex = 0;
             // 
             // AdministrarFamilia
             // 
@@ -105,8 +109,9 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarFamilia";
             this.Text = "Administrar Familia";
+            this.Load += new System.EventHandler(this.AdministrarFamilia_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,6 +123,6 @@
         private System.Windows.Forms.Button btn_alta;
         private System.Windows.Forms.Button btn_baja;
         private System.Windows.Forms.Button btn_modificar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_familias;
     }
 }

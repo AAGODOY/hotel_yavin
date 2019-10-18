@@ -19,14 +19,7 @@ namespace Hotel_Yavin
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            //PRUEBA PERMISOS
-            //foreach(BE.Patente patente in BE.ConfigUsuario.patentes)
-            //{
-            //    if(patente.descripcion == "ejemplo2")
-            //    {
-            //        this.administrarUsuarioToolStripMenuItem.Enabled = true;
-            //    }
-            //}
+            //Tsmi_AdminReservas.Enabled = BE.ConfigUsuario.permisos.Contains(
         }
 
         private void administrarReservasToolStripMenuItem_Click(object sender, EventArgs e)

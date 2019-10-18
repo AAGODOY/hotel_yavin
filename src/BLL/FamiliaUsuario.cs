@@ -41,5 +41,10 @@ namespace BLL
         {
             throw new NotImplementedException();
         }
+
+        public List<BE.Familia> GetFamilias(int idUsuario)
+        {
+            return GetInstance().GetFamilias(idUsuario);
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace Hotel_Yavin
         BE.Usuario usu_BE = new BE.Usuario();
         static BLL.Usuario usu_BLL = new BLL.Usuario();
         static BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
+        static BLL.FamiliaUsuario usuFam_BLL = new BLL.FamiliaUsuario();
 
         public Log_In()
         {
@@ -72,6 +73,9 @@ namespace Hotel_Yavin
         {
             //CONFIGURACION GLOBAL
             BE.ConfigUsuario.patentes = usuPat_BLL.GetPatentes(usu_BE.id);
+            BE.ConfigUsuario.familias = usuFam_BLL.GetFamilias(usu_BE.id);
+            //Permisos es la suma entre patentes + familias (se requiere un doble foreach)
+            BE.ConfigUsuario.permisos = BE.ConfigUsuario.patentes;
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)
