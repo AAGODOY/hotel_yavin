@@ -79,6 +79,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Restaurar_copia_de_seguridad";
             this.Text = "Restaurar copia de seguridad";
+            this.Load += new System.EventHandler(this.Restaurar_copia_de_seguridad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,5 +16,11 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
         }
+
+        private void Bitacora_Load(object sender, EventArgs e)
+        {
+            Btn_Buscar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Buscar Bitácora");
+            btn_GenerarReporte.Enabled = BLL.ConfigUsuario.ValidarAcceso("Generar Reporte Bitacora");
+        }
     }
 }

@@ -27,6 +27,9 @@ namespace Hotel_Yavin
 
         private void Patente_Load(object sender, EventArgs e)
         {
+            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Patente");
+            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Patente");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Patente");
             ActualizarGrilla();
         }
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_habilitar = new System.Windows.Forms.Button();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_habilitar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar Busqueda";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btn_habilitar
+            // 
+            this.btn_habilitar.Location = new System.Drawing.Point(519, 187);
+            this.btn_habilitar.Name = "btn_habilitar";
+            this.btn_habilitar.Size = new System.Drawing.Size(75, 23);
+            this.btn_habilitar.TabIndex = 9;
+            this.btn_habilitar.Text = "Habilitar";
+            this.btn_habilitar.UseVisualStyleBackColor = true;
             // 
             // btn_Buscar
             // 
@@ -151,15 +160,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
-            // btn_habilitar
-            // 
-            this.btn_habilitar.Location = new System.Drawing.Point(519, 187);
-            this.btn_habilitar.Name = "btn_habilitar";
-            this.btn_habilitar.Size = new System.Drawing.Size(75, 23);
-            this.btn_habilitar.TabIndex = 9;
-            this.btn_habilitar.Text = "Habilitar";
-            this.btn_habilitar.UseVisualStyleBackColor = true;
-            // 
             // ConsultaHabitaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,6 +168,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ConsultaHabitaciones";
             this.Text = "ConsultaHabitaciones";
+            this.Load += new System.EventHandler(this.ConsultaHabitaciones_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

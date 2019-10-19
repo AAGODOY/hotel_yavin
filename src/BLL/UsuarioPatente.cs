@@ -46,9 +46,14 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public List<BE.UsuarioPatente> SelectById(int id_usuario)
+        public List<BE.UsuarioPatente> SelectByIdUser(int id_usuario)
         {
-            return GetInstance().SelectById(id_usuario);
+            return GetInstance().SelectByIdUser(id_usuario);
+        }
+
+        public BE.UsuarioPatente GetUsuarioPatente(int idUsuario, int idPatente)
+        {
+            return GetInstance().GetUsuarioPatente(idUsuario, idPatente);
         }
 
         public List<BE.Patente> GetPatentes(int id_usuario)

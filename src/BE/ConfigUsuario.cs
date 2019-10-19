@@ -8,10 +8,9 @@ namespace BE
 {
     public static class ConfigUsuario
     {
-        public static Usuario usuarioLogueado{ get; set; }
-        public static List<Patente> patentes { get; set; }
-        public static List<Familia> familias { get; set; }
-        public static List<Patente> permisos { get; set; }
+        public static Usuario usuarioLogueado = new Usuario();
+        public static List<UsuarioPatente> usuPatentes = new List<UsuarioPatente>();
+        public static List<Patente> permisos = new List<Patente>();
         public static string idioma { get; set; }
 
     }

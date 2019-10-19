@@ -28,5 +28,13 @@ namespace Hotel_Yavin
             ModificarCliente mod_cliente = new ModificarCliente();
             mod_cliente.Show();
         }
+
+        private void AdministrarCliente_Load(object sender, EventArgs e)
+        {
+            btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Cliente");
+            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Cliente");
+            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Cliente");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Cliente");
+        }
     }
 }

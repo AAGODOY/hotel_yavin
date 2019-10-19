@@ -109,6 +109,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Modificar_Contrasena";
             this.Text = "Modificar Contraseña";
+            this.Load += new System.EventHandler(this.Modificar_Contrasena_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

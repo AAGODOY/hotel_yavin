@@ -21,5 +21,11 @@ namespace Hotel_Yavin
         {
 
         }
+
+        private void Generar_Copia_de_Seguridad_Load(object sender, EventArgs e)
+        {
+            btn_examinar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Examinar");
+            btn_generar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Generar Back-Up");
+        }
     }
 }

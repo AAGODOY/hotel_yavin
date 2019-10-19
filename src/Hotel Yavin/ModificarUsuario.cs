@@ -27,7 +27,9 @@ namespace Hotel_Yavin
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            
+            btn_BlanquearPass.Enabled = BLL.ConfigUsuario.ValidarAcceso("Blanquear Constraseña");
+            btn_Bloquear.Enabled = BLL.ConfigUsuario.ValidarAcceso("Bloquear Usuario");
+            btn_Desbloquear.Enabled = BLL.ConfigUsuario.ValidarAcceso("Desbloquear Usuario");
         }
 
         public void RetornarDatos(DataGridViewRow usu)

@@ -19,7 +19,20 @@ namespace Hotel_Yavin
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            //Tsmi_AdminReservas.Enabled = BE.ConfigUsuario.permisos.Contains(
+            Tsmi_AdminReservas.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Reservas");
+            Tsmi_AdminCobranza.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cobranza");
+            Tsmi_AdminCliente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cliente");
+            Tsmi_AdminHabitacion.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Habitacion");
+            Tsmi_AdminServAdicionales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Serv. Adicionales");
+            Tsmi_AdminUsuario.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Usuario");
+            Tsmi_AdminPatente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Patente");
+            Tsmi_AdminFamilia.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Familia");
+            Tsmi_Bitacora.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Bitácora");
+            Tsmi_RestaurarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Restaurar Back-Up");
+            Tsmi_GenerarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Back-Up");
+            Tsmi_modContrasena.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Contraseña");
+            Tsmi_Idioma.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Modificar Idioma");
+            Tsmi_DatosPersonales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Datos Personales");
         }
 
         private void administrarReservasToolStripMenuItem_Click(object sender, EventArgs e)

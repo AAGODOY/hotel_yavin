@@ -16,5 +16,11 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
         }
+
+        private void Restaurar_copia_de_seguridad_Load(object sender, EventArgs e)
+        {
+            btn_examinar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Examinar");
+            btn_restaurar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Restaurar Back-Up");
+        }
     }
 }

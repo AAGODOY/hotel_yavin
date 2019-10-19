@@ -22,5 +22,13 @@ namespace Hotel_Yavin
             AltaServAdicionales servicios = new AltaServAdicionales();
             servicios.Show();
         }
+
+        private void AdministrarServAdicionales_Load(object sender, EventArgs e)
+        {
+            btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Serv. Adicionales");
+            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Serv. Adicionales");
+            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Serv. Adicionales");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Serv. Adicionales");
+        }
     }
 }

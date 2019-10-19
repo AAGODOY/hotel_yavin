@@ -69,6 +69,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ModificarIdioma";
             this.Text = "Modificar Idioma";
+            this.Load += new System.EventHandler(this.ModificarIdioma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

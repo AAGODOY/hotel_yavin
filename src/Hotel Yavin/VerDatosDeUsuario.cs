@@ -16,5 +16,10 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
         }
+
+        private void VerDatosDeUsuario_Load(object sender, EventArgs e)
+        {
+            btn_Modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Datos Personales");
+        }
     }
 }

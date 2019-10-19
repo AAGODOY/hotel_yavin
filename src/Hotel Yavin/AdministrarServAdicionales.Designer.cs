@@ -105,6 +105,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarServAdicionales";
             this.Text = "Administrar Serv. Adicionales";
+            this.Load += new System.EventHandler(this.AdministrarServAdicionales_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

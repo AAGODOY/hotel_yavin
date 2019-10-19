@@ -31,5 +31,14 @@ namespace Hotel_Yavin
         {
 
         }
+
+        private void ConsultaHabitaciones_Load(object sender, EventArgs e)
+        {
+            btn_Buscar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Buscar Habitacion");
+            btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Habitacion");
+            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Habitacion");
+            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Habitacion");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Habitacion");
+        }
     }
 }

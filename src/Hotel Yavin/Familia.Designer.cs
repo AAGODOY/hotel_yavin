@@ -38,7 +38,6 @@
             this.dgv_patentesDisponibles = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_divider = new System.Windows.Forms.Label();
-            this.btn_Negar = new System.Windows.Forms.Button();
             this.btn_DesasociarPatente = new System.Windows.Forms.Button();
             this.btn_AsociarPatente = new System.Windows.Forms.Button();
             this.lbl_PatentesAsociadas = new System.Windows.Forms.Label();
@@ -112,7 +111,6 @@
             this.tab_PatenteFamilia.Controls.Add(this.dgv_patentesDisponibles);
             this.tab_PatenteFamilia.Controls.Add(this.label1);
             this.tab_PatenteFamilia.Controls.Add(this.lbl_divider);
-            this.tab_PatenteFamilia.Controls.Add(this.btn_Negar);
             this.tab_PatenteFamilia.Controls.Add(this.btn_DesasociarPatente);
             this.tab_PatenteFamilia.Controls.Add(this.btn_AsociarPatente);
             this.tab_PatenteFamilia.Controls.Add(this.lbl_PatentesAsociadas);
@@ -171,16 +169,6 @@
             this.lbl_divider.Name = "lbl_divider";
             this.lbl_divider.Size = new System.Drawing.Size(542, 10);
             this.lbl_divider.TabIndex = 24;
-            // 
-            // btn_Negar
-            // 
-            this.btn_Negar.Enabled = false;
-            this.btn_Negar.Location = new System.Drawing.Point(252, 118);
-            this.btn_Negar.Name = "btn_Negar";
-            this.btn_Negar.Size = new System.Drawing.Size(46, 106);
-            this.btn_Negar.TabIndex = 23;
-            this.btn_Negar.Text = "Negar ✍";
-            this.btn_Negar.UseVisualStyleBackColor = true;
             // 
             // btn_DesasociarPatente
             // 
@@ -359,7 +347,6 @@
         private System.Windows.Forms.DataGridView dgv_patentesDisponibles;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_divider;
-        private System.Windows.Forms.Button btn_Negar;
         private System.Windows.Forms.Button btn_DesasociarPatente;
         private System.Windows.Forms.Button btn_AsociarPatente;
         private System.Windows.Forms.Label lbl_PatentesAsociadas;

@@ -33,13 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmb_criticidad = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Btn_Buscar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_criticidad = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_GenerarReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -94,14 +95,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
-            // label3
+            // Btn_Buscar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Usuarios";
+            this.Btn_Buscar.Location = new System.Drawing.Point(499, 99);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(85, 23);
+            this.Btn_Buscar.TabIndex = 9;
+            this.Btn_Buscar.Text = "BUSCAR";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(85, 55);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 21);
+            this.comboBox1.TabIndex = 8;
+            // 
+            // cmb_criticidad
+            // 
+            this.cmb_criticidad.FormattingEnabled = true;
+            this.cmb_criticidad.Location = new System.Drawing.Point(384, 55);
+            this.cmb_criticidad.Name = "cmb_criticidad";
+            this.cmb_criticidad.Size = new System.Drawing.Size(200, 21);
+            this.cmb_criticidad.TabIndex = 7;
             // 
             // label4
             // 
@@ -112,30 +129,14 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Criticidad";
             // 
-            // cmb_criticidad
+            // label3
             // 
-            this.cmb_criticidad.FormattingEnabled = true;
-            this.cmb_criticidad.Location = new System.Drawing.Point(384, 55);
-            this.cmb_criticidad.Name = "cmb_criticidad";
-            this.cmb_criticidad.Size = new System.Drawing.Size(200, 21);
-            this.cmb_criticidad.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 8;
-            // 
-            // Btn_Buscar
-            // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(499, 99);
-            this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(85, 23);
-            this.Btn_Buscar.TabIndex = 9;
-            this.Btn_Buscar.Text = "BUSCAR";
-            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Usuarios";
             // 
             // dataGridView1
             // 
@@ -154,16 +155,27 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Movimientos del Sistema";
             // 
+            // btn_GenerarReporte
+            // 
+            this.btn_GenerarReporte.Location = new System.Drawing.Point(511, 387);
+            this.btn_GenerarReporte.Name = "btn_GenerarReporte";
+            this.btn_GenerarReporte.Size = new System.Drawing.Size(98, 23);
+            this.btn_GenerarReporte.TabIndex = 11;
+            this.btn_GenerarReporte.Text = "Generar Reporte";
+            this.btn_GenerarReporte.UseVisualStyleBackColor = true;
+            // 
             // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 402);
+            this.ClientSize = new System.Drawing.Size(622, 422);
+            this.Controls.Add(this.btn_GenerarReporte);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Bitacora";
             this.Text = "Bitacora";
+            this.Load += new System.EventHandler(this.Bitacora_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btn_GenerarReporte;
     }
 }

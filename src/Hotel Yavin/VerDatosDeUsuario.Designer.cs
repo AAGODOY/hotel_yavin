@@ -209,6 +209,7 @@
             this.Controls.Add(this.lbl_NomUsu);
             this.Name = "VerDatosDeUsuario";
             this.Text = "Ver Datos De Usuario";
+            this.Load += new System.EventHandler(this.VerDatosDeUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

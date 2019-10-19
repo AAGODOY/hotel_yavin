@@ -34,10 +34,10 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public List<BE.UsuarioPatente> SelectById(int id)
+        public List<BE.UsuarioPatente> SelectByIdUser(int idUsuario)
         {
             //string query = $"Select * From UsuarioPatente where Id = {id}";
-            string query = "Select * From UsuarioPatente where Id =" + id + "";
+            string query = "Select * From UsuarioPatente where id_usuario =" + idUsuario + "";
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 List<BE.UsuarioPatente> usuPat = new List<BE.UsuarioPatente>();
@@ -45,6 +45,21 @@ namespace DAL
                 {
                     BE.UsuarioPatente usuarioPatentes = MapDataReaderUsuPat(dataReader);
                     usuPat.Add(usuarioPatentes);
+                }
+
+                return usuPat;
+            }
+        }
+
+        public BE.UsuarioPatente GetUsuarioPatente(int idUsuario, int idPatente) 
+        {
+            string query = "Select * From UsuarioPatente where id_usuario =" + idUsuario + " AND id_patente = " + idPatente + "";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                BE.UsuarioPatente usuPat = new BE.UsuarioPatente();
+                while (dataReader.Read())
+                {
+                    usuPat = MapDataReaderUsuPat(dataReader);
                 }
 
                 return usuPat;

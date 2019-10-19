@@ -42,6 +42,11 @@ namespace BLL
             throw new NotImplementedException();
         }
 
+        public List<BE.FamiliaUsuario> SelectByIdUser(int idUsuario)
+        {
+            return GetInstance().SelectByIdUser(idUsuario);
+        }
+
         public List<BE.Familia> GetFamilias(int idUsuario)
         {
             return GetInstance().GetFamilias(idUsuario);

@@ -32,6 +32,23 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public List<BE.FamiliaUsuario> SelectByIdUser(int idUsuario)
+        {
+            //string query = $"Select * From UsuarioPatente where Id = {id}";
+            string query = "Select * From FamiliaUsuario where id_usuario =" + idUsuario + "";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.FamiliaUsuario> usuFam = new List<BE.FamiliaUsuario>();
+                while (dataReader.Read())
+                {
+                    BE.FamiliaUsuario usuarioFamilias = MapDataReaderUsuFam(dataReader);
+                    usuFam.Add(usuarioFamilias);
+                }
+
+                return usuFam;
+            }
+        }
+
         public List<BE.Familia> GetFamilias(int idUsuario) 
         {
             string query = "SELECT Familia.id_familia, Familia.descripcion, Familia.activo FROM FamiliaUsuario INNER JOIN Familia ON FamiliaUsuario.id_familia = Familia.id_familia WHERE id_usuario = "+idUsuario+"";
@@ -46,6 +63,15 @@ namespace DAL
 
                 return familia_list;
             }
+        }
+
+        private BE.FamiliaUsuario MapDataReaderUsuFam(SqlDataReader dataReader)
+        {
+            BE.FamiliaUsuario familiaUsuario = new BE.FamiliaUsuario();
+            familiaUsuario.id_usuario = dataReader.GetInt32(0);
+            familiaUsuario.id_familia = dataReader.GetInt32(1);
+
+            return familiaUsuario;
         }
 
         private BE.Familia MapDataReaderFam(SqlDataReader dataReader)

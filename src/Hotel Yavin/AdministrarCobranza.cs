@@ -24,8 +24,13 @@ namespace Hotel_Yavin
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-            ModificarPagoProvisorio modif_pago = new ModificarPagoProvisorio();
-            modif_pago.Show();
+            AdministrarPago admPago = new AdministrarPago();
+            admPago.Show();
+        }
+
+        private void AdministrarCobranza_Load(object sender, EventArgs e)
+        {
+            btn_ver.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Pago");
         }
     }
 }

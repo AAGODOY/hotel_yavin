@@ -72,10 +72,10 @@ namespace Hotel_Yavin
         private void FijarPermisos()
         {
             //CONFIGURACION GLOBAL
-            BE.ConfigUsuario.patentes = usuPat_BLL.GetPatentes(usu_BE.id);
-            BE.ConfigUsuario.familias = usuFam_BLL.GetFamilias(usu_BE.id);
-            //Permisos es la suma entre patentes + familias (se requiere un doble foreach)
-            BE.ConfigUsuario.permisos = BE.ConfigUsuario.patentes;
+            BLL.ConfigUsuario.FijarPermisos(
+                usuPat_BLL.SelectByIdUser(usu_BE.id), 
+                usuPat_BLL.GetPatentes(usu_BE.id), 
+                usuFam_BLL.GetFamilias(usu_BE.id));
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)

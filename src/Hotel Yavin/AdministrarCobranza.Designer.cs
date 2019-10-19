@@ -72,6 +72,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarCobranza";
             this.Text = "Administrar Cobranza";
+            this.Load += new System.EventHandler(this.AdministrarCobranza_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

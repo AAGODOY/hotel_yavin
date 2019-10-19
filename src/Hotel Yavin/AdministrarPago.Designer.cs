@@ -69,6 +69,7 @@
             this.btn_alta.TabIndex = 9;
             this.btn_alta.Text = "Alta";
             this.btn_alta.UseVisualStyleBackColor = true;
+            this.btn_alta.Click += new System.EventHandler(this.btn_alta_Click);
             // 
             // btn_baja
             // 
@@ -104,6 +105,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarPago";
             this.Text = "AdministrarPago";
+            this.Load += new System.EventHandler(this.AdministrarPago_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -60,5 +60,10 @@ namespace Hotel_Yavin
 
             }
         }
+
+        private void Modificar_Contrasena_Load(object sender, EventArgs e)
+        {
+            btn_Aceptar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Contraseña");
+        }
     }
 }

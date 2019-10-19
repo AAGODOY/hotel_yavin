@@ -28,5 +28,13 @@ namespace Hotel_Yavin
             ModificarReserva mod_reserva = new ModificarReserva();
             mod_reserva.Show();
         }
+
+        private void AdministrarReserva_Load(object sender, EventArgs e)
+        {
+            btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Reserva");
+            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Reserva");
+            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Reserva");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Reserva");
+        }
     }
 }

@@ -27,6 +27,10 @@ namespace Hotel_Yavin
 
         private void AdministrarFamilia_Load(object sender, EventArgs e)
         {
+           btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Familia");
+           btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Familia");
+           btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Familia");
+           btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Familia");
            dgv_familias.DataSource = familia_BLL.SelectAll();
         }
     }

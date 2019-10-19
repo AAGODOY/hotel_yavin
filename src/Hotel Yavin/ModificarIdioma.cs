@@ -16,5 +16,10 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
         }
+
+        private void ModificarIdioma_Load(object sender, EventArgs e)
+        {
+            btn_Aceptar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Idioma");
+        }
     }
 }

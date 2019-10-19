@@ -100,6 +100,7 @@
             this.Controls.Add(this.btn_generar);
             this.Name = "Generar_Copia_de_Seguridad";
             this.Text = "Generar Copia de Seguridad";
+            this.Load += new System.EventHandler(this.Generar_Copia_de_Seguridad_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
