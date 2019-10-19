@@ -27,7 +27,7 @@ namespace BLL
             return GetInstance().Add(objAlta);
         }
 
-        public bool Delete(BE.FamiliaUsuario objBaja)
+        public int Delete(BE.FamiliaUsuario objBaja)
         {
             throw new NotImplementedException();
         }

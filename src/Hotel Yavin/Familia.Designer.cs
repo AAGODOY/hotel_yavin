@@ -34,7 +34,6 @@
             this.btn_CancelarFamilia = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_PatenteFamilia = new System.Windows.Forms.TabPage();
-            this.tab_UsuarioFamilia = new System.Windows.Forms.TabPage();
             this.dgv_patentesAsociadasAfamilia = new System.Windows.Forms.DataGridView();
             this.dgv_patentesDisponibles = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@
             this.btn_AsociarPatente = new System.Windows.Forms.Button();
             this.lbl_PatentesAsociadas = new System.Windows.Forms.Label();
             this.lbl_PatentesDisponibles = new System.Windows.Forms.Label();
+            this.tab_UsuarioFamilia = new System.Windows.Forms.TabPage();
             this.dgv_UsuariosAsociadosAfamilia = new System.Windows.Forms.DataGridView();
             this.dgv_UsuariosDisponibles = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,9 +54,9 @@
             this.lbl_UsuariosDisponibles = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_PatenteFamilia.SuspendLayout();
-            this.tab_UsuarioFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesAsociadasAfamilia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesDisponibles)).BeginInit();
+            this.tab_UsuarioFamilia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UsuariosAsociadosAfamilia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UsuariosDisponibles)).BeginInit();
             this.SuspendLayout();
@@ -125,24 +125,6 @@
             this.tab_PatenteFamilia.Text = "Patentes - Familia";
             this.tab_PatenteFamilia.Click += new System.EventHandler(this.tab_PatenteFamilia_Click);
             // 
-            // tab_UsuarioFamilia
-            // 
-            this.tab_UsuarioFamilia.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tab_UsuarioFamilia.Controls.Add(this.dgv_UsuariosAsociadosAfamilia);
-            this.tab_UsuarioFamilia.Controls.Add(this.dgv_UsuariosDisponibles);
-            this.tab_UsuarioFamilia.Controls.Add(this.label2);
-            this.tab_UsuarioFamilia.Controls.Add(this.label3);
-            this.tab_UsuarioFamilia.Controls.Add(this.button2);
-            this.tab_UsuarioFamilia.Controls.Add(this.button3);
-            this.tab_UsuarioFamilia.Controls.Add(this.label4);
-            this.tab_UsuarioFamilia.Controls.Add(this.lbl_UsuariosDisponibles);
-            this.tab_UsuarioFamilia.Location = new System.Drawing.Point(4, 22);
-            this.tab_UsuarioFamilia.Name = "tab_UsuarioFamilia";
-            this.tab_UsuarioFamilia.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_UsuarioFamilia.Size = new System.Drawing.Size(549, 314);
-            this.tab_UsuarioFamilia.TabIndex = 1;
-            this.tab_UsuarioFamilia.Text = "Usuario - Familia";
-            // 
             // dgv_patentesAsociadasAfamilia
             // 
             this.dgv_patentesAsociadasAfamilia.AllowUserToAddRows = false;
@@ -162,8 +144,6 @@
             // 
             this.dgv_patentesDisponibles.AllowUserToAddRows = false;
             this.dgv_patentesDisponibles.AllowUserToDeleteRows = false;
-            this.dgv_patentesDisponibles.AllowUserToResizeColumns = false;
-            this.dgv_patentesDisponibles.AllowUserToResizeRows = false;
             this.dgv_patentesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_patentesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_patentesDisponibles.Location = new System.Drawing.Point(26, 65);
@@ -238,6 +218,24 @@
             this.lbl_PatentesDisponibles.TabIndex = 19;
             this.lbl_PatentesDisponibles.Text = "Patentes Disponibles";
             // 
+            // tab_UsuarioFamilia
+            // 
+            this.tab_UsuarioFamilia.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tab_UsuarioFamilia.Controls.Add(this.dgv_UsuariosAsociadosAfamilia);
+            this.tab_UsuarioFamilia.Controls.Add(this.dgv_UsuariosDisponibles);
+            this.tab_UsuarioFamilia.Controls.Add(this.label2);
+            this.tab_UsuarioFamilia.Controls.Add(this.label3);
+            this.tab_UsuarioFamilia.Controls.Add(this.button2);
+            this.tab_UsuarioFamilia.Controls.Add(this.button3);
+            this.tab_UsuarioFamilia.Controls.Add(this.label4);
+            this.tab_UsuarioFamilia.Controls.Add(this.lbl_UsuariosDisponibles);
+            this.tab_UsuarioFamilia.Location = new System.Drawing.Point(4, 22);
+            this.tab_UsuarioFamilia.Name = "tab_UsuarioFamilia";
+            this.tab_UsuarioFamilia.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_UsuarioFamilia.Size = new System.Drawing.Size(549, 314);
+            this.tab_UsuarioFamilia.TabIndex = 1;
+            this.tab_UsuarioFamilia.Text = "Usuario - Familia";
+            // 
             // dgv_UsuariosAsociadosAfamilia
             // 
             this.dgv_UsuariosAsociadosAfamilia.AllowUserToAddRows = false;
@@ -257,8 +255,6 @@
             // 
             this.dgv_UsuariosDisponibles.AllowUserToAddRows = false;
             this.dgv_UsuariosDisponibles.AllowUserToDeleteRows = false;
-            this.dgv_UsuariosDisponibles.AllowUserToResizeColumns = false;
-            this.dgv_UsuariosDisponibles.AllowUserToResizeRows = false;
             this.dgv_UsuariosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_UsuariosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_UsuariosDisponibles.Location = new System.Drawing.Point(27, 65);
@@ -339,10 +335,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tab_PatenteFamilia.ResumeLayout(false);
             this.tab_PatenteFamilia.PerformLayout();
-            this.tab_UsuarioFamilia.ResumeLayout(false);
-            this.tab_UsuarioFamilia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesAsociadasAfamilia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesDisponibles)).EndInit();
+            this.tab_UsuarioFamilia.ResumeLayout(false);
+            this.tab_UsuarioFamilia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UsuariosAsociadosAfamilia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_UsuariosDisponibles)).EndInit();
             this.ResumeLayout(false);

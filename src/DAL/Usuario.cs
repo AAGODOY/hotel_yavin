@@ -70,9 +70,32 @@ namespace DAL
             return nuevoId;
         }
 
-        public bool Delete(BE.Usuario objBaja)
+        public int Delete(BE.Usuario objBaja)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = "UPDATE Usuario SET activo = 0 where id_usuario =" + objBaja.id + "";
+                return helper.ExecuteNonQuery(query);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }            
+        }
+
+        public int Habilitar(BE.Usuario objHabilitar)
+        {
+            try
+            {
+                string query = "UPDATE Usuario SET activo = 1 where id_usuario =" + objHabilitar.id + "";
+                return helper.ExecuteNonQuery(query);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
         }
 
         public int Update(BE.Usuario objUpdate)

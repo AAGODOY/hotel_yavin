@@ -19,7 +19,7 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
-        public bool Delete(BE.UsuarioPatente objBaja)
+        public int Delete(BE.UsuarioPatente objBaja)
         {
             throw new NotImplementedException();
         }

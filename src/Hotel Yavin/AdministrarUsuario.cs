@@ -53,20 +53,49 @@ namespace Hotel_Yavin
             {
                 ModificarUsuario usuario = new ModificarUsuario();
                 usuario.Show();
-                //usu_BE = dataGridView1.SelectedRows;
                 usuario.RetornarDatos(dataGridView1.CurrentRow);
-
             }
             else
             {
-                MessageBox.Show("No se seleccionó ningun registro a modificar");
-            }
-            
+                MessageBox.Show("No se debe seleccionar un registro a modificar");
+            }           
         }
 
         private void Btn_refresh_Click(object sender, EventArgs e)
         {
             this.ActualizarGrilla();
+        }
+
+        private void btn_baja_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                BE.Usuario usuAinhabilitar = new BE.Usuario();
+                usuAinhabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                usu_BLL.Delete(usuAinhabilitar);
+                MessageBox.Show("Se inhabilitó el usuario seleccionado");
+                ActualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("No se debe seleccionar un registro a inhabilitar");
+            }
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                BE.Usuario usuHabilitar = new BE.Usuario();
+                usuHabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                usu_BLL.Habilitar(usuHabilitar);
+                MessageBox.Show("Se habilitó el usuario seleccionado");
+                ActualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("No se debe seleccionar un registro a habilitar");
+            }
         }
     }
 }

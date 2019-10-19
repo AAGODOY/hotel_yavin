@@ -9,7 +9,7 @@ namespace BE
     public interface ICRUD<T>
     {
         int Add(T objAlta);
-        bool Delete(T objBaja);
+        int Delete(T objBaja);
         int Update(T objUpdate);
         List<T> SelectAll();
     }

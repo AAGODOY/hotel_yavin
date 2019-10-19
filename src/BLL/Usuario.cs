@@ -9,10 +9,8 @@ using System.Security.Cryptography;
 namespace BLL
 {
     public class Usuario : BE.ICRUD<BE.Usuario>
-    {
-
-        
-        //Patron singleton
+    {        
+       //Patron singleton
         private static DAL.Usuario usu_dal;
 
         private static DAL.Usuario GetInstance()
@@ -87,9 +85,14 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool Delete(BE.Usuario objBaja)
+        public int Delete(BE.Usuario objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
+        }
+
+        public int Habilitar(BE.Usuario objHabilitar)
+        {
+            return GetInstance().Habilitar(objHabilitar);
         }
 
         public int Update(BE.Usuario objUpdate)

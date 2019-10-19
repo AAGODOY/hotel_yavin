@@ -31,7 +31,7 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public bool Delete(BE.UsuarioPatente objBaja)
+        public int Delete(BE.UsuarioPatente objBaja)
         {
             throw new NotImplementedException();
         }

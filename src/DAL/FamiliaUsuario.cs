@@ -17,7 +17,7 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
-        public bool Delete(BE.FamiliaUsuario objBaja)
+        public int Delete(BE.FamiliaUsuario objBaja)
         {
             throw new NotImplementedException();
         }

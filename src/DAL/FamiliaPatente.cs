@@ -17,7 +17,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public bool Delete(BE.FamiliaPatente objBaja)
+        public int Delete(BE.FamiliaPatente objBaja)
         {
             throw new NotImplementedException();
         }
