@@ -84,6 +84,7 @@
             this.btn_GuardarFamilia.TabIndex = 13;
             this.btn_GuardarFamilia.Text = "Aceptar";
             this.btn_GuardarFamilia.UseVisualStyleBackColor = true;
+            this.btn_GuardarFamilia.Click += new System.EventHandler(this.btn_GuardarFamilia_Click);
             // 
             // btn_CancelarFamilia
             // 
@@ -178,6 +179,7 @@
             this.btn_DesasociarPatente.TabIndex = 22;
             this.btn_DesasociarPatente.Text = "<";
             this.btn_DesasociarPatente.UseVisualStyleBackColor = true;
+            this.btn_DesasociarPatente.Click += new System.EventHandler(this.btn_DesasociarPatente_Click);
             // 
             // btn_AsociarPatente
             // 
@@ -187,6 +189,7 @@
             this.btn_AsociarPatente.TabIndex = 21;
             this.btn_AsociarPatente.Text = ">";
             this.btn_AsociarPatente.UseVisualStyleBackColor = true;
+            this.btn_AsociarPatente.Click += new System.EventHandler(this.btn_AsociarPatente_Click);
             // 
             // lbl_PatentesAsociadas
             // 
@@ -279,6 +282,7 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "<";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -288,6 +292,7 @@
             this.button3.TabIndex = 30;
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 

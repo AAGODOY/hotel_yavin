@@ -66,6 +66,9 @@ namespace Hotel_Yavin
 
         public void ActualizarGrillas()
         {
+            dgv_FamiliasDisponibles.DataSource = null;
+            dgv_patentesDisponibles.DataSource = null;
+
             foreach (BE.Patente patente in pat_BLL.SelectAll())
             {
                 dgv_patentesDisponibles.Rows.Add(patente.id, patente.descripcion, patente.activo);
@@ -137,24 +140,19 @@ namespace Hotel_Yavin
             int idUsuario = usu_BLL.Add(usu_BE);
 
             //PASO 2: Asociación de patentes a usuario
-            if (dgv_patentesAsociadas.Rows.Count >= 1)
+            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
             {
-                foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
-                {
-                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                    usuPat_BE.id_usuario = idUsuario;
-                    usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
-                    usuPat_BLL.Add(usuPat_BE);
-                }
+                usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                usuPat_BE.id_usuario = idUsuario;
+                usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
+                usuPat_BLL.Add(usuPat_BE);
             }
-            if (dgv_FamiliasAsociadas.Rows.Count >= 1)
+
+            foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
             {
-                foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
-                {
-                    famUsu_BE.id_usuario = idUsuario;
-                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                    famUsu_BLL.Add(famUsu_BE);
-                }
+                famUsu_BE.id_usuario = idUsuario;
+                famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                famUsu_BLL.Add(famUsu_BE);
             }
             
 

@@ -91,5 +91,10 @@ namespace Hotel_Yavin
                 MessageBox.Show("No se debe seleccionar un registro a habilitar");
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

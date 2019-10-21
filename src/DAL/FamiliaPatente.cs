@@ -14,7 +14,9 @@ namespace DAL
 
         public int Add(BE.FamiliaPatente objAlta)
         {
-            throw new NotImplementedException();
+            string query = "INSERT INTO FamiliaPatente VALUES(" + objAlta.id_Patente + "," + objAlta.id_Familia + "," + objAlta.DVH + "" + ")";
+            Console.WriteLine(query);
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Delete(BE.FamiliaPatente objBaja)

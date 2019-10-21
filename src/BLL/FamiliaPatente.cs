@@ -23,7 +23,9 @@ namespace BLL
 
         public int Add(BE.FamiliaPatente objAlta)
         {
-            throw new NotImplementedException();
+            string cadenaDVH = objAlta.id_Patente.ToString() + objAlta.id_Familia.ToString();
+            objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            return GetInstance().Add(objAlta);
         }
 
         public int Delete(BE.FamiliaPatente objBaja)

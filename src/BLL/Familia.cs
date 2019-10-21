@@ -22,7 +22,8 @@ namespace BLL
 
         public int Add(BE.Familia objAlta)
         {
-            throw new NotImplementedException();
+            objAlta.activo = true;
+            return GetInstance().Add(objAlta);
         }
 
         public int Delete(BE.Familia objBaja)

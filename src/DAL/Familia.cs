@@ -14,7 +14,10 @@ namespace DAL
 
         public int Add(BE.Familia objAlta)
         {
-            throw new NotImplementedException();
+            string query = "INSERT INTO Familia OUTPUT inserted.id_familia VALUES (" + "'" + objAlta.descripcion + "'," + Convert.ToInt32(objAlta.activo) + "" + ")";
+            int nuevoId = (int)helper.ExecuteScalar(query);
+            //int resultado = helper.ExecuteNonQuery(query);
+            return nuevoId;
         }
 
         public int Delete(BE.Familia objBaja)

@@ -14,6 +14,7 @@ namespace DAL
         public int Add(BE.FamiliaUsuario objAlta)
         {
             string query = "INSERT INTO FamiliaUsuario VALUES(" + objAlta.id_usuario + "," + objAlta.id_familia + "" + ")";
+            Console.WriteLine(query);
             return helper.ExecuteNonQuery(query);
         }
 
