@@ -12,6 +12,9 @@ namespace Hotel_Yavin
 {
     public partial class Cliente : Form
     {
+        BE.Cliente cliente_BE = new BE.Cliente();
+        BLL.Cliente cliente_BLL = new BLL.Cliente();
+
         public Cliente()
         {
             InitializeComponent();
@@ -25,6 +28,17 @@ namespace Hotel_Yavin
         private void lbl_MailCli_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_GuardarCliente_Click(object sender, EventArgs e)
+        {
+            cliente_BE.nombre = txt_NombreCli.Text;
+            cliente_BE.apellido = txt_ApellidoCli.Text;
+            cliente_BE.documento = int.Parse(txt_NumDocCli.Text);
+            cliente_BE.telefono = txt_TelCli.Text;
+            cliente_BE.email = txt_MailCli.Text;
+
+            cliente_BLL.Add(cliente_BE);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Patente : BE.ICRUD<BE.Patente>
     {
-
+        //PATRON SINGLETON
         private static DAL.Patente patente_dal;
 
         private static DAL.Patente GetInstance()
@@ -20,7 +20,6 @@ namespace BLL
 
             return patente_dal;
         }
-
 
         public int Add(BE.Patente objAlta)
         {

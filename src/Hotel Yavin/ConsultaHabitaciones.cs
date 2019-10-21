@@ -12,6 +12,8 @@ namespace Hotel_Yavin
 {
     public partial class ConsultaHabitaciones : Form
     {
+        BLL.Habitacion habitacion_BLL = new BLL.Habitacion();
+
         public ConsultaHabitaciones()
         {
             InitializeComponent();
@@ -39,6 +41,14 @@ namespace Hotel_Yavin
             btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Habitacion");
             btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Habitacion");
             btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Habitacion");
+
+            ActualizarGrilla();
+        }
+
+        public void ActualizarGrilla()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = habitacion_BLL.SelectAll();
         }
     }
 }

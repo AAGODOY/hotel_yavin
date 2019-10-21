@@ -39,13 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente.cs" />
     <Compile Include="ConfigUsuario.cs" />
     <Compile Include="DigitoVerificador.cs" />
     <Compile Include="Encriptador.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="FamiliaPatente.cs" />
     <Compile Include="FamiliaUsuario.cs" />
+    <Compile Include="Habitacion.cs" />
     <Compile Include="Patente.cs" />
+    <Compile Include="Reserva.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -37,7 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.clb_habitaciones = new System.Windows.Forms.CheckedListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -127,7 +127,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkedListBox2);
+            this.groupBox1.Controls.Add(this.clb_habitaciones);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.checkedListBox1);
@@ -146,13 +146,13 @@
             this.groupBox1.Text = "Reserva";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // checkedListBox2
+            // clb_habitaciones
             // 
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(160, 101);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(136, 79);
-            this.checkedListBox2.TabIndex = 30;
+            this.clb_habitaciones.FormattingEnabled = true;
+            this.clb_habitaciones.Location = new System.Drawing.Point(160, 101);
+            this.clb_habitaciones.Name = "clb_habitaciones";
+            this.clb_habitaciones.Size = new System.Drawing.Size(136, 79);
+            this.clb_habitaciones.TabIndex = 30;
             // 
             // groupBox2
             // 
@@ -272,6 +272,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.CheckedListBox clb_habitaciones;
     }
 }

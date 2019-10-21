@@ -116,6 +116,7 @@
             this.btn_GuardarCliente.TabIndex = 15;
             this.btn_GuardarCliente.Text = "Aceptar";
             this.btn_GuardarCliente.UseVisualStyleBackColor = true;
+            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarCliente_Click);
             // 
             // btn_CancelarCliente
             // 

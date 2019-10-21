@@ -12,6 +12,8 @@ namespace Hotel_Yavin
 {
     public partial class AdministrarCliente : Form
     {
+        BLL.Cliente cliente_BLL = new BLL.Cliente();
+
         public AdministrarCliente()
         {
             InitializeComponent();
@@ -35,6 +37,14 @@ namespace Hotel_Yavin
             btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Cliente");
             btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Cliente");
             btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Cliente");
+
+            ActualizarGrilla();
+        }
+
+        public void ActualizarGrilla()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = cliente_BLL.SelectAll();
         }
     }
 }

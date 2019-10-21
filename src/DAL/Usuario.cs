@@ -16,7 +16,8 @@ namespace DAL
         //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
         public BE.Usuario validarUsu(string nom_usu, string pw)
         {
-            string query = "SELECT * from Usuario where nombre_usuario='" + nom_usu + "'";            BE.Usuario usu = new BE.Usuario();
+            string query = "SELECT * from Usuario where nombre_usuario='" + nom_usu + "'";
+            BE.Usuario usu = new BE.Usuario();
 
             SqlDataReader Reader;
             try
@@ -64,7 +65,7 @@ namespace DAL
         {
             //string query = "INSERT INTO Usuario VALUES (" + "'1'," + "'" + objAlta.nom_usuario + "'," + "'" + objAlta.nombre + "'," + "'" + objAlta.apellido + "'," + "" + objAlta.documento + "," + "'" + objAlta.domicilio + "'," + "'" + objAlta.telefono + "'," + "'" + objAlta.email + "'," + "'" + objAlta.area + "'," + "'contraseña'," +"'" + objAlta.contraseña + "'," + "'0'," + "'200'," + "'0'," + "'54733'" + ")";
             string query = "INSERT INTO Usuario OUTPUT inserted.id_usuario VALUES (" + Convert.ToInt32(objAlta.activo) + "," + "'" + objAlta.nom_usuario + "'," + "'" + objAlta.nombre + "'," + "'" + objAlta.apellido + "'," + "" + objAlta.documento + "," + "'" + objAlta.domicilio + "'," + "'" + objAlta.telefono + "'," + "'" + objAlta.email + "'," + "'" + objAlta.area + "'," + "'" + objAlta.contraseña + "'," + objAlta.cant_ingresos_incorrectos + "," + objAlta.DVH + "," + Convert.ToInt32(objAlta.es_primer_login) + "," + objAlta.id_idioma + "" + ")";
-            //TEST
+
             int nuevoId = (int)helper.ExecuteScalar(query);
             //int resultado = helper.ExecuteNonQuery(query);
             return nuevoId;

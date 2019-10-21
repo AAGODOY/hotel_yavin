@@ -12,6 +12,9 @@ namespace Hotel_Yavin
 {
     public partial class Reserva : Form
     {
+        BLL.Cliente cliente_BLL = new BLL.Cliente();
+        BLL.Habitacion habitacion_BLL = new BLL.Habitacion();
+
         public Reserva()
         {
             InitializeComponent();
@@ -29,7 +32,9 @@ namespace Hotel_Yavin
 
         private void Reserva_Load(object sender, EventArgs e)
         {
-            
+            //PROBAR SI COMBIENE USAR ESTOS BOTONES
+            clb_habitaciones.Items.Add(habitacion_BLL.SelectAll());
+            cmb_Cliente.DataSource = cliente_BLL.SelectAll();
         }
 
         private void label2_Click(object sender, EventArgs e)

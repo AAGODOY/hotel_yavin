@@ -5,12 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using BE;
 
 namespace DAL
 {
-    public class Patente
+    public class Patente : BE.ICRUD<BE.Patente>
     {
         public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+
+        public int Add(BE.Patente objAlta)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Delete(BE.Patente objBaja)
+        {
+            throw new NotImplementedException();
+        }
+
         //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
 
         public List<BE.Patente> SelectAll()
@@ -27,6 +39,11 @@ namespace DAL
 
                 return patList;
             }
+        }
+
+        public int Update(BE.Patente objUpdate)
+        {
+            throw new NotImplementedException();
         }
 
         private BE.Patente MapDataReader(SqlDataReader dataReader)
