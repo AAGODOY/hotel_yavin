@@ -68,7 +68,6 @@
             this.lblFSalida.Size = new System.Drawing.Size(84, 13);
             this.lblFSalida.TabIndex = 1;
             this.lblFSalida.Text = "Fecha de Salida";
-            this.lblFSalida.Click += new System.EventHandler(this.lblFSalida_Click);
             // 
             // dtpIngreso
             // 
@@ -77,7 +76,6 @@
             this.dtpIngreso.Size = new System.Drawing.Size(194, 20);
             this.dtpIngreso.TabIndex = 2;
             this.dtpIngreso.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
-            this.dtpIngreso.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dtpSalida
             // 
@@ -95,7 +93,6 @@
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccionar Cliente";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmb_Cliente
             // 
@@ -113,7 +110,6 @@
             this.label2.Size = new System.Drawing.Size(117, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Seleccionar Habitación";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
@@ -144,7 +140,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserva";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // clb_habitaciones
             // 
@@ -166,7 +161,6 @@
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Huespedes";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button3
             // 
@@ -194,7 +188,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(281, 151);
             this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label3
             // 
@@ -204,7 +197,6 @@
             this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Seleccionar Serv. Adicionales";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // checkedListBox1
             // 
@@ -222,7 +214,6 @@
             this.btn_GuardarEmpleado.TabIndex = 28;
             this.btn_GuardarEmpleado.Text = "Aceptar";
             this.btn_GuardarEmpleado.UseVisualStyleBackColor = true;
-            this.btn_GuardarEmpleado.Click += new System.EventHandler(this.btn_GuardarEmpleado_Click);
             // 
             // btn_CancelarEmpleado
             // 
@@ -232,7 +223,6 @@
             this.btn_CancelarEmpleado.TabIndex = 27;
             this.btn_CancelarEmpleado.Text = "Cancelar";
             this.btn_CancelarEmpleado.UseVisualStyleBackColor = true;
-            this.btn_CancelarEmpleado.Click += new System.EventHandler(this.btn_CancelarEmpleado_Click);
             // 
             // Reserva
             // 
