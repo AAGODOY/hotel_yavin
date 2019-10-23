@@ -10,9 +10,9 @@ namespace DAL
 {
     public class UsuarioPatente : BE.ICRUD<BE.UsuarioPatente>
     {
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
         //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
-
+        public static HELPER.Help helper = new HELPER.Help(@"Data Source=WIN-9V7TIU1AUN6\SQLEXPRESS;Initial Catalog=HotelYavin;Integrated Security=True");
         public int Add(BE.UsuarioPatente objAlta)
         {
             string query = "INSERT INTO UsuarioPatente VALUES(" + objAlta.id_patente + "," + objAlta.id_usuario + "," + objAlta.DVH + "," + Convert.ToInt32(objAlta.patenteNegada) + "" + ")";

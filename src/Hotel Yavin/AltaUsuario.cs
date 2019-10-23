@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.IO;
+using Microsoft.VisualBasic;
 
 namespace Hotel_Yavin
 {
@@ -154,9 +156,20 @@ namespace Hotel_Yavin
                 famUsu_BE.id_familia = (int)fila.Cells[0].Value;
                 famUsu_BLL.Add(famUsu_BE);
             }
-            
 
-            //PASO 3: Mensaje al usuario y volver atrás
+            //PASO3: Guardar contraseña en txt
+            SaveFileDialog savefileDialog = new SaveFileDialog();
+            savefileDialog.ShowDialog();
+            FileStream F = File.Create(savefileDialog.FileName);
+            F.Close();
+            StreamWriter sw = File.AppendText(savefileDialog.FileName);
+            sw.WriteLine("Se creó su usuario " + txt_NomUsu.Text + " con la nueva contraseña: " + usu_BLL.GetContraseña(idUsuario));
+            sw.Close();
+
+            MessageBox.Show("Se envió la contraseña al mail del usuario");
+
+
+            //PASO 4: Mensaje al usuario y volver atrás
             MessageBox.Show("Usuario generado con éxito");
             this.Close();
 

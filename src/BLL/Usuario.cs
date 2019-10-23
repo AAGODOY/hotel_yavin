@@ -151,5 +151,10 @@ namespace BLL
            
         }
 
+        public string GetContraseña(int id_usuario)
+        {
+            return Encriptador.Desencriptar(GetInstance().GetContraseña(id_usuario));
+        }
+
     }
 }

@@ -22,10 +22,10 @@ namespace Hotel_Yavin
 
         private void AdministrarUsuario_Load(object sender, EventArgs e)
         {
-            btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Usuario");
-            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Usuario");
-            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Usuario");
-            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Usuario");
+            //btn_alta.Enabled = BLL.ConfigUsuario.ValidarAcceso("Alta Usuario");
+            //btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Usuario");
+            //btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Usuario");
+            //btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Usuario");
             ActualizarGrilla();
         }
 

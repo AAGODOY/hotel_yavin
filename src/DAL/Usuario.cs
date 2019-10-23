@@ -12,7 +12,8 @@ namespace DAL
 {
     public class Usuario : BE.ICRUD<BE.Usuario>
     {
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help(@"Data Source=WIN-9V7TIU1AUN6\SQLEXPRESS;Initial Catalog=HotelYavin;Integrated Security=True");
         //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
         public BE.Usuario validarUsu(string nom_usu, string pw)
         {
@@ -155,6 +156,12 @@ namespace DAL
                 return false;
             }
 
+        }
+
+        public string GetContraseña(int id_usuario)
+        {
+            string query = "SELECT contraseña from Usuario where id_usuario=" + id_usuario + "";
+            return Convert.ToString(helper.ExecuteScalar(query));
         }
 
         private BE.Usuario MapDataReader(SqlDataReader dataReader)

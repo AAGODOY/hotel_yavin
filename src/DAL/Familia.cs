@@ -10,7 +10,8 @@ namespace DAL
 {
     public class Familia : BE.ICRUD<BE.Familia>
     {
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help(@"Data Source=WIN-9V7TIU1AUN6\SQLEXPRESS;Initial Catalog=HotelYavin;Integrated Security=True");
+        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
 
         public int Add(BE.Familia objAlta)
         {
