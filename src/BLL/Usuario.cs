@@ -80,7 +80,10 @@ namespace BLL
             string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario + objAlta.nombre + objAlta.apellido + objAlta.documento.ToString() + objAlta.domicilio + objAlta.telefono + objAlta.email + objAlta.area + objAlta.contraseña + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
             objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
 
-            return GetInstance().Add(objAlta);
+            int nuevoUsu = GetInstance().Add(objAlta);
+            DigitoVerificador.CalcularDVV("Usuario");
+
+            return nuevoUsu;
 
             throw new NotImplementedException();
         }

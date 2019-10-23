@@ -28,7 +28,10 @@ namespace BLL
             objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
             objAlta.activo = true;
 
-            return GetInstance().Add(objAlta);
+            int nuevoCliente = GetInstance().Add(objAlta);
+            DigitoVerificador.CalcularDVV("Cliente");
+
+            return nuevoCliente;
         }
 
         public int Delete(BE.Cliente objBaja)

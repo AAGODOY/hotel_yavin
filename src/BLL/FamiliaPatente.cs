@@ -25,7 +25,11 @@ namespace BLL
         {
             string cadenaDVH = objAlta.id_Patente.ToString() + objAlta.id_Familia.ToString();
             objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
-            return GetInstance().Add(objAlta);
+
+            int nuevaFamPatente = GetInstance().Add(objAlta);
+            DigitoVerificador.CalcularDVV("FamiliaPatente");
+
+            return nuevaFamPatente;
         }
 
         public int Delete(BE.FamiliaPatente objBaja)

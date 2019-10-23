@@ -24,5 +24,22 @@ namespace BLL
             digitoObtenido = listaValoresConvertidos.Sum();
             return digitoObtenido;
         }
+
+        public static int CalcularDVV(string entidad)
+        {
+            DAL.DigitoVerificador digVerificador_DAL = new DAL.DigitoVerificador();
+
+            int sumaDVH;
+            sumaDVH = digVerificador_DAL.ObtenerSumaDVH(entidad);
+
+            if (sumaDVH > -1)
+            {
+              return digVerificador_DAL.ActualizarDVV(entidad, sumaDVH);
+            }
+            else
+	        {
+                throw new NotImplementedException();
+	        }          
+        }
     }
 }

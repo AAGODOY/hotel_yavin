@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="DigitoVerificador.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="FamiliaPatente.cs" />
     <Compile Include="FamiliaUsuario.cs" />
