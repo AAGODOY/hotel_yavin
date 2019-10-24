@@ -30,7 +30,6 @@ namespace Hotel_Yavin
             usu_BE.nom_usuario = txt_NombreUsu.Text;
             usu_BE.contraseña = txt_contraseña.Text;
             Menu menuPrincipal = new Menu();
-            Log_In logIn = new Log_In();
 
             if (usu_BE.nom_usuario != "")
             {
@@ -111,6 +110,22 @@ namespace Hotel_Yavin
                 MessageBox.Show("El usuario es incorrecto");
                 return false;
 	        }
+        }
+
+        private void Log_In_Load(object sender, EventArgs e)
+        {
+            string connString = BLL.Services.GetConnectionString();
+            if (BLL.Services.ValidarConexion(connString))
+            {
+                //connString = BLL.Encriptador.Desencriptar(connString);
+                Console.WriteLine(connString);
+            }
+            else
+            {
+                ConfiguradorConexion configConexion = new ConfiguradorConexion();
+                configConexion.Show(this);
+                this.Hide();
+            }
         }
         
     }

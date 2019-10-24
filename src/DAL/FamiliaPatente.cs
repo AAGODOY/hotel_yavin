@@ -10,8 +10,8 @@ namespace DAL
 {
     public class FamiliaPatente : BE.ICRUD<BE.FamiliaPatente>
     {
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=WIN-9V7TIU1AUN6\SQLEXPRESS;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help();
+
         public int Add(BE.FamiliaPatente objAlta)
         {
             string query = "INSERT INTO FamiliaPatente VALUES(" + objAlta.id_Patente + "," + objAlta.id_Familia + "," + objAlta.DVH + "" + ")";

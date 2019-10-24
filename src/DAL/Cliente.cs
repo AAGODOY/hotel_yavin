@@ -10,7 +10,7 @@ namespace DAL
 {
     public class Cliente : BE.ICRUD<BE.Cliente>
     {
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help();
 
         public int Add(BE.Cliente objAlta)
         {

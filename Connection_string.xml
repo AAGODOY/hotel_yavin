@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dataConfig>
+  <conexionBD>
+    <isConnected>True</isConnected>
+    <ServidorBD>
+    </ServidorBD>
+    <NombreBD>
+    </NombreBD>
+    <UsarioBD>
+    </UsarioBD>
+    <PasswordBD>
+    </PasswordBD>
+    <connectionString>Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True</connectionString>
+  </conexionBD>
+</dataConfig>

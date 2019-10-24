@@ -12,9 +12,8 @@ namespace DAL
 {
     public class Usuario : BE.ICRUD<BE.Usuario>
     {
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=ALDANA-PC\ALDANA_GODOY;Initial Catalog=HotelYavin;Integrated Security=True");
-        public static HELPER.Help helper = new HELPER.Help(@"Data Source=WIN-9V7TIU1AUN6\SQLEXPRESS;Initial Catalog=HotelYavin;Integrated Security=True");
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
+        public static HELPER.Help helper = new HELPER.Help();
+
         public BE.Usuario validarUsu(string nom_usu, string pw)
         {
             string query = "SELECT * from Usuario where nombre_usuario='" + nom_usu + "'";

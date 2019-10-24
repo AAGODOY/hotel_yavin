@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Xml;
 
 namespace HELPER
 {
@@ -12,12 +13,30 @@ namespace HELPER
     {
         SqlConnection conn; 
 
-        public string connstr;
+        private static string _connstr;
 
-        public Help(string conexion)
+        public static string connstr
         {
-            this.connstr = conexion;
+            get 
+            {
+                if (string.IsNullOrEmpty(_connstr))
+                {
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(@"C:\\Hotel Yavin\\Connection_string.xml");
+                    XmlNodeList nodos;
+                    nodos = doc.GetElementsByTagName("conexionBD");
+                    foreach (XmlNode nodo in nodos)
+                    {
+                        //FALTA DESENCRIPTAR
+                        _connstr = nodo.SelectSingleNode("connectionString").InnerText;
+                    }
+                }
+
+                return _connstr; 
+            }
+            set { _connstr = value; }
         }
+        
 
         public int ExecuteNonQuery(string query)
         {
@@ -63,6 +82,32 @@ namespace HELPER
             //    //    tabla.Columns
             //    //}
             return reader;         
+        }
+
+        public Boolean ValidarConexion(string str)
+        {
+            try
+            {
+                using (conn = new SqlConnection(str))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        Console.WriteLine("Se conectó a la BD"); 
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hubo un error en la conexión a la BD");
+                        return false;
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Hubo un error en la conexión a la BD");
+            }
+            
         }
     }
 }
