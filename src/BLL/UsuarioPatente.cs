@@ -25,7 +25,7 @@ namespace BLL
         public int Add(BE.UsuarioPatente objAlta)
         {
             string cadenaDVH = objAlta.id_patente.ToString() + objAlta.id_usuario.ToString() + objAlta.patenteNegada.ToString();
-            objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
 
             int nuevoUsuPat = GetInstance().Add(objAlta);
             DigitoVerificador.CalcularDVV("UsuarioPatente");

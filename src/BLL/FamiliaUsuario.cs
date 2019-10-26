@@ -23,7 +23,7 @@ namespace BLL
         public int Add(BE.FamiliaUsuario objAlta)
         {
             string cadenaDVH = objAlta.id_usuario.ToString() + objAlta.id_familia.ToString();
-            DigitoVerificador.ObtenerDVH(cadenaDVH);
+            UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             return GetInstance().Add(objAlta);
         }
 

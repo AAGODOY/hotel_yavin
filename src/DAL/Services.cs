@@ -14,5 +14,19 @@ namespace DAL
         {
             return helper.ValidarConexion(str);
         }
+
+        public static Boolean ValidarConexion(string servidor, string nombreBD, bool seguridadIntegrada, string usuario, string contraseña)
+        {
+            string connstring = "Data Source=" + servidor + ";Initial Catalog=" + nombreBD + ";";
+            if (seguridadIntegrada)
+            {
+                connstring += "Integrated Security=True;";
+            }
+            else
+            {
+                connstring += "User ID=" + usuario + "Password=" + contraseña + ";";
+            }
+            return helper.ValidarConexion(connstring);
+        }
     }
 }

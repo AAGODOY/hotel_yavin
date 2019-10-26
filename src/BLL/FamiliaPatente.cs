@@ -24,7 +24,7 @@ namespace BLL
         public int Add(BE.FamiliaPatente objAlta)
         {
             string cadenaDVH = objAlta.id_Patente.ToString() + objAlta.id_Familia.ToString();
-            objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
 
             int nuevaFamPatente = GetInstance().Add(objAlta);
             DigitoVerificador.CalcularDVV("FamiliaPatente");

@@ -61,6 +61,10 @@
       <Project>{b71de6d4-0145-42a5-9d63-8aa26921592e}</Project>
       <Name>HELPER</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UTILITIES\UTILITIES.csproj">
+      <Project>{3cef5a5c-a8ab-4bef-be6b-60cb89e522f5}</Project>
+      <Name>UTILITIES</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

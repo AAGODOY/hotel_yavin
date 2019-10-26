@@ -356,6 +356,10 @@
       <Project>{a0aed858-5db1-40ed-85d4-d8adbe4672f0}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UTILITIES\UTILITIES.csproj">
+      <Project>{3cef5a5c-a8ab-4bef-be6b-60cb89e522f5}</Project>
+      <Name>UTILITIES</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

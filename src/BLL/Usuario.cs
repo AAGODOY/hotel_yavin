@@ -18,6 +18,7 @@ namespace BLL
             if (usu_dal == null)
             {
                 usu_dal = new DAL.Usuario();
+                //usu_dal.GetType().GetProperties(
             }
 
             return usu_dal;
@@ -29,8 +30,8 @@ namespace BLL
             
             try
             {
-                usu = Usuario.GetInstance().validarUsu(Encriptador.Encriptar(usu.nom_usuario), Encriptador.Encriptar(usu.contraseña));
-                usu.nom_usuario = Encriptador.Desencriptar(usu.nom_usuario);
+                usu = Usuario.GetInstance().validarUsu(UTILITIES.Encriptador.Encriptar(usu.nom_usuario), UTILITIES.Encriptador.Encriptar(usu.contraseña));
+                usu.nom_usuario = UTILITIES.Encriptador.Desencriptar(usu.nom_usuario);
                 Console.WriteLine("" + usu);
 
                 //usu = Usuario.GetInsatance().validarUsu(Encriptador.Encriptar(nom_usu), Encriptador.Encriptar(pw));                
@@ -53,7 +54,7 @@ namespace BLL
         {
             try
             {
-               usu.nom_usuario = Encriptador.Encriptar(usu.nom_usuario);
+               usu.nom_usuario = UTILITIES.Encriptador.Encriptar(usu.nom_usuario);
                GetInstance().IncrementarIngresosIncorrectos(usu);
             }
             catch (Exception)
@@ -73,12 +74,12 @@ namespace BLL
             //creo contraseña aleatoria
             string pwAleatoria = GetRandomPw();
             //encripto nombre usuario aleatoria
-            objAlta.nom_usuario = Encriptador.Encriptar(objAlta.nom_usuario);
+            objAlta.nom_usuario = UTILITIES.Encriptador.Encriptar(objAlta.nom_usuario);
             //encripto contraseña aleatoria
-            objAlta.contraseña =  Encriptador.Encriptar(pwAleatoria);
+            objAlta.contraseña = UTILITIES.Encriptador.Encriptar(pwAleatoria);
 
             string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario + objAlta.nombre + objAlta.apellido + objAlta.documento.ToString() + objAlta.domicilio + objAlta.telefono + objAlta.email + objAlta.area + objAlta.contraseña + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
-            objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
 
             int nuevoUsu = GetInstance().Add(objAlta);
             DigitoVerificador.CalcularDVV("Usuario");
@@ -101,7 +102,7 @@ namespace BLL
         public int Update(BE.Usuario objUpdate)
         {
             string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario + objUpdate.nombre + objUpdate.apellido + objUpdate.documento.ToString() + objUpdate.domicilio + objUpdate.telefono + objUpdate.email + objUpdate.area + objUpdate.contraseña + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
-            objUpdate.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             return GetInstance().Update(objUpdate);
         }
 
@@ -141,7 +142,7 @@ namespace BLL
         {
             try
             {
-                return GetInstance().modificarContraseña(Encriptador.Encriptar(pwActual), Encriptador.Encriptar(nuevaPw));
+                return GetInstance().modificarContraseña(UTILITIES.Encriptador.Encriptar(pwActual), UTILITIES.Encriptador.Encriptar(nuevaPw));
             }
             catch (Exception)
             {
@@ -153,7 +154,7 @@ namespace BLL
 
         public string GetContraseña(int id_usuario)
         {
-            return Encriptador.Desencriptar(GetInstance().GetContraseña(id_usuario));
+            return UTILITIES.Encriptador.Desencriptar(GetInstance().GetContraseña(id_usuario));
         }
 
     }

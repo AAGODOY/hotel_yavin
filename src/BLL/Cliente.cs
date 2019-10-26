@@ -25,7 +25,7 @@ namespace BLL
         public int Add(BE.Cliente objAlta)
         {
             string cadenaDVH = objAlta.activo.ToString() + objAlta.nombre.ToString() + objAlta.apellido.ToString() + objAlta.documento.ToString() + objAlta.telefono.ToString() + objAlta.email.ToString();
-            objAlta.DVH = DigitoVerificador.ObtenerDVH(cadenaDVH);
+            objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             objAlta.activo = true;
 
             int nuevoCliente = GetInstance().Add(objAlta);

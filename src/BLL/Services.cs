@@ -50,5 +50,31 @@ namespace BLL
         {
             return DAL.Services.ValidarConexion(connString);
         }
+
+        public static Boolean ValidarConexion(string servidor, string nombreBD, bool seguridadIntegrada, string usuario, string contraseña)
+        {
+            return DAL.Services.ValidarConexion(servidor, nombreBD, seguridadIntegrada, usuario, contraseña);
+        }
+
+        public static void setConnectionString(string servidor, string nombreBD, bool seguridadIntegrada, string usuario, string contraseña)
+        {
+            string connString = "Data Source=" + servidor + ";Initial Catalog=" + nombreBD + ";";
+            if (seguridadIntegrada)
+            {
+                connString += "Integrated Security=True;";
+            }
+            else
+            {
+                connString += "User ID=" + usuario + ";Password=" + contraseña + ";";
+            }
+            connString = UTILITIES.Encriptador.Encriptar(connString);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(@"C:\\Hotel Yavin\\Connection_string.xml");
+            XmlNodeList nodos;
+            nodos = doc.GetElementsByTagName("conexionBD");
+            foreach (XmlNode nodo in nodos)
+                nodo.SelectSingleNode("connectionString").InnerText = connString;
+            doc.Save(@"C:\\Hotel Yavin\\Connection_string.xml");
+        }
     }
 }

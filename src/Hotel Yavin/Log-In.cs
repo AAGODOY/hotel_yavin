@@ -82,7 +82,7 @@ namespace Hotel_Yavin
             //usu = usu_BLL.validarUsuario(usu);
             if (usu.nom_usuario == txt_NombreUsu.Text) //(usu.id != 0)
             {
-                if (usu.contraseña == BLL.Encriptador.Encriptar(txt_contraseña.Text))
+                if (usu.contraseña == UTILITIES.Encriptador.Encriptar(txt_contraseña.Text))
 	            {   
                     return true;
 	            }
@@ -115,9 +115,9 @@ namespace Hotel_Yavin
         private void Log_In_Load(object sender, EventArgs e)
         {
             string connString = BLL.Services.GetConnectionString();
+            connString = UTILITIES.Encriptador.Desencriptar(connString);
             if (BLL.Services.ValidarConexion(connString))
             {
-                //connString = BLL.Encriptador.Desencriptar(connString);
                 Console.WriteLine(connString);
             }
             else

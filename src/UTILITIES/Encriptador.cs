@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace BLL
+namespace UTILITIES
 {
     public static class Encriptador
     {
         //1-Definición de llave (salt?)
-        static string key = "abc";
+        static string key = "abc"; 
         static byte[] keyArray;
 
         public static string Encriptar(string texto)

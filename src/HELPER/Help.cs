@@ -11,7 +11,7 @@ namespace HELPER
 {
     public class Help
     {
-        SqlConnection conn; 
+        static SqlConnection conn; 
 
         private static string _connstr;
 
@@ -27,8 +27,8 @@ namespace HELPER
                     nodos = doc.GetElementsByTagName("conexionBD");
                     foreach (XmlNode nodo in nodos)
                     {
-                        //FALTA DESENCRIPTAR
                         _connstr = nodo.SelectSingleNode("connectionString").InnerText;
+                        _connstr = UTILITIES.Encriptador.Desencriptar(_connstr);
                     }
                 }
 
@@ -88,24 +88,26 @@ namespace HELPER
         {
             try
             {
-                using (conn = new SqlConnection(str))
-                {
-                    conn.Open();
-                    if (conn.State == System.Data.ConnectionState.Open)
-                    {
-                        Console.WriteLine("Se conectó a la BD"); 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Hubo un error en la conexión a la BD");
-                        return false;
-                    }
-                }
+                conn = new SqlConnection(str);
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Hubo un error en la conexión a la BD");
+                Console.WriteLine(ex.Message);
+                conn.Close();
+                return false;
+            }
+
+            if (conn.State == System.Data.ConnectionState.Open)
+            {
+                Console.WriteLine("Se conectó a la BD");
                 return true;
             }
-            catch (Exception)
+            else
             {
-                throw new Exception("Hubo un error en la conexión a la BD");
+                conn.Close();
+                return false;
             }
             
         }
