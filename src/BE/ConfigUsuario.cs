@@ -11,7 +11,7 @@ namespace BE
         public static Usuario usuarioLogueado = new Usuario();
         public static List<UsuarioPatente> usuPatentes = new List<UsuarioPatente>();
         public static List<Patente> permisos = new List<Patente>();
-        public static string idioma { get; set; }
-
+        public static Idioma idioma = new Idioma();
+        public static List<Traduccion> traducciones = new List<Traduccion>();
     }
 }

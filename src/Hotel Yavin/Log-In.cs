@@ -71,10 +71,19 @@ namespace Hotel_Yavin
         private void FijarPermisos()
         {
             //CONFIGURACION GLOBAL
+            BE.ConfigUsuario.usuarioLogueado = usu_BE;
             BLL.ConfigUsuario.FijarPermisos(
                 usuPat_BLL.SelectByIdUser(usu_BE.id), 
                 usuPat_BLL.GetPatentes(usu_BE.id), 
                 usuFam_BLL.GetFamilias(usu_BE.id));
+        }
+
+        private void FijarIdioma()
+        {
+            //CONFIGURACION GLOBAL
+            //Los atributos son iguales a lo que retorna la funcion BLL que llama a la DAL y me trae el idioma/traducciones del usuario (mismo principio que con permisos) 
+            //BE.ConfigUsuario.idioma = 
+            //BE.ConfigUsuario.traducciones = 
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)

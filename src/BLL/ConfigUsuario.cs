@@ -8,15 +8,15 @@ namespace BLL
 {
     public static class ConfigUsuario
     {
-
-        public static void FijarPermisos(List<BE.UsuarioPatente> usuPatentes, List<BE.Patente> patentes, List<BE.Familia> familias) 
+        #region Permisos
+        public static void FijarPermisos(List<BE.UsuarioPatente> usuPatentes, List<BE.Patente> patentes, List<BE.Familia> familias)
         {
             //LISTA DEFINITVA: patentes de familias (1) + patentes individuales (2)
             //CONDICION: activas -Patente & Familia- (a nivel general) & no negadas -Patente- (a nivel usuario)
 
             //PASO 1: Patente-familia
             BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
-            foreach (BE.Familia familia in familias) 
+            foreach (BE.Familia familia in familias)
             {
                 if (familia.activo)
                 {
@@ -47,7 +47,7 @@ namespace BLL
                 //AGREGAR: Si la patente individual no se agregó por la familia, no está negada y está activa
                 else
                 {
-                    if (patente.activo) 
+                    if (patente.activo)
                     {
                         if (!BLL.ConfigUsuario.estaNegada(patente.id))
                         {
@@ -65,7 +65,7 @@ namespace BLL
             {
                 if (patente.descripcion == nombrePatente)
                 {
-                   return true;
+                    return true;
                 }
             }
             return false;
@@ -76,7 +76,7 @@ namespace BLL
             foreach (BE.UsuarioPatente usuPat in BE.ConfigUsuario.usuPatentes)
             {
                 //if (usuPat.id_usuario == BE.ConfigUsuario.usuarioLogueado.id && usuPat.id_patente == id_patente)
-                if(usuPat.id_patente == id_patente)
+                if (usuPat.id_patente == id_patente)
                 {
                     if (usuPat.patenteNegada)
                         return true;
@@ -84,5 +84,13 @@ namespace BLL
             }
             return false;
         }
+        #endregion
+
+        #region Traduccion
+        public static string Texto(int id_t)
+        {
+            return BE.ConfigUsuario.traducciones.Where(t => t.id_traduccion == id_t).SingleOrDefault().traduccion;
+        }
+        #endregion
     }
 }
