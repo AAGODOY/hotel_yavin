@@ -11,21 +11,22 @@ namespace BLL
 
         public static void FijarPermisos(List<BE.UsuarioPatente> usuPatentes, List<BE.Patente> patentes, List<BE.Familia> familias) 
         {
-            //LISTA DEFINITVA: patentes individuales + patentes de familias  | no negadas
+            //LISTA DEFINITVA: patentes de familias (1) + patentes individuales (2)
+            //CONDICION: activas -Patente & Familia- (a nivel general) & no negadas -Patente- (a nivel usuario)
 
             //PASO 1: Patente-familia
             BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
             foreach (BE.Familia familia in familias) 
             {
-                foreach(BE.Patente patente in famPat_BLL.GetPatentes(familia.id))
+                if (familia.activo)
                 {
-                    //if (!BE.ConfigUsuario.permisos.Contains(patente))
-                    //{
-                    //    BE.ConfigUsuario.permisos.Add(patente);
-                    //}
-                    if (!BE.ConfigUsuario.permisos.Any(p => p.id == patente.id))
+                    foreach (BE.Patente patente in famPat_BLL.GetPatentes(familia.id))
                     {
-                        BE.ConfigUsuario.permisos.Add(patente);
+                        if (!BE.ConfigUsuario.permisos.Any(p => p.id == patente.id))
+                        {
+                            if (patente.activo)
+                                BE.ConfigUsuario.permisos.Add(patente);
+                        }
                     }
                 }
             }
@@ -35,24 +36,23 @@ namespace BLL
             BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
             foreach (BE.Patente patente in patentes)
             {
-                //QUITAR: Si la patente ya se agregó (por la familia) pero esta negada individualmente
-                //if (BE.ConfigUsuario.permisos.Contains(patente))
-                //{
+                //QUITAR: Si la patente ya se agregó por la familia pero esta negada individualmente
                 if (BE.ConfigUsuario.permisos.Any(p => p.id == patente.id))
                 {
                     if (BLL.ConfigUsuario.estaNegada(patente.id))
                     {
-                        //BE.ConfigUsuario.permisos.Remove(patente);
                         BE.ConfigUsuario.permisos.RemoveAll(p => p.id == patente.id);
                     }
-                }                 
-                //}
-                //AGREGAR: Si la patente individual no se agregó por la familia y no está negada
+                }
+                //AGREGAR: Si la patente individual no se agregó por la familia, no está negada y está activa
                 else
                 {
-                    if (!BLL.ConfigUsuario.estaNegada(patente.id))
+                    if (patente.activo) 
                     {
-                        BE.ConfigUsuario.permisos.Add(patente);
+                        if (!BLL.ConfigUsuario.estaNegada(patente.id))
+                        {
+                            BE.ConfigUsuario.permisos.Add(patente);
+                        }
                     }
                 }
             }
