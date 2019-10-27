@@ -13,6 +13,7 @@ namespace Hotel_Yavin
     public partial class ModificarUsuario : Form
     {
         BE.Usuario usu_BE = new BE.Usuario();
+        DataGridViewRow usu_temp = new DataGridViewRow();
         BLL.Usuario usu_BLL = new BLL.Usuario();
 
         public ModificarUsuario()
@@ -34,6 +35,7 @@ namespace Hotel_Yavin
 
         public void RetornarDatos(DataGridViewRow usu)
         {
+            usu_temp = usu;
             txt_NomUsu.Text = usu.Cells[2].Value.ToString();
             txt_Nombre.Text = usu.Cells[3].Value.ToString();
             txt_Apellido.Text = usu.Cells[4].Value.ToString();
@@ -46,6 +48,7 @@ namespace Hotel_Yavin
 
         private void btn_GuardarUsuario_Click(object sender, EventArgs e)
         {
+            usu_BE.id = Convert.ToInt32(usu_temp.Cells[0].Value);
             usu_BE.nom_usuario = txt_NomUsu.Text;
             usu_BE.nombre = txt_Nombre.Text;
             usu_BE.apellido = txt_Apellido.Text;
