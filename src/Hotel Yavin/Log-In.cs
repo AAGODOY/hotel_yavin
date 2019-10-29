@@ -16,6 +16,8 @@ namespace Hotel_Yavin
         static BLL.Usuario usu_BLL = new BLL.Usuario();
         static BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
         static BLL.FamiliaUsuario usuFam_BLL = new BLL.FamiliaUsuario();
+        static BLL.Idioma idioma_BLL = new BLL.Idioma();
+        static BLL.Traduccion traduccion_BLL = new BLL.Traduccion();
 
         public Log_In()
         {
@@ -50,6 +52,7 @@ namespace Hotel_Yavin
                             MessageBox.Show("Se ingresó al sistema");
                             //CONFIGURACION GLOBAL
                             this.FijarPermisos();
+                            this.FijarIdioma();
 
                             menuPrincipal.Show(this);
                             //this.Owner.Hide();
@@ -80,10 +83,7 @@ namespace Hotel_Yavin
 
         private void FijarIdioma()
         {
-            //CONFIGURACION GLOBAL
-            //Los atributos son iguales a lo que retorna la funcion BLL que llama a la DAL y me trae el idioma/traducciones del usuario (mismo principio que con permisos) 
-            //BE.ConfigUsuario.idioma = 
-            //BE.ConfigUsuario.traducciones = 
+            BLL.ConfigUsuario.FijarIdioma(idioma_BLL.GetIdioma(usu_BE.id), traduccion_BLL.GetTraduccion(usu_BE.id));
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)

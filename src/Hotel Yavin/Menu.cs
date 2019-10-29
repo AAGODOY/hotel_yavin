@@ -33,6 +33,61 @@ namespace Hotel_Yavin
             //Tsmi_modContrasena.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Contraseña");
             //Tsmi_Idioma.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Modificar Idioma");
             //Tsmi_DatosPersonales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Datos Personales");
+
+            switch (BE.ConfigUsuario.idioma.descripcion)
+            {
+                case "ES":
+                    reservasToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(1);
+                    Tsmi_AdminReservas.Text = BLL.ConfigUsuario.Texto(3);
+                    cobranzaToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(7);
+                    Tsmi_AdminCobranza.Text = BLL.ConfigUsuario.Texto(9);
+                    clienteToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(11);
+                    Tsmi_AdminCliente.Text = BLL.ConfigUsuario.Texto(13);
+                    parametrizaciónToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(15);
+                    Tsmi_AdminHabitacion.Text = BLL.ConfigUsuario.Texto(17);
+                    Tsmi_AdminServAdicionales.Text = BLL.ConfigUsuario.Texto(19);
+                    administraciónSeguridadToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(21);
+                    Tsmi_AdminUsuario.Text = BLL.ConfigUsuario.Texto(23);
+                    Tsmi_AdminPatente.Text = BLL.ConfigUsuario.Texto(25);
+                    Tsmi_AdminFamilia.Text = BLL.ConfigUsuario.Texto(27);
+                    seguridadToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(29);
+                    Tsmi_Bitacora.Text = BLL.ConfigUsuario.Texto(31);
+                    Tsmi_RestaurarBackUp.Text = BLL.ConfigUsuario.Texto(33);
+                    Tsmi_GenerarBackUp.Text = BLL.ConfigUsuario.Texto(35);
+                    Tsmi_modContrasena.Text = BLL.ConfigUsuario.Texto(37);
+                    cuentaToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(39);
+                    Tsmi_Idioma.Text = BLL.ConfigUsuario.Texto(41);
+                    Tsmi_DatosPersonales.Text = BLL.ConfigUsuario.Texto(43);
+                    Tsmi_CerrarSesion.Text = BLL.ConfigUsuario.Texto(45);
+                    break;
+                case "EN":
+                    reservasToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(2);
+                    Tsmi_AdminReservas.Text = BLL.ConfigUsuario.Texto(4);
+                    cobranzaToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(8);
+                    Tsmi_AdminCobranza.Text = BLL.ConfigUsuario.Texto(10);
+                    clienteToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(12);
+                    Tsmi_AdminCliente.Text = BLL.ConfigUsuario.Texto(14);
+                    parametrizaciónToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(16);
+                    Tsmi_AdminHabitacion.Text = BLL.ConfigUsuario.Texto(18);
+                    Tsmi_AdminServAdicionales.Text = BLL.ConfigUsuario.Texto(20);
+                    administraciónSeguridadToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(22);
+                    Tsmi_AdminUsuario.Text = BLL.ConfigUsuario.Texto(24);
+                    Tsmi_AdminPatente.Text = BLL.ConfigUsuario.Texto(26);
+                    Tsmi_AdminFamilia.Text = BLL.ConfigUsuario.Texto(28);
+                    seguridadToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(30);
+                    Tsmi_Bitacora.Text = BLL.ConfigUsuario.Texto(32);
+                    Tsmi_RestaurarBackUp.Text = BLL.ConfigUsuario.Texto(34);
+                    Tsmi_GenerarBackUp.Text = BLL.ConfigUsuario.Texto(36);
+                    Tsmi_modContrasena.Text = BLL.ConfigUsuario.Texto(38);
+                    cuentaToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(40);
+                    Tsmi_Idioma.Text = BLL.ConfigUsuario.Texto(42);
+                    Tsmi_DatosPersonales.Text = BLL.ConfigUsuario.Texto(44);
+                    Tsmi_CerrarSesion.Text = BLL.ConfigUsuario.Texto(46);
+                    break;
+            }
+
+            if(BE.ConfigUsuario.idioma.descripcion == "ES") {BLL.ConfigUsuario.Texto(1); };
+
         }
 
         private void administrarReservasToolStripMenuItem_Click(object sender, EventArgs e)
