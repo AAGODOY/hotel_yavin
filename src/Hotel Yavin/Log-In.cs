@@ -89,7 +89,7 @@ namespace Hotel_Yavin
         private Boolean ValidarUsu(BE.Usuario usu)
         {
             //usu = usu_BLL.validarUsuario(usu);
-            if (usu.nom_usuario == txt_NombreUsu.Text) //(usu.id != 0)
+            if (usu.nom_usuario == txt_NombreUsu.Text) 
             {
                 if (usu.contraseña == UTILITIES.Encriptador.Encriptar(txt_contraseña.Text))
 	            {   

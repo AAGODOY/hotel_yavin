@@ -213,6 +213,8 @@
             // 
             // txt_NomUsu
             // 
+            this.txt_NomUsu.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txt_NomUsu.Enabled = false;
             this.txt_NomUsu.Location = new System.Drawing.Point(134, 21);
             this.txt_NomUsu.Name = "txt_NomUsu";
             this.txt_NomUsu.Size = new System.Drawing.Size(179, 20);

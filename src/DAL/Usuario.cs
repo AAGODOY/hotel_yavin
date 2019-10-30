@@ -100,7 +100,7 @@ namespace DAL
 
         public int Update(BE.Usuario objUpdate)
         {
-            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'" + "";
+            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'" + "where id_usuario=" + objUpdate.id + "";
             return helper.ExecuteNonQuery(query);
             throw new NotImplementedException();
         }
