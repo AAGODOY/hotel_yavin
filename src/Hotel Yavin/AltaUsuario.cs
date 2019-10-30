@@ -178,13 +178,20 @@ namespace Hotel_Yavin
         private void btn_GuardarUsuario_Click(object sender, EventArgs e)
         {
             //PASO 1: Creación de usuario
-            usu_BE.nom_usuario = txt_NomUsu.Text;
-            usu_BE.nombre = txt_Nombre.Text;
-            usu_BE.apellido = txt_Apellido.Text;
-            usu_BE.documento = int.Parse(txt_NumDoc.Text);
-            usu_BE.email = txt_Email.Text;
-            usu_BE.telefono = txt_Telefono.Text;
-            usu_BE.domicilio = txt_Domicilio.Text;
+            if (txt_NomUsu.Text != "" && txt_Nombre.Text != "" && txt_Apellido.Text != "" && txt_NumDoc != null && txt_Email.Text != "" && txt_Telefono.Text != "" && txt_Domicilio.Text != "")
+            {
+                usu_BE.nom_usuario = txt_NomUsu.Text;
+                usu_BE.nombre = txt_Nombre.Text;
+                usu_BE.apellido = txt_Apellido.Text;
+                usu_BE.documento = int.Parse(txt_NumDoc.Text);
+                usu_BE.email = txt_Email.Text;
+                usu_BE.telefono = txt_Telefono.Text;
+                usu_BE.domicilio = txt_Domicilio.Text;
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos de la pestaña Principal");
+            }
 
             int idUsuario = usu_BLL.Add(usu_BE);
 
@@ -263,6 +270,15 @@ namespace Hotel_Yavin
                 //Familias asociadas (-)
                 dgv_FamiliasAsociadas.Rows.RemoveAt(fila.Index);
             }
+        }
+
+        private void txt_NumDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Valida que se ingresen unicamente valores numericos
+            if (!char.IsDigit(e.KeyChar)) e.Handled = true;
+
+            //no te permite ingresar mas del máximo
+            txt_NumDoc.MaxLength = 8;
         }
     }
 }

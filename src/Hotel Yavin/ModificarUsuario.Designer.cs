@@ -189,6 +189,7 @@
             this.txt_NumDoc.Name = "txt_NumDoc";
             this.txt_NumDoc.Size = new System.Drawing.Size(179, 20);
             this.txt_NumDoc.TabIndex = 13;
+            this.txt_NumDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NumDoc_KeyPress);
             // 
             // txt_Apellido
             // 

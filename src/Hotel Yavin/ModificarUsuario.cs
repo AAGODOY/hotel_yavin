@@ -47,22 +47,30 @@ namespace Hotel_Yavin
 
         private void btn_GuardarUsuario_Click(object sender, EventArgs e)
         {
-            usu_BE.id = Convert.ToInt32(usu_temp.Cells[0].Value);
-            usu_BE.activo = Convert.ToBoolean(usu_temp.Cells[1].Value);
-            usu_BE.nom_usuario = txt_NomUsu.Text;
-            usu_BE.nombre = txt_Nombre.Text;
-            usu_BE.apellido = txt_Apellido.Text;
-            usu_BE.documento = int.Parse(txt_NumDoc.Text);
-            usu_BE.email = txt_Email.Text;
-            usu_BE.telefono = txt_Telefono.Text;
-            usu_BE.domicilio = txt_Domicilio.Text;
-            usu_BE.contraseña = Convert.ToString(usu_temp.Cells[9].Value);
-            usu_BE.cant_ingresos_incorrectos = Convert.ToInt32(usu_temp.Cells[10].Value);
-            usu_BE.DVH = Convert.ToInt32(usu_temp.Cells[11].Value);
-            usu_BE.es_primer_login = Convert.ToBoolean(usu_temp.Cells[12].Value);
-            usu_BE.id_idioma = Convert.ToInt32(usu_temp.Cells[13].Value);
+            if (txt_NomUsu.Text != "" && txt_Nombre.Text != "" && txt_Apellido.Text != "" && txt_NumDoc != null && txt_Email.Text != "" && txt_Telefono.Text != "" && txt_Domicilio.Text != "")
+            {
+                usu_BE.id = Convert.ToInt32(usu_temp.Cells[0].Value);
+                usu_BE.activo = Convert.ToBoolean(usu_temp.Cells[1].Value);
+                usu_BE.nom_usuario = txt_NomUsu.Text;
+                usu_BE.nombre = txt_Nombre.Text;
+                usu_BE.apellido = txt_Apellido.Text;
+                usu_BE.documento = int.Parse(txt_NumDoc.Text);
+                usu_BE.email = txt_Email.Text;
+                usu_BE.telefono = txt_Telefono.Text;
+                usu_BE.domicilio = txt_Domicilio.Text;
+                usu_BE.contraseña = Convert.ToString(usu_temp.Cells[9].Value);
+                usu_BE.cant_ingresos_incorrectos = Convert.ToInt32(usu_temp.Cells[10].Value);
+                usu_BE.DVH = Convert.ToInt32(usu_temp.Cells[11].Value);
+                usu_BE.es_primer_login = Convert.ToBoolean(usu_temp.Cells[12].Value);
+                usu_BE.id_idioma = Convert.ToInt32(usu_temp.Cells[13].Value);
+            }
             
             usu_BLL.Update(usu_BE);
+        }
+
+        private void txt_NumDoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar)) e.Handled = true;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Hotel_Yavin
 
         private void btn_conectar_Click(object sender, EventArgs e)
         {
-            if (BLL.Services.ValidarConexion(txt_servidor.Text, txt_nombreBD.Text, false, txt_usuario.Text, txt_contraseña.Text))
+            if (BLL.Services.ValidarConexion(txt_servidor.Text, txt_nombreBD.Text, true, txt_usuario.Text, txt_contraseña.Text))
             {
                 BLL.Services.setConnectionString(txt_servidor.Text, txt_nombreBD.Text, true, txt_usuario.Text, txt_contraseña.Text);
                 MessageBox.Show("Se ingresó correctamente a la Base de Datos");
