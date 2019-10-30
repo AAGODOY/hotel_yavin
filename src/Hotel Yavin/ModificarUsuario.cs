@@ -42,8 +42,7 @@ namespace Hotel_Yavin
             txt_NumDoc.Text = usu.Cells[5].Value.ToString();
             txt_Domicilio.Text = usu.Cells[6].Value.ToString();
             txt_Telefono.Text = usu.Cells[7].Value.ToString();
-            txt_Email.Text = usu.Cells[8].Value.ToString();
-            comboBox1.Text = usu.Cells[9].Value.ToString();   
+            txt_Email.Text = usu.Cells[8].Value.ToString(); 
         }
 
         private void btn_GuardarUsuario_Click(object sender, EventArgs e)
@@ -56,7 +55,6 @@ namespace Hotel_Yavin
             usu_BE.email = txt_Email.Text;
             usu_BE.telefono = txt_Telefono.Text;
             usu_BE.domicilio = txt_Domicilio.Text;
-            usu_BE.area = comboBox1.Text;
             
             usu_BLL.Update(usu_BE);
         }

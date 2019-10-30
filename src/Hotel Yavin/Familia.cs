@@ -75,7 +75,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Usuario usuario in usu_BLL.SelectAll())
             {
-                dgv_UsuariosDisponibles.Rows.Add(usuario.id, usuario.activo, usuario.nom_usuario, usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.area, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
+                dgv_UsuariosDisponibles.Rows.Add(usuario.id, usuario.activo, usuario.nom_usuario, usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
             }
         }
 

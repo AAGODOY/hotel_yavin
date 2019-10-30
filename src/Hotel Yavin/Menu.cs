@@ -59,6 +59,7 @@ namespace Hotel_Yavin
                     Tsmi_Idioma.Text = BLL.ConfigUsuario.Texto(41);
                     Tsmi_DatosPersonales.Text = BLL.ConfigUsuario.Texto(43);
                     Tsmi_CerrarSesion.Text = BLL.ConfigUsuario.Texto(45);
+                    this.Text = BLL.ConfigUsuario.Texto(5);
                     break;
                 case "EN":
                     reservasToolStripMenuItem.Text = BLL.ConfigUsuario.Texto(2);
@@ -83,11 +84,9 @@ namespace Hotel_Yavin
                     Tsmi_Idioma.Text = BLL.ConfigUsuario.Texto(42);
                     Tsmi_DatosPersonales.Text = BLL.ConfigUsuario.Texto(44);
                     Tsmi_CerrarSesion.Text = BLL.ConfigUsuario.Texto(46);
+                    this.Text = BLL.ConfigUsuario.Texto(6);
                     break;
             }
-
-            if(BE.ConfigUsuario.idioma.descripcion == "ES") {BLL.ConfigUsuario.Texto(1); };
-
         }
 
         private void administrarReservasToolStripMenuItem_Click(object sender, EventArgs e)

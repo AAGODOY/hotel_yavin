@@ -35,7 +35,6 @@ namespace DAL
                     usu.domicilio = Convert.ToString(Reader["domicilio"]);
                     usu.telefono = Convert.ToString(Reader["telefono"]);
                     usu.email = Convert.ToString(Reader["email"]);
-                    usu.area = Convert.ToString(Reader["area"]);
                     usu.contraseña = Convert.ToString(Reader["contraseña"]);
                     usu.cant_ingresos_incorrectos = Convert.ToInt32(Reader["cant_ingresos_incorrectos"]);
                     usu.DVH = Convert.ToInt32(Reader["DVH"]);
@@ -64,7 +63,7 @@ namespace DAL
         public int Add(BE.Usuario objAlta)
         {
             //string query = "INSERT INTO Usuario VALUES (" + "'1'," + "'" + objAlta.nom_usuario + "'," + "'" + objAlta.nombre + "'," + "'" + objAlta.apellido + "'," + "" + objAlta.documento + "," + "'" + objAlta.domicilio + "'," + "'" + objAlta.telefono + "'," + "'" + objAlta.email + "'," + "'" + objAlta.area + "'," + "'contraseña'," +"'" + objAlta.contraseña + "'," + "'0'," + "'200'," + "'0'," + "'54733'" + ")";
-            string query = "INSERT INTO Usuario OUTPUT inserted.id_usuario VALUES (" + Convert.ToInt32(objAlta.activo) + "," + "'" + objAlta.nom_usuario + "'," + "'" + objAlta.nombre + "'," + "'" + objAlta.apellido + "'," + "" + objAlta.documento + "," + "'" + objAlta.domicilio + "'," + "'" + objAlta.telefono + "'," + "'" + objAlta.email + "'," + "'" + objAlta.area + "'," + "'" + objAlta.contraseña + "'," + objAlta.cant_ingresos_incorrectos + "," + objAlta.DVH + "," + Convert.ToInt32(objAlta.es_primer_login) + "," + objAlta.id_idioma + "" + ")";
+            string query = "INSERT INTO Usuario OUTPUT inserted.id_usuario VALUES (" + Convert.ToInt32(objAlta.activo) + "," + "'" + objAlta.nom_usuario + "'," + "'" + objAlta.nombre + "'," + "'" + objAlta.apellido + "'," + "" + objAlta.documento + "," + "'" + objAlta.domicilio + "'," + "'" + objAlta.telefono + "'," + "'" + objAlta.email + "'," + "'" + objAlta.contraseña + "'," + objAlta.cant_ingresos_incorrectos + "," + objAlta.DVH + "," + Convert.ToInt32(objAlta.es_primer_login) + "," + objAlta.id_idioma + "" + ")";
 
             int nuevoId = (int)helper.ExecuteScalar(query);
             //int resultado = helper.ExecuteNonQuery(query);
@@ -101,7 +100,7 @@ namespace DAL
 
         public int Update(BE.Usuario objUpdate)
         {
-            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'," + "area='" + objUpdate.area + "'" + "";
+            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'" + "";
             return helper.ExecuteNonQuery(query);
             throw new NotImplementedException();
         }
@@ -175,12 +174,11 @@ namespace DAL
             usu.domicilio = dataReader.GetString(6);
             usu.telefono = dataReader.GetString(7);
             usu.email = dataReader.GetString(8);
-            usu.area = dataReader.GetString(9);
-            usu.contraseña = dataReader.GetString(10);
-            usu.cant_ingresos_incorrectos = dataReader.GetInt32(11);
-            usu.DVH = dataReader.GetInt32(12);
-            usu.es_primer_login = dataReader.GetBoolean(13);
-            usu.id_idioma = dataReader.GetInt32(14);
+            usu.contraseña = dataReader.GetString(9);
+            usu.cant_ingresos_incorrectos = dataReader.GetInt32(10);
+            usu.DVH = dataReader.GetInt32(11);
+            usu.es_primer_login = dataReader.GetBoolean(12);
+            usu.id_idioma = dataReader.GetInt32(13);
 
             ////CODIGO A ELIMINAR (solo para pruebas)
             //string usuario = "";

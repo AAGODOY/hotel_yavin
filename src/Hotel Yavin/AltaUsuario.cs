@@ -39,7 +39,6 @@ namespace Hotel_Yavin
             txt_Email.Text = "aldi.god@gmail.com";
             txt_Telefono.Text = "4362223";
             txt_Domicilio.Text = "Italia 77";
-            cbx_area.Text = "Algo más";
 
             //DataGridView Patentes disponibles
             dgv_patentesDisponibles.DataSource = null;
@@ -62,6 +61,55 @@ namespace Hotel_Yavin
             dgv_FamiliasAsociadas.Columns.Add("id", "Id");
             dgv_FamiliasAsociadas.Columns.Add("descripcion", "Descripcion");
             dgv_FamiliasAsociadas.Columns[0].Visible = false;
+
+            //Configuracion de Idioma
+            switch (BE.ConfigUsuario.idioma.descripcion)
+            {
+                case "ES":
+                    dgv_patentesDisponibles.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(47);
+                    dgv_FamiliasDisponibles.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(47);
+                    dgv_FamiliasAsociadas.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(47);
+                    dgv_patentesAsociadas.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(47);
+                    dgv_patentesAsociadas.Columns[2].HeaderText = BLL.ConfigUsuario.Texto(49);
+                    this.Text = BLL.ConfigUsuario.Texto(51);
+                    tabPage1.Text = BLL.ConfigUsuario.Texto(53);
+                    tabPage3.Text = BLL.ConfigUsuario.Texto(55);
+                    tabPage4.Text = BLL.ConfigUsuario.Texto(57);                
+                    lbl_NomUsu.Text = BLL.ConfigUsuario.Texto(59);
+                    lbl_Nombre.Text = BLL.ConfigUsuario.Texto(61);
+                    lbl_Apellido.Text = BLL.ConfigUsuario.Texto(63);
+                    lbl_NumDoc.Text = BLL.ConfigUsuario.Texto(65);
+                    lbl_Telefono.Text = BLL.ConfigUsuario.Texto(67);
+                    lbl_Domicilio.Text = BLL.ConfigUsuario.Texto(69);
+                    lbl_familiasDisponibles.Text = BLL.ConfigUsuario.Texto(72);
+                    lbl_FamiliasAsociadas.Text = BLL.ConfigUsuario.Texto(74);
+                    lbl_PatentesDisponibles.Text = BLL.ConfigUsuario.Texto(76);
+                    lbl_PatentesAsociadas.Text = BLL.ConfigUsuario.Texto(78);
+                    btn_Negar.Text = BLL.ConfigUsuario.Texto(80);
+                    break;
+                case "EN":
+                    dgv_patentesDisponibles.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(48);
+                    dgv_FamiliasDisponibles.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(48);
+                    dgv_FamiliasAsociadas.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(48);
+                    dgv_patentesAsociadas.Columns[1].HeaderText = BLL.ConfigUsuario.Texto(48);
+                    dgv_patentesAsociadas.Columns[2].HeaderText = BLL.ConfigUsuario.Texto(50);
+                    this.Text = BLL.ConfigUsuario.Texto(52);
+                    tabPage1.Text = BLL.ConfigUsuario.Texto(54);
+                    tabPage3.Text = BLL.ConfigUsuario.Texto(56);
+                    tabPage4.Text = BLL.ConfigUsuario.Texto(58);
+                    lbl_NomUsu.Text = BLL.ConfigUsuario.Texto(60);
+                    lbl_Nombre.Text = BLL.ConfigUsuario.Texto(62);
+                    lbl_Apellido.Text = BLL.ConfigUsuario.Texto(64);
+                    lbl_NumDoc.Text = BLL.ConfigUsuario.Texto(66);
+                    lbl_Telefono.Text = BLL.ConfigUsuario.Texto(68);
+                    lbl_Domicilio.Text = BLL.ConfigUsuario.Texto(71);
+                    lbl_familiasDisponibles.Text = BLL.ConfigUsuario.Texto(73);
+                    lbl_FamiliasAsociadas.Text = BLL.ConfigUsuario.Texto(75);
+                    lbl_PatentesDisponibles.Text = BLL.ConfigUsuario.Texto(77);
+                    lbl_PatentesAsociadas.Text = BLL.ConfigUsuario.Texto(79);
+                    btn_Negar.Text = BLL.ConfigUsuario.Texto(81);
+                    break;
+            }
 
             ActualizarGrillas();
         }
@@ -137,7 +185,6 @@ namespace Hotel_Yavin
             usu_BE.email = txt_Email.Text;
             usu_BE.telefono = txt_Telefono.Text;
             usu_BE.domicilio = txt_Domicilio.Text;
-            usu_BE.area = cbx_area.Text;
 
             int idUsuario = usu_BLL.Add(usu_BE);
 

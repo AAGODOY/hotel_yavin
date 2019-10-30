@@ -78,7 +78,7 @@ namespace BLL
             //encripto contraseña aleatoria
             objAlta.contraseña = UTILITIES.Encriptador.Encriptar(pwAleatoria);
 
-            string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario + objAlta.nombre + objAlta.apellido + objAlta.documento.ToString() + objAlta.domicilio + objAlta.telefono + objAlta.email + objAlta.area + objAlta.contraseña + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
+            string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario + objAlta.nombre + objAlta.apellido + objAlta.documento.ToString() + objAlta.domicilio + objAlta.telefono + objAlta.email + objAlta.contraseña + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
             objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
 
             int nuevoUsu = GetInstance().Add(objAlta);
@@ -101,7 +101,7 @@ namespace BLL
 
         public int Update(BE.Usuario objUpdate)
         {
-            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario + objUpdate.nombre + objUpdate.apellido + objUpdate.documento.ToString() + objUpdate.domicilio + objUpdate.telefono + objUpdate.email + objUpdate.area + objUpdate.contraseña + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
+            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario + objUpdate.nombre + objUpdate.apellido + objUpdate.documento.ToString() + objUpdate.domicilio + objUpdate.telefono + objUpdate.email + objUpdate.contraseña + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
             objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             return GetInstance().Update(objUpdate);
         }

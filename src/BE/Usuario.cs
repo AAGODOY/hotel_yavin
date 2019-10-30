@@ -17,7 +17,6 @@ namespace BE
         public string domicilio { get; set; }
         public string telefono { get; set; }
         public string email { get; set; }
-        public string area { get; set; }
         public string contraseña { get; set; }
         public int cant_ingresos_incorrectos { get; set; }
         public int DVH { get; set; }
