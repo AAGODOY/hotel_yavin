@@ -40,6 +40,10 @@ namespace Hotel_Yavin
                     usu_BE = usu_BLL.validarUsuario(usu_BE);
                     if (ValidarUsu(usu_BE))
                     {
+                        if (!usu_BE.activo)
+                        {
+                            
+                        }
                         if (usu_BE.es_primer_login)
                         {
                             Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
