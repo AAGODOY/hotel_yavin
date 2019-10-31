@@ -70,7 +70,11 @@ namespace Hotel_Yavin
 
         private void txt_NumDoc_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Valida que se ingresen unicamente valores numericos
             if (!char.IsDigit(e.KeyChar)) e.Handled = true;
+
+            //no te permite ingresar mas del máximo
+            txt_NumDoc.MaxLength = 8;
         }
     }
 }
