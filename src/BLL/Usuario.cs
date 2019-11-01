@@ -156,6 +156,5 @@ namespace BLL
         {
             return UTILITIES.Encriptador.Desencriptar(GetInstance().GetContraseña(id_usuario));
         }
-
     }
 }

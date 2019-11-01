@@ -30,7 +30,18 @@ namespace DAL
 
         public List<BE.UsuarioPatente> SelectAll()
         {
-            throw new NotImplementedException();
+            string query = "SELECT * from UsuarioPatente";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.UsuarioPatente> usuPatList = new List<BE.UsuarioPatente>();
+                while (dataReader.Read())
+                {
+                    BE.UsuarioPatente usuPatentes = MapDataReaderUsuPat(dataReader);
+                    usuPatList.Add(usuPatentes);
+                }
+
+                return usuPatList;
+            }
         }
 
         public List<BE.UsuarioPatente> SelectByIdUser(int idUsuario)

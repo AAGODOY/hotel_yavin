@@ -31,7 +31,17 @@ namespace DAL
 
         public List<BE.FamiliaPatente> SelectAll()
         {
-            throw new NotImplementedException();
+            string query = "Select * From FamiliaPatente";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.FamiliaPatente> famPatList = new List<BE.FamiliaPatente>();
+                while (dataReader.Read())
+                {
+                    BE.FamiliaPatente familiaPatentes = MapDataReaderFamPat(dataReader);
+                    famPatList.Add(familiaPatentes);
+                }
+                return famPatList;
+            }
         }
 
         public List<BE.Patente> GetPatentes(int id_familia)

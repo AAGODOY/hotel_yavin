@@ -140,6 +140,12 @@
     <Compile Include="Generar Copia de Seguridad.Designer.cs">
       <DependentUpon>Generar Copia de Seguridad.cs</DependentUpon>
     </Compile>
+    <Compile Include="IntegridadBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntegridadBD.Designer.cs">
+      <DependentUpon>IntegridadBD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log-In.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Generar Copia de Seguridad.resx">
       <DependentUpon>Generar Copia de Seguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntegridadBD.resx">
+      <DependentUpon>IntegridadBD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Log-In.resx">
       <DependentUpon>Log-In.cs</DependentUpon>

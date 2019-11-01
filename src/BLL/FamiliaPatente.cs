@@ -44,7 +44,7 @@ namespace BLL
 
         public List<BE.FamiliaPatente> SelectAll()
         {
-            throw new NotImplementedException();
+            return GetInstance().SelectAll();
         }
 
         public List<BE.Patente> GetPatentes(int id_familia)

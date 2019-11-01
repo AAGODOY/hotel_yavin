@@ -24,5 +24,6 @@ namespace UTILITIES
             digitoObtenido = listaValoresConvertidos.Sum();
             return digitoObtenido;
         }
+
     }
 }

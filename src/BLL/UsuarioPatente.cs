@@ -46,7 +46,7 @@ namespace BLL
 
         public List<BE.UsuarioPatente> SelectAll()
         {
-            throw new NotImplementedException();
+            return GetInstance().SelectAll();
         }
 
         public List<BE.UsuarioPatente> SelectByIdUser(int id_usuario)

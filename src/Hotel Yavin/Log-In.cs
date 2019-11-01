@@ -42,25 +42,29 @@ namespace Hotel_Yavin
                     {
                         if (!usu_BE.activo)
                         {
-                            
-                        }
-                        if (usu_BE.es_primer_login)
-                        {
-                            Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
-                            mod_contraseña.Show(this);
-                            this.Hide();
+                            MessageBox.Show("El usuario se encuentra inhabilitado. Por favor, comunicarse con el Administrador del sistema");
                         }
                         else
                         {
-                            //ValidarPrimerLogin(usu_BE);
-                            MessageBox.Show("Se ingresó al sistema");
-                            //CONFIGURACION GLOBAL
-                            this.FijarPermisos();
-                            this.FijarIdioma();
+                            if (usu_BE.es_primer_login)
+                            {
+                                Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
+                                mod_contraseña.Show(this);
+                                this.Hide();
+                            }
+                            else
+                            {
+                                BLL.DigitoVerificador.VerificarIntegridad();
+                                //ValidarPrimerLogin(usu_BE);
+                                MessageBox.Show("Se ingresó al sistema");
+                                //CONFIGURACION GLOBAL
+                                this.FijarPermisos();
+                                this.FijarIdioma();
 
-                            menuPrincipal.Show(this);
-                            //this.Owner.Hide();
-                            this.Hide();  
+                                menuPrincipal.Show(this);
+                                //this.Owner.Hide();
+                                this.Hide();
+                            }
                         }
                     }
                 }
