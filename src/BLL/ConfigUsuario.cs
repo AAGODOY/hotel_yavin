@@ -86,19 +86,8 @@ namespace BLL
         }
         #endregion
 
-        public static void FijarIdioma(BE.Idioma idioma, List<BE.Traduccion> traducciones)
-        { 
-            //PASO 1: Asigno idioma al usuario
-            BE.ConfigUsuario.idioma = idioma;
-
-            //PASO 2: Asigno traducciones del idioma al usuario
-            foreach (BE.Traduccion item in traducciones)
-            {
-                BE.ConfigUsuario.traducciones.Add(item);
-            }
-        }
-
         #region Traduccion
+
         public static string Texto(int id_t)
         {
             return BE.ConfigUsuario.traducciones.Where(t => t.id_traduccion == id_t).SingleOrDefault().traduccion;
