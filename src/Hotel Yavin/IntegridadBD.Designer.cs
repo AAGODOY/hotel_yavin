@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_errores = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_errores)).BeginInit();
+            this.lst_Errores = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // dgv_errores
-            // 
-            this.dgv_errores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_errores.Location = new System.Drawing.Point(12, 55);
-            this.dgv_errores.Name = "dgv_errores";
-            this.dgv_errores.Size = new System.Drawing.Size(529, 184);
-            this.dgv_errores.TabIndex = 0;
             // 
             // label1
             // 
@@ -82,20 +73,27 @@
             this.button1.Text = "RECALCULAR";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // lst_Errores
+            // 
+            this.lst_Errores.FormattingEnabled = true;
+            this.lst_Errores.Location = new System.Drawing.Point(12, 55);
+            this.lst_Errores.Name = "lst_Errores";
+            this.lst_Errores.Size = new System.Drawing.Size(522, 186);
+            this.lst_Errores.TabIndex = 5;
+            // 
             // IntegridadBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 334);
+            this.Controls.Add(this.lst_Errores);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgv_errores);
             this.Name = "IntegridadBD";
             this.Text = "Integridad de la Base de Datos";
             this.Load += new System.EventHandler(this.IntegridadBD_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_errores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,10 +101,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_errores;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lst_Errores;
     }
 }

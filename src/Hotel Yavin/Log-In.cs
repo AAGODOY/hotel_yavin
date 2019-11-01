@@ -54,16 +54,24 @@ namespace Hotel_Yavin
                             }
                             else
                             {
-                                BLL.DigitoVerificador.VerificarIntegridad();
-                                //ValidarPrimerLogin(usu_BE);
-                                MessageBox.Show("Se ingresó al sistema");
-                                //CONFIGURACION GLOBAL
-                                this.FijarPermisos();
-                                this.FijarIdioma();
+                                //List<string> listaErrores = BLL.DigitoVerificador.VerificarIntegridad();
+                                //if (listaErrores.Count == 0)
+                                //{
+                                    MessageBox.Show("Se ingresó al sistema");
+                                    //CONFIGURACION GLOBAL
+                                    this.FijarPermisos();
+                                    this.FijarIdioma();
 
-                                menuPrincipal.Show(this);
-                                //this.Owner.Hide();
-                                this.Hide();
+                                    menuPrincipal.Show(this);
+                                    //this.Owner.Hide();
+                                    this.Hide();
+                                //}
+                                //else
+                                //{
+                                //    IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
+                                //    formIntegridadBD.Show(this);
+                                //    this.Hide();
+                                //}
                             }
                         }
                     }
@@ -91,7 +99,8 @@ namespace Hotel_Yavin
 
         private void FijarIdioma()
         {
-            BLL.ConfigUsuario.FijarIdioma(idioma_BLL.GetIdioma(usu_BE.id), traduccion_BLL.GetTraduccion(usu_BE.id));
+            BE.ConfigUsuario.idioma = idioma_BLL.GetIdioma(usu_BE.id);
+            BE.ConfigUsuario.traducciones = traduccion_BLL.GetTraduccion(usu_BE.id);
         }
 
         private Boolean ValidarUsu(BE.Usuario usu)

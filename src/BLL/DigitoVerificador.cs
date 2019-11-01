@@ -25,23 +25,35 @@ namespace BLL
             }
         }
 
-        //VERIFICAR SI SE PUEDE AGREGAR EL PATRON TEMPLATE a la funcionalidad
-
-        public static void VerificarIntegridad()
-        {
-                VerificarIntegridadUsuario();
-                VerificarIntegridadBitacora();
-                VerificarIntegridadCliente();
-                VerificarIntegridadReserva();
-                VerificarIntegridadUsuarioPatente();
-                VerificarIntegridadFamiliaPatente();
+        public static int GetDVV(string entidad)
+        { 
+            DAL.DigitoVerificador DVV_DAL = new DAL.DigitoVerificador();
+            return DVV_DAL.GetDVV(entidad);
         }
 
-        private static Boolean VerificarIntegridadUsuario()
+        //VERIFICAR SI SE PUEDE AGREGAR EL PATRON TEMPLATE a la funcionalidad
+
+        public static List<string> VerificarIntegridad()
+        {
+            List<string> listaErrores = new List<string>();
+            foreach (string item in VerificarIntegridadUsuario())
+            {
+                listaErrores.Add(item);
+            }
+            //listaErrores.Add(VerificarIntegridadUsuario());
+            return listaErrores;
+                //VerificarIntegridadBitacora();
+                //VerificarIntegridadCliente();
+                //VerificarIntegridadReserva();
+                //VerificarIntegridadUsuarioPatente();
+                //VerificarIntegridadFamiliaPatente();
+        }
+
+        private static List<string> VerificarIntegridadUsuario()
         {
             List<BE.Usuario> listUsu_BE = new List<BE.Usuario>();
             BLL.Usuario usu_BLL = new Usuario();
-
+            List<string> ErrorIntegridad = new List<string>();
             listUsu_BE = usu_BLL.SelectAll();
 
             foreach (BE.Usuario item in listUsu_BE)
@@ -50,15 +62,29 @@ namespace BLL
                 int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
                 if (item.DVH == DVHCalculado)
                 {
-                    return true;
+                    Console.WriteLine("DVH correcto");
                 }
                 else
                 {
-                    return false;
+                    string str = "Inconsistencia en la entidad Usuario en el registro numero (ID): " + item.id;
+                    ErrorIntegridad.Add(str);
                 }
             }
 
-            return false;
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("Usuario");
+
+            if (DVVCalculado == GetDVV("Usuario"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad Usuario al calcular el DVV";
+                ErrorIntegridad.Add(str);
+            }
+
+            return ErrorIntegridad;
         }
 
         private static Boolean VerificarIntegridadBitacora()

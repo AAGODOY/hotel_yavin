@@ -21,5 +21,11 @@ namespace DAL
             string query = "UPDATE DVV SET valor_dv=" + valor + " WHERE entidad='" + entidad + "'";
             return helper.ExecuteNonQuery(query);
         }
+
+        public int GetDVV(string entidad)
+        {
+            string query = "SELECT valor_dv from DVV where entidad='" + entidad + "'";
+            return Convert.ToInt32(helper.ExecuteScalar(query));
+        }
     }
 }
