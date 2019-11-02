@@ -23,7 +23,7 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
             //TEST
-            txt_NombreUsu.Text = "aldana";
+            txt_NombreUsu.Text = "Aldu";
             txt_contraseña.Text = "asd";
         }
 
@@ -46,6 +46,10 @@ namespace Hotel_Yavin
                         }
                         else
                         {
+                            //CONFIGURACION GLOBAL DEL USUARIO DEL SISTEMA
+                            this.FijarPermisos();
+                            this.FijarIdioma();
+
                             if (usu_BE.es_primer_login)
                             {
                                 Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
@@ -58,10 +62,6 @@ namespace Hotel_Yavin
                                 //if (listaErrores.Count == 0)
                                 //{
                                     MessageBox.Show("Se ingresó al sistema");
-                                    //CONFIGURACION GLOBAL
-                                    this.FijarPermisos();
-                                    this.FijarIdioma();
-
                                     menuPrincipal.Show(this);
                                     //this.Owner.Hide();
                                     this.Hide();
@@ -93,7 +93,7 @@ namespace Hotel_Yavin
             BE.ConfigUsuario.usuarioLogueado = usu_BE;
             BLL.ConfigUsuario.FijarPermisos(
                 usuPat_BLL.SelectByIdUser(usu_BE.id), 
-                usuPat_BLL.GetPatentes(usu_BE.id), 
+                usuPat_BLL.GetPatentesIndividuales(usu_BE.id), 
                 usuFam_BLL.GetFamilias(usu_BE.id));
         }
 

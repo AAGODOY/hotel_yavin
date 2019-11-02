@@ -59,9 +59,14 @@ namespace BLL
             return GetInstance().GetUsuarioPatente(idUsuario, idPatente);
         }
 
-        public List<BE.Patente> GetPatentes(int id_usuario)
+        public List<BE.Patente> GetPatentesIndividuales(int id_usuario)
         {
-            return GetInstance().GetPatentes(id_usuario);
+            return GetInstance().GetPatentesIndividuales(id_usuario);
+        }
+
+        public List<BE.Patente> GetPatentesUsuario(int id_usuario)
+        {
+            return GetInstance().GetPatentesUsuario(id_usuario);
         }
     }
 }

@@ -76,7 +76,8 @@ namespace DAL
             }
         }
 
-        public List<BE.Patente> GetPatentes(int id_usuario)
+        //NOTA: retornar una lista sin repetir de las patentes del usuario (sólo las individuales)
+        public List<BE.Patente> GetPatentesIndividuales(int id_usuario)
         {
             string query = "SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.id_patente = Patente.id_patente WHERE id_usuario =" + id_usuario + ""; 
             //string query = $"SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.id_patente = Patente.id_patente WHERE id_usuario = {id_usuario}";
@@ -91,9 +92,40 @@ namespace DAL
 
                 return patente_list;
             }
-
         }
 
+        //NOTA: retornar una lista sin repetir de las patentes del usuario (individuales + familia)
+        public List<BE.Patente> GetPatentesUsuario(int id_usuario)
+        {
+            string query = @"declare @idUsuario Int = " + id_usuario + @"
+                            select distinct up.id_patente, p.descripcion, p.activo
+                            from usuario u
+                            INNER JOIN UsuarioPatente up on u.id_usuario = up.id_usuario
+                            INNER JOIN Patente p on up.id_patente = p.id_patente
+                            where u.id_usuario = @idUsuario
+                            UNION
+                            select distinct p.id_patente, p. descripcion, p.activo
+                            from usuario u
+                            INNER JOIN FamiliaUsuario fu on u.id_usuario = fu.id_usuario
+                            INNER JOIN Familia f on fu.id_familia = f.id_familia
+                            INNER JOIN FamiliaPatente fp on fu.id_familia = fp.id_familia
+                            INNER JOIN Patente p on fp.id_patente = p.id_patente
+                            where u.id_usuario = @idUsuario";
+
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Patente> patente_list = new List<BE.Patente>();
+                while (dataReader.Read())
+                {
+                    BE.Patente usuarioPatentes = MapDataReaderPat(dataReader);
+                    patente_list.Add(usuarioPatentes);
+                }
+
+                return patente_list;
+            }
+        }
+
+        /*************************************************************************/
         private BE.UsuarioPatente MapDataReaderUsuPat(SqlDataReader dataReader) {
             BE.UsuarioPatente usuPat = new BE.UsuarioPatente();
             usuPat.id_patente = dataReader.GetInt32(0);

@@ -12,7 +12,7 @@ namespace BLL
     public static class Services
     {
 
-        //IMPLEMENTACION PATRON: Reflection
+        #region Reflection
         public static dynamic GetPropertyValues(string property, object objeto)
         {
             Type t = objeto.GetType();
@@ -30,6 +30,9 @@ namespace BLL
             }
             return null;
         }
+        #endregion
+
+        #region SQL connection
 
         public static string GetConnectionString()
         {
@@ -76,5 +79,28 @@ namespace BLL
                 nodo.SelectSingleNode("connectionString").InnerText = connString;
             doc.Save(@"C:\\Hotel Yavin\\Connection_string.xml");
         }
+
+        #endregion
+
+        #region Validación uso patente
+
+        //DEBE RECIBIR: un idUsuario (sobre el que se intenta realizar x acción que impacta en la regla de uso de patentes)
+        public static int VerificarUsoPatente(int id_usuario, List<BE.Patente> patentes)
+        {
+            int validacion = 0;
+            foreach (BE.Patente patente in patentes)
+            {
+                validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id);
+                //CONDICION: si ningun usuario tiene la patente (a parte del seleccionado), la acción x no debe realizarse
+                if (validacion == 0)
+                {
+                    break;
+                }
+            }
+            return validacion;
+        }
+
+        #endregion
+        
     }
 }

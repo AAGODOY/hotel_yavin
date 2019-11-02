@@ -19,6 +19,7 @@ namespace Hotel_Yavin
 
         BE.Usuario usu_BE = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
+        BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
 
         private void AdministrarUsuario_Load(object sender, EventArgs e)
         {
@@ -64,15 +65,25 @@ namespace Hotel_Yavin
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                BE.Usuario usuAinhabilitar = new BE.Usuario();
-                usuAinhabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                usu_BLL.Delete(usuAinhabilitar);
-                MessageBox.Show("Se inhabilitó el usuario seleccionado");
-                ActualizarGrilla();
+                int id_usuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                List<BE.Patente> patentes_usuario = usuPat_BLL.GetPatentesUsuario(id_usuario);
+
+                if (BLL.Services.VerificarUsoPatente(id_usuario, patentes_usuario) != 0)
+                {
+                    BE.Usuario usuAinhabilitar = new BE.Usuario();
+                    usuAinhabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    usu_BLL.Delete(usuAinhabilitar);
+                    MessageBox.Show("Se inhabilitó el usuario seleccionado");
+                    ActualizarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
+                }
             }
             else
             {
-                MessageBox.Show("No se debe seleccionar un registro a inhabilitar");
+                MessageBox.Show("Se debe seleccionar un registro a inhabilitar");
             }
         }
 
