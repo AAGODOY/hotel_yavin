@@ -20,7 +20,8 @@ namespace DAL
 
         public int Delete(BE.FamiliaUsuario objBaja)
         {
-            throw new NotImplementedException();
+            string query = "DELETE from FamiliaUsuario where id_usuario = " + objBaja.id_usuario + " and id_familia = " + objBaja.id_familia + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Update(BE.FamiliaUsuario objUpdate)

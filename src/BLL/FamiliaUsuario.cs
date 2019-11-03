@@ -29,7 +29,7 @@ namespace BLL
 
         public int Delete(BE.FamiliaUsuario objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
         }
 
         public int Update(BE.FamiliaUsuario objUpdate)

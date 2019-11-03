@@ -16,8 +16,10 @@ namespace Hotel_Yavin
         DataGridViewRow usuario_seleccionado = new DataGridViewRow();
         BLL.Usuario usu_BLL = new BLL.Usuario();
         BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
+        BE.UsuarioPatente usuPat_BE = new BE.UsuarioPatente();
         BLL.Familia fam_BLL = new BLL.Familia();
         BLL.FamiliaUsuario famUsu_BLL = new BLL.FamiliaUsuario();
+        BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
         BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
         BLL.Patente pat_BLL = new BLL.Patente();
         //Asignaciones del usuario en DB
@@ -186,6 +188,74 @@ namespace Hotel_Yavin
             }
 
             usu_BLL.Update(usu_BE);
+
+            //PASO 2 parte 1: Asociacion de patentes a usuario
+            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
+            {
+                if (!this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                {
+                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                    usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
+                    usuPat_BLL.Add(usuPat_BE);
+                }
+            }
+
+            //PASO 2 parte 2: Desasociacion de patente a usuario
+            foreach (DataGridViewRow fila in dgv_patentesDisponibles.Rows)
+            {
+                if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                {
+                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                    usuPat_BLL.Delete(usuPat_BE);
+                }
+            }
+
+            //PASO 2 parte 3: Negar patente a un usuario
+            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
+            {
+                BE.UsuarioPatente usuarioPatente = new BE.UsuarioPatente();
+                usuarioPatente = usuPat_BLL.GetUsuarioPatente((int)usuario_seleccionado.Cells[0].Value, (int)fila.Cells[0].Value);
+
+                if ((bool)fila.Cells[3].Value != usuarioPatente.patenteNegada)
+                {
+                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                    usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
+                    usuPat_BLL.Update(usuPat_BE);
+                }
+            }
+
+            //PASO 3 parte 1: Asociacion de familia a Usuario
+            List<BE.FamiliaUsuario> famAsociadas = new List<BE.FamiliaUsuario>();
+            foreach (DataGridViewRow fila in dgv_familiasAsociadas.Rows)
+            {
+                if (!this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                {
+                    famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                    famAsociadas.Add(famUsu_BE);
+                    famUsu_BLL.Add(famUsu_BE);
+                }
+            }
+
+            //PASO 3 parte 2: Desasociacion de familia a Usuario
+            List<BE.FamiliaUsuario> famDesasociadas = new List<BE.FamiliaUsuario>();
+            foreach (DataGridViewRow fila in dgv_familiasDisponibles.Rows)
+            {
+                if (this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                {
+                    famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                    famDesasociadas.Add(famUsu_BE);
+                    famUsu_BLL.Delete(famUsu_BE);
+                }
+            }
+
+            //PASO 3: Mensaje al usuario y volver atrás
+            MessageBox.Show("Usuario modificado con éxito");
+            this.Close();
         }
 
         private void txt_NumDoc_KeyPress(object sender, KeyPressEventArgs e)

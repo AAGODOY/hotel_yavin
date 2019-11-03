@@ -20,12 +20,14 @@ namespace DAL
 
         public int Delete(BE.UsuarioPatente objBaja)
         {
-            throw new NotImplementedException();
+            string query = "DELETE from UsuarioPatente where id_patente = " + objBaja.id_patente + " and id_usuario = " + objBaja.id_usuario + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Update(BE.UsuarioPatente objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE UsuarioPatente SET DVH = " + objUpdate.DVH + "," + " patenteNegada = "  + Convert.ToInt32(objUpdate.patenteNegada) + " where id_patente =" + objUpdate.id_patente + " and id_usuario =" + objUpdate.id_usuario + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.UsuarioPatente> SelectAll()

@@ -36,12 +36,20 @@ namespace BLL
 
         public int Delete(BE.UsuarioPatente objBaja)
         {
-            throw new NotImplementedException();
+            int resultado = GetInstance().Delete(objBaja);
+            DigitoVerificador.CalcularDVV("UsuarioPatente");
+
+            return resultado;
         }
 
         public int Update(BE.UsuarioPatente objUpdate)
         {
-            throw new NotImplementedException();
+            string cadenaDVH = objUpdate.id_patente.ToString() + objUpdate.id_usuario.ToString() + objUpdate.patenteNegada.ToString();
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            int usuPatModiciado = GetInstance().Update(objUpdate);
+            DigitoVerificador.CalcularDVV("UsuarioPatente");
+            return usuPatModiciado;
         }
 
         public List<BE.UsuarioPatente> SelectAll()

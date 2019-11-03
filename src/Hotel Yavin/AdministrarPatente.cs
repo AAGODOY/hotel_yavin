@@ -17,6 +17,11 @@ namespace Hotel_Yavin
             InitializeComponent();
         }
 
+        public AdministrarPatente(DataGridViewRow patente)
+        {
+            InitializeComponent();
+        }
+
         BE.Patente pat_BE = new BE.Patente();
         BLL.Patente pat_BLL = new BLL.Patente();
 
