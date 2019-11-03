@@ -20,7 +20,7 @@ namespace BLL
             {
                 if (familia.activo)
                 {
-                    foreach (BE.Patente patente in famPat_BLL.GetPatentes(familia.id))
+                    foreach (BE.Patente patente in famPat_BLL.GetPatentesFamilia(familia.id))
                     {
                         if (!BE.ConfigUsuario.permisos.Any(p => p.id == patente.id))
                         {

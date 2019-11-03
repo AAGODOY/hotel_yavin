@@ -51,30 +51,38 @@
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_NomUsu = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btn_DesasociarFamilias = new System.Windows.Forms.Button();
-            this.btn_AsociarFamilias = new System.Windows.Forms.Button();
-            this.lst_FamiliasAsociadas = new System.Windows.Forms.ListBox();
-            this.lst_FamiliasDisponibles = new System.Windows.Forms.ListBox();
-            this.lbl_FamiliasAsociadas = new System.Windows.Forms.Label();
+            this.dgv_familiasAsociadas = new System.Windows.Forms.DataGridView();
+            this.dgv_familiasDisponibles = new System.Windows.Forms.DataGridView();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btn_DesasociarFamilia = new System.Windows.Forms.Button();
+            this.btn_AsociarFamilia = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.lbl_FamiliasDisponibles = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dgv_patentesAsociadas = new System.Windows.Forms.DataGridView();
+            this.dgv_patentesDisponibles = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_NegarPatente = new System.Windows.Forms.Button();
             this.btn_DesasociarPatente = new System.Windows.Forms.Button();
             this.btn_AsociarPatente = new System.Windows.Forms.Button();
-            this.lst_PatentesAsociadas = new System.Windows.Forms.ListBox();
-            this.lst_PatentesDisponibles = new System.Windows.Forms.ListBox();
-            this.lbl_PatentesAsociadas = new System.Windows.Forms.Label();
-            this.lbl_PatentesDisponibles = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familiasAsociadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familiasDisponibles)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesAsociadas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesDisponibles)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_GuardarUsuario
             // 
-            this.btn_GuardarUsuario.Location = new System.Drawing.Point(501, 359);
+            this.btn_GuardarUsuario.Location = new System.Drawing.Point(474, 359);
             this.btn_GuardarUsuario.Name = "btn_GuardarUsuario";
             this.btn_GuardarUsuario.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarUsuario.TabIndex = 18;
@@ -84,7 +92,7 @@
             // 
             // btn_CancelarUsuario
             // 
-            this.btn_CancelarUsuario.Location = new System.Drawing.Point(407, 359);
+            this.btn_CancelarUsuario.Location = new System.Drawing.Point(380, 359);
             this.btn_CancelarUsuario.Name = "btn_CancelarUsuario";
             this.btn_CancelarUsuario.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarUsuario.TabIndex = 17;
@@ -100,7 +108,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(582, 341);
+            this.tabControl1.Size = new System.Drawing.Size(554, 341);
             this.tabControl1.TabIndex = 16;
             this.tabControl1.Tag = "";
             // 
@@ -126,7 +134,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(574, 315);
+            this.tabPage1.Size = new System.Drawing.Size(546, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos del Usuario";
             // 
@@ -287,154 +295,231 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage3.Controls.Add(this.btn_DesasociarFamilias);
-            this.tabPage3.Controls.Add(this.btn_AsociarFamilias);
-            this.tabPage3.Controls.Add(this.lst_FamiliasAsociadas);
-            this.tabPage3.Controls.Add(this.lst_FamiliasDisponibles);
-            this.tabPage3.Controls.Add(this.lbl_FamiliasAsociadas);
+            this.tabPage3.Controls.Add(this.dgv_familiasAsociadas);
+            this.tabPage3.Controls.Add(this.dgv_familiasDisponibles);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.btn_DesasociarFamilia);
+            this.tabPage3.Controls.Add(this.btn_AsociarFamilia);
+            this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.lbl_FamiliasDisponibles);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(574, 315);
+            this.tabPage3.Size = new System.Drawing.Size(546, 315);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Familia";
             // 
-            // btn_DesasociarFamilias
+            // dgv_familiasAsociadas
             // 
-            this.btn_DesasociarFamilias.Location = new System.Drawing.Point(265, 210);
-            this.btn_DesasociarFamilias.Name = "btn_DesasociarFamilias";
-            this.btn_DesasociarFamilias.Size = new System.Drawing.Size(46, 37);
-            this.btn_DesasociarFamilias.TabIndex = 5;
-            this.btn_DesasociarFamilias.Text = "<";
-            this.btn_DesasociarFamilias.UseVisualStyleBackColor = true;
+            this.dgv_familiasAsociadas.AllowUserToAddRows = false;
+            this.dgv_familiasAsociadas.AllowUserToDeleteRows = false;
+            this.dgv_familiasAsociadas.AllowUserToResizeColumns = false;
+            this.dgv_familiasAsociadas.AllowUserToResizeRows = false;
+            this.dgv_familiasAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_familiasAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_familiasAsociadas.Location = new System.Drawing.Point(334, 65);
+            this.dgv_familiasAsociadas.Name = "dgv_familiasAsociadas";
+            this.dgv_familiasAsociadas.RowHeadersVisible = false;
+            this.dgv_familiasAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_familiasAsociadas.Size = new System.Drawing.Size(194, 210);
+            this.dgv_familiasAsociadas.TabIndex = 27;
             // 
-            // btn_AsociarFamilias
+            // dgv_familiasDisponibles
             // 
-            this.btn_AsociarFamilias.Location = new System.Drawing.Point(265, 75);
-            this.btn_AsociarFamilias.Name = "btn_AsociarFamilias";
-            this.btn_AsociarFamilias.Size = new System.Drawing.Size(46, 37);
-            this.btn_AsociarFamilias.TabIndex = 4;
-            this.btn_AsociarFamilias.Text = ">";
-            this.btn_AsociarFamilias.UseVisualStyleBackColor = true;
+            this.dgv_familiasDisponibles.AllowUserToAddRows = false;
+            this.dgv_familiasDisponibles.AllowUserToDeleteRows = false;
+            this.dgv_familiasDisponibles.AllowUserToResizeColumns = false;
+            this.dgv_familiasDisponibles.AllowUserToResizeRows = false;
+            this.dgv_familiasDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_familiasDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_familiasDisponibles.Location = new System.Drawing.Point(26, 65);
+            this.dgv_familiasDisponibles.Name = "dgv_familiasDisponibles";
+            this.dgv_familiasDisponibles.RowHeadersVisible = false;
+            this.dgv_familiasDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_familiasDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_familiasDisponibles.Size = new System.Drawing.Size(194, 210);
+            this.dgv_familiasDisponibles.TabIndex = 26;
             // 
-            // lst_FamiliasAsociadas
+            // label15
             // 
-            this.lst_FamiliasAsociadas.FormattingEnabled = true;
-            this.lst_FamiliasAsociadas.Location = new System.Drawing.Point(316, 52);
-            this.lst_FamiliasAsociadas.Name = "lst_FamiliasAsociadas";
-            this.lst_FamiliasAsociadas.Size = new System.Drawing.Size(231, 238);
-            this.lst_FamiliasAsociadas.TabIndex = 3;
+            this.label15.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label15.Location = new System.Drawing.Point(0, 302);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(544, 10);
+            this.label15.TabIndex = 25;
             // 
-            // lst_FamiliasDisponibles
+            // label16
             // 
-            this.lst_FamiliasDisponibles.FormattingEnabled = true;
-            this.lst_FamiliasDisponibles.Location = new System.Drawing.Point(28, 52);
-            this.lst_FamiliasDisponibles.Name = "lst_FamiliasDisponibles";
-            this.lst_FamiliasDisponibles.Size = new System.Drawing.Size(231, 238);
-            this.lst_FamiliasDisponibles.TabIndex = 2;
+            this.label16.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label16.Location = new System.Drawing.Point(0, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(542, 10);
+            this.label16.TabIndex = 24;
             // 
-            // lbl_FamiliasAsociadas
+            // btn_DesasociarFamilia
             // 
-            this.lbl_FamiliasAsociadas.AutoSize = true;
-            this.lbl_FamiliasAsociadas.Location = new System.Drawing.Point(313, 25);
-            this.lbl_FamiliasAsociadas.Name = "lbl_FamiliasAsociadas";
-            this.lbl_FamiliasAsociadas.Size = new System.Drawing.Size(144, 13);
-            this.lbl_FamiliasAsociadas.TabIndex = 1;
-            this.lbl_FamiliasAsociadas.Text = "Familias Asociadas al usuario";
+            this.btn_DesasociarFamilia.Location = new System.Drawing.Point(246, 238);
+            this.btn_DesasociarFamilia.Name = "btn_DesasociarFamilia";
+            this.btn_DesasociarFamilia.Size = new System.Drawing.Size(55, 37);
+            this.btn_DesasociarFamilia.TabIndex = 22;
+            this.btn_DesasociarFamilia.Text = "<";
+            this.btn_DesasociarFamilia.UseVisualStyleBackColor = true;
+            this.btn_DesasociarFamilia.Click += new System.EventHandler(this.btn_DesasociarFamilia_Click);
+            // 
+            // btn_AsociarFamilia
+            // 
+            this.btn_AsociarFamilia.Location = new System.Drawing.Point(246, 65);
+            this.btn_AsociarFamilia.Name = "btn_AsociarFamilia";
+            this.btn_AsociarFamilia.Size = new System.Drawing.Size(55, 37);
+            this.btn_AsociarFamilia.TabIndex = 21;
+            this.btn_AsociarFamilia.Text = ">";
+            this.btn_AsociarFamilia.UseVisualStyleBackColor = true;
+            this.btn_AsociarFamilia.Click += new System.EventHandler(this.btn_AsociarFamilia_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(331, 36);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(144, 13);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Familias Asociadas al usuario";
             // 
             // lbl_FamiliasDisponibles
             // 
             this.lbl_FamiliasDisponibles.AutoSize = true;
-            this.lbl_FamiliasDisponibles.Location = new System.Drawing.Point(25, 25);
+            this.lbl_FamiliasDisponibles.Location = new System.Drawing.Point(23, 36);
             this.lbl_FamiliasDisponibles.Name = "lbl_FamiliasDisponibles";
             this.lbl_FamiliasDisponibles.Size = new System.Drawing.Size(101, 13);
-            this.lbl_FamiliasDisponibles.TabIndex = 0;
+            this.lbl_FamiliasDisponibles.TabIndex = 19;
             this.lbl_FamiliasDisponibles.Text = "Familias Disponibles";
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.dgv_patentesAsociadas);
+            this.tabPage4.Controls.Add(this.dgv_patentesDisponibles);
+            this.tabPage4.Controls.Add(this.label1);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.btn_NegarPatente);
             this.tabPage4.Controls.Add(this.btn_DesasociarPatente);
             this.tabPage4.Controls.Add(this.btn_AsociarPatente);
-            this.tabPage4.Controls.Add(this.lst_PatentesAsociadas);
-            this.tabPage4.Controls.Add(this.lst_PatentesDisponibles);
-            this.tabPage4.Controls.Add(this.lbl_PatentesAsociadas);
-            this.tabPage4.Controls.Add(this.lbl_PatentesDisponibles);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(574, 315);
+            this.tabPage4.Size = new System.Drawing.Size(546, 315);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Patente";
             // 
-            // button1
+            // dgv_patentesAsociadas
             // 
-            this.button1.Location = new System.Drawing.Point(264, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 37);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Negar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dgv_patentesAsociadas.AllowUserToAddRows = false;
+            this.dgv_patentesAsociadas.AllowUserToDeleteRows = false;
+            this.dgv_patentesAsociadas.AllowUserToResizeColumns = false;
+            this.dgv_patentesAsociadas.AllowUserToResizeRows = false;
+            this.dgv_patentesAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_patentesAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_patentesAsociadas.Location = new System.Drawing.Point(335, 65);
+            this.dgv_patentesAsociadas.Name = "dgv_patentesAsociadas";
+            this.dgv_patentesAsociadas.RowHeadersVisible = false;
+            this.dgv_patentesAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_patentesAsociadas.Size = new System.Drawing.Size(194, 210);
+            this.dgv_patentesAsociadas.TabIndex = 27;
+            this.dgv_patentesAsociadas.SelectionChanged += new System.EventHandler(this.dgv_patentesAsociadas_SelectionChanged);
+            // 
+            // dgv_patentesDisponibles
+            // 
+            this.dgv_patentesDisponibles.AllowUserToAddRows = false;
+            this.dgv_patentesDisponibles.AllowUserToDeleteRows = false;
+            this.dgv_patentesDisponibles.AllowUserToResizeColumns = false;
+            this.dgv_patentesDisponibles.AllowUserToResizeRows = false;
+            this.dgv_patentesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_patentesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_patentesDisponibles.Location = new System.Drawing.Point(27, 65);
+            this.dgv_patentesDisponibles.Name = "dgv_patentesDisponibles";
+            this.dgv_patentesDisponibles.RowHeadersVisible = false;
+            this.dgv_patentesDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_patentesDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_patentesDisponibles.Size = new System.Drawing.Size(194, 210);
+            this.dgv_patentesDisponibles.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(1, 302);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(544, 10);
+            this.label1.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(1, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(542, 10);
+            this.label2.TabIndex = 24;
+            // 
+            // btn_NegarPatente
+            // 
+            this.btn_NegarPatente.Enabled = false;
+            this.btn_NegarPatente.Location = new System.Drawing.Point(247, 117);
+            this.btn_NegarPatente.Name = "btn_NegarPatente";
+            this.btn_NegarPatente.Size = new System.Drawing.Size(55, 106);
+            this.btn_NegarPatente.TabIndex = 23;
+            this.btn_NegarPatente.Text = "Negar ✍";
+            this.btn_NegarPatente.UseVisualStyleBackColor = true;
+            this.btn_NegarPatente.Click += new System.EventHandler(this.btn_NegarPatente_Click);
             // 
             // btn_DesasociarPatente
             // 
-            this.btn_DesasociarPatente.Location = new System.Drawing.Point(266, 210);
+            this.btn_DesasociarPatente.Location = new System.Drawing.Point(247, 238);
             this.btn_DesasociarPatente.Name = "btn_DesasociarPatente";
-            this.btn_DesasociarPatente.Size = new System.Drawing.Size(46, 37);
-            this.btn_DesasociarPatente.TabIndex = 11;
+            this.btn_DesasociarPatente.Size = new System.Drawing.Size(55, 37);
+            this.btn_DesasociarPatente.TabIndex = 22;
             this.btn_DesasociarPatente.Text = "<";
             this.btn_DesasociarPatente.UseVisualStyleBackColor = true;
+            this.btn_DesasociarPatente.Click += new System.EventHandler(this.btn_DesasociarPatente_Click);
             // 
             // btn_AsociarPatente
             // 
-            this.btn_AsociarPatente.Location = new System.Drawing.Point(266, 75);
+            this.btn_AsociarPatente.Location = new System.Drawing.Point(247, 65);
             this.btn_AsociarPatente.Name = "btn_AsociarPatente";
-            this.btn_AsociarPatente.Size = new System.Drawing.Size(46, 37);
-            this.btn_AsociarPatente.TabIndex = 10;
+            this.btn_AsociarPatente.Size = new System.Drawing.Size(55, 37);
+            this.btn_AsociarPatente.TabIndex = 21;
             this.btn_AsociarPatente.Text = ">";
             this.btn_AsociarPatente.UseVisualStyleBackColor = true;
+            this.btn_AsociarPatente.Click += new System.EventHandler(this.btn_AsociarPatente_Click);
             // 
-            // lst_PatentesAsociadas
+            // label3
             // 
-            this.lst_PatentesAsociadas.FormattingEnabled = true;
-            this.lst_PatentesAsociadas.Location = new System.Drawing.Point(317, 52);
-            this.lst_PatentesAsociadas.Name = "lst_PatentesAsociadas";
-            this.lst_PatentesAsociadas.Size = new System.Drawing.Size(231, 238);
-            this.lst_PatentesAsociadas.TabIndex = 9;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(332, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Patentes Asociadas al usuario";
             // 
-            // lst_PatentesDisponibles
+            // label4
             // 
-            this.lst_PatentesDisponibles.FormattingEnabled = true;
-            this.lst_PatentesDisponibles.Location = new System.Drawing.Point(29, 52);
-            this.lst_PatentesDisponibles.Name = "lst_PatentesDisponibles";
-            this.lst_PatentesDisponibles.Size = new System.Drawing.Size(231, 238);
-            this.lst_PatentesDisponibles.TabIndex = 8;
-            // 
-            // lbl_PatentesAsociadas
-            // 
-            this.lbl_PatentesAsociadas.AutoSize = true;
-            this.lbl_PatentesAsociadas.Location = new System.Drawing.Point(314, 25);
-            this.lbl_PatentesAsociadas.Name = "lbl_PatentesAsociadas";
-            this.lbl_PatentesAsociadas.Size = new System.Drawing.Size(149, 13);
-            this.lbl_PatentesAsociadas.TabIndex = 7;
-            this.lbl_PatentesAsociadas.Text = "Patentes Asociadas al usuario";
-            // 
-            // lbl_PatentesDisponibles
-            // 
-            this.lbl_PatentesDisponibles.AutoSize = true;
-            this.lbl_PatentesDisponibles.Location = new System.Drawing.Point(26, 25);
-            this.lbl_PatentesDisponibles.Name = "lbl_PatentesDisponibles";
-            this.lbl_PatentesDisponibles.Size = new System.Drawing.Size(106, 13);
-            this.lbl_PatentesDisponibles.TabIndex = 6;
-            this.lbl_PatentesDisponibles.Text = "Patentes Disponibles";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Patentes Disponibles";
             // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 408);
+            this.ClientSize = new System.Drawing.Size(580, 408);
             this.Controls.Add(this.btn_GuardarUsuario);
             this.Controls.Add(this.btn_CancelarUsuario);
             this.Controls.Add(this.tabControl1);
@@ -447,8 +532,12 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familiasAsociadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_familiasDisponibles)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesAsociadas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_patentesDisponibles)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,23 +563,27 @@
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_NomUsu;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button btn_DesasociarFamilias;
-        private System.Windows.Forms.Button btn_AsociarFamilias;
-        private System.Windows.Forms.ListBox lst_FamiliasAsociadas;
-        private System.Windows.Forms.ListBox lst_FamiliasDisponibles;
-        private System.Windows.Forms.Label lbl_FamiliasAsociadas;
-        private System.Windows.Forms.Label lbl_FamiliasDisponibles;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_DesasociarPatente;
-        private System.Windows.Forms.Button btn_AsociarPatente;
-        private System.Windows.Forms.ListBox lst_PatentesAsociadas;
-        private System.Windows.Forms.ListBox lst_PatentesDisponibles;
-        private System.Windows.Forms.Label lbl_PatentesAsociadas;
-        private System.Windows.Forms.Label lbl_PatentesDisponibles;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_BlanquearPass;
         private System.Windows.Forms.Button btn_Desbloquear;
         private System.Windows.Forms.Button btn_Bloquear;
+        private System.Windows.Forms.DataGridView dgv_familiasAsociadas;
+        private System.Windows.Forms.DataGridView dgv_familiasDisponibles;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btn_DesasociarFamilia;
+        private System.Windows.Forms.Button btn_AsociarFamilia;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lbl_FamiliasDisponibles;
+        private System.Windows.Forms.DataGridView dgv_patentesAsociadas;
+        private System.Windows.Forms.DataGridView dgv_patentesDisponibles;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_NegarPatente;
+        private System.Windows.Forms.Button btn_DesasociarPatente;
+        private System.Windows.Forms.Button btn_AsociarPatente;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

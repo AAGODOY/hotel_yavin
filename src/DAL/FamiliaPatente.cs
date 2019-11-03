@@ -44,7 +44,7 @@ namespace DAL
             }
         }
 
-        public List<BE.Patente> GetPatentes(int id_familia)
+        public List<BE.Patente> GetPatentesFamilia(int id_familia)
         {
             string query = "SELECT Patente.id_patente, Patente.descripcion, Patente.activo FROM FamiliaPatente INNER JOIN Patente ON FamiliaPatente.id_patente = Patente.id_patente WHERE id_familia =" + id_familia + "";
             {

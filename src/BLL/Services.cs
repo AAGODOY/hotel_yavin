@@ -88,14 +88,23 @@ namespace BLL
         public static int VerificarUsoPatente(int id_usuario, List<BE.Patente> patentes)
         {
             int validacion = 0;
-            foreach (BE.Patente patente in patentes)
+            if (patentes.Count != 0)
             {
-                validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id);
-                //CONDICION: si ningun usuario tiene la patente (a parte del seleccionado), la acción x no debe realizarse
-                if (validacion == 0)
+                foreach (BE.Patente patente in patentes)
                 {
-                    break;
+                    validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id);
+                    //CONDICION: si ningun usuario tiene la patente (a parte del seleccionado), la acción x no debe realizarse
+                    if (validacion == 0)
+                    {
+                        break;
+                    }
                 }
+                
+            }
+            else
+            {
+                //No aplica la validación. Agregar una excepcion ya que no debe recibir el metodo una lista vacía.
+                validacion = 99;
             }
             return validacion;
         }

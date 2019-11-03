@@ -47,9 +47,9 @@ namespace BLL
             return GetInstance().SelectAll();
         }
 
-        public List<BE.Patente> GetPatentes(int id_familia)
+        public List<BE.Patente> GetPatentesFamilia(int id_familia)
         {
-            return GetInstance().GetPatentes(id_familia);
+            return GetInstance().GetPatentesFamilia(id_familia);
         }
 
     }

@@ -46,9 +46,9 @@ namespace Hotel_Yavin
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                ModificarUsuario usuario = new ModificarUsuario();
+                ModificarUsuario usuario = new ModificarUsuario(dataGridView1.CurrentRow);
                 usuario.Show();
-                usuario.RetornarDatos(dataGridView1.CurrentRow);
+                //usuario.RetornarDatos(dataGridView1.CurrentRow);
             }
             else
             {
