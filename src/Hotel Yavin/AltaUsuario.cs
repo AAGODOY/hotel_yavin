@@ -187,45 +187,45 @@ namespace Hotel_Yavin
                 usu_BE.email = txt_Email.Text;
                 usu_BE.telefono = txt_Telefono.Text;
                 usu_BE.domicilio = txt_Domicilio.Text;
+
+                int idUsuario = usu_BLL.Add(usu_BE);
+
+                //PASO 2: Asociación de patentes a usuario
+                foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
+                {
+                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                    usuPat_BE.id_usuario = idUsuario;
+                    usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
+                    usuPat_BLL.Add(usuPat_BE);
+                }
+
+                foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
+                {
+                    famUsu_BE.id_usuario = idUsuario;
+                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                    famUsu_BLL.Add(famUsu_BE);
+                }
+
+                //PASO3: Guardar contraseña en txt
+                SaveFileDialog savefileDialog = new SaveFileDialog();
+                savefileDialog.ShowDialog();
+                FileStream F = File.Create(savefileDialog.FileName);
+                F.Close();
+                StreamWriter sw = File.AppendText(savefileDialog.FileName);
+                sw.WriteLine("Se creó su usuario " + txt_NomUsu.Text + " con la nueva contraseña: " + usu_BLL.GetContraseña(idUsuario));
+                sw.Close();
+
+                MessageBox.Show("Se envió la contraseña al mail del usuario");
+
+
+                //PASO 4: Mensaje al usuario y volver atrás
+                MessageBox.Show("Usuario generado con éxito");
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Debe completar todos los campos de la pestaña Principal");
+                MessageBox.Show("Debe completar todos los campos de la pestaña principal");
             }
-
-            int idUsuario = usu_BLL.Add(usu_BE);
-
-            //PASO 2: Asociación de patentes a usuario
-            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
-            {
-                usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                usuPat_BE.id_usuario = idUsuario;
-                usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
-                usuPat_BLL.Add(usuPat_BE);
-            }
-
-            foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
-            {
-                famUsu_BE.id_usuario = idUsuario;
-                famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                famUsu_BLL.Add(famUsu_BE);
-            }
-
-            //PASO3: Guardar contraseña en txt
-            SaveFileDialog savefileDialog = new SaveFileDialog();
-            savefileDialog.ShowDialog();
-            FileStream F = File.Create(savefileDialog.FileName);
-            F.Close();
-            StreamWriter sw = File.AppendText(savefileDialog.FileName);
-            sw.WriteLine("Se creó su usuario " + txt_NomUsu.Text + " con la nueva contraseña: " + usu_BLL.GetContraseña(idUsuario));
-            sw.Close();
-
-            MessageBox.Show("Se envió la contraseña al mail del usuario");
-
-
-            //PASO 4: Mensaje al usuario y volver atrás
-            MessageBox.Show("Usuario generado con éxito");
-            this.Close();
 
             #region REFLECTION: Implementación v2
             //var items = BLL.Services.GetPropertyValues("ObjectCollection", lst_PatentesAsociadas);

@@ -185,77 +185,81 @@ namespace Hotel_Yavin
                 usu_BE.DVH = Convert.ToInt32(usuario_seleccionado.Cells[11].Value);
                 usu_BE.es_primer_login = Convert.ToBoolean(usuario_seleccionado.Cells[12].Value);
                 usu_BE.id_idioma = Convert.ToInt32(usuario_seleccionado.Cells[13].Value);
-            }
 
-            usu_BLL.Update(usu_BE);
+                usu_BLL.Update(usu_BE);
 
-            //PASO 2 parte 1: Asociacion de patentes a usuario
-            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
-            {
-                if (!this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                //PASO 2 parte 1: Asociacion de patentes a usuario
+                foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
                 {
-                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
-                    usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
-                    usuPat_BLL.Add(usuPat_BE);
+                    if (!this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                    {
+                        usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                        usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                        usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
+                        usuPat_BLL.Add(usuPat_BE);
+                    }
                 }
-            }
 
-            //PASO 2 parte 2: Desasociacion de patente a usuario
-            foreach (DataGridViewRow fila in dgv_patentesDisponibles.Rows)
-            {
-                if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                //PASO 2 parte 2: Desasociacion de patente a usuario
+                foreach (DataGridViewRow fila in dgv_patentesDisponibles.Rows)
                 {
-                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
-                    usuPat_BLL.Delete(usuPat_BE);
+                    if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                    {
+                        usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                        usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                        usuPat_BLL.Delete(usuPat_BE);
+                    }
                 }
-            }
 
-            //PASO 2 parte 3: Negar patente a un usuario
-            foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
-            {
-                BE.UsuarioPatente usuarioPatente = new BE.UsuarioPatente();
-                usuarioPatente = usuPat_BLL.GetUsuarioPatente((int)usuario_seleccionado.Cells[0].Value, (int)fila.Cells[0].Value);
-
-                if ((bool)fila.Cells[3].Value != usuarioPatente.patenteNegada)
+                //PASO 2 parte 3: Negar patente a un usuario
+                foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
                 {
-                    usuPat_BE.id_patente = (int)fila.Cells[0].Value;
-                    usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
-                    usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
-                    usuPat_BLL.Update(usuPat_BE);
-                }
-            }
+                    BE.UsuarioPatente usuarioPatente = new BE.UsuarioPatente();
+                    usuarioPatente = usuPat_BLL.GetUsuarioPatente((int)usuario_seleccionado.Cells[0].Value, (int)fila.Cells[0].Value);
 
-            //PASO 3 parte 1: Asociacion de familia a Usuario
-            List<BE.FamiliaUsuario> famAsociadas = new List<BE.FamiliaUsuario>();
-            foreach (DataGridViewRow fila in dgv_familiasAsociadas.Rows)
-            {
-                if (!this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                    if ((bool)fila.Cells[3].Value != usuarioPatente.patenteNegada)
+                    {
+                        usuPat_BE.id_patente = (int)fila.Cells[0].Value;
+                        usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                        usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
+                        usuPat_BLL.Update(usuPat_BE);
+                    }
+                }
+
+                //PASO 3 parte 1: Asociacion de familia a Usuario
+                List<BE.FamiliaUsuario> famAsociadas = new List<BE.FamiliaUsuario>();
+                foreach (DataGridViewRow fila in dgv_familiasAsociadas.Rows)
                 {
-                    famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
-                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                    famAsociadas.Add(famUsu_BE);
-                    famUsu_BLL.Add(famUsu_BE);
+                    if (!this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                    {
+                        famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                        famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                        famAsociadas.Add(famUsu_BE);
+                        famUsu_BLL.Add(famUsu_BE);
+                    }
                 }
-            }
 
-            //PASO 3 parte 2: Desasociacion de familia a Usuario
-            List<BE.FamiliaUsuario> famDesasociadas = new List<BE.FamiliaUsuario>();
-            foreach (DataGridViewRow fila in dgv_familiasDisponibles.Rows)
-            {
-                if (this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                //PASO 3 parte 2: Desasociacion de familia a Usuario
+                List<BE.FamiliaUsuario> famDesasociadas = new List<BE.FamiliaUsuario>();
+                foreach (DataGridViewRow fila in dgv_familiasDisponibles.Rows)
                 {
-                    famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
-                    famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                    famDesasociadas.Add(famUsu_BE);
-                    famUsu_BLL.Delete(famUsu_BE);
+                    if (this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                    {
+                        famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
+                        famUsu_BE.id_familia = (int)fila.Cells[0].Value;
+                        famDesasociadas.Add(famUsu_BE);
+                        famUsu_BLL.Delete(famUsu_BE);
+                    }
                 }
-            }
 
-            //PASO 3: Mensaje al usuario y volver atrás
-            MessageBox.Show("Usuario modificado con éxito");
-            this.Close();
+                //PASO 3: Mensaje al usuario y volver atrás
+                MessageBox.Show("Usuario modificado con éxito");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Debe completar todos los campos de la pestaña principal");
+            }
         }
 
         private void txt_NumDoc_KeyPress(object sender, KeyPressEventArgs e)

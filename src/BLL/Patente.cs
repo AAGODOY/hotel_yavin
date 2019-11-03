@@ -28,12 +28,17 @@ namespace BLL
 
         public int Delete(BE.Patente objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
+        }
+
+        public int Habilitar(BE.Patente objHabilitar)
+        {
+            return GetInstance().Habilitar(objHabilitar);
         }
 
         public int Update(BE.Patente objUpdate)
         {
-            throw new NotImplementedException();
+            return GetInstance().Update(objUpdate);
         }
 
         public List<BE.Patente> SelectAll()

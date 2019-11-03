@@ -81,6 +81,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ModificarPatente";
             this.Text = "Modificar Patente";
+            this.Load += new System.EventHandler(this.ModificarPatente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

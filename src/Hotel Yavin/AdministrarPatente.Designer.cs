@@ -58,6 +58,7 @@
             this.btn_habilitar.TabIndex = 9;
             this.btn_habilitar.Text = "Habilitar";
             this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // btn_baja
             // 
@@ -67,6 +68,7 @@
             this.btn_baja.TabIndex = 8;
             this.btn_baja.Text = "Baja";
             this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
             // btn_modificar
             // 

@@ -20,10 +20,15 @@ namespace DAL
 
         public int Delete(BE.Patente objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Patente SET activo = 0 where id_patente =" + objBaja.id + "";
+            return helper.ExecuteNonQuery(query);
         }
 
-        //public static HELPER.Help helper = new HELPER.Help(@"Data Source=KB33\SQL_EAC;Initial Catalog=HotelYavin;Integrated Security=True");
+        public int Habilitar(BE.Patente objHabilitar)
+        {
+            string query = "UPDATE Patente SET activo = 1 where id_patente =" + objHabilitar.id + "";
+            return helper.ExecuteNonQuery(query);
+        }
 
         public List<BE.Patente> SelectAll()
         {
@@ -43,7 +48,8 @@ namespace DAL
 
         public int Update(BE.Patente objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Patente SET descripcion = '" + objUpdate.descripcion + "' where id_patente = " + objUpdate.id + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         private BE.Patente MapDataReader(SqlDataReader dataReader)
