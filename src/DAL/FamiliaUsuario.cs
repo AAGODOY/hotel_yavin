@@ -67,6 +67,22 @@ namespace DAL
             }
         }
 
+        public List<BE.Usuario> GetFamiliaUsuario(int id_familia)
+        {
+            string query = "SELECT * FROM Usuario u INNER JOIN FamiliaUsuario fu on fu.id_usuario = u.id_usuario WHERE fu.id_familia = " + id_familia + "";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Usuario> usu_list = new List<BE.Usuario>();
+                while (dataReader.Read())
+                {
+                    BE.Usuario familiaUsuario = MapDataReaderUsuario(dataReader);
+                    usu_list.Add(familiaUsuario);
+                }
+
+                return usu_list;
+            }
+        }
+
         private BE.FamiliaUsuario MapDataReaderUsuFam(SqlDataReader dataReader)
         {
             BE.FamiliaUsuario familiaUsuario = new BE.FamiliaUsuario();
@@ -84,6 +100,27 @@ namespace DAL
             familia.activo = dataReader.GetBoolean(2);
 
             return familia;
+        }
+
+        private BE.Usuario MapDataReaderUsuario(SqlDataReader dataReader)
+        {
+            BE.Usuario usu = new BE.Usuario();
+            usu.id = dataReader.GetInt32(0);
+            usu.activo = dataReader.GetBoolean(1);
+            usu.nom_usuario = dataReader.GetString(2);
+            usu.nombre = dataReader.GetString(3);
+            usu.apellido = dataReader.GetString(4);
+            usu.documento = dataReader.GetInt32(5);
+            usu.domicilio = dataReader.GetString(6);
+            usu.telefono = dataReader.GetString(7);
+            usu.email = dataReader.GetString(8);
+            usu.contraseña = dataReader.GetString(9);
+            usu.cant_ingresos_incorrectos = dataReader.GetInt32(10);
+            usu.DVH = dataReader.GetInt32(11);
+            usu.es_primer_login = dataReader.GetBoolean(12);
+            usu.id_idioma = dataReader.GetInt32(13);
+
+            return usu;
         }
     }
 }

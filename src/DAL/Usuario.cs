@@ -180,14 +180,6 @@ namespace DAL
             usu.es_primer_login = dataReader.GetBoolean(12);
             usu.id_idioma = dataReader.GetInt32(13);
 
-            ////CODIGO A ELIMINAR (solo para pruebas)
-            //string usuario = "";
-            //string final = "";
-            //usuario += usu.id.ToString() + usu.activo.ToString() + usu.nombre + usu.domicilio;
-            //usuario.Trim(); // Borra solo espacios en blanco al inicio/fin de un string
-            ////usuario = usuario.Replace(" ", ""); // Reemplaza espacios en blanco segun criterio aplicado
-            //final = Regex.Replace(usuario, @"s", ""); // Reemplaza espacios en blanco segun una regular expression
-
             return usu;
         }
     }

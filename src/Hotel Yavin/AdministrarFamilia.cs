@@ -36,7 +36,15 @@ namespace Hotel_Yavin
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-
+            if (dgv_familias.SelectedRows.Count == 1)
+            {
+                ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow);
+                familia.Show();
+            }
+            else
+            {
+                MessageBox.Show("Se debe seleccionar un registro a modificar");
+            } 
         }
     }
 }

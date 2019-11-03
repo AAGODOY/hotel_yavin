@@ -170,6 +170,12 @@
     <Compile Include="ModificarContrasena.Designer.cs">
       <DependentUpon>ModificarContrasena.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarFamilia.Designer.cs">
+      <DependentUpon>ModificarFamilia.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarHuesped.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarContrasena.resx">
       <DependentUpon>ModificarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarFamilia.resx">
+      <DependentUpon>ModificarFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarHuesped.resx">
       <DependentUpon>ModificarHuesped.cs</DependentUpon>

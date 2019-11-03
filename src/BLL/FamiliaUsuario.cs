@@ -51,5 +51,10 @@ namespace BLL
         {
             return GetInstance().GetFamilias(idUsuario);
         }
+
+        public List<BE.Usuario> GetFamiliaUsuario(int id_familia)
+        {
+            return GetInstance().GetFamiliaUsuario(id_familia);
+        }
     }
 }

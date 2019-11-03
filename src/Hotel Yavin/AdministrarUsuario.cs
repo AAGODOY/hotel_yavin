@@ -52,7 +52,7 @@ namespace Hotel_Yavin
             }
             else
             {
-                MessageBox.Show("No se debe seleccionar un registro a modificar");
+                MessageBox.Show("Se debe seleccionar un registro a modificar");
             }           
         }
 
