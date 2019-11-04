@@ -43,8 +43,8 @@
             this.dgv_UsuariosDisponibles = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_DesasociarUsuario = new System.Windows.Forms.Button();
+            this.btn_AsociarUsuario = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_UsuariosDisponibles = new System.Windows.Forms.Label();
             this.btn_GuardarFamilia = new System.Windows.Forms.Button();
@@ -143,6 +143,7 @@
             this.btn_DesasociarPatente.TabIndex = 22;
             this.btn_DesasociarPatente.Text = "<";
             this.btn_DesasociarPatente.UseVisualStyleBackColor = true;
+            this.btn_DesasociarPatente.Click += new System.EventHandler(this.btn_DesasociarPatente_Click);
             // 
             // btn_AsociarPatente
             // 
@@ -152,6 +153,7 @@
             this.btn_AsociarPatente.TabIndex = 21;
             this.btn_AsociarPatente.Text = ">";
             this.btn_AsociarPatente.UseVisualStyleBackColor = true;
+            this.btn_AsociarPatente.Click += new System.EventHandler(this.btn_AsociarPatente_Click);
             // 
             // lbl_PatentesAsociadas
             // 
@@ -178,8 +180,8 @@
             this.tab_UsuarioFamilia.Controls.Add(this.dgv_UsuariosDisponibles);
             this.tab_UsuarioFamilia.Controls.Add(this.label2);
             this.tab_UsuarioFamilia.Controls.Add(this.label3);
-            this.tab_UsuarioFamilia.Controls.Add(this.button2);
-            this.tab_UsuarioFamilia.Controls.Add(this.button3);
+            this.tab_UsuarioFamilia.Controls.Add(this.btn_DesasociarUsuario);
+            this.tab_UsuarioFamilia.Controls.Add(this.btn_AsociarUsuario);
             this.tab_UsuarioFamilia.Controls.Add(this.label4);
             this.tab_UsuarioFamilia.Controls.Add(this.lbl_UsuariosDisponibles);
             this.tab_UsuarioFamilia.Location = new System.Drawing.Point(4, 22);
@@ -236,23 +238,25 @@
             this.label3.Size = new System.Drawing.Size(542, 10);
             this.label3.TabIndex = 33;
             // 
-            // button2
+            // btn_DesasociarUsuario
             // 
-            this.button2.Location = new System.Drawing.Point(253, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 37);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_DesasociarUsuario.Location = new System.Drawing.Point(253, 239);
+            this.btn_DesasociarUsuario.Name = "btn_DesasociarUsuario";
+            this.btn_DesasociarUsuario.Size = new System.Drawing.Size(46, 37);
+            this.btn_DesasociarUsuario.TabIndex = 31;
+            this.btn_DesasociarUsuario.Text = "<";
+            this.btn_DesasociarUsuario.UseVisualStyleBackColor = true;
+            this.btn_DesasociarUsuario.Click += new System.EventHandler(this.btn_DesasociarUsuario_Click);
             // 
-            // button3
+            // btn_AsociarUsuario
             // 
-            this.button3.Location = new System.Drawing.Point(253, 66);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 37);
-            this.button3.TabIndex = 30;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_AsociarUsuario.Location = new System.Drawing.Point(253, 66);
+            this.btn_AsociarUsuario.Name = "btn_AsociarUsuario";
+            this.btn_AsociarUsuario.Size = new System.Drawing.Size(46, 37);
+            this.btn_AsociarUsuario.TabIndex = 30;
+            this.btn_AsociarUsuario.Text = ">";
+            this.btn_AsociarUsuario.UseVisualStyleBackColor = true;
+            this.btn_AsociarUsuario.Click += new System.EventHandler(this.Btn_AsociarUsuario_Click);
             // 
             // label4
             // 
@@ -352,8 +356,8 @@
         private System.Windows.Forms.DataGridView dgv_UsuariosDisponibles;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_DesasociarUsuario;
+        private System.Windows.Forms.Button btn_AsociarUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_UsuariosDisponibles;
         private System.Windows.Forms.Button btn_GuardarFamilia;

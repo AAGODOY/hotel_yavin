@@ -34,7 +34,7 @@ namespace BLL
 
         public int Delete(BE.FamiliaPatente objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
         }
 
         public int Update(BE.FamiliaPatente objUpdate)

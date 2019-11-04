@@ -27,7 +27,8 @@ namespace DAL
 
         public int Update(BE.Familia objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Familia SET descripcion = '" + objUpdate.descripcion + "'where id_familia =" + objUpdate.id + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.Familia> SelectAll()

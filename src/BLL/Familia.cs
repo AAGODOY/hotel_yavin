@@ -33,7 +33,7 @@ namespace BLL
 
         public int Update(BE.Familia objUpdate)
         {
-            throw new NotImplementedException();
+            return GetInstance().Update(objUpdate);
         }
 
         public List<BE.Familia> SelectAll()

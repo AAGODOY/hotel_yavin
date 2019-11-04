@@ -227,27 +227,23 @@ namespace Hotel_Yavin
                 }
 
                 //PASO 3 parte 1: Asociacion de familia a Usuario
-                List<BE.FamiliaUsuario> famAsociadas = new List<BE.FamiliaUsuario>();
                 foreach (DataGridViewRow fila in dgv_familiasAsociadas.Rows)
                 {
                     if (!this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
                     {
                         famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                        famAsociadas.Add(famUsu_BE);
                         famUsu_BLL.Add(famUsu_BE);
                     }
                 }
 
                 //PASO 3 parte 2: Desasociacion de familia a Usuario
-                List<BE.FamiliaUsuario> famDesasociadas = new List<BE.FamiliaUsuario>();
                 foreach (DataGridViewRow fila in dgv_familiasDisponibles.Rows)
                 {
                     if (this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
                     {
                         famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         famUsu_BE.id_familia = (int)fila.Cells[0].Value;
-                        famDesasociadas.Add(famUsu_BE);
                         famUsu_BLL.Delete(famUsu_BE);
                     }
                 }

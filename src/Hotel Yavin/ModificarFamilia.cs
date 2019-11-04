@@ -18,7 +18,11 @@ namespace Hotel_Yavin
         BLL.Patente pat_BLL = new BLL.Patente();
         BLL.Usuario usu_BLL = new BLL.Usuario();
         BLL.FamiliaUsuario famUsu_BLL = new BLL.FamiliaUsuario();
+        BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
         BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
+        BE.FamiliaPatente famPat_BE = new BE.FamiliaPatente();
+        BE.Familia familia_BE = new BE.Familia();
+        BLL.Familia familia_BLL = new BLL.Familia();
 
         public ModificarFamilia()
         {
@@ -158,7 +162,117 @@ namespace Hotel_Yavin
 
         private void btn_GuardarFamilia_Click(object sender, EventArgs e)
         {
+            if (txt_NomFam.Text != "")
+            {
+                //PASO 1: Update de la descripcion
+                familia_BE.descripcion = txt_NomFam.Text;
+                familia_BE.id = (int)familia_seleccionada.Cells[0].Value;
 
+                familia_BLL.Update(familia_BE);
+
+                //PASO 2 parte 1: Asociacion de patentes a familia
+                foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.Rows)
+                {
+                    if (!this.familiaPatentesDB.Any(fp => fp.id == (int)fila.Cells[0].Value))
+                    {
+                        famPat_BE.id_Patente = (int)fila.Cells[0].Value;
+                        famPat_BE.id_Familia = (int)familia_seleccionada.Cells[0].Value;
+                        famPat_BLL.Add(famPat_BE);
+                    }
+                }
+
+                //PASO 2 parte 2: Desasociacion de patente a familia
+                foreach (DataGridViewRow fila in dgv_patentesDisponibles.Rows)
+                {
+                    if (this.familiaPatentesDB.Any(fp => fp.id == (int)fila.Cells[0].Value))
+                    {
+                        famPat_BE.id_Patente = (int)fila.Cells[0].Value;
+                        famPat_BE.id_Familia = (int)familia_seleccionada.Cells[0].Value;
+                        famPat_BLL.Delete(famPat_BE);
+                    }
+                }
+
+                //PASO 3 parte 1: Asociacion de usuario a Familia
+                foreach (DataGridViewRow fila in dgv_UsuariosAsociadosAfamilia.Rows)
+                {
+                    if (!this.familiaUsuariosDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                    {
+                        famUsu_BE.id_usuario = (int)fila.Cells[0].Value;
+                        famUsu_BE.id_familia = (int)familia_seleccionada.Cells[0].Value;
+                        famUsu_BLL.Add(famUsu_BE);
+                    }
+                }
+
+                //PASO 3 parte 2: Desasociacion de usuario a Familia
+                foreach (DataGridViewRow fila in dgv_UsuariosDisponibles.Rows)
+                {
+                    if (this.familiaUsuariosDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                    {
+                        famUsu_BE.id_usuario = (int)fila.Cells[0].Value;
+                        famUsu_BE.id_familia = (int)familia_seleccionada.Cells[0].Value;
+                        famUsu_BLL.Delete(famUsu_BE);
+                    }
+                }
+
+                //PASO 3: Mensaje al usuario y volver atrás
+                MessageBox.Show("Familia modificado con éxito");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Se debe completar el campo Descripcion");
+            }
+        }
+
+        private void btn_AsociarPatente_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in dgv_patentesDisponibles.SelectedRows)
+            {
+                //Patentes asociadas (+)
+                dgv_patentesAsociadasAfamilia.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value);
+                //Patentes disponibles (-)
+                dgv_patentesDisponibles.Rows.RemoveAt(fila.Index);
+            }
+        }
+
+        private void btn_DesasociarPatente_Click(object sender, EventArgs e)
+        {
+            //if (validarUsoPatentesSeleccionadas())
+            //{
+            foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.SelectedRows)
+            {
+                //Patentes disponibles (+)
+                dgv_patentesDisponibles.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value);
+                //Patentes asociadas (-)
+                dgv_patentesAsociadasAfamilia.Rows.RemoveAt(fila.Index);
+            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
+            //}
+        }
+
+        private void Btn_AsociarUsuario_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in dgv_UsuariosDisponibles.SelectedRows)
+            {
+                //Usuarios asociadas (+)
+                dgv_UsuariosAsociadosAfamilia.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value, fila.Cells[2].Value, fila.Cells[3].Value, fila.Cells[4].Value);
+                //Usuarios disponibles (-)
+                dgv_UsuariosDisponibles.Rows.RemoveAt(fila.Index);
+            }
+        }
+
+        private void btn_DesasociarUsuario_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow fila in dgv_UsuariosAsociadosAfamilia.SelectedRows)
+            {
+                //Usuarios disponibles (+)
+                dgv_UsuariosDisponibles.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value, fila.Cells[2].Value, fila.Cells[3].Value, fila.Cells[4].Value);
+                //Usuarios asociadas (-)
+                dgv_UsuariosAsociadosAfamilia.Rows.RemoveAt(fila.Index);
+            }
         }
     }
 }

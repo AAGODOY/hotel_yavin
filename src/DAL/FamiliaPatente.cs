@@ -21,7 +21,8 @@ namespace DAL
 
         public int Delete(BE.FamiliaPatente objBaja)
         {
-            throw new NotImplementedException();
+            string query = "DELETE FROM FamiliaPatente WHERE id_familia =" + objBaja.id_Familia + " and id_patente=" + objBaja.id_Patente + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Update(BE.FamiliaPatente objUpdate)
