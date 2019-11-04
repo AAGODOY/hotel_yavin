@@ -237,8 +237,8 @@ namespace Hotel_Yavin
 
         private void btn_DesasociarPatente_Click(object sender, EventArgs e)
         {
-            //if (validarUsoPatentesSeleccionadas())
-            //{
+            if (validarUsoPatentesPatSeleccionadas())
+            {
             foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.SelectedRows)
             {
                 //Patentes disponibles (+)
@@ -246,11 +246,11 @@ namespace Hotel_Yavin
                 //Patentes asociadas (-)
                 dgv_patentesAsociadasAfamilia.Rows.RemoveAt(fila.Index);
             }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
-            //}
+            }
+            else
+            {
+                MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
+            }
         }
 
         private void Btn_AsociarUsuario_Click(object sender, EventArgs e)
@@ -273,6 +273,77 @@ namespace Hotel_Yavin
                 //Usuarios asociadas (-)
                 dgv_UsuariosAsociadosAfamilia.Rows.RemoveAt(fila.Index);
             }
+        }
+
+        ////private bool validarUsoFamiliasSeleccionadas()
+        ////{
+        ////    /*
+        ////     * VALIDAR REGLA DE USO DE PATENTES
+        ////     * Solo para las que el usuario ya tenía asignadas en la DB y fueron seleccionadas
+        ////     */
+
+        ////    bool validacionUsoPatente = false;
+        ////    List<BE.Patente> patSeleccionadasAvalidar = new List<BE.Patente>();
+
+
+        ////    foreach (DataGridViewRow fila in dgv_patentesAsociadas.SelectedRows)
+        ////    {
+        ////        if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+        ////        {
+        ////            BE.Patente patSeleccionada = (BE.Patente)this.patentesUsuarioDB.Where(pu => pu.id == (int)fila.Cells[0].Value).FirstOrDefault();
+        ////            patSeleccionadasAvalidar.Add(patSeleccionada);
+        ////        }
+        ////    }
+
+        ////    if (BLL.Services.VerificarUsoPatente((int)usuario_seleccionado.Cells[0].Value, patSeleccionadasAvalidar) != 0)
+        ////    {
+        ////        validacionUsoPatente = true;
+        ////    }
+
+        ////    return validacionUsoPatente;
+        ////}
+
+        private bool validarUsoPatentesPatSeleccionadas()
+        {
+            /*
+             * VALIDAR REGLA DE USO DE PATENTES
+             * Solo para las patentes que la familia ya tenía asignadas en la DB y fueron seleccionadas
+             */
+
+            bool validacionUsoPatente = false;
+
+            //1) Patentes seleccionadas a validar
+            List<BE.Patente> patSeleccionadasAValidar = new List<BE.Patente>();
+            foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.SelectedRows)
+            {
+                if (this.familiaPatentesDB.Any(fp => fp.id == (int)fila.Cells[0].Value))
+                {
+                    BE.Patente patSeleccionada = (BE.Patente)this.familiaPatentesDB.Where(fu => fu.id == (int)fila.Cells[0].Value).FirstOrDefault();
+                    if (patSeleccionada.activo)
+                    {
+                        patSeleccionadasAValidar.Add(patSeleccionada);
+                    }
+                }
+            }
+
+            //2) Patentes de la familia a validar
+            List<BE.Patente> patentesAvalidar = new List<BE.Patente>();
+            foreach (BE.Patente pat in famPat_BLL.GetPatentesFamilia((int)familia_seleccionada.Cells[0].Value))
+            {
+                if (!patentesAvalidar.Any(p => p.id == pat.id))
+                {
+                    patentesAvalidar.Add(pat);
+                }
+            }
+
+
+            //3) Validacion de la regla de uso de las patentes
+            if (BLL.Services.VerificarUsoPatente((int)familia_seleccionada.Cells[0].Value, patentesAvalidar) != 1)
+            {
+                validacionUsoPatente = true;
+            }
+
+            return validacionUsoPatente;
         }
     }
 }
