@@ -31,6 +31,8 @@ namespace BLL
             return DVV_DAL.GetDVV(entidad);
         }
 
+        
+
         //VERIFICAR SI SE PUEDE AGREGAR EL PATRON TEMPLATE a la funcionalidad
 
         public static List<string> VerificarIntegridad()
@@ -66,7 +68,7 @@ namespace BLL
                 }
                 else
                 {
-                    string str = "Inconsistencia en la entidad Usuario en el registro numero (ID): " + item.id;
+                    string str = "USUARIO - Inconsistencia en la entidad Usuario en el registro numero (ID): " + item.id;
                     ErrorIntegridad.Add(str);
                 }
             }

@@ -58,20 +58,20 @@ namespace Hotel_Yavin
                             }
                             else
                             {
-                                //List<string> listaErrores = BLL.DigitoVerificador.VerificarIntegridad();
-                                //if (listaErrores.Count == 0)
-                                //{
+                                List<string> listaErrores = BLL.DigitoVerificador.VerificarIntegridad();
+                                if (listaErrores.Count == 0)
+                                {
                                     MessageBox.Show("Se ingresó al sistema");
                                     menuPrincipal.Show(this);
                                     //this.Owner.Hide();
                                     this.Hide();
-                                //}
-                                //else
-                                //{
-                                //    IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
-                                //    formIntegridadBD.Show(this);
-                                //    this.Hide();
-                                //}
+                                }
+                                else
+                                {
+                                    IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
+                                    formIntegridadBD.Show(this);
+                                    this.Hide();
+                                }
                             }
                         }
                     }
@@ -92,8 +92,8 @@ namespace Hotel_Yavin
             //CONFIGURACION GLOBAL
             BE.ConfigUsuario.usuarioLogueado = usu_BE;
             BLL.ConfigUsuario.FijarPermisos(
-                usuPat_BLL.SelectByIdUser(usu_BE.id), 
-                usuPat_BLL.GetPatentesIndividuales(usu_BE.id), 
+                usuPat_BLL.SelectByIdUser(usu_BE.id),
+                usuPat_BLL.GetPatentesIndividuales(usu_BE.id),
                 usuFam_BLL.GetFamilias(usu_BE.id));
         }
 
@@ -106,36 +106,40 @@ namespace Hotel_Yavin
         private Boolean ValidarUsu(BE.Usuario usu)
         {
             //usu = usu_BLL.validarUsuario(usu);
-            if (usu.nom_usuario == txt_NombreUsu.Text) 
+            if (usu.nom_usuario == txt_NombreUsu.Text)
             {
                 if (usu.contraseña == UTILITIES.Encriptador.Encriptar(txt_contraseña.Text))
-	            {   
+                {
                     return true;
-	            }
+                }
                 else
-	            {
+                {
                     switch (usu.cant_ingresos_incorrectos)
                     {
-                    case 0: MessageBox.Show("Contraseña INVALIDA. Usted tiene 1 intento fallido");
-                        usu_BLL.IncrementarIngresosIncorrectos(usu);
-                        break;
-                    case 1: MessageBox.Show("Contraseña INVALIDA. Usted tiene 2 intento fallido");
-                        usu_BLL.IncrementarIngresosIncorrectos(usu);
-                        break;
-                    case 2: MessageBox.Show("Se bloqueó su cuenta ya que superó la cantidad de ingresos fallidos");
-                        usu_BLL.IncrementarIngresosIncorrectos(usu);
-                        break;
-                    case 3: MessageBox.Show("El usuario está bloqueado. Consulte con el administrador");
-                        break;
+                        case 0:
+                            MessageBox.Show("Contraseña INVALIDA. Usted tiene 1 intento fallido");
+                            usu_BLL.IncrementarIngresosIncorrectos(usu);
+                            break;
+                        case 1:
+                            MessageBox.Show("Contraseña INVALIDA. Usted tiene 2 intento fallido");
+                            usu_BLL.IncrementarIngresosIncorrectos(usu);
+                            break;
+                        case 2:
+                            MessageBox.Show("Se bloqueó su cuenta ya que superó la cantidad de ingresos fallidos");
+                            usu_BLL.IncrementarIngresosIncorrectos(usu);
+                            break;
+                        case 3:
+                            MessageBox.Show("El usuario está bloqueado. Consulte con el administrador");
+                            break;
                     }
                     return false;
-	            }
+                }
             }
             else
-	        {
+            {
                 MessageBox.Show("El usuario es incorrecto");
                 return false;
-	        }
+            }
         }
 
         private void Log_In_Load(object sender, EventArgs e)
@@ -153,6 +157,6 @@ namespace Hotel_Yavin
                 this.Hide();
             }
         }
-        
+
     }
- }
+}

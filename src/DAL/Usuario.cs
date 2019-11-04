@@ -105,6 +105,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public int UpdateDVH(int DVH, int id_usuario)
+        {
+            string query = "UPDATE Usuario SET DVH =" + DVH + " WHERE id_usuario=" + id_usuario + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
         public List<BE.Usuario> SelectAll()
         {
             string query = "Select * From Usuario";

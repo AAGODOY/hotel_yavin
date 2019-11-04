@@ -82,7 +82,7 @@ namespace BLL
 
         #endregion
 
-        #region Validación uso patente
+        #region Validación uso patente para usuarios involucrados
 
         //DEBE RECIBIR: un idUsuario (sobre el que se intenta realizar x acción que impacta en la regla de uso de patentes)
         public static int VerificarUsoPatente(int id_usuario, List<BE.Patente> patentes)
@@ -110,6 +110,35 @@ namespace BLL
         }
 
         #endregion
-        
+
+        #region Validación uso patente para usuarios no involucrados
+
+        //DEBE RECIBIR: un listado de patentes para validar si algun usuario lo tiene
+        public static int VerificarUsoPatente(List<BE.Patente> patentes)
+        {
+            int validacion = 0;
+            if (patentes.Count != 0)
+            {
+                foreach (BE.Patente patente in patentes)
+                {
+                    validacion = DAL.Services.VerificarUsoPatente(0, patente.id);
+                    //CONDICION: si un usuario tiene la patente y justo voy a realizar una accion sobre ella, la acción x no debe realizarse
+                    if (validacion == 1)
+                    {
+                        break;
+                    }
+                }
+
+            }
+            else
+            {
+                //No aplica la validación. Agregar una excepcion ya que no debe recibir el metodo una lista vacía.
+                validacion = 99;
+            }
+            return validacion;
+        }
+
+        #endregion
+
     }
 }

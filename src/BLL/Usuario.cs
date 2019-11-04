@@ -109,6 +109,11 @@ namespace BLL
             return resultado;
         }
 
+        public int UpdateDVH(int DVH, int id_usuario)
+        {
+            return GetInstance().UpdateDVH(DVH, id_usuario);
+        }
+
         public List<BE.Usuario> SelectAll()
         {
             try

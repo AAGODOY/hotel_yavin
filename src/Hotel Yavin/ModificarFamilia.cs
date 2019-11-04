@@ -338,7 +338,7 @@ namespace Hotel_Yavin
 
 
             //3) Validacion de la regla de uso de las patentes
-            if (BLL.Services.VerificarUsoPatente((int)familia_seleccionada.Cells[0].Value, patentesAvalidar) != 1)
+            if (BLL.Services.VerificarUsoPatente(patentesAvalidar) != 0)
             {
                 validacionUsoPatente = true;
             }
