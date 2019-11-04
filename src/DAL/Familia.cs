@@ -22,8 +22,16 @@ namespace DAL
 
         public int Delete(BE.Familia objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Familia SET activo = 0 where id_familia =" + objBaja.id + "";
+            return helper.ExecuteNonQuery(query);
         }
+
+        public int Habilitar(BE.Familia objHabilitar)
+        {
+            string query = "UPDATE Familia SET activo = 1 where id_familia =" + objHabilitar.id + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
 
         public int Update(BE.Familia objUpdate)
         {

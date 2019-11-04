@@ -28,7 +28,12 @@ namespace BLL
 
         public int Delete(BE.Familia objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
+        }
+
+        public int Habilitar(BE.Familia objHabilitar)
+        {
+            return GetInstance().Habilitar(objHabilitar);
         }
 
         public int Update(BE.Familia objUpdate)

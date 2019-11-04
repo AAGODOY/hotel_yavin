@@ -31,7 +31,14 @@ namespace Hotel_Yavin
            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Familia");
            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Familia");
            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Familia");
-           dgv_familias.DataSource = familia_BLL.SelectAll();
+
+           ActualizarGrilla();
+        }
+
+        public void ActualizarGrilla()
+        {
+            dgv_familias.DataSource = null;
+            dgv_familias.DataSource = familia_BLL.SelectAll();
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -45,6 +52,38 @@ namespace Hotel_Yavin
             {
                 MessageBox.Show("Se debe seleccionar un registro a modificar");
             } 
+        }
+
+        private void btn_baja_Click(object sender, EventArgs e)
+        {
+            if (dgv_familias.SelectedRows.Count == 1)
+            {
+                BE.Familia famAinhabilitar = new BE.Familia();
+                famAinhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
+                familia_BLL.Delete(famAinhabilitar);
+                MessageBox.Show("Se inhabilitó el registro seleccionado");
+                this.ActualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Se debe seleccionar un registro a inhabilitar");
+            }
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            if (dgv_familias.SelectedRows.Count == 1)
+            {
+                BE.Familia famAhabilitar = new BE.Familia();
+                famAhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
+                familia_BLL.Habilitar(famAhabilitar);
+                MessageBox.Show("Se habilitó el registro seleccionado");
+                this.ActualizarGrilla();
+            }
+            else
+            {
+                MessageBox.Show("Se debe seleccionar un registro a inhabilitar");
+            }
         }
     }
 }
