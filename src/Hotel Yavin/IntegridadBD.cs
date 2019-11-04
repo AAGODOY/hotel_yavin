@@ -31,6 +31,8 @@ namespace Hotel_Yavin
         {
             lst_Errores.DataSource = null;
             lst_Errores.DataSource = lista;
+
+            button1.Enabled = BLL.ConfigUsuario.ValidarAcceso("Recalcular Dígitos Verificadores");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +55,8 @@ namespace Hotel_Yavin
             }
 
             BLL.DigitoVerificador.CalcularDVV("Usuario");
+            MessageBox.Show("Se recalcularon los dígitos correctamente");
+            this.Close();
         }
     }
 }
