@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class Bitacora
+    public abstract class Bitacora
     {
+        static BE.Bitacora Infobitacora = new BE.Bitacora();
+        static string CRITICIDAD_ALTA = "ALTA";
+        static string CRITICIDAD_MEDIA = "MEDIA";
+        static string CRITICIDAD_BAJA = "BAJA";
+
         //PATRON SINGLETON
         private static DAL.Bitacora bitacora_dal;
 
@@ -19,6 +24,51 @@ namespace BLL
             }
 
             return bitacora_dal;
+        }
+
+        //PATRON TEMPLATE
+
+        public virtual int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
+        {
+            Infobitacora.id_usuario = usuario.id;
+            Infobitacora.nombre_usuario = usuario.nombre;
+            Infobitacora.fecha = fecha;
+            // LA CRITICIDAD SE DEFINE EN LAS CLASES HIJAS 
+            Infobitacora.descripcion = descripcion;
+
+            string cadenaDVH = Infobitacora.id_usuario.ToString() + Infobitacora.nombre_usuario.ToString() + Infobitacora.fecha.ToString("yyyy-MM-dd HH:mm:ss") + Infobitacora.criticidad.ToString() + Infobitacora.descripcion.ToString();
+            Infobitacora.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            int resultado = GetInstance().RegistrarEnBitacora(Infobitacora);
+
+            BLL.DigitoVerificador.CalcularDVV("Bitacora");
+
+            return resultado;
+        }
+
+        public class ALTA : Bitacora
+        {
+            public override int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
+            {
+                Infobitacora.criticidad = CRITICIDAD_ALTA;
+                return base.RegistrarEnBitacora(usuario, fecha, descripcion);
+            }
+        }
+        public class MEDIA : Bitacora
+        {
+            public override int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
+            {
+                Infobitacora.criticidad = CRITICIDAD_MEDIA;
+                return base.RegistrarEnBitacora(usuario, fecha, descripcion);
+            }
+        }
+        public class BAJA : Bitacora
+        {
+            public override int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
+            {
+                Infobitacora.criticidad = CRITICIDAD_BAJA;
+                return base.RegistrarEnBitacora(usuario, fecha, descripcion);
+            }
         }
     }
 }

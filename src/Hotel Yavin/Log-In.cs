@@ -18,6 +18,9 @@ namespace Hotel_Yavin
         static BLL.FamiliaUsuario usuFam_BLL = new BLL.FamiliaUsuario();
         static BLL.Idioma idioma_BLL = new BLL.Idioma();
         static BLL.Traduccion traduccion_BLL = new BLL.Traduccion();
+        BLL.Bitacora.ALTA Bitacora_ALTA = new BLL.Bitacora.ALTA();
+        BLL.Bitacora.BAJA Bitacora_BAJA = new BLL.Bitacora.BAJA();
+        BLL.Bitacora.MEDIA Bitacora_MEDIA = new BLL.Bitacora.MEDIA();
 
         public Log_In()
         {
@@ -62,6 +65,8 @@ namespace Hotel_Yavin
                                 if (listaErrores.Count == 0)
                                 {
                                     MessageBox.Show("Se ingresó al sistema");
+                                    Bitacora_BAJA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login exitoso");
+                                    
                                     menuPrincipal.Show(this);
                                     //this.Owner.Hide();
                                     this.Hide();
@@ -118,14 +123,17 @@ namespace Hotel_Yavin
                     {
                         case 0:
                             MessageBox.Show("Contraseña INVALIDA. Usted tiene 1 intento fallido");
+                            Bitacora_BAJA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login: 1 intento fallido");
                             usu_BLL.IncrementarIngresosIncorrectos(usu);
                             break;
                         case 1:
                             MessageBox.Show("Contraseña INVALIDA. Usted tiene 2 intento fallido");
+                            Bitacora_MEDIA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login: 2 intentos fallidos");
                             usu_BLL.IncrementarIngresosIncorrectos(usu);
                             break;
                         case 2:
                             MessageBox.Show("Se bloqueó su cuenta ya que superó la cantidad de ingresos fallidos");
+                            Bitacora_ALTA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login: 3 intentos fallidos. Bloqueo de cuenta");
                             usu_BLL.IncrementarIngresosIncorrectos(usu);
                             break;
                         case 3:
