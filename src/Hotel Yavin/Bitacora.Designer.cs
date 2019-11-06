@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fechaHasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cmb_criticidad = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_GenerarReporte = new System.Windows.Forms.Button();
+            this.clb_Usuarios = new System.Windows.Forms.CheckedListBox();
+            this.clb_criticidad = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -54,76 +54,61 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
-            // dateTimePicker1
+            // dtp_fechaDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(85, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtp_fechaDesde.Location = new System.Drawing.Point(85, 19);
+            this.dtp_fechaDesde.Name = "dtp_fechaDesde";
+            this.dtp_fechaDesde.Size = new System.Drawing.Size(248, 20);
+            this.dtp_fechaDesde.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(310, 26);
+            this.label2.Location = new System.Drawing.Point(417, 25);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Fecha Hasta";
             // 
-            // dateTimePicker2
+            // dtp_fechaHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(384, 20);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dtp_fechaHasta.Location = new System.Drawing.Point(491, 20);
+            this.dtp_fechaHasta.Name = "dtp_fechaHasta";
+            this.dtp_fechaHasta.Size = new System.Drawing.Size(248, 20);
+            this.dtp_fechaHasta.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.clb_criticidad);
+            this.groupBox1.Controls.Add(this.clb_Usuarios);
             this.groupBox1.Controls.Add(this.Btn_Buscar);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.cmb_criticidad);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dtp_fechaDesde);
+            this.groupBox1.Controls.Add(this.dtp_fechaHasta);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(597, 128);
+            this.groupBox1.Size = new System.Drawing.Size(768, 243);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(499, 99);
+            this.Btn_Buscar.Location = new System.Drawing.Point(654, 214);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(85, 23);
             this.Btn_Buscar.TabIndex = 9;
             this.Btn_Buscar.Text = "BUSCAR";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 55);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 8;
-            // 
-            // cmb_criticidad
-            // 
-            this.cmb_criticidad.FormattingEnabled = true;
-            this.cmb_criticidad.Location = new System.Drawing.Point(384, 55);
-            this.cmb_criticidad.Name = "cmb_criticidad";
-            this.cmb_criticidad.Size = new System.Drawing.Size(200, 21);
-            this.cmb_criticidad.TabIndex = 7;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(310, 58);
+            this.label4.Location = new System.Drawing.Point(417, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 6;
@@ -141,15 +126,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 180);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 298);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(596, 193);
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(767, 193);
             this.dataGridView1.TabIndex = 5;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 154);
+            this.label5.Location = new System.Drawing.Point(9, 271);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 13);
             this.label5.TabIndex = 10;
@@ -157,18 +143,34 @@
             // 
             // btn_GenerarReporte
             // 
-            this.btn_GenerarReporte.Location = new System.Drawing.Point(511, 387);
+            this.btn_GenerarReporte.Location = new System.Drawing.Point(682, 497);
             this.btn_GenerarReporte.Name = "btn_GenerarReporte";
             this.btn_GenerarReporte.Size = new System.Drawing.Size(98, 23);
             this.btn_GenerarReporte.TabIndex = 11;
             this.btn_GenerarReporte.Text = "Generar Reporte";
             this.btn_GenerarReporte.UseVisualStyleBackColor = true;
             // 
+            // clb_Usuarios
+            // 
+            this.clb_Usuarios.FormattingEnabled = true;
+            this.clb_Usuarios.Location = new System.Drawing.Point(85, 55);
+            this.clb_Usuarios.Name = "clb_Usuarios";
+            this.clb_Usuarios.Size = new System.Drawing.Size(248, 139);
+            this.clb_Usuarios.TabIndex = 10;
+            // 
+            // clb_criticidad
+            // 
+            this.clb_criticidad.FormattingEnabled = true;
+            this.clb_criticidad.Location = new System.Drawing.Point(491, 55);
+            this.clb_criticidad.Name = "clb_criticidad";
+            this.clb_criticidad.Size = new System.Drawing.Size(248, 139);
+            this.clb_criticidad.TabIndex = 11;
+            // 
             // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 422);
+            this.ClientSize = new System.Drawing.Size(792, 542);
             this.Controls.Add(this.btn_GenerarReporte);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
@@ -187,17 +189,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_fechaDesde;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp_fechaHasta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cmb_criticidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_GenerarReporte;
+        private System.Windows.Forms.CheckedListBox clb_Usuarios;
+        private System.Windows.Forms.CheckedListBox clb_criticidad;
     }
 }

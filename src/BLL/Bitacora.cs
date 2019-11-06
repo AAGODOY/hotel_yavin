@@ -46,6 +46,17 @@ namespace BLL
             return resultado;
         }
 
+        public List<BE.Bitacora> SelectAll()
+        {
+            return GetInstance().SelectAll();
+        }
+
+        public List<BE.Bitacora> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta, string usuarios, string criticidades)
+        {
+            return GetInstance().GetFiltros(fecha_desde, fecha_hasta, usuarios, criticidades);
+        }
+
+
         public class ALTA : Bitacora
         {
             public override int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
