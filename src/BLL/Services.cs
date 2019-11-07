@@ -92,14 +92,14 @@ namespace BLL
             {
                 foreach (BE.Patente patente in patentes)
                 {
-                    validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id);
+                    validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id, 0);
                     //CONDICION: si ningun usuario tiene la patente (a parte del seleccionado), la acción x no debe realizarse
                     if (validacion == 0)
                     {
                         break;
                     }
                 }
-                
+
             }
             else
             {
@@ -114,27 +114,34 @@ namespace BLL
         #region Validación uso patente para usuarios no involucrados
 
         //DEBE RECIBIR: un listado de patentes para validar si algun usuario lo tiene
-        public static int VerificarUsoPatente(List<BE.Patente> patentes)
+        public static int VerificarUsoPatente(List<BE.Usuario> usuarios, List<BE.Patente> patentes, int id_familia)
         {
             int validacion = 0;
-            if (patentes.Count != 0)
+            if (patentes != null)
             {
                 foreach (BE.Patente patente in patentes)
                 {
-                    validacion = DAL.Services.VerificarUsoPatente(0, patente.id);
+                    validacion = DAL.Services.VerificarUsoPatente(0, patente.id, id_familia);
                     //CONDICION: si un usuario tiene la patente y justo voy a realizar una accion sobre ella, la acción x no debe realizarse
-                    if (validacion == 1)
+                    if (validacion == 0)
                     {
                         break;
                     }
                 }
+            }
 
-            }
-            else
+            if (usuarios != null)
             {
-                //No aplica la validación. Agregar una excepcion ya que no debe recibir el metodo una lista vacía.
-                validacion = 99;
+                foreach (BE.Usuario usuario in usuarios)
+                {
+                    validacion = DAL.Services.VerificarUsoPatente(usuario.id, 0, id_familia);
+                    if (validacion == 0)
+                    {
+                        break;
+                    }
+                }
             }
+
             return validacion;
         }
 

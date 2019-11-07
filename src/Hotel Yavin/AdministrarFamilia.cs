@@ -13,6 +13,7 @@ namespace Hotel_Yavin
     public partial class AdministrarFamilia : Form
     {
         BLL.Familia familia_BLL = new BLL.Familia();
+        BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
 
         public AdministrarFamilia()
         {
@@ -58,11 +59,22 @@ namespace Hotel_Yavin
         {
             if (dgv_familias.SelectedRows.Count == 1)
             {
-                BE.Familia famAinhabilitar = new BE.Familia();
-                famAinhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
-                familia_BLL.Delete(famAinhabilitar);
-                MessageBox.Show("Se inhabilitó el registro seleccionado");
-                this.ActualizarGrilla();
+                int id_familia = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
+                List<BE.Patente> patentes_familia = famPat_BLL.GetPatentesFamilia(id_familia);
+
+                if (BLL.Services.VerificarUsoPatente(null, patentes_familia, id_familia) != 0)
+                {
+                    BE.Familia famAinhabilitar = new BE.Familia();
+                    famAinhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
+                    familia_BLL.Delete(famAinhabilitar);
+                    MessageBox.Show("Se inhabilitó el registro seleccionado");
+                    this.ActualizarGrilla();
+                }
+                else
+                {
+                    MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
+                }
+
             }
             else
             {
