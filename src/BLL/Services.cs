@@ -82,17 +82,17 @@ namespace BLL
 
         #endregion
 
-        #region Validación uso patente para usuarios involucrados
+        #region Validación uso patente
 
         //DEBE RECIBIR: un idUsuario (sobre el que se intenta realizar x acción que impacta en la regla de uso de patentes)
-        public static int VerificarUsoPatente(int id_usuario, List<BE.Patente> patentes)
+        public static int VerificarUsoPatente(int id_usuario, List<BE.Patente> patentes, int id_familia)
         {
             int validacion = 0;
             if (patentes.Count != 0)
             {
                 foreach (BE.Patente patente in patentes)
                 {
-                    validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id, 0);
+                    validacion = DAL.Services.VerificarUsoPatente(id_usuario, patente.id, id_familia);
                     //CONDICION: si ningun usuario tiene la patente (a parte del seleccionado), la acción x no debe realizarse
                     if (validacion == 0)
                     {
@@ -103,46 +103,30 @@ namespace BLL
             }
             else
             {
-                //No aplica la validación. Agregar una excepcion ya que no debe recibir el metodo una lista vacía.
+                //No aplica la validación. Se presenta en casos donde un usuario o familia no tiene patentes asociadas
                 validacion = 99;
             }
             return validacion;
         }
 
-        #endregion
-
-        #region Validación uso patente para usuarios no involucrados
-
-        //DEBE RECIBIR: un listado de patentes para validar si algun usuario lo tiene
-        public static int VerificarUsoPatente(List<BE.Usuario> usuarios, List<BE.Patente> patentes, int id_familia)
+        public static bool VerificarAsignacionRepetida(int id_usuario, List<BE.Patente> patentes)
         {
             int validacion = 0;
-            if (patentes != null)
+            if (patentes.Count != 0)
             {
                 foreach (BE.Patente patente in patentes)
                 {
-                    validacion = DAL.Services.VerificarUsoPatente(0, patente.id, id_familia);
-                    //CONDICION: si un usuario tiene la patente y justo voy a realizar una accion sobre ella, la acción x no debe realizarse
-                    if (validacion == 0)
+                    validacion = DAL.Services.VerificarAsignacionRepetida(id_usuario, patente.id);
+                    //CONDICION: Si el usuario tiene asignado una patente por familia e individualmente
+                    if (validacion == 1)
                     {
-                        break;
+                        return true;
                     }
                 }
+
             }
 
-            if (usuarios != null)
-            {
-                foreach (BE.Usuario usuario in usuarios)
-                {
-                    validacion = DAL.Services.VerificarUsoPatente(usuario.id, 0, id_familia);
-                    if (validacion == 0)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            return validacion;
+            return false;
         }
 
         #endregion

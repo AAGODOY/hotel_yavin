@@ -32,7 +32,7 @@ namespace Hotel_Yavin
            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Familia");
            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Familia");
            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Familia");
-
+           
            ActualizarGrilla();
         }
 
@@ -62,7 +62,7 @@ namespace Hotel_Yavin
                 int id_familia = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
                 List<BE.Patente> patentes_familia = famPat_BLL.GetPatentesFamilia(id_familia);
 
-                if (BLL.Services.VerificarUsoPatente(null, patentes_familia, id_familia) != 0)
+                if (BLL.Services.VerificarUsoPatente(0, patentes_familia, id_familia) != 0)
                 {
                     BE.Familia famAinhabilitar = new BE.Familia();
                     famAinhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);

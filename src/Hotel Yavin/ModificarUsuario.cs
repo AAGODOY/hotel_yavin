@@ -311,7 +311,20 @@ namespace Hotel_Yavin
 
         private void btn_DesasociarPatente_Click(object sender, EventArgs e)
         {
+            bool validacion_final = false;
+            //¿Se cumple la regla general de patentes?
             if (validarUsoPatentesSeleccionadas())
+            {
+                validacion_final = true;
+            }
+            //¿Se trata del mismo usuario que tiene la patente asignada de forma directa + en familia?
+            else
+            {
+                if (verificarRepeticionUsuarioPatente())
+                    validacion_final = true;
+            }
+
+            if (validacion_final)
             {
                 foreach (DataGridViewRow fila in dgv_patentesAsociadas.SelectedRows)
                 {
@@ -327,7 +340,7 @@ namespace Hotel_Yavin
                 MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
             }
 
-            //CONDICION: inhabilitar botón de negar si no hay patentes asociadas
+            //CONDICION UI: inhabilitar botón de negar si no hay patentes asociadas
             if (dgv_patentesAsociadas.Rows.Count < 1)
             {
                 this.btn_NegarPatente.Enabled = false;
@@ -389,7 +402,7 @@ namespace Hotel_Yavin
                 }
             }
 
-            if (BLL.Services.VerificarUsoPatente((int)usuario_seleccionado.Cells[0].Value, patSeleccionadasAvalidar) != 0)
+            if (BLL.Services.VerificarUsoPatente((int)usuario_seleccionado.Cells[0].Value, patSeleccionadasAvalidar, 0) != 0)
             {
                 validacionUsoPatente = true;
             }
@@ -434,12 +447,41 @@ namespace Hotel_Yavin
             }
 
             //3) Validacion de la regla de uso de las patentes
-            if (BLL.Services.VerificarUsoPatente((int)usuario_seleccionado.Cells[0].Value, patentesAvalidar) != 0)
+            if (BLL.Services.VerificarUsoPatente((int)usuario_seleccionado.Cells[0].Value, patentesAvalidar, 0) != 0)
             {
                 validacionUsoPatente = true;
             }
 
             return validacionUsoPatente;
         }
+
+        private bool verificarRepeticionUsuarioPatente()
+        {
+            /*
+             * VERIFICACION REGLA DE USO DE PATENTES
+             * Validación extra para confirmar si el usuario tiene asignada x patente individualmente y por familia
+             */
+
+            bool validacionRepeticion = false;
+            List<BE.Patente> patSeleccionadasAvalidar = new List<BE.Patente>();
+
+
+            foreach (DataGridViewRow fila in dgv_patentesAsociadas.SelectedRows)
+            {
+                if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                {
+                    BE.Patente patSeleccionada = (BE.Patente)this.patentesUsuarioDB.Where(pu => pu.id == (int)fila.Cells[0].Value).FirstOrDefault();
+                    patSeleccionadasAvalidar.Add(patSeleccionada);
+                }
+            }
+
+            if (BLL.Services.VerificarAsignacionRepetida((int)usuario_seleccionado.Cells[0].Value, patSeleccionadasAvalidar))
+            {
+                validacionRepeticion = true;
+            }
+
+            return validacionRepeticion;
+        }
+
     }
 }

@@ -68,7 +68,7 @@ namespace Hotel_Yavin
                 int id_usuario = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
                 List<BE.Patente> patentes_usuario = usuPat_BLL.GetPatentesUsuario(id_usuario);
 
-                if (BLL.Services.VerificarUsoPatente(id_usuario, patentes_usuario) != 0)
+                if (BLL.Services.VerificarUsoPatente(id_usuario, patentes_usuario, 0) != 0)
                 {
                     BE.Usuario usuAinhabilitar = new BE.Usuario();
                     usuAinhabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);

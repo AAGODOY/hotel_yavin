@@ -78,7 +78,7 @@ namespace BLL
             //encripto contraseña aleatoria
             objAlta.contraseña = UTILITIES.Encriptador.Encriptar(pwAleatoria);
 
-            string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario + objAlta.nombre + objAlta.apellido + objAlta.documento.ToString() + objAlta.domicilio + objAlta.telefono + objAlta.email + objAlta.contraseña + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
+            string cadenaDVH = objAlta.activo.ToString() + objAlta.nom_usuario.ToString() + objAlta.nombre.ToString() + objAlta.apellido.ToString() + objAlta.documento.ToString() + objAlta.domicilio.ToString() + objAlta.telefono.ToString() + objAlta.email.ToString() + objAlta.contraseña.ToString() + objAlta.cant_ingresos_incorrectos.ToString() + objAlta.es_primer_login.ToString() + objAlta.id_idioma.ToString();
             objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
 
             int nuevoUsu = GetInstance().Add(objAlta);
@@ -101,7 +101,7 @@ namespace BLL
 
         public int Update(BE.Usuario objUpdate)
         {
-            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario + objUpdate.nombre + objUpdate.apellido + objUpdate.documento.ToString() + objUpdate.domicilio + objUpdate.telefono + objUpdate.email + objUpdate.contraseña + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
+            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario.ToString() + objUpdate.nombre.ToString() + objUpdate.apellido.ToString() + objUpdate.documento.ToString() + objUpdate.domicilio.ToString() + objUpdate.telefono.ToString() + objUpdate.email.ToString() + objUpdate.contraseña.ToString() + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
             objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             int resultado = GetInstance().Update(objUpdate);
 

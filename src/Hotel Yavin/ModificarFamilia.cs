@@ -280,7 +280,6 @@ namespace Hotel_Yavin
             {
                 MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
             }
-
         }
 
         private bool validarUsoPatentesSeleccionadas()
@@ -303,7 +302,7 @@ namespace Hotel_Yavin
                 }
             }
 
-            if (BLL.Services.VerificarUsoPatente(null, patSeleccionadasAvalidar, (int)familia_seleccionada.Cells[0].Value) != 0)
+            if (BLL.Services.VerificarUsoPatente(0, patSeleccionadasAvalidar, (int)familia_seleccionada.Cells[0].Value) != 0)
             {
                 validacionUsoPatente = true;
             }
@@ -318,23 +317,34 @@ namespace Hotel_Yavin
              * Solo para los usuarios que la familia ya tenía asignadas en la DB y fueron seleccionadas
              */
 
-            //1) Usuarios seleccionadas a validar
             bool validacionUsoPatente = false;
-            List<BE.Usuario> usuSeleccionadosAvalidar = new List<BE.Usuario>();
 
-
-            foreach (DataGridViewRow fila in dgv_UsuariosAsociadosAfamilia.SelectedRows)
+            //1) Lista de patentes asociadas a la familia
+            List<BE.Patente> patentesAvalidar = new List<BE.Patente>();
+            foreach (BE.Patente pat in famPat_BLL.GetPatentesFamilia((int)familia_seleccionada.Cells[0].Value))
             {
-                if (this.familiaUsuariosDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
+                if (!patentesAvalidar.Any(p => p.id == pat.id))
                 {
-                    BE.Usuario usuSeleccionado = (BE.Usuario)this.familiaUsuariosDB.Where(pu => pu.id == (int)fila.Cells[0].Value).FirstOrDefault();
-                    usuSeleccionadosAvalidar.Add(usuSeleccionado);
+                    patentesAvalidar.Add(pat);
                 }
             }
 
-            if (BLL.Services.VerificarUsoPatente(usuSeleccionadosAvalidar, null, (int)familia_seleccionada.Cells[0].Value) != 0)
+            //2) Usuarios seleccionadas a validar
+            foreach (DataGridViewRow usuario in dgv_UsuariosAsociadosAfamilia.SelectedRows)
             {
-                validacionUsoPatente = true;
+                if (this.familiaUsuariosDB.Any(pu => pu.id == (int)usuario.Cells[0].Value))
+                {
+                    int id_usuario = (int)usuario.Cells[0].Value;
+                    if (BLL.Services.VerificarUsoPatente(id_usuario, patentesAvalidar, 0) != 0)
+                    {
+                        validacionUsoPatente = true;
+                    }
+                    else
+                    {
+                        validacionUsoPatente = false;
+                        break;
+                    }
+                }
             }
 
             return validacionUsoPatente;

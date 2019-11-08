@@ -69,6 +69,43 @@ namespace DAL
             return Convert.ToInt32(helper.ExecuteScalar(query));
         }
 
+        public static int VerificarAsignacionRepetida(int id_usuario, int id_patente)
+        {
+            string query = "declare @idUsuario Int = " + id_usuario + @"
+                            declare @idPatente Int = " + id_patente + @"
+                            declare @counter Int = 0
+                            declare @validacion Int = 0
+
+                            BEGIN
+	                            BEGIN
+	                            set @counter = @counter +
+	                            (SELECT
+		                            (select count(*)
+		                            from UsuarioPatente up
+		                            INNER JOIN Usuario u ON up.id_usuario = u.id_usuario
+		                            where up.id_patente = @idPatente AND up.patenteNegada = 0 AND u.activo = 1  AND u.id_usuario = @idUsuario)
+		                            +
+
+		                            (select COUNT(*)
+		                            from FamiliaUsuario fu
+		                            INNER JOIN Usuario u ON fu.id_usuario = u.id_usuario
+		                            INNER JOIN FamiliaPatente fp ON fu.id_familia = fp.id_familia
+		                            INNER JOIN Familia f ON fp.id_familia = f.id_familia
+		                            where fp.id_patente = @idPatente AND f.activo = 1 AND u.activo = 1  AND u.id_usuario = @idUsuario)
+	                            )
+	                            END
+	                            BEGIN
+	                            IF(@counter = 2)
+	                               set @validacion = 1
+	                            ELSE
+	                               set @validacion = 0
+	                            END
+	                            SELECT @validacion
+                            END";
+
+            return Convert.ToInt32(helper.ExecuteScalar(query));
+        }
+
         #endregion
 
     }
