@@ -55,7 +55,7 @@ namespace DAL
 
         public void IncrementarIngresosIncorrectos(BE.Usuario usu)
         {
-            string query = "UPDATE Usuario SET cant_ingresos_incorrectos = cant_ingresos_incorrectos+1 where nombre_usuario ='" + usu.nom_usuario + "'";
+            string query = "UPDATE Usuario SET cant_ingresos_incorrectos = cant_ingresos_incorrectos+1 where nombre_usuario ='" + usu.nom_usuario + "' AND id_usuario= " + usu.id + "";
             helper.ExecuteNonQuery(query);
         }
 
@@ -88,7 +88,7 @@ namespace DAL
         {
             try
             {
-                string query = "UPDATE Usuario SET activo = 1 where id_usuario =" + objHabilitar.id + "";
+                string query = "UPDATE Usuario SET activo = 1 where id_usuario=" + objHabilitar.id + "";
                 return helper.ExecuteNonQuery(query);
             }
             catch (Exception)
@@ -100,7 +100,8 @@ namespace DAL
 
         public int Update(BE.Usuario objUpdate)
         {
-            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'" + "where id_usuario=" + objUpdate.id + "";
+            string query = "UPDATE Usuario SET nombre_usuario = '" + objUpdate.nom_usuario + "'," + "nombre ='" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "domicilio='" + objUpdate.domicilio + "'," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "'," + "DVH =" + objUpdate.DVH + "" + " where id_usuario=" + objUpdate.id + "";
+            
             return helper.ExecuteNonQuery(query);
             throw new NotImplementedException();
         }
@@ -129,7 +130,7 @@ namespace DAL
 
         public BE.Usuario SelectById(int id)
         {
-            string query = "Select * From Usuario where Id =" + id + "";
+            string query = "Select * From Usuario where id_usuario =" + id + "";
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 BE.Usuario usu = new BE.Usuario();
@@ -142,23 +143,26 @@ namespace DAL
             }
         }
 
-        public Boolean modificarContraseña(string pwActual, string nuevaPw)
+        public int modificarContraseña(int id_usuario, string pwActual, string nuevaPw)
         {
-            string validacionPw = "SELECT * from Usuario where contraseña ='" + pwActual + "'";
-            string query = "UPDATE Usuario SET contraseña = '" + nuevaPw + "', es_primer_login = 0 where contraseña ='" + pwActual + "'";
-            helper.ExecuteReader(validacionPw);
-            SqlDataReader dataReader;
-            dataReader = helper.ExecuteReader(validacionPw);
+            //string validacionPw = "SELECT * from Usuario where contraseña ='" + pwActual + "'";
+            //string query = "UPDATE Usuario SET contraseña = '" + nuevaPw + "', es_primer_login = 0 where contraseña ='" + pwActual + "'";
+            //helper.ExecuteReader(validacionPw);
+            //SqlDataReader dataReader;
+            //dataReader = helper.ExecuteReader(validacionPw);
             
-            if (dataReader.HasRows)
-            {
-                helper.ExecuteNonQuery(query);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            //if (dataReader.HasRows)
+            //{
+            //    helper.ExecuteNonQuery(query);
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+
+            string query = "UPDATE Usuario SET contraseña = '" + nuevaPw + "', es_primer_login = 0 where contraseña ='" + pwActual + "' AND id_usuario= " + id_usuario + "";
+            return helper.ExecuteNonQuery(query);
 
         }
 

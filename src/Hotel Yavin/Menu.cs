@@ -12,9 +12,18 @@ namespace Hotel_Yavin
 {
     public partial class Menu : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
+
         public Menu()
         {
             InitializeComponent();
+        }
+
+        public Menu(BE.Usuario usu)
+        {
+            InitializeComponent();
+
+            usuario_logueado = usu;
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -157,7 +166,7 @@ namespace Hotel_Yavin
 
         private void modificarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Modificar_Contrasena modificarpass = new Modificar_Contrasena();
+            Modificar_Contrasena modificarpass = new Modificar_Contrasena(usuario_logueado);
             modificarpass.Show();
         }
 

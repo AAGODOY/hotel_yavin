@@ -14,50 +14,50 @@ namespace Hotel_Yavin
     {
         BE.Usuario usu_BE = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
+        BE.Usuario usuario_actual = new BE.Usuario();
 
         public Modificar_Contrasena()
         {
             InitializeComponent();
         }
 
+        public Modificar_Contrasena(BE.Usuario usuario)
+        {
+            InitializeComponent();
+
+            usuario_actual = usuario;
+
+        }
+
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             usu_BE.contraseña = txt_ContraseñaActual.Text;
 
-            if (txt_ContraseñaActual.Text == "")
+            if (txt_ContraseñaActual.Text != "" && txt_NuevaContraseña.Text != "" && txt_ConfirmarContraseña.Text != "")
             {
-                MessageBox.Show("Debe completar la contraseña actual");
+                if (txt_ContraseñaActual.Text == UTILITIES.Encriptador.Desencriptar(usuario_actual.contraseña))
+                {
+                    if (txt_NuevaContraseña.Text == txt_ConfirmarContraseña.Text)
+	                {
+                        usu_BLL.modificarContraseña(usuario_actual, usu_BE.contraseña, txt_ConfirmarContraseña.Text);                        
+                        MessageBox.Show("Contraseña modificada. Por favor, iniciar sesion nuevamente");
+                        this.Close();
+                        Log_In logIn = new Log_In();
+                        logIn.Show();                        
+	                }
+                    else
+	                {
+                        MessageBox.Show("La nueva contraseña y su confirmación no son iguales");
+	                }
+                }
+                else
+	            {
+                    MessageBox.Show("La contraseña actual no es correcta");
+	            }
             }
             else
             {
-                if (txt_NuevaContraseña.Text == "")
-                {
-                    MessageBox.Show("Debe completar la nueva contraseña");
-                }
-                else if (txt_ConfirmarContraseña.Text == "")
-                {
-                    MessageBox.Show("Debe completar la confirmación de la nueva contraseña");
-                }
-                else
-                {
-                    if (txt_NuevaContraseña.Text != txt_ConfirmarContraseña.Text)
-                    {
-                        MessageBox.Show("La nueva contraseña y su confirmación no son iguales");
-                    }
-                }
-
-                if (usu_BLL.modificarContraseña(usu_BE.contraseña, txt_ConfirmarContraseña.Text))
-                {
-                    MessageBox.Show("Contraseña modificada. Por favor, iniciar sesion nuevamente");
-                    this.Close();
-                    Log_In logIn = new Log_In();
-                    logIn.Show();
-                }
-                else
-                {
-                    MessageBox.Show("La contraseña actual es inválida");
-                }
-
+                MessageBox.Show("Debe completar todos los campos");
             }
         }
 

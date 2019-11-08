@@ -34,7 +34,7 @@ namespace Hotel_Yavin
         {
             usu_BE.nom_usuario = txt_NombreUsu.Text;
             usu_BE.contraseña = txt_contraseña.Text;
-            Menu menuPrincipal = new Menu();
+            //Menu menuPrincipal = new Menu(usu_BE);
 
             if (usu_BE.nom_usuario != "")
             {
@@ -43,6 +43,7 @@ namespace Hotel_Yavin
                     usu_BE = usu_BLL.validarUsuario(usu_BE);
                     if (ValidarUsu(usu_BE))
                     {
+                        Menu menuPrincipal = new Menu(usu_BE);
                         if (!usu_BE.activo)
                         {
                             MessageBox.Show("El usuario se encuentra inhabilitado. Por favor, comunicarse con el Administrador del sistema");
@@ -55,7 +56,7 @@ namespace Hotel_Yavin
 
                             if (usu_BE.es_primer_login)
                             {
-                                Modificar_Contrasena mod_contraseña = new Modificar_Contrasena();
+                                Modificar_Contrasena mod_contraseña = new Modificar_Contrasena(usu_BE);
                                 mod_contraseña.Show(this);
                                 this.Hide();
                             }

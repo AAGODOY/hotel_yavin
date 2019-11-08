@@ -54,8 +54,15 @@ namespace BLL
         {
             try
             {
-               usu.nom_usuario = UTILITIES.Encriptador.Encriptar(usu.nom_usuario);
-               GetInstance().IncrementarIngresosIncorrectos(usu);
+                usu.nom_usuario = UTILITIES.Encriptador.Encriptar(usu.nom_usuario);
+                GetInstance().IncrementarIngresosIncorrectos(usu);
+
+                usu.cant_ingresos_incorrectos += 1;
+                string cadenaDVH = usu.activo.ToString() + usu.nom_usuario.ToString() + usu.nombre.ToString() + usu.apellido.ToString() + usu.documento.ToString() + usu.domicilio.ToString() + usu.telefono.ToString() + usu.email.ToString() + usu.contraseña.ToString() + usu.cant_ingresos_incorrectos.ToString() + usu.es_primer_login.ToString() + usu.id_idioma.ToString();
+                usu.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+                GetInstance().UpdateDVH(usu.DVH, usu.id);
+
+                DigitoVerificador.CalcularDVV("Usuario");
             }
             catch (Exception)
             {
@@ -91,12 +98,31 @@ namespace BLL
 
         public int Delete(BE.Usuario objBaja)
         {
-            return GetInstance().Delete(objBaja);
+            objBaja = GetInstance().SelectById(objBaja.id);
+            objBaja.activo = false;
+
+            string cadenaDVH = objBaja.activo.ToString() + objBaja.nom_usuario.ToString() + objBaja.nombre.ToString() + objBaja.apellido.ToString() + objBaja.documento.ToString() + objBaja.domicilio.ToString() + objBaja.telefono.ToString() + objBaja.email.ToString() + objBaja.contraseña.ToString() + objBaja.cant_ingresos_incorrectos.ToString() + objBaja.es_primer_login.ToString() + objBaja.id_idioma.ToString();
+            objBaja.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            GetInstance().UpdateDVH(objBaja.DVH, objBaja.id);
+
+            int resultado = GetInstance().Delete(objBaja);
+            DigitoVerificador.CalcularDVV("Usuario");
+            return resultado;
         }
 
         public int Habilitar(BE.Usuario objHabilitar)
         {
-            return GetInstance().Habilitar(objHabilitar);
+            objHabilitar = GetInstance().SelectById(objHabilitar.id);
+            objHabilitar.activo = true;
+
+            string cadenaDVH = objHabilitar.activo.ToString() + objHabilitar.nom_usuario.ToString() + objHabilitar.nombre.ToString() + objHabilitar.apellido.ToString() + objHabilitar.documento.ToString() + objHabilitar.domicilio.ToString() + objHabilitar.telefono.ToString() + objHabilitar.email.ToString() + objHabilitar.contraseña.ToString() + objHabilitar.cant_ingresos_incorrectos.ToString() + objHabilitar.es_primer_login.ToString() + objHabilitar.id_idioma.ToString();
+            objHabilitar.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            GetInstance().UpdateDVH(objHabilitar.DVH, objHabilitar.id);
+
+            int resultado = GetInstance().Habilitar(objHabilitar);
+            DigitoVerificador.CalcularDVV("Usuario");
+
+            return resultado;
         }
 
         public int Update(BE.Usuario objUpdate)
@@ -146,11 +172,23 @@ namespace BLL
             
         }
 
-        public Boolean modificarContraseña(string pwActual, string nuevaPw)
+        public int modificarContraseña(BE.Usuario usu, string pwActual, string nuevaPw)
         {
             try
             {
-                return GetInstance().modificarContraseña(UTILITIES.Encriptador.Encriptar(pwActual), UTILITIES.Encriptador.Encriptar(nuevaPw));
+                usu.contraseña = UTILITIES.Encriptador.Encriptar(pwActual);
+                usu.nom_usuario = UTILITIES.Encriptador.Encriptar(usu.nom_usuario);
+                usu.es_primer_login = false;
+                int resultado = GetInstance().modificarContraseña(usu.id, usu.contraseña, UTILITIES.Encriptador.Encriptar(nuevaPw));
+                
+                string cadenaDVH = usu.activo.ToString() + usu.nom_usuario.ToString() + usu.nombre.ToString() + usu.apellido.ToString() + usu.documento.ToString() + usu.domicilio.ToString() + usu.telefono.ToString() + usu.email.ToString() + usu.contraseña.ToString() + usu.cant_ingresos_incorrectos.ToString() + usu.es_primer_login.ToString() + usu.id_idioma.ToString();
+                usu.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+                GetInstance().UpdateDVH(usu.DVH, usu.id);
+
+                DigitoVerificador.CalcularDVV("Usuario");
+
+                return resultado;
+                //return GetInstance().modificarContraseña(UTILITIES.Encriptador.Encriptar(pwActual), UTILITIES.Encriptador.Encriptar(nuevaPw));
             }
             catch (Exception)
             {
