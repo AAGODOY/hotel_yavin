@@ -34,6 +34,9 @@
             this.txt_ubicacion = new System.Windows.Forms.TextBox();
             this.btn_examinar = new System.Windows.Forms.Button();
             this.txt_nombreBackup = new System.Windows.Forms.TextBox();
+            this.nud_particiones = new System.Windows.Forms.NumericUpDown();
+            this.lbl_particiones = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_particiones)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_generar
@@ -68,6 +71,7 @@
             // 
             this.txt_ubicacion.Location = new System.Drawing.Point(35, 58);
             this.txt_ubicacion.Name = "txt_ubicacion";
+            this.txt_ubicacion.ReadOnly = true;
             this.txt_ubicacion.Size = new System.Drawing.Size(204, 20);
             this.txt_ubicacion.TabIndex = 3;
             // 
@@ -88,11 +92,45 @@
             this.txt_nombreBackup.Size = new System.Drawing.Size(285, 20);
             this.txt_nombreBackup.TabIndex = 5;
             // 
+            // nud_particiones
+            // 
+            this.nud_particiones.Location = new System.Drawing.Point(126, 174);
+            this.nud_particiones.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nud_particiones.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.nud_particiones.Name = "nud_particiones";
+            this.nud_particiones.ReadOnly = true;
+            this.nud_particiones.Size = new System.Drawing.Size(40, 20);
+            this.nud_particiones.TabIndex = 6;
+            this.nud_particiones.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // lbl_particiones
+            // 
+            this.lbl_particiones.AutoSize = true;
+            this.lbl_particiones.Location = new System.Drawing.Point(32, 176);
+            this.lbl_particiones.Name = "lbl_particiones";
+            this.lbl_particiones.Size = new System.Drawing.Size(88, 13);
+            this.lbl_particiones.TabIndex = 7;
+            this.lbl_particiones.Text = "N° de particiones";
+            // 
             // Generar_Copia_de_Seguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 209);
+            this.Controls.Add(this.lbl_particiones);
+            this.Controls.Add(this.nud_particiones);
             this.Controls.Add(this.txt_nombreBackup);
             this.Controls.Add(this.btn_examinar);
             this.Controls.Add(this.txt_ubicacion);
@@ -102,6 +140,7 @@
             this.Name = "Generar_Copia_de_Seguridad";
             this.Text = "Generar Copia de Seguridad";
             this.Load += new System.EventHandler(this.Generar_Copia_de_Seguridad_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nud_particiones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +154,7 @@
         private System.Windows.Forms.TextBox txt_ubicacion;
         private System.Windows.Forms.Button btn_examinar;
         private System.Windows.Forms.TextBox txt_nombreBackup;
+        private System.Windows.Forms.NumericUpDown nud_particiones;
+        private System.Windows.Forms.Label lbl_particiones;
     }
 }
