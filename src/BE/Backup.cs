@@ -9,7 +9,8 @@ namespace BE
     public class Backup
     {
         public int id_Backup { get; set; }
-        public string descripcion { get; set; }
-        public string ruta { get; set; }
+        public string descripcion { get; set; } // Nombre del archivo + Fecha
+        public string ruta { get; set; } // A nivel carpeta
+        public int nro_particiones { get; set; } // Total de particiones asociadas a un backup
     }
 }

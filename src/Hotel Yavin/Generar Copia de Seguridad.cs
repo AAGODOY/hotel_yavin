@@ -35,12 +35,34 @@ namespace Hotel_Yavin
         private void btn_generar_Click(object sender, EventArgs e)
         {
             BLL.Backup backup_BLL = new BLL.Backup();
+            string fecha = DateTime.Now.ToShortDateString().Replace('/','-');
+
             if (this.txt_ubicacion.Text != "" && this.txt_nombreBackup.Text != "")
             {
-                string pathFinal = this.txt_ubicacion.Text + "\\" + this.txt_nombreBackup.Text;
+                string fileNamefinal = this.txt_nombreBackup.Text + "-" + fecha;
+                string pathFinal = this.txt_ubicacion.Text + "\\" + fileNamefinal;
                 int cantidad_particiones = (int)this.nud_particiones.Value;
-                int result = backup_BLL.GenerarBackup(pathFinal, cantidad_particiones);
+                if (backup_BLL.GenerarBackup(pathFinal, cantidad_particiones) == -1)
+                {
+                    BE.Backup backupGenerado = new BE.Backup();
+                    backupGenerado.descripcion = fileNamefinal;
+                    backupGenerado.ruta = this.txt_ubicacion.Text;
+                    backupGenerado.nro_particiones = (int)this.nud_particiones.Value;
 
+                    if (backup_BLL.AddBackup(backupGenerado) != -1)
+                    {
+                        MessageBox.Show("Se realizó el backup correctamente");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al generar registro de backup en DB");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error al generar backup. Vuelva a intentar más tarde");
+                }
             }
             else
             {

@@ -8,10 +8,34 @@ namespace BLL
 {
     public class Backup
     {
+        //Patron singleton
+        private static DAL.Backup backup_dal;
+
+        private static DAL.Backup GetInstance()
+        {
+            if (backup_dal == null)
+            {
+                backup_dal = new DAL.Backup();
+            }
+
+            return backup_dal;
+        }
+
         public int GenerarBackup(string path, int particiones)
         {
-            DAL.Backup backup_DAL = new DAL.Backup();
-            return backup_DAL.GenerarBackup(path, particiones);
+            return GetInstance().GenerarBackup(path, particiones);
         }
+
+        public List<BE.Backup> SelectAll()
+        {
+            return GetInstance().SelectAll();
+        }
+
+        public int AddBackup(BE.Backup backup)
+        {
+            return GetInstance().AddBackup(backup);
+        }
+
+
     }
 }

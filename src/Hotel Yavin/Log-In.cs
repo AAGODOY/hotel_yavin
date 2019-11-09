@@ -25,9 +25,43 @@ namespace Hotel_Yavin
         public Log_In()
         {
             InitializeComponent();
-            //TEST
-            txt_NombreUsu.Text = "Alduuu";
-            txt_contraseña.Text = "asd";
+        }
+
+        private void Log_In_Load(object sender, EventArgs e)
+        {
+            ValidarVisibilidad();
+        }
+
+        private void ValidarVisibilidad()
+        {
+            if (ValidarConexion())
+            {
+                //TEST
+                txt_NombreUsu.Text = "Alduuu";
+                txt_contraseña.Text = "asd";
+            }
+            else
+            {
+                ConfiguradorConexion configConexion = new ConfiguradorConexion();
+                configConexion.Show(this);
+                this.Hide();
+                
+            }
+        }
+
+        private bool ValidarConexion()
+        {
+            string connString = BLL.Services.GetConnectionString();
+            connString = UTILITIES.Encriptador.Desencriptar(connString);
+            if (BLL.Services.ValidarConexion(connString))
+            {
+                Console.WriteLine(connString);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void btn_Ingresar_Click(object sender, EventArgs e)
@@ -148,22 +182,6 @@ namespace Hotel_Yavin
             {
                 MessageBox.Show("El usuario es incorrecto");
                 return false;
-            }
-        }
-
-        private void Log_In_Load(object sender, EventArgs e)
-        {
-            string connString = BLL.Services.GetConnectionString();
-            connString = UTILITIES.Encriptador.Desencriptar(connString);
-            if (BLL.Services.ValidarConexion(connString))
-            {
-                Console.WriteLine(connString);
-            }
-            else
-            {
-                ConfiguradorConexion configConexion = new ConfiguradorConexion();
-                configConexion.Show(this);
-                this.Hide();
             }
         }
 
