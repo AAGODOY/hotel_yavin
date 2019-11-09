@@ -38,6 +38,7 @@ namespace Hotel_Yavin
         private void button1_Click(object sender, EventArgs e)
         {
             this.RecalcularDigitosUsuario();
+            this.RecalcularDigitosBitacora();
         }
 
         private void RecalcularDigitosUsuario()
@@ -55,6 +56,26 @@ namespace Hotel_Yavin
             }
 
             BLL.DigitoVerificador.CalcularDVV("Usuario");
+            MessageBox.Show("Se recalcularon los dígitos correctamente");
+            this.Close();
+        }
+
+        private void RecalcularDigitosBitacora()
+        {
+            //RECALCULO DVH Y DVV DE LA TABLA BITACORA
+            BLL.Bitacora.BAJA bitacora_BLL = new BLL.Bitacora.BAJA();
+            BE.Bitacora bitacora_BE = new BE.Bitacora();
+            List<BE.Bitacora> lista_bitacora = new List<BE.Bitacora>();
+            lista_bitacora = bitacora_BLL.SelectAll();
+            string cadena = "";
+            foreach (BE.Bitacora item in lista_bitacora)
+            {
+                cadena = item.id_usuario.ToString() + item.nombre_usuario.ToString() + item.fecha.ToString("yyyy-MM-dd HH:mm:ss") + item.criticidad.ToString() + item.descripcion.ToString();
+                int valorDVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadena);
+                bitacora_BLL.UpdateDVH(valorDVH, item.id_log);
+            }
+
+            BLL.DigitoVerificador.CalcularDVV("Bitacora");
             MessageBox.Show("Se recalcularon los dígitos correctamente");
             this.Close();
         }

@@ -44,6 +44,7 @@
             this.btn_generar.TabIndex = 0;
             this.btn_generar.Text = "Generar";
             this.btn_generar.UseVisualStyleBackColor = true;
+            this.btn_generar.Click += new System.EventHandler(this.btn_generar_Click);
             // 
             // label1
             // 
@@ -78,7 +79,7 @@
             this.btn_examinar.TabIndex = 4;
             this.btn_examinar.Text = "Examinar";
             this.btn_examinar.UseVisualStyleBackColor = true;
-            this.btn_examinar.Click += new System.EventHandler(this.button2_Click);
+            this.btn_examinar.Click += new System.EventHandler(this.btn_examinar_Click);
             // 
             // txt_nombreBackup
             // 

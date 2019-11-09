@@ -13,7 +13,8 @@ namespace DAL
 
         public int RegistrarEnBitacora(BE.Bitacora InfoBitacora)
         {
-            string query = "INSERT INTO Bitacora VALUES (" + InfoBitacora.id_usuario + ",'" + InfoBitacora.nombre_usuario + "'," + "convert(datetime, '" + InfoBitacora.fecha.ToString("yyyy-MM-dd HH:mm:ss") + "'),'" + InfoBitacora.criticidad + "','" + InfoBitacora.descripcion + "'," + InfoBitacora.DVH + "" + ")";
+            string query = "INSERT INTO Bitacora VALUES (" + InfoBitacora.id_usuario + ",'" + InfoBitacora.nombre_usuario + "'," + "convert(datetime, '" + InfoBitacora.fecha.ToString("yyyy-MM-dd HH:mm:ss") + "',101),'" + InfoBitacora.criticidad + "','" + InfoBitacora.descripcion + "'," + InfoBitacora.DVH + "" + ")";
+            //string query = "INSERT INTO Bitacora VALUES (" + InfoBitacora.id_usuario + ",'" + InfoBitacora.nombre_usuario + "','" + InfoBitacora.fecha + "','" + InfoBitacora.criticidad + "','" + InfoBitacora.descripcion + "'," + InfoBitacora.DVH + "" + ")";
             return helper.ExecuteNonQuery(query);
         }
 
@@ -31,6 +32,12 @@ namespace DAL
 
                 return bitacoraList;
             }
+        }
+
+        public int UpdateDVH(int DVH, int id_usuario)
+        {
+            string query = "UPDATE Bitacora SET DVH =" + DVH + " WHERE id_log=" + id_usuario + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.Bitacora> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta, string usuarios, string criticidades)

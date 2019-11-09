@@ -8,6 +8,8 @@ namespace BLL
 {
     public static class DigitoVerificador
     {
+        static List<string> ErrorIntegridad = new List<string>();
+
         public static int CalcularDVV(string entidad)
         {
             DAL.DigitoVerificador digVerificador_DAL = new DAL.DigitoVerificador();
@@ -42,7 +44,12 @@ namespace BLL
             {
                 listaErrores.Add(item);
             }
-            //listaErrores.Add(VerificarIntegridadUsuario());
+
+            foreach (string item in VerificarIntegridadBitacora())
+            {
+                listaErrores.Add(item);
+            }
+
             return listaErrores;
                 //VerificarIntegridadBitacora();
                 //VerificarIntegridadCliente();
@@ -55,7 +62,6 @@ namespace BLL
         {
             List<BE.Usuario> listUsu_BE = new List<BE.Usuario>();
             BLL.Usuario usu_BLL = new Usuario();
-            List<string> ErrorIntegridad = new List<string>();
             listUsu_BE = usu_BLL.SelectAll();
 
             foreach (BE.Usuario item in listUsu_BE)
@@ -89,31 +95,44 @@ namespace BLL
             return ErrorIntegridad;
         }
 
-        private static Boolean VerificarIntegridadBitacora()
+        private static List<string> VerificarIntegridadBitacora()
         {
-            //List<BE.Bitacora> listUsu_BE = new List<BE.Bitacora>();
-            //BLL.Bitacora bitacora_BLL = new Bitacora();
+            List<BE.Bitacora> listBitacora_BE = new List<BE.Bitacora>();
+            BLL.Bitacora.BAJA bitacora_BLL = new Bitacora.BAJA();
+            listBitacora_BE = bitacora_BLL.SelectAll();
 
-            //listBitacora_BE = bitacora_BLL.SelectAll();
+            foreach (BE.Bitacora item in listBitacora_BE)
+            {
+                string cadenaDVH = item.id_usuario.ToString() + item.nombre_usuario.ToString() + item.fecha.ToString("yyyy-MM-dd HH:mm:ss") + item.criticidad.ToString() + item.descripcion.ToString();
+                int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+                if (item.DVH == DVHCalculado)
+                {
+                    Console.WriteLine("DVH correcto");
+                }
+                else
+                {
+                    string str = "BITACORA - Inconsistencia en la entidad Bitácora en el registro numero (ID): " + item.id_log;
+                    ErrorIntegridad.Add(str);
+                }
+            }
 
-            //foreach (BE.Bitacora item in listBitacora_BE)
-            //{
-            //    string cadenaDVH = item.fecha.ToString() + item.criticidad.ToString() + item.descripcion.ToString();
-            //    int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
-            //    if (item.DVH == DVHCalculado)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("Bitacora");
 
-            return false;
+            if (DVVCalculado == GetDVV("Bitacora"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad Bitacora al calcular el DVV";
+                ErrorIntegridad.Add(str);
+            }
+
+            return ErrorIntegridad;
         }
 
-        private static Boolean VerificarIntegridadCliente()
+        private static bool VerificarIntegridadCliente()
         {
             List<BE.Cliente> listCliente_BE = new List<BE.Cliente>();
             BLL.Cliente cliente_BLL = new Cliente();
@@ -137,7 +156,7 @@ namespace BLL
             return false;
         }
 
-        private static Boolean VerificarIntegridadReserva()
+        private static bool VerificarIntegridadReserva()
         {
             //List<BE.Reserva> listReserva_BE = new List<BE.Reserva>();
             //BLL.Reserva reserva_BLL = new Reserva();
@@ -161,7 +180,7 @@ namespace BLL
             return false;
         }
 
-        private static Boolean VerificarIntegridadFamiliaPatente()
+        private static bool VerificarIntegridadFamiliaPatente()
         {
             List<BE.FamiliaPatente> listFamPat_BE = new List<BE.FamiliaPatente>();
             BLL.FamiliaPatente famPat_BLL = new FamiliaPatente();
@@ -185,7 +204,7 @@ namespace BLL
             return false;
         }
 
-        private static Boolean VerificarIntegridadUsuarioPatente()
+        private static bool VerificarIntegridadUsuarioPatente()
         {
             List<BE.UsuarioPatente> listUsuPat_BE = new List<BE.UsuarioPatente>();
             BLL.UsuarioPatente usuPat_BLL = new UsuarioPatente();

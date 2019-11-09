@@ -26,7 +26,7 @@ namespace Hotel_Yavin
         {
             InitializeComponent();
             //TEST
-            txt_NombreUsu.Text = "Aldu";
+            txt_NombreUsu.Text = "Alduuu";
             txt_contraseña.Text = "asd";
         }
 

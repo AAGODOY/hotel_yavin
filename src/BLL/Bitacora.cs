@@ -31,8 +31,8 @@ namespace BLL
         public virtual int RegistrarEnBitacora(BE.Usuario usuario, DateTime fecha, string descripcion)
         {
             Infobitacora.id_usuario = usuario.id;
-            Infobitacora.nombre_usuario = usuario.nombre;
-            Infobitacora.fecha = fecha;
+            Infobitacora.nombre_usuario = usuario.nom_usuario;
+            Infobitacora.fecha = Convert.ToDateTime(fecha.ToString("yyyy-MM-dd HH:mm"));
             // LA CRITICIDAD SE DEFINE EN LAS CLASES HIJAS 
             Infobitacora.descripcion = descripcion;
 
@@ -49,6 +49,11 @@ namespace BLL
         public List<BE.Bitacora> SelectAll()
         {
             return GetInstance().SelectAll();
+        }
+
+        public int UpdateDVH(int DVH, int id)
+        {
+            return GetInstance().UpdateDVH(DVH, id);
         }
 
         public List<BE.Bitacora> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta, string usuarios, string criticidades)
