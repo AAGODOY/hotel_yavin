@@ -38,6 +38,7 @@ namespace BLL
 
         public int Update(BE.Patente objUpdate)
         {
+            objUpdate.descripcion = UTILITIES.Encriptador.Encriptar(objUpdate.descripcion);
             return GetInstance().Update(objUpdate);
         }
 

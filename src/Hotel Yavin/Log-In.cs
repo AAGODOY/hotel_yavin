@@ -94,7 +94,8 @@ namespace Hotel_Yavin
                                     }
                                     else
                                     {
-                                        IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
+                                        IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores, usu_BE);
+                                        Bitacora_ALTA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Error en la Integridad de la BD");
                                         formIntegridadBD.Show(this);
                                         this.Hide();
                                     }

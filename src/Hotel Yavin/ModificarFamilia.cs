@@ -12,6 +12,7 @@ namespace Hotel_Yavin
 {
     public partial class ModificarFamilia : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         List<BE.Usuario> familiaUsuariosDB = new List<BE.Usuario>();
         List<BE.Patente> familiaPatentesDB = new List<BE.Patente>();
         DataGridViewRow familia_seleccionada = new DataGridViewRow();
@@ -23,15 +24,17 @@ namespace Hotel_Yavin
         BE.FamiliaPatente famPat_BE = new BE.FamiliaPatente();
         BE.Familia familia_BE = new BE.Familia();
         BLL.Familia familia_BLL = new BLL.Familia();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
         public ModificarFamilia()
         {
             InitializeComponent();
         }
 
-        public ModificarFamilia(DataGridViewRow familia)
+        public ModificarFamilia(DataGridViewRow familia, BE.Usuario usu_logueado)
         {
             InitializeComponent();
+            this.usuario_logueado = usu_logueado;
             familia_seleccionada = familia;
             ConfiguracionGrillas();
             RetornarDatos();
@@ -169,6 +172,7 @@ namespace Hotel_Yavin
                 familia_BE.id = (int)familia_seleccionada.Cells[0].Value;
 
                 familia_BLL.Update(familia_BE);
+                bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se modificó una Patente");
 
                 //PASO 2 parte 1: Asociacion de patentes a familia
                 foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.Rows)
@@ -178,6 +182,7 @@ namespace Hotel_Yavin
                         famPat_BE.id_Patente = (int)fila.Cells[0].Value;
                         famPat_BE.id_Familia = (int)familia_seleccionada.Cells[0].Value;
                         famPat_BLL.Add(famPat_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se agregó una patente a una Familia");
                     }
                 }
 
@@ -189,6 +194,7 @@ namespace Hotel_Yavin
                         famPat_BE.id_Patente = (int)fila.Cells[0].Value;
                         famPat_BE.id_Familia = (int)familia_seleccionada.Cells[0].Value;
                         famPat_BLL.Delete(famPat_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se desasignó una patente a una Familia");
                     }
                 }
 
@@ -211,6 +217,7 @@ namespace Hotel_Yavin
                         famUsu_BE.id_usuario = (int)fila.Cells[0].Value;
                         famUsu_BE.id_familia = (int)familia_seleccionada.Cells[0].Value;
                         famUsu_BLL.Delete(famUsu_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se desasignó una familia a un Usuario");
                     }
                 }
 

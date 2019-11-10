@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public abstract class Bitacora
+    public abstract class Bitacora : BE.Bitacora
     {
         static BE.Bitacora Infobitacora = new BE.Bitacora();
         static string CRITICIDAD_ALTA = "ALTA";
@@ -34,7 +34,7 @@ namespace BLL
             Infobitacora.nombre_usuario = usuario.nom_usuario;
             Infobitacora.fecha = Convert.ToDateTime(fecha.ToString("yyyy-MM-dd HH:mm"));
             // LA CRITICIDAD SE DEFINE EN LAS CLASES HIJAS 
-            Infobitacora.descripcion = descripcion;
+            Infobitacora.descripcion = UTILITIES.Encriptador.Encriptar(descripcion);
 
             string cadenaDVH = Infobitacora.id_usuario.ToString() + Infobitacora.nombre_usuario.ToString() + Infobitacora.fecha.ToString("yyyy-MM-dd HH:mm:ss") + Infobitacora.criticidad.ToString() + Infobitacora.descripcion.ToString();
             Infobitacora.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);

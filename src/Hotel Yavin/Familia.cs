@@ -12,6 +12,7 @@ namespace Hotel_Yavin
 {
     public partial class Familia : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
         BLL.Patente pat_BLL = new BLL.Patente();
         BE.Familia fam_BE = new BE.Familia();
@@ -20,10 +21,18 @@ namespace Hotel_Yavin
         BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
         BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
         BLL.FamiliaUsuario famUsu_BLL = new BLL.FamiliaUsuario();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
         public Familia()
         {
             InitializeComponent();
+        }
+
+        public Familia(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+
+            this.usuario_logueado = usu_logueado;
         }
 
         private void tab_PatenteFamilia_Click(object sender, EventArgs e)
@@ -84,6 +93,7 @@ namespace Hotel_Yavin
             //Insert en tabla Familia
             fam_BE.descripcion = txt_NomFam.Text;
             int id_familia = fam_BLL.Add(fam_BE);
+            bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se creó una Familia");
 
             //Insert en tabla FamiliaPatente
             foreach (DataGridViewRow fila in dgv_patentesAsociadasAfamilia.Rows)
@@ -91,6 +101,7 @@ namespace Hotel_Yavin
                 famPat_BE.id_Patente = (int)fila.Cells[0].Value;
                 famPat_BE.id_Familia = id_familia;
                 famPat_BLL.Add(famPat_BE);
+                bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se agregó una patente a una Familia");
             }
             //Insert en tabla FamiliaUsuario
             foreach (DataGridViewRow fila in dgv_UsuariosAsociadosAfamilia.Rows)

@@ -13,6 +13,7 @@ namespace Hotel_Yavin
     public partial class Menu : Form
     {
         BE.Usuario usuario_logueado = new BE.Usuario();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
         public Menu()
         {
@@ -28,20 +29,20 @@ namespace Hotel_Yavin
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            //Tsmi_AdminReservas.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Reservas");
-            //Tsmi_AdminCobranza.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cobranza");
-            //Tsmi_AdminCliente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cliente");
-            //Tsmi_AdminHabitacion.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Habitacion");
-            //Tsmi_AdminServAdicionales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Serv. Adicionales");
-            //Tsmi_AdminUsuario.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Usuario");
-            //Tsmi_AdminPatente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Patente");
-            //Tsmi_AdminFamilia.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Familia");
-            //Tsmi_Bitacora.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Bitácora");
-            //Tsmi_RestaurarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Restaurar Back-Up");
-            //Tsmi_GenerarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Back-Up");
-            //Tsmi_modContrasena.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Contraseña");
-            //Tsmi_Idioma.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Modificar Idioma");
-            //Tsmi_DatosPersonales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Datos Personales");
+            Tsmi_AdminReservas.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Reservas");
+            Tsmi_AdminCobranza.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cobranza");
+            Tsmi_AdminCliente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Cliente");
+            Tsmi_AdminHabitacion.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Habitacion");
+            Tsmi_AdminServAdicionales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Serv. Adicionales");
+            Tsmi_AdminUsuario.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Usuario");
+            Tsmi_AdminPatente.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Patente");
+            Tsmi_AdminFamilia.Enabled = BLL.ConfigUsuario.ValidarAcceso("Administrar Familia");
+            Tsmi_Bitacora.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Bitácora");
+            Tsmi_RestaurarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Restaurar Back-Up");
+            Tsmi_GenerarBackUp.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Back-Up");
+            Tsmi_modContrasena.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Contraseña");
+            Tsmi_Idioma.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Modificar Idioma");
+            Tsmi_DatosPersonales.Enabled = BLL.ConfigUsuario.ValidarAcceso("Ver Datos Personales");
 
             switch (BE.ConfigUsuario.idioma.descripcion)
             {
@@ -130,19 +131,19 @@ namespace Hotel_Yavin
 
         private void administrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministrarUsuario adm_usuario = new AdministrarUsuario();
+            AdministrarUsuario adm_usuario = new AdministrarUsuario(this.usuario_logueado);
             adm_usuario.Show();
         }
 
         private void administrarPatenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministrarPatente adm_patente = new AdministrarPatente();
+            AdministrarPatente adm_patente = new AdministrarPatente(this.usuario_logueado);
             adm_patente.Show();
         }
 
         private void administrarFamiliaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministrarFamilia adm_familia = new AdministrarFamilia();
+            AdministrarFamilia adm_familia = new AdministrarFamilia(this.usuario_logueado);
             adm_familia.Show();
         }
 
@@ -154,13 +155,13 @@ namespace Hotel_Yavin
 
         private void generarBackUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Generar_Copia_de_Seguridad backup = new Generar_Copia_de_Seguridad();
+            Generar_Copia_de_Seguridad backup = new Generar_Copia_de_Seguridad(this.usuario_logueado);
             backup.Show();
         }
 
         private void restaurarBackUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Restaurar_copia_de_seguridad restore = new Restaurar_copia_de_seguridad();
+            Restaurar_copia_de_seguridad restore = new Restaurar_copia_de_seguridad(this.usuario_logueado);
             restore.Show();
         }
 
@@ -185,8 +186,8 @@ namespace Hotel_Yavin
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
+            bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "El usuario Cerró Sesion");
             this.Close();
-
         }
 
         private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)

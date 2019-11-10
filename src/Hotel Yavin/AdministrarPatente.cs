@@ -12,12 +12,21 @@ namespace Hotel_Yavin
 {
     public partial class AdministrarPatente : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BE.Patente pat_BE = new BE.Patente();
         BLL.Patente pat_BLL = new BLL.Patente();
+        BLL.Bitacora.MEDIA bitacora_MEDIA = new BLL.Bitacora.MEDIA();
 
         public AdministrarPatente()
         {
             InitializeComponent();
+        }
+
+        public AdministrarPatente(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+
+            this.usuario_logueado = usu_logueado;
         }
 
         private void Patente_Load(object sender, EventArgs e)
@@ -28,10 +37,21 @@ namespace Hotel_Yavin
             ActualizarGrilla();
         }
 
+        private void ConfigurarGrilla()
+        {
+            dataGridView1.Columns.Add("id", "Id");
+            dataGridView1.Columns.Add("descripcion", "Descripcion");
+            dataGridView1.Columns.Add("activo", "Activo");
+        }
+
         public void ActualizarGrilla()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pat_BLL.SelectAll();
+            dataGridView1.Rows.Clear();
+
+            foreach (BE.Patente row in pat_BLL.SelectAll())
+            {
+                dataGridView1.Rows.Add(row.id, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.activo);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,7 +62,7 @@ namespace Hotel_Yavin
             {
                 if (dataGridView1.SelectedRows.Contains(activo) == true)
                 {
-                    ModificarPatente modif_patente = new ModificarPatente(dataGridView1.CurrentRow);
+                    ModificarPatente modif_patente = new ModificarPatente(dataGridView1.CurrentRow, this.usuario_logueado);
                     modif_patente.Show();
                 }
                 else
@@ -65,6 +85,7 @@ namespace Hotel_Yavin
                 pat_BLL.Delete(patAinhabilitar);
                 MessageBox.Show("Se inhabilitó el registro seleccionado");
                 this.ActualizarGrilla();
+                bitacora_MEDIA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se inhabilitó una Patente");
             }
             else
             {
@@ -81,6 +102,7 @@ namespace Hotel_Yavin
                 pat_BLL.Habilitar(patAhabilitar);
                 MessageBox.Show("Se habilitó el registro seleccionado");
                 this.ActualizarGrilla();
+                bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se habilitó una Patente");
             }
             else
             {

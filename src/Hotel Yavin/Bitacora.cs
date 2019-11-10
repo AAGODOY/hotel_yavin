@@ -25,15 +25,30 @@ namespace Hotel_Yavin
             Btn_Buscar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Buscar Bitácora");
             btn_GenerarReporte.Enabled = BLL.ConfigUsuario.ValidarAcceso("Generar Reporte Bitacora");
 
+            this.ConfigurarGrilla();
             this.ActualizarGrilla();
             this.CargarCheckListBoxs();
 
         }
 
+        private void ConfigurarGrilla()
+        {
+            dataGridView1.Columns.Add("id_log", "Id");
+            dataGridView1.Columns.Add("id_usuario", "Id Usuario");
+            dataGridView1.Columns.Add("nombre_Usuario", "Nombre Usuario");
+            dataGridView1.Columns.Add("fecha", "Fecha");
+            dataGridView1.Columns.Add("criticidad", "Cricitidad");
+            dataGridView1.Columns.Add("descripcion", "Descripcion");
+            dataGridView1.Columns.Add("DVH", "DVH");
+        }
+
         private void ActualizarGrilla()
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = bitacora_BLL.SelectAll();
+            foreach (BE.Bitacora row in bitacora_BLL.SelectAll())
+            {
+                dataGridView1.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
+            }
         }
 
         private void CargarCheckListBoxs()

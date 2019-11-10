@@ -15,6 +15,7 @@ namespace Hotel_Yavin
 {
     public partial class AltaUsuario : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BE.Usuario usu_BE = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
         BLL.Patente pat_BLL = new BLL.Patente();
@@ -23,10 +24,17 @@ namespace Hotel_Yavin
         BLL.Familia familia_BLL = new BLL.Familia();
         BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
         BLL.FamiliaUsuario famUsu_BLL = new BLL.FamiliaUsuario();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA(); 
 
         public AltaUsuario()
         {
             InitializeComponent();
+        }
+
+        public AltaUsuario(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+            this.usuario_logueado = usu_logueado;
         }
 
         private void AltaUsuario_Load(object sender, EventArgs e)
@@ -189,6 +197,7 @@ namespace Hotel_Yavin
                 usu_BE.domicilio = txt_Domicilio.Text;
 
                 int idUsuario = usu_BLL.Add(usu_BE);
+                bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se creó de Usuario");
 
                 //PASO 2: Asociación de patentes a usuario
                 foreach (DataGridViewRow fila in dgv_patentesAsociadas.Rows)
@@ -197,6 +206,7 @@ namespace Hotel_Yavin
                     usuPat_BE.id_usuario = idUsuario;
                     usuPat_BE.patenteNegada = (bool)fila.Cells[2].Value;
                     usuPat_BLL.Add(usuPat_BE);
+                    bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se asignó una patente a un usuario");
                 }
 
                 foreach (DataGridViewRow fila in dgv_FamiliasAsociadas.Rows)
@@ -204,6 +214,7 @@ namespace Hotel_Yavin
                     famUsu_BE.id_usuario = idUsuario;
                     famUsu_BE.id_familia = (int)fila.Cells[0].Value;
                     famUsu_BLL.Add(famUsu_BE);
+                    bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se asignó una familia a un usuario");
                 }
 
                 //PASO3: Guardar contraseña en txt

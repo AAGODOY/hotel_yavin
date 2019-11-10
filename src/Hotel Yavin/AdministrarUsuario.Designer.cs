@@ -49,7 +49,7 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(433, 288);
+            this.groupBox1.Size = new System.Drawing.Size(727, 327);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios Disponibles";
@@ -58,7 +58,7 @@
             // btn_refresh
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.Location = new System.Drawing.Point(392, 30);
+            this.btn_refresh.Location = new System.Drawing.Point(693, 30);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(28, 32);
             this.btn_refresh.TabIndex = 11;
@@ -68,7 +68,7 @@
             // 
             // btn_habilitar
             // 
-            this.btn_habilitar.Location = new System.Drawing.Point(331, 247);
+            this.btn_habilitar.Location = new System.Drawing.Point(632, 292);
             this.btn_habilitar.Name = "btn_habilitar";
             this.btn_habilitar.Size = new System.Drawing.Size(89, 29);
             this.btn_habilitar.TabIndex = 10;
@@ -78,7 +78,7 @@
             // 
             // btn_alta
             // 
-            this.btn_alta.Location = new System.Drawing.Point(6, 247);
+            this.btn_alta.Location = new System.Drawing.Point(6, 292);
             this.btn_alta.Name = "btn_alta";
             this.btn_alta.Size = new System.Drawing.Size(89, 29);
             this.btn_alta.TabIndex = 9;
@@ -88,7 +88,7 @@
             // 
             // btn_baja
             // 
-            this.btn_baja.Location = new System.Drawing.Point(223, 247);
+            this.btn_baja.Location = new System.Drawing.Point(434, 292);
             this.btn_baja.Name = "btn_baja";
             this.btn_baja.Size = new System.Drawing.Size(89, 29);
             this.btn_baja.TabIndex = 8;
@@ -98,7 +98,7 @@
             // 
             // btn_modificar
             // 
-            this.btn_modificar.Location = new System.Drawing.Point(116, 247);
+            this.btn_modificar.Location = new System.Drawing.Point(222, 292);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(89, 29);
             this.btn_modificar.TabIndex = 7;
@@ -118,14 +118,14 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 211);
+            this.dataGridView1.Size = new System.Drawing.Size(715, 256);
             this.dataGridView1.TabIndex = 0;
             // 
             // AdministrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 313);
+            this.ClientSize = new System.Drawing.Size(751, 351);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdministrarUsuario";
             this.Text = "AdministrarUsuario";

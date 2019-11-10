@@ -13,16 +13,19 @@ namespace Hotel_Yavin
     public partial class IntegridadBD : Form
     {
         public List<string> lista { get; set; }
+        BLL.Bitacora.ALTA bitacora_ALTA = new BLL.Bitacora.ALTA();
+        BE.Usuario usuario_logueado = new BE.Usuario();
 
         public IntegridadBD()
         {
             InitializeComponent();
         }
 
-        public IntegridadBD(List<string> listaErrores)
+        public IntegridadBD(List<string> listaErrores, BE.Usuario usu_logueado)
         {
             //lst_Errores.DataSource = null;
-            lista = listaErrores;
+            this.lista = listaErrores;
+            this.usuario_logueado = usu_logueado;
             InitializeComponent();
             //lst_Errores.Items.Add(listaErrores);
         }
@@ -45,7 +48,7 @@ namespace Hotel_Yavin
                 this.RecalcularDigitosUsuarioPatente();
                 
                 MessageBox.Show("Se recalcularon los dígitos correctamente");
-                
+                bitacora_ALTA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se recalcularon los Digitos Verificadores");
                 Log_In login = new Log_In();
                 login.Show();
                 this.Close();

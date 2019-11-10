@@ -75,6 +75,7 @@
             // 
             this.txt_NuevaContraseña.Location = new System.Drawing.Point(35, 101);
             this.txt_NuevaContraseña.Name = "txt_NuevaContraseña";
+            this.txt_NuevaContraseña.PasswordChar = '*';
             this.txt_NuevaContraseña.Size = new System.Drawing.Size(172, 20);
             this.txt_NuevaContraseña.TabIndex = 4;
             // 
@@ -82,6 +83,7 @@
             // 
             this.txt_ConfirmarContraseña.Location = new System.Drawing.Point(35, 156);
             this.txt_ConfirmarContraseña.Name = "txt_ConfirmarContraseña";
+            this.txt_ConfirmarContraseña.PasswordChar = '*';
             this.txt_ConfirmarContraseña.Size = new System.Drawing.Size(172, 20);
             this.txt_ConfirmarContraseña.TabIndex = 5;
             // 

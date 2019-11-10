@@ -15,6 +15,8 @@ namespace Hotel_Yavin
         BE.Usuario usu_BE = new BE.Usuario();
         BLL.Usuario usu_BLL = new BLL.Usuario();
         BE.Usuario usuario_actual = new BE.Usuario();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
+        BLL.Bitacora.ALTA bitacora_ALTA = new BLL.Bitacora.ALTA();
 
         public Modificar_Contrasena()
         {
@@ -26,7 +28,6 @@ namespace Hotel_Yavin
             InitializeComponent();
 
             usuario_actual = usuario;
-
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -41,9 +42,17 @@ namespace Hotel_Yavin
 	                {
                         usu_BLL.modificarContraseña(usuario_actual, usu_BE.contraseña, txt_ConfirmarContraseña.Text);                        
                         MessageBox.Show("Contraseña modificada. Por favor, iniciar sesion nuevamente");
-                        this.Close();
-                        Log_In logIn = new Log_In();
-                        logIn.Show();                        
+                        if (usuario_actual.es_primer_login)
+                        {
+                            bitacora_BAJA.RegistrarEnBitacora(this.usuario_actual, DateTime.Now, "Se modificó contraseña por Primer Login");
+                            Log_In logIn = new Log_In();
+                            logIn.Show(); 
+                        }
+                        else
+                        {
+                            bitacora_ALTA.RegistrarEnBitacora(this.usuario_actual, DateTime.Now, "Se modificó contraseña");
+                        }
+                        this.Close();                       
 	                }
                     else
 	                {

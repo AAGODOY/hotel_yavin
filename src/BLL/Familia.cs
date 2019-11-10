@@ -23,6 +23,7 @@ namespace BLL
         public int Add(BE.Familia objAlta)
         {
             objAlta.activo = true;
+            objAlta.descripcion = UTILITIES.Encriptador.Encriptar(objAlta.descripcion);
             return GetInstance().Add(objAlta);
         }
 
@@ -38,6 +39,7 @@ namespace BLL
 
         public int Update(BE.Familia objUpdate)
         {
+            objUpdate.descripcion = UTILITIES.Encriptador.Encriptar(objUpdate.descripcion);
             return GetInstance().Update(objUpdate);
         }
 

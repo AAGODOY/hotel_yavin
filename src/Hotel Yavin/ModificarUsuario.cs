@@ -12,6 +12,7 @@ namespace Hotel_Yavin
 {
     public partial class ModificarUsuario : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BE.Usuario usu_BE = new BE.Usuario();
         DataGridViewRow usuario_seleccionado = new DataGridViewRow();
         BLL.Usuario usu_BLL = new BLL.Usuario();
@@ -22,6 +23,7 @@ namespace Hotel_Yavin
         BE.FamiliaUsuario famUsu_BE = new BE.FamiliaUsuario();
         BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
         BLL.Patente pat_BLL = new BLL.Patente();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
         //Asignaciones del usuario en DB
         List<BE.Familia> familiasUsuarioDB = new List<BE.Familia>();
         List<BE.Patente> patentesUsuarioDB = new List<BE.Patente>();
@@ -31,9 +33,10 @@ namespace Hotel_Yavin
             InitializeComponent();
         }
 
-        public ModificarUsuario(DataGridViewRow usuario)
+        public ModificarUsuario(DataGridViewRow usuario, BE.Usuario usu_logueado)
         {
             InitializeComponent();
+            this.usuario_logueado = usu_logueado;
             ConfigurarGrilla();
             usuario_seleccionado = usuario;
             RetornarDatos();
@@ -197,6 +200,7 @@ namespace Hotel_Yavin
                         usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
                         usuPat_BLL.Add(usuPat_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se asignó una patente a un usuario");
                     }
                 }
 
@@ -223,6 +227,7 @@ namespace Hotel_Yavin
                         usuPat_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         usuPat_BE.patenteNegada = (bool)fila.Cells[3].Value;
                         usuPat_BLL.Update(usuPat_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se negó una patente a un usuario");
                     }
                 }
 
@@ -234,6 +239,7 @@ namespace Hotel_Yavin
                         famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         famUsu_BE.id_familia = (int)fila.Cells[0].Value;
                         famUsu_BLL.Add(famUsu_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se asignó una familia a un usuario");
                     }
                 }
 
@@ -245,6 +251,7 @@ namespace Hotel_Yavin
                         famUsu_BE.id_usuario = (int)usuario_seleccionado.Cells[0].Value;
                         famUsu_BE.id_familia = (int)fila.Cells[0].Value;
                         famUsu_BLL.Delete(famUsu_BE);
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se desasignó una familia a un Usuario");
                     }
                 }
 

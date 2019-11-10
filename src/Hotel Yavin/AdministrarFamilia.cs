@@ -12,17 +12,25 @@ namespace Hotel_Yavin
 {
     public partial class AdministrarFamilia : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BLL.Familia familia_BLL = new BLL.Familia();
         BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
         public AdministrarFamilia()
         {
             InitializeComponent();
         }
 
+        public AdministrarFamilia(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+            this.usuario_logueado = usu_logueado;
+        }
+
         private void btn_alta_Click(object sender, EventArgs e)
         {
-            Familia familia = new Familia();
+            Familia familia = new Familia(this.usuario_logueado);
             familia.Show();
         }
 
@@ -32,14 +40,26 @@ namespace Hotel_Yavin
            btn_modificar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Modificar Familia");
            btn_baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Inhabilitar Familia");
            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Familia");
-           
-           ActualizarGrilla();
+
+           this.ConfigurarGrilla();
+           this.ActualizarGrilla();
+        }
+
+        private void ConfigurarGrilla()
+        {
+            dgv_familias.Columns.Add("id","Id");
+            dgv_familias.Columns.Add("descripcion", "Descripcion");
+            dgv_familias.Columns.Add("activo", "Activo");
         }
 
         public void ActualizarGrilla()
         {
-            dgv_familias.DataSource = null;
-            dgv_familias.DataSource = familia_BLL.SelectAll();
+            dgv_familias.Rows.Clear();
+
+            foreach (BE.Familia row in familia_BLL.SelectAll())
+            {
+                dgv_familias.Rows.Add(row.id, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.activo);
+            }
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -50,7 +70,7 @@ namespace Hotel_Yavin
             {
                 if (dgv_familias.SelectedRows.Contains(activo) == true)
                 {
-                    ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow);
+                    ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow, this.usuario_logueado);
                     familia.Show();
                 }
                 else
@@ -79,6 +99,7 @@ namespace Hotel_Yavin
                     familia_BLL.Delete(famAinhabilitar);
                     MessageBox.Show("Se inhabilitó el registro seleccionado");
                     this.ActualizarGrilla();
+                    bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se inhabilitó una Familia");
                 }
                 else
                 {
@@ -101,6 +122,7 @@ namespace Hotel_Yavin
                 familia_BLL.Habilitar(famAhabilitar);
                 MessageBox.Show("Se habilitó el registro seleccionado");
                 this.ActualizarGrilla();
+                bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se habilitó una Familia");
             }
             else
             {

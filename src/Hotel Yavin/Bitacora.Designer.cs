@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtp_fechaHasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.clb_criticidad = new System.Windows.Forms.CheckedListBox();
+            this.clb_Usuarios = new System.Windows.Forms.CheckedListBox();
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_GenerarReporte = new System.Windows.Forms.Button();
-            this.clb_Usuarios = new System.Windows.Forms.CheckedListBox();
-            this.clb_criticidad = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
             // 
+            // clb_criticidad
+            // 
+            this.clb_criticidad.FormattingEnabled = true;
+            this.clb_criticidad.Location = new System.Drawing.Point(491, 55);
+            this.clb_criticidad.Name = "clb_criticidad";
+            this.clb_criticidad.Size = new System.Drawing.Size(248, 139);
+            this.clb_criticidad.TabIndex = 11;
+            // 
+            // clb_Usuarios
+            // 
+            this.clb_Usuarios.FormattingEnabled = true;
+            this.clb_Usuarios.Location = new System.Drawing.Point(85, 55);
+            this.clb_Usuarios.Name = "clb_Usuarios";
+            this.clb_Usuarios.Size = new System.Drawing.Size(248, 139);
+            this.clb_Usuarios.TabIndex = 10;
+            // 
             // Btn_Buscar
             // 
             this.Btn_Buscar.Location = new System.Drawing.Point(654, 214);
@@ -125,10 +141,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 298);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(767, 193);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -149,22 +170,6 @@
             this.btn_GenerarReporte.TabIndex = 11;
             this.btn_GenerarReporte.Text = "Generar Reporte";
             this.btn_GenerarReporte.UseVisualStyleBackColor = true;
-            // 
-            // clb_Usuarios
-            // 
-            this.clb_Usuarios.FormattingEnabled = true;
-            this.clb_Usuarios.Location = new System.Drawing.Point(85, 55);
-            this.clb_Usuarios.Name = "clb_Usuarios";
-            this.clb_Usuarios.Size = new System.Drawing.Size(248, 139);
-            this.clb_Usuarios.TabIndex = 10;
-            // 
-            // clb_criticidad
-            // 
-            this.clb_criticidad.FormattingEnabled = true;
-            this.clb_criticidad.Location = new System.Drawing.Point(491, 55);
-            this.clb_criticidad.Name = "clb_criticidad";
-            this.clb_criticidad.Size = new System.Drawing.Size(248, 139);
-            this.clb_criticidad.TabIndex = 11;
             // 
             // Bitacora
             // 

@@ -12,12 +12,21 @@ namespace Hotel_Yavin
 {
     public partial class Restaurar_copia_de_seguridad : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
         BLL.Backup backup_BLL = new BLL.Backup();
         BLL.RestaurarBackup restaurarBackup_BLL = new BLL.RestaurarBackup();
+        BLL.Bitacora.ALTA bitacora_ALTA = new BLL.Bitacora.ALTA();
 
         public Restaurar_copia_de_seguridad()
         {
             InitializeComponent();
+        }
+
+        public Restaurar_copia_de_seguridad(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+
+            this.usuario_logueado = usu_logueado;
         }
 
         private void Restaurar_copia_de_seguridad_Load(object sender, EventArgs e)
@@ -44,6 +53,7 @@ namespace Hotel_Yavin
             if (restaurarBackup_BLL.RestaurarBackupSeleccionado(backupSeleccionado) == -1)
             {
                 MessageBox.Show("Se realizó la restauración correctamente");
+                bitacora_ALTA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se generó una Restauración de una Copia de Seguridad");
                 this.Close();
             }
             else

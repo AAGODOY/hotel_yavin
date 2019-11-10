@@ -13,10 +13,19 @@ namespace Hotel_Yavin
 {
     public partial class Generar_Copia_de_Seguridad : Form
     {
+        BE.Usuario usuario_logueado = new BE.Usuario();
+        BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
         public Generar_Copia_de_Seguridad()
         {
             InitializeComponent();
+        }
+
+        public Generar_Copia_de_Seguridad(BE.Usuario usu_logueado)
+        {
+            InitializeComponent();
+
+            this.usuario_logueado = usu_logueado;
         }
 
         private void Generar_Copia_de_Seguridad_Load(object sender, EventArgs e)
@@ -52,6 +61,7 @@ namespace Hotel_Yavin
                     if (backup_BLL.AddBackup(backupGenerado) != -1)
                     {
                         MessageBox.Show("Se realizó el backup correctamente");
+                        bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se creó una Copia de Seguridad");
                         this.Close();
                     }
                     else
