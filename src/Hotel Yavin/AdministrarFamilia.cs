@@ -44,10 +44,20 @@ namespace Hotel_Yavin
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow activo = dgv_familias.Rows[1];
+
             if (dgv_familias.SelectedRows.Count == 1)
             {
-                ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow);
-                familia.Show();
+                if (dgv_familias.SelectedRows.Contains(activo) == true)
+                {
+                    ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow);
+                    familia.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede modificar una Familia Inhabilitada");
+                }
+
             }
             else
             {

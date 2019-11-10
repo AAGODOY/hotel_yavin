@@ -44,11 +44,19 @@ namespace Hotel_Yavin
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
+            DataGridViewRow activo = dataGridView1.Rows[1];
+
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                ModificarUsuario usuario = new ModificarUsuario(dataGridView1.CurrentRow);
-                usuario.Show();
-                //usuario.RetornarDatos(dataGridView1.CurrentRow);
+                if (dataGridView1.SelectedRows.Contains(activo) == true)
+                {
+                    ModificarUsuario usuario = new ModificarUsuario(dataGridView1.CurrentRow);
+                    usuario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede modificar un Usuario Inhabilitado");
+                }
             }
             else
             {

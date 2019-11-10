@@ -36,10 +36,19 @@ namespace Hotel_Yavin
 
         private void button2_Click(object sender, EventArgs e)
         {
+            DataGridViewRow activo = dataGridView1.Rows[1];
+
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                ModificarPatente modif_patente = new ModificarPatente(dataGridView1.CurrentRow);
-                modif_patente.Show();
+                if (dataGridView1.SelectedRows.Contains(activo) == true)
+                {
+                    ModificarPatente modif_patente = new ModificarPatente(dataGridView1.CurrentRow);
+                    modif_patente.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede modificar una Patente Inhabilitada");
+                }
             }
             else
             {
