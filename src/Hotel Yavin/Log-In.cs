@@ -29,28 +29,12 @@ namespace Hotel_Yavin
 
         private void Log_In_Load(object sender, EventArgs e)
         {
-            ValidarVisibilidad();
-        }
-
-        private void ValidarVisibilidad()
-        {
-            if (ValidarConexion())
-            {
-                //TEST
-                txt_NombreUsu.Text = "Alduuu";
-                txt_contraseña.Text = "asd";
-            }
-            else
-            {
-                ConfiguradorConexion configConexion = new ConfiguradorConexion();
-                configConexion.Show(this);
-                this.Hide();
-                
-            }
+            txt_NombreUsu.Text = "Alduuu";
+            txt_contraseña.Text = "asd";
         }
 
         private bool ValidarConexion()
-        {
+         {
             string connString = BLL.Services.GetConnectionString();
             connString = UTILITIES.Encriptador.Desencriptar(connString);
             if (BLL.Services.ValidarConexion(connString))
@@ -70,60 +54,69 @@ namespace Hotel_Yavin
             usu_BE.contraseña = txt_contraseña.Text;
             //Menu menuPrincipal = new Menu(usu_BE);
 
-            if (usu_BE.nom_usuario != "")
+            if (this.ValidarConexion())
             {
-                if (usu_BE.contraseña != "")
+                if (usu_BE.nom_usuario != "")
                 {
-                    usu_BE = usu_BLL.validarUsuario(usu_BE);
-                    if (ValidarUsu(usu_BE))
+                    if (usu_BE.contraseña != "")
                     {
-                        Menu menuPrincipal = new Menu(usu_BE);
-                        if (!usu_BE.activo)
+                        usu_BE = usu_BLL.validarUsuario(usu_BE);
+                        if (ValidarUsu(usu_BE))
                         {
-                            MessageBox.Show("El usuario se encuentra inhabilitado. Por favor, comunicarse con el Administrador del sistema");
-                        }
-                        else
-                        {
-                            //CONFIGURACION GLOBAL DEL USUARIO DEL SISTEMA
-                            this.FijarPermisos();
-                            this.FijarIdioma();
-
-                            if (usu_BE.es_primer_login)
+                            Menu menuPrincipal = new Menu(usu_BE);
+                            if (!usu_BE.activo)
                             {
-                                Modificar_Contrasena mod_contraseña = new Modificar_Contrasena(usu_BE);
-                                mod_contraseña.Show(this);
-                                this.Hide();
+                                MessageBox.Show("El usuario se encuentra inhabilitado. Por favor, comunicarse con el Administrador del sistema");
                             }
                             else
                             {
-                                List<string> listaErrores = BLL.DigitoVerificador.VerificarIntegridad();
-                                if (listaErrores.Count == 0)
+                                //CONFIGURACION GLOBAL DEL USUARIO DEL SISTEMA
+                                this.FijarPermisos();
+                                this.FijarIdioma();
+
+                                if (usu_BE.es_primer_login)
                                 {
-                                    MessageBox.Show("Se ingresó al sistema");
-                                    Bitacora_BAJA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login exitoso");
-                                    
-                                    menuPrincipal.Show(this);
-                                    //this.Owner.Hide();
+                                    Modificar_Contrasena mod_contraseña = new Modificar_Contrasena(usu_BE);
+                                    mod_contraseña.Show(this);
                                     this.Hide();
                                 }
                                 else
                                 {
-                                    IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
-                                    formIntegridadBD.Show(this);
-                                    this.Hide();
+                                    List<string> listaErrores = BLL.DigitoVerificador.VerificarIntegridad();
+                                    if (listaErrores.Count == 0)
+                                    {
+                                        MessageBox.Show("Se ingresó al sistema");
+                                        Bitacora_BAJA.RegistrarEnBitacora(usu_BE, DateTime.Now, "Login exitoso");
+
+                                        menuPrincipal.Show(this);
+                                        //this.Owner.Hide();
+                                        this.Hide();
+                                    }
+                                    else
+                                    {
+                                        IntegridadBD formIntegridadBD = new IntegridadBD(listaErrores);
+                                        formIntegridadBD.Show(this);
+                                        this.Hide();
+                                    }
                                 }
                             }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Debe completar el campo 'Contraseña'", "Hotel Yavin", MessageBoxButtons.OK);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Debe completar el campo 'Contraseña'", "Hotel Yavin", MessageBoxButtons.OK);
+                    MessageBox.Show("Debe completar el campo 'Nombre de Usuario'", "Hotel Yavin", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("Debe completar el campo 'Nombre de Usuario'", "Hotel Yavin", MessageBoxButtons.OK);
+                ConfiguradorConexion configConexion = new ConfiguradorConexion();
+                configConexion.Show(this);
+                this.Hide();
             }
         }
 
