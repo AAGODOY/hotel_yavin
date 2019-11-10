@@ -86,6 +86,7 @@ namespace DAL
 		                            where up.id_patente = @idPatente AND up.patenteNegada = 0 AND u.activo = 1  AND u.id_usuario = @idUsuario)
 		                            +
 
+
 		                            (select COUNT(*)
 		                            from FamiliaUsuario fu
 		                            INNER JOIN Usuario u ON fu.id_usuario = u.id_usuario

@@ -40,22 +40,30 @@ namespace BLL
         public static List<string> VerificarIntegridad()
         {
             List<string> listaErrores = new List<string>();
-            foreach (string item in VerificarIntegridadUsuario())
+            foreach (string usuario in VerificarIntegridadUsuario())
             {
-                listaErrores.Add(item);
+                listaErrores.Add(usuario);
             }
 
-            foreach (string item in VerificarIntegridadBitacora())
+            foreach (string bitacora in VerificarIntegridadBitacora())
             {
-                listaErrores.Add(item);
+                listaErrores.Add(bitacora);
+            }
+
+            foreach (string famPat in VerificarIntegridadFamiliaPatente())
+            {
+                listaErrores.Add(famPat);
+            }
+
+            foreach (string usuPat in VerificarIntegridadUsuarioPatente())
+            {
+                listaErrores.Add(usuPat);
             }
 
             return listaErrores;
-                //VerificarIntegridadBitacora();
+
                 //VerificarIntegridadCliente();
                 //VerificarIntegridadReserva();
-                //VerificarIntegridadUsuarioPatente();
-                //VerificarIntegridadFamiliaPatente();
         }
 
         private static List<string> VerificarIntegridadUsuario()
@@ -132,29 +140,29 @@ namespace BLL
             return ErrorIntegridad;
         }
 
-        private static bool VerificarIntegridadCliente()
-        {
-            List<BE.Cliente> listCliente_BE = new List<BE.Cliente>();
-            BLL.Cliente cliente_BLL = new Cliente();
+        //private static List<string> VerificarIntegridadCliente()
+        //{
+        //    //List<BE.Cliente> listCliente_BE = new List<BE.Cliente>();
+        //    //BLL.Cliente cliente_BLL = new Cliente();
 
-            listCliente_BE = cliente_BLL.SelectAll();
+        //    //listCliente_BE = cliente_BLL.SelectAll();
 
-            foreach (BE.Cliente item in listCliente_BE)
-            {
-                string cadenaDVH = item.activo.ToString() + item.nombre.ToString() + item.apellido.ToString() + item.documento.ToString() + item.telefono.ToString() + item.email.ToString();
-                int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
-                if (item.DVH == DVHCalculado)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+        //    //foreach (BE.Cliente item in listCliente_BE)
+        //    //{
+        //    //    string cadenaDVH = item.activo.ToString() + item.nombre.ToString() + item.apellido.ToString() + item.documento.ToString() + item.telefono.ToString() + item.email.ToString();
+        //    //    int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+        //    //    if (item.DVH == DVHCalculado)
+        //    //    {
+        //    //        return true;
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        return false;
+        //    //    }
+        //    //}
 
-            return false;
-        }
+
+        //}
 
         private static bool VerificarIntegridadReserva()
         {
@@ -180,11 +188,10 @@ namespace BLL
             return false;
         }
 
-        private static bool VerificarIntegridadFamiliaPatente()
+        private static List<string> VerificarIntegridadFamiliaPatente()
         {
             List<BE.FamiliaPatente> listFamPat_BE = new List<BE.FamiliaPatente>();
             BLL.FamiliaPatente famPat_BLL = new FamiliaPatente();
-
             listFamPat_BE = famPat_BLL.SelectAll();
 
             foreach (BE.FamiliaPatente item in listFamPat_BE)
@@ -193,22 +200,35 @@ namespace BLL
                 int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
                 if (item.DVH == DVHCalculado)
                 {
-                    return true;
+                    Console.WriteLine("DVH correcto");
                 }
                 else
                 {
-                    return false;
+                    string str = "FamiliaPatente - Inconsistencia en la entidad FamiliaPatente en el registro numero (ID): " + item.id_Familia + " - " + item.id_Patente;
+                    ErrorIntegridad.Add(str);
                 }
             }
 
-            return false;
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("FamiliaPatente");
+
+            if (DVVCalculado == GetDVV("FamiliaPatente"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad FamiliaPatente al calcular el DVV";
+                ErrorIntegridad.Add(str);
+            }
+
+            return ErrorIntegridad;
         }
 
-        private static bool VerificarIntegridadUsuarioPatente()
+        private static List<string> VerificarIntegridadUsuarioPatente()
         {
             List<BE.UsuarioPatente> listUsuPat_BE = new List<BE.UsuarioPatente>();
             BLL.UsuarioPatente usuPat_BLL = new UsuarioPatente();
-
             listUsuPat_BE = usuPat_BLL.SelectAll();
 
             foreach (BE.UsuarioPatente item in listUsuPat_BE)
@@ -217,15 +237,29 @@ namespace BLL
                 int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
                 if (item.DVH == DVHCalculado)
                 {
-                    return true;
+                    Console.WriteLine("DVH correcto");
                 }
                 else
                 {
-                    return false;
+                    string str = "UsuarioPatente - Inconsistencia en la entidad UsuarioPatente en el registro numero (ID): " + item.id_patente + " - " + item.id_usuario;
+                    ErrorIntegridad.Add(str);
                 }
             }
 
-            return false;
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("UsuarioPatente");
+
+            if (DVVCalculado == GetDVV("UsuarioPatente"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad UsuarioPatente al calcular el DVV";
+                ErrorIntegridad.Add(str);
+            }
+
+            return ErrorIntegridad;
         }
 
     }

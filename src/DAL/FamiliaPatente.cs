@@ -25,6 +25,12 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
+        public int UpdateDVH(int DVH, int id_patente, int id_familia)
+        {
+            string query = "UPDATE FamiliaPatente SET DVH =" + DVH + " WHERE id_patente= " + id_patente + " AND id_familia= " + id_familia + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
         public int Update(BE.FamiliaPatente objUpdate)
         {
             throw new NotImplementedException();

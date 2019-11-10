@@ -52,6 +52,11 @@ namespace BLL
             return usuPatModiciado;
         }
 
+        public int UpdateDVH(int DVH, int id_patente, int id_usuario)
+        {
+            return GetInstance().UpdateDVH(DVH, id_patente, id_usuario);
+        }
+
         public List<BE.UsuarioPatente> SelectAll()
         {
             return GetInstance().SelectAll();

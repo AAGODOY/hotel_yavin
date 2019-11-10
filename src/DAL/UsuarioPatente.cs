@@ -30,6 +30,12 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
+        public int UpdateDVH(int DVH, int id_patente, int id_usuario)
+        {
+            string query = "UPDATE UsuarioPatente SET DVH =" + DVH + " WHERE id_patente= " + id_patente + " AND id_usuario=" + id_usuario + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
         public List<BE.UsuarioPatente> SelectAll()
         {
             string query = "SELECT * from UsuarioPatente";

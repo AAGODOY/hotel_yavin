@@ -34,7 +34,16 @@ namespace BLL
 
         public int Delete(BE.FamiliaPatente objBaja)
         {
-            return GetInstance().Delete(objBaja);
+            int resultado = GetInstance().Delete(objBaja);
+
+            DigitoVerificador.CalcularDVV("FamiliaPatente");
+
+            return resultado;
+        }
+
+        public int UpdateDVH(int DVH, int id_patente, int id_familia)
+        {
+            return GetInstance().UpdateDVH(DVH, id_patente, id_familia);
         }
 
         public int Update(BE.FamiliaPatente objUpdate)

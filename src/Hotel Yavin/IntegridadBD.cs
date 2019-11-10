@@ -37,8 +37,25 @@ namespace Hotel_Yavin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.RecalcularDigitosUsuario();
-            this.RecalcularDigitosBitacora();
+            try
+            {
+                this.RecalcularDigitosUsuario();
+                this.RecalcularDigitosBitacora();
+                this.RecalcularDigitosFamiliaPatente();
+                this.RecalcularDigitosUsuarioPatente();
+                
+                MessageBox.Show("Se recalcularon los dígitos correctamente");
+                
+                Log_In login = new Log_In();
+                login.Show();
+                this.Close();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
         }
 
         private void RecalcularDigitosUsuario()
@@ -56,8 +73,6 @@ namespace Hotel_Yavin
             }
 
             BLL.DigitoVerificador.CalcularDVV("Usuario");
-            MessageBox.Show("Se recalcularon los dígitos correctamente");
-            this.Close();
         }
 
         private void RecalcularDigitosBitacora()
@@ -76,8 +91,42 @@ namespace Hotel_Yavin
             }
 
             BLL.DigitoVerificador.CalcularDVV("Bitacora");
-            MessageBox.Show("Se recalcularon los dígitos correctamente");
-            this.Close();
+        }
+
+        private void RecalcularDigitosFamiliaPatente()
+        {
+            //RECALCULO DVH Y DVV DE LA TABLA FAMILIAPATENTE
+            BLL.FamiliaPatente famPat_BLL = new BLL.FamiliaPatente();
+            BE.FamiliaPatente famPat_BE = new BE.FamiliaPatente();
+            List<BE.FamiliaPatente> lista_famPat = new List<BE.FamiliaPatente>();
+            lista_famPat = famPat_BLL.SelectAll();
+            string cadena = "";
+            foreach (BE.FamiliaPatente item in lista_famPat)
+            {
+                cadena = item.id_Patente.ToString() + item.id_Familia.ToString();
+                int valorDVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadena);
+                famPat_BLL.UpdateDVH(valorDVH, item.id_Patente, item.id_Familia);
+            }
+
+            BLL.DigitoVerificador.CalcularDVV("FamiliaPatente");
+        }
+
+        private void RecalcularDigitosUsuarioPatente()
+        {
+            //RECALCULO DVH Y DVV DE LA TABLA FAMILIAPATENTE
+            BLL.UsuarioPatente usuPat_BLL = new BLL.UsuarioPatente();
+            BE.UsuarioPatente usuPat_BE = new BE.UsuarioPatente();
+            List<BE.UsuarioPatente> lista_usuPat = new List<BE.UsuarioPatente>();
+            lista_usuPat = usuPat_BLL.SelectAll();
+            string cadena = "";
+            foreach (BE.UsuarioPatente item in lista_usuPat)
+            {
+                cadena = item.id_patente.ToString() + item.id_usuario.ToString() + item.patenteNegada.ToString();
+                int valorDVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadena);
+                usuPat_BLL.UpdateDVH(valorDVH, item.id_patente, item.id_usuario);
+            }
+
+            BLL.DigitoVerificador.CalcularDVV("UsuarioPatente");
         }
     }
 }
