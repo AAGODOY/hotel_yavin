@@ -75,6 +75,8 @@ namespace Hotel_Yavin
             {
                 dataGridView1.Rows.Add(row.id, row.activo, UTILITIES.Encriptador.Desencriptar(row.nom_usuario), row.nombre, row.apellido, row.documento, row.domicilio, row.telefono, row.email, row.contraseña, row.cant_ingresos_incorrectos, row.DVH, row.es_primer_login, row.id_idioma);
             }
+
+            dataGridView1.ClearSelection();
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace Hotel_Yavin
 
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                if (dataGridView1.SelectedRows.Contains(activo) == true)
+                if ((bool)dataGridView1.CurrentRow.Cells[1].Value)
                 {
                     ModificarUsuario usuario = new ModificarUsuario(dataGridView1.CurrentRow, this.usuario_logueado);
                     usuario.Show();
@@ -138,8 +140,8 @@ namespace Hotel_Yavin
                 BE.Usuario usuHabilitar = new BE.Usuario();
                 usuHabilitar.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
                 usu_BLL.Habilitar(usuHabilitar);
-                MessageBox.Show("Se habilitó el usuario seleccionado");
                 ActualizarGrilla();
+                MessageBox.Show("Se habilitó el usuario seleccionado");
                 bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se habilitó un Usuario");
             }
             else
@@ -148,9 +150,18 @@ namespace Hotel_Yavin
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            if ((bool)dataGridView1.CurrentRow.Cells[1].Value == true)
+            {
+                btn_baja.Enabled = true;
+                btn_habilitar.Enabled = false;
+            }
+            else
+            {
+                btn_baja.Enabled = false;
+                btn_habilitar.Enabled = true;
+            }
         }
     }
 }

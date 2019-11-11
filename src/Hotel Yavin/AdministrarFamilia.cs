@@ -60,6 +60,8 @@ namespace Hotel_Yavin
             {
                 dgv_familias.Rows.Add(row.id, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.activo);
             }
+
+            dgv_familias.ClearSelection();
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Hotel_Yavin
 
             if (dgv_familias.SelectedRows.Count == 1)
             {
-                if (dgv_familias.SelectedRows.Contains(activo) == true)
+                if ((bool)dgv_familias.CurrentRow.Cells[2].Value)
                 {
                     ModificarFamilia familia = new ModificarFamilia(dgv_familias.CurrentRow, this.usuario_logueado);
                     familia.Show();
@@ -97,8 +99,8 @@ namespace Hotel_Yavin
                     BE.Familia famAinhabilitar = new BE.Familia();
                     famAinhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
                     familia_BLL.Delete(famAinhabilitar);
-                    MessageBox.Show("Se inhabilitó el registro seleccionado");
                     this.ActualizarGrilla();
+                    MessageBox.Show("Se inhabilitó el registro seleccionado");
                     bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se inhabilitó una Familia");
                 }
                 else
@@ -120,13 +122,27 @@ namespace Hotel_Yavin
                 BE.Familia famAhabilitar = new BE.Familia();
                 famAhabilitar.id = Convert.ToInt32(dgv_familias.CurrentRow.Cells[0].Value);
                 familia_BLL.Habilitar(famAhabilitar);
-                MessageBox.Show("Se habilitó el registro seleccionado");
                 this.ActualizarGrilla();
+                MessageBox.Show("Se habilitó el registro seleccionado");
                 bitacora_BAJA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se habilitó una Familia");
             }
             else
             {
                 MessageBox.Show("Se debe seleccionar un registro a inhabilitar");
+            }
+        }
+
+        private void dgv_familias_MouseClick(object sender, MouseEventArgs e)
+        {
+            if ((bool)dgv_familias.CurrentRow.Cells[2].Value == true)
+            {
+                btn_baja.Enabled = true;
+                btn_habilitar.Enabled = false;
+            }
+            else
+            {
+                btn_baja.Enabled = false;
+                btn_habilitar.Enabled = true;
             }
         }
     }

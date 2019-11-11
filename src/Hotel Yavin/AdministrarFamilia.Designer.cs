@@ -106,6 +106,7 @@
             this.dgv_familias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_familias.Size = new System.Drawing.Size(414, 211);
             this.dgv_familias.TabIndex = 0;
+            this.dgv_familias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgv_familias_MouseClick);
             // 
             // AdministrarFamilia
             // 

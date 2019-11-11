@@ -8,8 +8,6 @@ namespace BLL
 {
     public static class DigitoVerificador
     {
-        static List<string> ErrorIntegridad = new List<string>();
-
         public static int CalcularDVV(string entidad)
         {
             DAL.DigitoVerificador digVerificador_DAL = new DAL.DigitoVerificador();
@@ -32,10 +30,6 @@ namespace BLL
             DAL.DigitoVerificador DVV_DAL = new DAL.DigitoVerificador();
             return DVV_DAL.GetDVV(entidad);
         }
-
-        
-
-        //VERIFICAR SI SE PUEDE AGREGAR EL PATRON TEMPLATE a la funcionalidad
 
         public static List<string> VerificarIntegridad()
         {
@@ -68,6 +62,7 @@ namespace BLL
 
         private static List<string> VerificarIntegridadUsuario()
         {
+            List<string> ErrorIntegridad_Usuario = new List<string>();
             List<BE.Usuario> listUsu_BE = new List<BE.Usuario>();
             BLL.Usuario usu_BLL = new Usuario();
             listUsu_BE = usu_BLL.SelectAll();
@@ -83,7 +78,7 @@ namespace BLL
                 else
                 {
                     string str = "USUARIO - Inconsistencia en la entidad Usuario en el registro numero (ID): " + item.id;
-                    ErrorIntegridad.Add(str);
+                    ErrorIntegridad_Usuario.Add(str);
                 }
             }
 
@@ -97,14 +92,15 @@ namespace BLL
             else
             {
                 string str = "Inconsistencia en la entidad Usuario al calcular el DVV";
-                ErrorIntegridad.Add(str);
+                ErrorIntegridad_Usuario.Add(str);
             }
 
-            return ErrorIntegridad;
+            return ErrorIntegridad_Usuario;
         }
 
         private static List<string> VerificarIntegridadBitacora()
         {
+            List<string> ErrorIntegridad_Bitacora = new List<string>();
             List<BE.Bitacora> listBitacora_BE = new List<BE.Bitacora>();
             BLL.Bitacora.BAJA bitacora_BLL = new Bitacora.BAJA();
             listBitacora_BE = bitacora_BLL.SelectAll();
@@ -120,7 +116,7 @@ namespace BLL
                 else
                 {
                     string str = "BITACORA - Inconsistencia en la entidad Bitácora en el registro numero (ID): " + item.id_log;
-                    ErrorIntegridad.Add(str);
+                    ErrorIntegridad_Bitacora.Add(str);
                 }
             }
 
@@ -134,10 +130,10 @@ namespace BLL
             else
             {
                 string str = "Inconsistencia en la entidad Bitacora al calcular el DVV";
-                ErrorIntegridad.Add(str);
+                ErrorIntegridad_Bitacora.Add(str);
             }
 
-            return ErrorIntegridad;
+            return ErrorIntegridad_Bitacora;
         }
 
         //private static List<string> VerificarIntegridadCliente()
@@ -190,6 +186,7 @@ namespace BLL
 
         private static List<string> VerificarIntegridadFamiliaPatente()
         {
+            List<string> ErrorIntegridad_FamPat = new List<string>();
             List<BE.FamiliaPatente> listFamPat_BE = new List<BE.FamiliaPatente>();
             BLL.FamiliaPatente famPat_BLL = new FamiliaPatente();
             listFamPat_BE = famPat_BLL.SelectAll();
@@ -205,7 +202,7 @@ namespace BLL
                 else
                 {
                     string str = "FamiliaPatente - Inconsistencia en la entidad FamiliaPatente en el registro numero (ID): " + item.id_Familia + " - " + item.id_Patente;
-                    ErrorIntegridad.Add(str);
+                    ErrorIntegridad_FamPat.Add(str);
                 }
             }
 
@@ -219,14 +216,15 @@ namespace BLL
             else
             {
                 string str = "Inconsistencia en la entidad FamiliaPatente al calcular el DVV";
-                ErrorIntegridad.Add(str);
+                ErrorIntegridad_FamPat.Add(str);
             }
 
-            return ErrorIntegridad;
+            return ErrorIntegridad_FamPat;
         }
 
         private static List<string> VerificarIntegridadUsuarioPatente()
         {
+            List<string> ErrorIntegridad_UsuPat = new List<string>();
             List<BE.UsuarioPatente> listUsuPat_BE = new List<BE.UsuarioPatente>();
             BLL.UsuarioPatente usuPat_BLL = new UsuarioPatente();
             listUsuPat_BE = usuPat_BLL.SelectAll();
@@ -242,7 +240,7 @@ namespace BLL
                 else
                 {
                     string str = "UsuarioPatente - Inconsistencia en la entidad UsuarioPatente en el registro numero (ID): " + item.id_patente + " - " + item.id_usuario;
-                    ErrorIntegridad.Add(str);
+                    ErrorIntegridad_UsuPat.Add(str);
                 }
             }
 
@@ -256,10 +254,10 @@ namespace BLL
             else
             {
                 string str = "Inconsistencia en la entidad UsuarioPatente al calcular el DVV";
-                ErrorIntegridad.Add(str);
+                ErrorIntegridad_UsuPat.Add(str);
             }
 
-            return ErrorIntegridad;
+            return ErrorIntegridad_UsuPat;
         }
 
     }

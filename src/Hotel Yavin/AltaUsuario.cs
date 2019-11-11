@@ -52,23 +52,19 @@ namespace Hotel_Yavin
             dgv_patentesDisponibles.DataSource = null;
             dgv_patentesDisponibles.Columns.Add("id", "Id");
             dgv_patentesDisponibles.Columns.Add("descripcion", "Descripción");
-            dgv_patentesDisponibles.Columns[0].Visible = false;
             //DataGridView Patentes asociadas
             dgv_patentesAsociadas.DataSource = null;
             dgv_patentesAsociadas.Columns.Add("id", "Id");
             dgv_patentesAsociadas.Columns.Add("descripcion", "Descripción");
             dgv_patentesAsociadas.Columns.Add("negada", "Negada");
-            dgv_patentesAsociadas.Columns[0].Visible = false;
             //DataGridView Familias disponibles
             dgv_FamiliasDisponibles.DataSource = null;
             dgv_FamiliasDisponibles.Columns.Add("id", "Id");
             dgv_FamiliasDisponibles.Columns.Add("descripcion", "Descripción");
-            dgv_FamiliasDisponibles.Columns[0].Visible = false;
             //DataGridView Familias asociadas
             dgv_FamiliasAsociadas.DataSource = null;
             dgv_FamiliasAsociadas.Columns.Add("id", "Id");
             dgv_FamiliasAsociadas.Columns.Add("descripcion", "Descripcion");
-            dgv_FamiliasAsociadas.Columns[0].Visible = false;
 
             //Configuracion de Idioma
             switch (BE.ConfigUsuario.idioma.descripcion)
