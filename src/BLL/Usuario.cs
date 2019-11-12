@@ -127,6 +127,7 @@ namespace BLL
 
         public int Update(BE.Usuario objUpdate)
         {
+            objUpdate.nom_usuario = UTILITIES.Encriptador.Encriptar(objUpdate.nom_usuario);
             string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nom_usuario.ToString() + objUpdate.nombre.ToString() + objUpdate.apellido.ToString() + objUpdate.documento.ToString() + objUpdate.domicilio.ToString() + objUpdate.telefono.ToString() + objUpdate.email.ToString() + objUpdate.contraseña.ToString() + objUpdate.cant_ingresos_incorrectos.ToString() + objUpdate.es_primer_login.ToString() + objUpdate.id_idioma.ToString();
             objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
             int resultado = GetInstance().Update(objUpdate);

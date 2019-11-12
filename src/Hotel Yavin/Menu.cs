@@ -12,6 +12,8 @@ namespace Hotel_Yavin
 {
     public partial class Menu : Form
     {
+        //public override string HelpPage => "About.htm";
+
         BE.Usuario usuario_logueado = new BE.Usuario();
         BLL.Bitacora.BAJA bitacora_BAJA = new BLL.Bitacora.BAJA();
 
@@ -193,6 +195,16 @@ namespace Hotel_Yavin
         private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Menu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace);
+
+                //Hotel Yavin - Manual Operativo.chm
+            }
         }
     }
 }

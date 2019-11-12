@@ -420,7 +420,6 @@
             // 
             this.dgv_patentesAsociadas.AllowUserToAddRows = false;
             this.dgv_patentesAsociadas.AllowUserToDeleteRows = false;
-            this.dgv_patentesAsociadas.AllowUserToResizeColumns = false;
             this.dgv_patentesAsociadas.AllowUserToResizeRows = false;
             this.dgv_patentesAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_patentesAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

@@ -1,0 +1,11 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Hotel Yavin - Manual Operativo.chm
+Contents file=Manuales\Manual Operativo\About.hhc
+Display compile progress=No
+Index file=Manuales\Manual Operativo\Index.hhk
+Language=0xc0a Español (España, internacional)
+
+
+[INFOTYPES]
+

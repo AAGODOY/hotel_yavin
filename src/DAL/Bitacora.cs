@@ -42,17 +42,18 @@ namespace DAL
 
         public List<BE.Bitacora> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta, string usuarios, string criticidades)
         {
-            string query = @"declare @fecha_desde datetime = convert(datetime,'" + fecha_desde + @"',101);
-	                         declare @fecha_hasta datetime = convert(datetime,'" + fecha_hasta + @"',101);
+
+            string query = @"declare @fecha_desde datetime = convert(datetime,'" + fecha_desde + @"');
+	                         declare @fecha_hasta datetime = convert(datetime,'" + fecha_hasta + @"');
 
 		                        select *
 		                        from Bitacora b
 		                        where b.fecha between @fecha_desde and @fecha_hasta" + "";
-            if (usuarios != null)
+            if (usuarios != "")
 	        {
 		        query += " and b.id_usuario in (" + usuarios + ")";
 	        }
-            if (criticidades != null)
+            if (criticidades != "")
 	        {
 		        query += " and b.criticidad in (" + criticidades + ")";
 	        }

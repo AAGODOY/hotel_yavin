@@ -44,8 +44,9 @@ namespace Hotel_Yavin
 
         private void ActualizarGrilla()
         {
-            dataGridView1.DataSource = null;
-            foreach (BE.Bitacora row in bitacora_BLL.SelectAll())
+            dataGridView1.Rows.Clear();
+             List<BE.Bitacora> lista_logs = bitacora_BLL.SelectAll();
+            foreach (BE.Bitacora row in lista_logs)
             {
                 dataGridView1.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
             }
@@ -96,12 +97,15 @@ namespace Hotel_Yavin
             }
 
             DateTime fecha_desde = Convert.ToDateTime(dtp_fechaDesde.Value.Date);
-            DateTime fecha_hasta = Convert.ToDateTime(dtp_fechaHasta.Value.Date);
+            DateTime fecha_hasta = Convert.ToDateTime(dtp_fechaHasta.Value.Date.AddHours(23).AddMinutes(59));
 
             //bitacora_BLL.GetFiltros(Convert.ToDateTime(dtp_fechaDesde.Value), Convert.ToDateTime(dtp_fechaHasta.Value), lista_usuarios, lista_criticidades);
             List<BE.Bitacora> lista_filtrada = bitacora_BLL.GetFiltros(fecha_desde, fecha_hasta, lista_usuarios, lista_criticidades);
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = lista_filtrada;
+            dataGridView1.Rows.Clear();
+            foreach (BE.Bitacora row in lista_filtrada)
+            {
+                dataGridView1.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
+            }
             
         }
     }

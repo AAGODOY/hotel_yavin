@@ -44,13 +44,14 @@
             this.Tsmi_AdminFamilia = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_Bitacora = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tsmi_GenerarBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_RestaurarBackUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tsmi_GenerarBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_modContrasena = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_Idioma = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_DatosPersonales = new System.Windows.Forms.ToolStripMenuItem();
             this.Tsmi_CerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,19 +189,19 @@
             this.Tsmi_Bitacora.Text = "Bitacora";
             this.Tsmi_Bitacora.Click += new System.EventHandler(this.bitácoraToolStripMenuItem_Click);
             // 
-            // Tsmi_GenerarBackUp
-            // 
-            this.Tsmi_GenerarBackUp.Name = "Tsmi_GenerarBackUp";
-            this.Tsmi_GenerarBackUp.Size = new System.Drawing.Size(188, 22);
-            this.Tsmi_GenerarBackUp.Text = "Generar Back-Up";
-            this.Tsmi_GenerarBackUp.Click += new System.EventHandler(this.generarBackUpToolStripMenuItem_Click);
-            // 
             // Tsmi_RestaurarBackUp
             // 
             this.Tsmi_RestaurarBackUp.Name = "Tsmi_RestaurarBackUp";
             this.Tsmi_RestaurarBackUp.Size = new System.Drawing.Size(188, 22);
             this.Tsmi_RestaurarBackUp.Text = "Restaurar Back-Up";
             this.Tsmi_RestaurarBackUp.Click += new System.EventHandler(this.restaurarBackUpToolStripMenuItem_Click);
+            // 
+            // Tsmi_GenerarBackUp
+            // 
+            this.Tsmi_GenerarBackUp.Name = "Tsmi_GenerarBackUp";
+            this.Tsmi_GenerarBackUp.Size = new System.Drawing.Size(188, 22);
+            this.Tsmi_GenerarBackUp.Text = "Generar Back-Up";
+            this.Tsmi_GenerarBackUp.Click += new System.EventHandler(this.generarBackUpToolStripMenuItem_Click);
             // 
             // Tsmi_modContrasena
             // 
@@ -240,6 +241,10 @@
             this.Tsmi_CerrarSesion.Text = "Cerrar Sesión";
             this.Tsmi_CerrarSesion.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "Hotel Yavin - Manual Operativo.chm";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +256,7 @@
             this.Name = "Menu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -283,6 +289,7 @@
         private System.Windows.Forms.ToolStripMenuItem Tsmi_modContrasena;
         private System.Windows.Forms.ToolStripMenuItem Tsmi_DatosPersonales;
         private System.Windows.Forms.ToolStripMenuItem Tsmi_CerrarSesion;
+        private System.Windows.Forms.HelpProvider helpProvider1;
 
     }
 }
