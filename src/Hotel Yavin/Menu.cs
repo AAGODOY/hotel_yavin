@@ -175,7 +175,7 @@ namespace Hotel_Yavin
 
         private void idiomaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModificarIdioma idioma = new ModificarIdioma();
+            ModificarIdioma idioma = new ModificarIdioma(usuario_logueado);
             idioma.Show();
         }
 

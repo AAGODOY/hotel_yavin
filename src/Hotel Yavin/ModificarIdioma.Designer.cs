@@ -49,6 +49,7 @@
             this.cmb_SeleccionIdioma.Name = "cmb_SeleccionIdioma";
             this.cmb_SeleccionIdioma.Size = new System.Drawing.Size(146, 21);
             this.cmb_SeleccionIdioma.TabIndex = 1;
+            this.cmb_SeleccionIdioma.SelectedIndexChanged += new System.EventHandler(this.cmb_SeleccionIdioma_SelectedIndexChanged);
             // 
             // btn_Aceptar
             // 
@@ -58,6 +59,7 @@
             this.btn_Aceptar.TabIndex = 2;
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
             // ModificarIdioma
             // 

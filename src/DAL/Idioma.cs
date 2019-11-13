@@ -26,6 +26,28 @@ namespace DAL
             }
         }
 
+        public List<BE.Idioma> SelectAll()
+        {
+            string query = "Select * From Idioma";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Idioma> idiomaList = new List<BE.Idioma>();
+                while (dataReader.Read())
+                {
+                    BE.Idioma idioma = MapDataReaderIdioma(dataReader);
+                    idiomaList.Add(idioma);
+                }
+
+                return idiomaList;
+            }
+        }
+
+        public void UpdateIdioma(int id_idioma, BE.Usuario usu)
+        {
+            string query = "UPDATE Usuario SET id_idioma = " + id_idioma + ", DVH= " + usu.DVH + " where id_usuario= '" + usu.id + "'";
+            helper.ExecuteNonQuery(query);
+        }
+
         private BE.Idioma MapDataReaderIdioma(SqlDataReader dataReader)
         {
             BE.Idioma idioma = new BE.Idioma();
