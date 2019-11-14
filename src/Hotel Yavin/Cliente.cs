@@ -32,13 +32,18 @@ namespace Hotel_Yavin
 
         private void btn_GuardarCliente_Click(object sender, EventArgs e)
         {
-            cliente_BE.nombre = txt_NombreCli.Text;
-            cliente_BE.apellido = txt_ApellidoCli.Text;
-            cliente_BE.documento = int.Parse(txt_NumDocCli.Text);
-            cliente_BE.telefono = txt_TelCli.Text;
-            cliente_BE.email = txt_MailCli.Text;
+            if (txt_NombreCli.Text != "" && txt_ApellidoCli.Text != "" && txt_NumDocCli.Text != "" && txt_TelCli.Text != "" && txt_MailCli.Text != "")
+            {
+                cliente_BE.nombre = txt_NombreCli.Text;
+                cliente_BE.apellido = txt_ApellidoCli.Text;
+                cliente_BE.documento = int.Parse(txt_NumDocCli.Text);
+                cliente_BE.telefono = txt_TelCli.Text;
+                cliente_BE.email = txt_MailCli.Text;
 
-            cliente_BLL.Add(cliente_BE);
+                cliente_BLL.Add(cliente_BE);
+                MessageBox.Show("Se creo un nuevo usuario");
+            }
+
         }
     }
 }

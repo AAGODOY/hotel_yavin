@@ -20,9 +20,16 @@ namespace DAL
 
         public int Delete(BE.Cliente objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Cliente SET activo = 0 where id_cliente =" + objBaja.id_cliente + "";
+            return helper.ExecuteNonQuery(query);
         }
 
+        public int Habilitar(BE.Cliente objHabilitar)
+        {
+            string query = "UPDATE Cliente SET activo = 1 where id_cliente= " + objHabilitar.id_cliente + "";
+            return helper.ExecuteNonQuery(query);
+        }
+        
         public List<BE.Cliente> SelectAll()
         {
             string query = "Select * From Cliente";
@@ -38,9 +45,33 @@ namespace DAL
             }
         }
 
+        public BE.Cliente SelectById(int id)
+        {
+            string query = "Select * From Cliente where id_cliente =" + id + "";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                BE.Cliente cliente = new BE.Cliente();
+                while (dataReader.Read())
+                {
+                    cliente = MapDataReader(dataReader);
+                }
+
+                return cliente;
+            }
+        }
+
         public int Update(BE.Cliente objUpdate)
-        {   
+        {
+            string query = "UPDATE Cliente SET DVH = " + objUpdate.DVH + "," + " nombre = '" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "' WHERE id_cliente = " + objUpdate.id_cliente + "";
+
+            return helper.ExecuteNonQuery(query);
             throw new NotImplementedException();
+        }
+
+        public int UpdateDVH(int DVH, int id_cliente)
+        {
+            string query = "UPDATE Cliente SET DVH =" + DVH + " WHERE id_cliente=" + id_cliente + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         private BE.Cliente MapDataReader(SqlDataReader dataReader)

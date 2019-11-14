@@ -36,7 +36,32 @@ namespace BLL
 
         public int Delete(BE.Cliente objBaja)
         {
-            throw new NotImplementedException();
+            objBaja = GetInstance().SelectById(objBaja.id_cliente);
+            objBaja.activo = false;
+
+            string cadenaDVH = objBaja.activo.ToString() + objBaja.nombre.ToString() + objBaja.apellido.ToString() + objBaja.documento.ToString() + objBaja.telefono.ToString() + objBaja.email.ToString();
+            objBaja.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            GetInstance().UpdateDVH(objBaja.DVH, objBaja.id_cliente);
+
+            int resultado = GetInstance().Delete(objBaja);
+            DigitoVerificador.CalcularDVV("Cliente");
+            return resultado;
+        }
+
+
+        public int Habilitar(BE.Cliente objHabilitar)
+        {
+            objHabilitar = GetInstance().SelectById(objHabilitar.id_cliente);
+            objHabilitar.activo = true;
+
+            string cadenaDVH = objHabilitar.activo.ToString() + objHabilitar.nombre.ToString() + objHabilitar.apellido.ToString() + objHabilitar.documento.ToString() + objHabilitar.telefono.ToString() + objHabilitar.email.ToString();
+            objHabilitar.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            GetInstance().UpdateDVH(objHabilitar.DVH, objHabilitar.id_cliente);
+
+            int resultado = GetInstance().Habilitar(objHabilitar);
+            DigitoVerificador.CalcularDVV("Cliente");
+
+            return resultado;
         }
 
         public List<BE.Cliente> SelectAll()
@@ -46,7 +71,13 @@ namespace BLL
 
         public int Update(BE.Cliente objUpdate)
         {
-            throw new NotImplementedException();
+            string cadenaDVH = objUpdate.activo.ToString() + objUpdate.nombre.ToString() + objUpdate.apellido.ToString() + objUpdate.documento.ToString() + objUpdate.telefono.ToString() + objUpdate.email.ToString();
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            int resultado = GetInstance().Update(objUpdate);
+
+            DigitoVerificador.CalcularDVV("Cliente");
+            return resultado;
         }
     }
 }
+

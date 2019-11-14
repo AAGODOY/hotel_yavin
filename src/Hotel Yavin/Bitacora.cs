@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PagedList;
+using SpreadsheetLight;
 
 namespace Hotel_Yavin
 {
@@ -143,6 +143,30 @@ namespace Hotel_Yavin
             //SIRVE
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+
+            //CON SpreadsheetLight PERO TENGO QUE CREAR UN EXCEL PREVIAMENTE
+            //string pathFile = AppDomain.CurrentDomain.BaseDirectory + "ReporteBitacora.xlsx";
+            //SLDocument document = new SLDocument();
+
+            //DataTable dataTable = new DataTable();
+
+            //dataTable.Columns.Add("ID");
+            //dataTable.Columns.Add("ID Usuario");
+            //dataTable.Columns.Add("Nombre Usuario");
+            //dataTable.Columns.Add("Fecha");
+            //dataTable.Columns.Add("Descripcion");
+            //dataTable.Columns.Add("Criticidad");
+
+            //foreach (DataGridViewRow row in dataGridView1.Rows)
+            //{
+            //    dataTable.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value, row.Cells[3].Value, row.Cells[4].Value, row.Cells[5].Value);
+            //}
+
+            //document.ImportDataTable(1, 1, dataTable, true);
+            //document.SaveAs(pathFile);
+
+            //MessageBox.Show("Se creo el reporte");
+
 
             //printDocument1 = new System.Drawing.Printing.PrintDocument();
             //PrinterSettings ps = new PrinterSettings();

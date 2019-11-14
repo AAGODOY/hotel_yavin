@@ -66,6 +66,7 @@
             this.btn_GuardarCliente.TabIndex = 27;
             this.btn_GuardarCliente.Text = "Aceptar";
             this.btn_GuardarCliente.UseVisualStyleBackColor = true;
+            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarCliente_Click);
             // 
             // btn_CancelarCliente
             // 
@@ -75,6 +76,7 @@
             this.btn_CancelarCliente.TabIndex = 26;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
+            this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarCliente_Click);
             // 
             // txt_MailCli
             // 
@@ -159,6 +161,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ModificarCliente";
             this.Text = "ModificarCliente";
+            this.Load += new System.EventHandler(this.ModificarCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
