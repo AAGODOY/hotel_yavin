@@ -51,6 +51,7 @@
     <Compile Include="Idioma.cs" />
     <Compile Include="Patente.cs" />
     <Compile Include="Reserva.cs" />
+    <Compile Include="ServAdicional.cs" />
     <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

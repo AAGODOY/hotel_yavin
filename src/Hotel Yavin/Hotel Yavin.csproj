@@ -239,6 +239,12 @@
     <Compile Include="ModificarReserva.Designer.cs">
       <DependentUpon>ModificarReserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarServAdicional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarServAdicional.Designer.cs">
+      <DependentUpon>ModificarServAdicional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Restaurar copia de seguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarReserva.resx">
       <DependentUpon>ModificarReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarServAdicional.resx">
+      <DependentUpon>ModificarServAdicional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Restaurar copia de seguridad.resx">
       <DependentUpon>Restaurar copia de seguridad.cs</DependentUpon>

@@ -60,6 +60,7 @@
             this.btn_habilitar.TabIndex = 10;
             this.btn_habilitar.Text = "Habilitar";
             this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // btn_alta
             // 
@@ -79,6 +80,7 @@
             this.btn_baja.TabIndex = 8;
             this.btn_baja.Text = "Baja";
             this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
             // btn_modificar
             // 
@@ -88,6 +90,7 @@
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // dataGridView1
             // 
@@ -99,6 +102,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(414, 211);
             this.dataGridView1.TabIndex = 0;

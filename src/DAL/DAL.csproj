@@ -51,6 +51,7 @@
     <Compile Include="Patente.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="RestaurarBackup.cs" />
+    <Compile Include="ServAdicional.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />

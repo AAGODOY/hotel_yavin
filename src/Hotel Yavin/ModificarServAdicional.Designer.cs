@@ -1,6 +1,6 @@
 ﻿namespace Hotel_Yavin
 {
-    partial class AltaServAdicionales
+    partial class ModificarServAdicional
     {
         /// <summary>
         /// Required designer variable.
@@ -38,73 +38,70 @@
             // 
             // btn_GuardarCliente
             // 
-            this.btn_GuardarCliente.Location = new System.Drawing.Point(169, 102);
+            this.btn_GuardarCliente.Location = new System.Drawing.Point(167, 97);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
-            this.btn_GuardarCliente.TabIndex = 41;
+            this.btn_GuardarCliente.TabIndex = 47;
             this.btn_GuardarCliente.Text = "Aceptar";
             this.btn_GuardarCliente.UseVisualStyleBackColor = true;
-            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarServicio_Click);
+            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarCliente_Click);
             // 
             // btn_CancelarCliente
             // 
-            this.btn_CancelarCliente.Location = new System.Drawing.Point(74, 102);
+            this.btn_CancelarCliente.Location = new System.Drawing.Point(72, 97);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
-            this.btn_CancelarCliente.TabIndex = 40;
+            this.btn_CancelarCliente.TabIndex = 46;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
-            this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarServicio_Click);
+            this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarCliente_Click);
             // 
             // txt_precio
             // 
-            this.txt_precio.Location = new System.Drawing.Point(134, 62);
+            this.txt_precio.Location = new System.Drawing.Point(132, 57);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.Size = new System.Drawing.Size(123, 20);
-            this.txt_precio.TabIndex = 39;
-            this.txt_precio.TextChanged += new System.EventHandler(this.txt_precio_TextChanged);
+            this.txt_precio.TabIndex = 45;
             // 
             // txt_descripcion
             // 
-            this.txt_descripcion.Location = new System.Drawing.Point(134, 26);
+            this.txt_descripcion.Location = new System.Drawing.Point(132, 21);
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(123, 20);
-            this.txt_descripcion.TabIndex = 37;
-            this.txt_descripcion.TextChanged += new System.EventHandler(this.txt_descripcion_TextChanged);
+            this.txt_descripcion.TabIndex = 44;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 62);
+            this.label4.Location = new System.Drawing.Point(29, 57);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 35;
+            this.label4.TabIndex = 43;
             this.label4.Text = "Precio";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 29);
+            this.label2.Location = new System.Drawing.Point(29, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 33;
+            this.label2.TabIndex = 42;
             this.label2.Text = "Descripción";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // AltaServAdicionales
+            // ModificarServAdicional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 165);
+            this.ClientSize = new System.Drawing.Size(288, 152);
             this.Controls.Add(this.btn_GuardarCliente);
             this.Controls.Add(this.btn_CancelarCliente);
             this.Controls.Add(this.txt_precio);
             this.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Name = "AltaServAdicionales";
-            this.Text = "Alta Serv. Adicionales";
+            this.Name = "ModificarServAdicional";
+            this.Text = "Modificar Serv. Adicional";
+            this.Load += new System.EventHandler(this.ModificarServAdicional_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

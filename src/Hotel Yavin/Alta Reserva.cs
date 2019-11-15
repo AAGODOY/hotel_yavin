@@ -14,6 +14,7 @@ namespace Hotel_Yavin
     {
         BLL.Cliente cliente_BLL = new BLL.Cliente();
         BLL.Habitacion habitacion_BLL = new BLL.Habitacion();
+        BLL.ServAdicional servicios_BLL = new BLL.ServAdicional();
 
         public Reserva()
         {
@@ -27,9 +28,6 @@ namespace Hotel_Yavin
 
         private void CargarDatos()
         {
-            //PROBAR SI COMBIENE USAR ESTOS BOTONES
-            clb_habitaciones.Items.Add(habitacion_BLL.SelectAll());
-
             //CARGA DE CLIENTES
             List<BE.Cliente> clientes = new List<BE.Cliente>();
             clientes = cliente_BLL.SelectAll();
@@ -40,6 +38,22 @@ namespace Hotel_Yavin
             }
 
             cmb_Cliente.SelectedIndex = 0;
+
+            //CARGA DE HABITACIONES
+            List<BE.Habitacion> habitaciones = new List<BE.Habitacion>();
+            habitaciones = habitacion_BLL.SelectAll();
+            foreach (BE.Habitacion habitacion in habitaciones)
+            {
+                clb_habitaciones.Items.Add(habitacion.tipo_habitacion + " " + habitacion.descripcion);
+            }
+
+            //CARGA DE SERVICIOS ADICIONALES
+            List<BE.ServAdicional> servicios = new List<BE.ServAdicional>();
+            servicios = servicios_BLL.SelectAll();
+            foreach (BE.ServAdicional servicio in servicios)
+            {
+               clb_servicios.Items.Add(servicio.descripcion);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

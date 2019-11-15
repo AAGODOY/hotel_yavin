@@ -42,10 +42,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.clb_servicios = new System.Windows.Forms.CheckedListBox();
+            this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.btn_GuardarEmpleado = new System.Windows.Forms.Button();
             this.btn_CancelarEmpleado = new System.Windows.Forms.Button();
-            this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,7 +118,7 @@
             this.groupBox1.Controls.Add(this.clb_habitaciones);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.checkedListBox1);
+            this.groupBox1.Controls.Add(this.clb_servicios);
             this.groupBox1.Controls.Add(this.lblFIngreso);
             this.groupBox1.Controls.Add(this.lblFSalida);
             this.groupBox1.Controls.Add(this.dtpIngreso);
@@ -190,13 +190,21 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Seleccionar Serv. Adicionales";
             // 
-            // checkedListBox1
+            // clb_servicios
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(160, 196);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(136, 79);
-            this.checkedListBox1.TabIndex = 9;
+            this.clb_servicios.FormattingEnabled = true;
+            this.clb_servicios.Location = new System.Drawing.Point(160, 196);
+            this.clb_servicios.Name = "clb_servicios";
+            this.clb_servicios.Size = new System.Drawing.Size(136, 79);
+            this.clb_servicios.TabIndex = 9;
+            // 
+            // cmb_Cliente
+            // 
+            this.cmb_Cliente.FormattingEnabled = true;
+            this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
+            this.cmb_Cliente.Name = "cmb_Cliente";
+            this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
+            this.cmb_Cliente.TabIndex = 5;
             // 
             // btn_GuardarEmpleado
             // 
@@ -216,14 +224,6 @@
             this.btn_CancelarEmpleado.TabIndex = 27;
             this.btn_CancelarEmpleado.Text = "Cancelar";
             this.btn_CancelarEmpleado.UseVisualStyleBackColor = true;
-            // 
-            // cmb_Cliente
-            // 
-            this.cmb_Cliente.FormattingEnabled = true;
-            this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
-            this.cmb_Cliente.Name = "cmb_Cliente";
-            this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
-            this.cmb_Cliente.TabIndex = 5;
             // 
             // Reserva
             // 
@@ -255,7 +255,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox clb_servicios;
         private System.Windows.Forms.Button btn_GuardarEmpleado;
         private System.Windows.Forms.Button btn_CancelarEmpleado;
         private System.Windows.Forms.DataGridView dataGridView1;
