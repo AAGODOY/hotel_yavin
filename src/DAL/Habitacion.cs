@@ -14,12 +14,20 @@ namespace DAL
 
         public int Add(BE.Habitacion objAlta)
         {
-            throw new NotImplementedException();
+            string query = "INSERT INTO Habitacion VALUES (" + Convert.ToInt32(objAlta.activo) + ",'" + objAlta.estado + "','" + objAlta.tipo_habitacion + "','" + objAlta.descripcion + "','" + objAlta.Nro_habitacion + "'," + objAlta.precio + "" + ")";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Delete(BE.Habitacion objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Habitacion SET activo = 0 where id_habitacion =" + objBaja.id_habitacion + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public int Habilitar(BE.Habitacion objHabilitar)
+        {
+            string query = "UPDATE Habitacion SET activo = 1 where id_habitacion= " + objHabilitar.id_habitacion + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.Habitacion> SelectAll()
@@ -39,19 +47,21 @@ namespace DAL
 
         public int Update(BE.Habitacion objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Habitacion SET tipo_habitacion = '" + objUpdate.tipo_habitacion + "'," + " descripcion = '" + objUpdate.descripcion + "'," + "nro_habitacion='" + objUpdate.Nro_habitacion + "'," + "precio =" + objUpdate.precio + " where id_habitacion= " + objUpdate.id_habitacion + "";
+
+            return helper.ExecuteNonQuery(query);
         }
 
         private BE.Habitacion MapDataReader(SqlDataReader dataReader)
         {
             BE.Habitacion habitacion = new BE.Habitacion();
             habitacion.id_habitacion = dataReader.GetInt32(0);
-            habitacion.id_reserva = dataReader.GetInt32(1);
+            habitacion.activo = dataReader.GetBoolean(1);
             habitacion.estado = dataReader.GetString(2);
             habitacion.tipo_habitacion = dataReader.GetString(3);
             habitacion.descripcion = dataReader.GetString(4);
             habitacion.Nro_habitacion = dataReader.GetString(5);
-            habitacion.precio = dataReader.GetFloat(6);
+            habitacion.precio = dataReader.GetDouble(6);
 
             return habitacion;
         }

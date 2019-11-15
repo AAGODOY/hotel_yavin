@@ -116,6 +116,7 @@
             this.txt_NumDocCli.Name = "txt_NumDocCli";
             this.txt_NumDocCli.Size = new System.Drawing.Size(220, 20);
             this.txt_NumDocCli.TabIndex = 21;
+            this.txt_NumDocCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NumDocCli_KeyPress);
             // 
             // lbl_NumDocEmp
             // 

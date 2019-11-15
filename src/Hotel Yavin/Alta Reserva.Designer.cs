@@ -33,7 +33,6 @@
             this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
             this.dtpSalida = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -46,6 +45,7 @@
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.btn_GuardarEmpleado = new System.Windows.Forms.Button();
             this.btn_CancelarEmpleado = new System.Windows.Forms.Button();
+            this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,14 +93,6 @@
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccionar Cliente";
-            // 
-            // cmb_Cliente
-            // 
-            this.cmb_Cliente.FormattingEnabled = true;
-            this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
-            this.cmb_Cliente.Name = "cmb_Cliente";
-            this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
-            this.cmb_Cliente.TabIndex = 5;
             // 
             // label2
             // 
@@ -214,6 +206,7 @@
             this.btn_GuardarEmpleado.TabIndex = 28;
             this.btn_GuardarEmpleado.Text = "Aceptar";
             this.btn_GuardarEmpleado.UseVisualStyleBackColor = true;
+            this.btn_GuardarEmpleado.Click += new System.EventHandler(this.btn_GuardarEmpleado_Click);
             // 
             // btn_CancelarEmpleado
             // 
@@ -223,6 +216,14 @@
             this.btn_CancelarEmpleado.TabIndex = 27;
             this.btn_CancelarEmpleado.Text = "Cancelar";
             this.btn_CancelarEmpleado.UseVisualStyleBackColor = true;
+            // 
+            // cmb_Cliente
+            // 
+            this.cmb_Cliente.FormattingEnabled = true;
+            this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
+            this.cmb_Cliente.Name = "cmb_Cliente";
+            this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
+            this.cmb_Cliente.TabIndex = 5;
             // 
             // Reserva
             // 
@@ -250,7 +251,6 @@
         private System.Windows.Forms.DateTimePicker dtpIngreso;
         private System.Windows.Forms.DateTimePicker dtpSalida;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmb_Cliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -263,5 +263,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckedListBox clb_habitaciones;
+        private System.Windows.Forms.ComboBox cmb_Cliente;
     }
 }

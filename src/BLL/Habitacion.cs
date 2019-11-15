@@ -24,12 +24,19 @@ namespace BLL
 
         public int Add(BE.Habitacion objAlta)
         {
-            throw new NotImplementedException();
+            objAlta.activo = true;
+            objAlta.estado = "DISPONIBLE";
+            return GetInstance().Add(objAlta);    
         }
 
         public int Delete(BE.Habitacion objBaja)
         {
-            throw new NotImplementedException();
+           return GetInstance().Delete(objBaja);
+        }
+
+        public int Habilitar(BE.Habitacion objHabilitar)
+        {
+            return GetInstance().Habilitar(objHabilitar);
         }
 
         public List<BE.Habitacion> SelectAll()
@@ -39,7 +46,7 @@ namespace BLL
 
         public int Update(BE.Habitacion objUpdate)
         {
-            throw new NotImplementedException();
+            return GetInstance().Update(objUpdate);
         }
     }
 }

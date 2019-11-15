@@ -22,9 +22,24 @@ namespace Hotel_Yavin
 
         private void Reserva_Load(object sender, EventArgs e)
         {
+            this.CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
             //PROBAR SI COMBIENE USAR ESTOS BOTONES
             clb_habitaciones.Items.Add(habitacion_BLL.SelectAll());
-            cmb_Cliente.DataSource = cliente_BLL.SelectAll();
+
+            //CARGA DE CLIENTES
+            List<BE.Cliente> clientes = new List<BE.Cliente>();
+            clientes = cliente_BLL.SelectAll();
+            cmb_Cliente.Items.Add("Seleccionar");
+            foreach (BE.Cliente cliente in clientes)
+            {
+                cmb_Cliente.Items.Add(cliente.nombre + " " + cliente.apellido);
+            }
+
+            cmb_Cliente.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,6 +52,11 @@ namespace Hotel_Yavin
         {
             ModificarHuesped mod_huesped = new ModificarHuesped();
             mod_huesped.Show();
+        }
+
+        private void btn_GuardarEmpleado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

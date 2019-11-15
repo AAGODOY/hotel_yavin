@@ -13,6 +13,7 @@ namespace Hotel_Yavin
     public partial class ConsultaHabitaciones : Form
     {
         BLL.Habitacion habitacion_BLL = new BLL.Habitacion();
+        BE.Habitacion habitacion_BE = new BE.Habitacion();
 
         public ConsultaHabitaciones()
         {
@@ -49,6 +50,35 @@ namespace Hotel_Yavin
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = habitacion_BLL.SelectAll();
+        }
+
+        private void btn_alta_Click(object sender, EventArgs e)
+        {
+            AltaHabitacion alta_habitacion = new AltaHabitacion();
+            alta_habitacion.Show();
+            this.Hide();
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+            ModificarHabitacion mod_habitacion = new ModificarHabitacion(dataGridView1.CurrentRow);
+            mod_habitacion.Show();
+        }
+
+        private void btn_baja_Click(object sender, EventArgs e)
+        {
+            habitacion_BE.id_habitacion = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            habitacion_BLL.Delete(habitacion_BE);
+            MessageBox.Show("Se inhabilitó el registro");
+            this.ActualizarGrilla();
+        }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            habitacion_BE.id_habitacion = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            habitacion_BLL.Habilitar(habitacion_BE);
+            MessageBox.Show("Se habilitó el registro");
+            this.ActualizarGrilla();
         }
     }
 }

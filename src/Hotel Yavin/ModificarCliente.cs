@@ -56,6 +56,7 @@ namespace Hotel_Yavin
 
                 cliente_BLL.Update(cliente_BE);
                 MessageBox.Show("Se modifico el usuario seleccionado");
+                this.Close();
             }
             else
             {
@@ -68,6 +69,15 @@ namespace Hotel_Yavin
         private void btn_CancelarCliente_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txt_NumDocCli_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Valida que se ingresen unicamente valores numericos
+            if (!char.IsDigit(e.KeyChar)) e.Handled = true;
+
+            //no te permite ingresar mas del máximo
+            txt_NumDocCli.MaxLength = 8;
         }
     }
 }

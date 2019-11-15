@@ -34,6 +34,7 @@ namespace Hotel_Yavin
 
             cmb_SeleccionIdioma.DataSource = null;
             List<BE.Idioma> idiomas = idioma_BLL.SelectAll();
+            cmb_SeleccionIdioma.Items.Add("Seleccionar");
             foreach (BE.Idioma idioma in idiomas)
             {
                 cmb_SeleccionIdioma.Items.Add(idioma.descripcion);

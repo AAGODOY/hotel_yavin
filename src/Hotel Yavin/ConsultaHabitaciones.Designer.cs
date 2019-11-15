@@ -34,7 +34,6 @@
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_alta = new System.Windows.Forms.Button();
-            this.btn_AltaReserva = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -51,7 +50,6 @@
             this.groupBox1.Controls.Add(this.btn_baja);
             this.groupBox1.Controls.Add(this.btn_modificar);
             this.groupBox1.Controls.Add(this.btn_alta);
-            this.groupBox1.Controls.Add(this.btn_AltaReserva);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
@@ -73,6 +71,7 @@
             this.btn_habilitar.TabIndex = 9;
             this.btn_habilitar.Text = "Habilitar";
             this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // btn_Buscar
             // 
@@ -91,6 +90,7 @@
             this.btn_baja.TabIndex = 7;
             this.btn_baja.Text = "Baja";
             this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
             // btn_modificar
             // 
@@ -100,6 +100,7 @@
             this.btn_modificar.TabIndex = 6;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // btn_alta
             // 
@@ -109,15 +110,7 @@
             this.btn_alta.TabIndex = 5;
             this.btn_alta.Text = "Nuevo";
             this.btn_alta.UseVisualStyleBackColor = true;
-            // 
-            // btn_AltaReserva
-            // 
-            this.btn_AltaReserva.Location = new System.Drawing.Point(106, 187);
-            this.btn_AltaReserva.Name = "btn_AltaReserva";
-            this.btn_AltaReserva.Size = new System.Drawing.Size(75, 23);
-            this.btn_AltaReserva.TabIndex = 4;
-            this.btn_AltaReserva.Text = "Reservar";
-            this.btn_AltaReserva.UseVisualStyleBackColor = true;
+            this.btn_alta.Click += new System.EventHandler(this.btn_alta_Click);
             // 
             // dataGridView1
             // 
@@ -129,6 +122,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(569, 111);
             this.dataGridView1.TabIndex = 3;
@@ -193,7 +187,6 @@
         private System.Windows.Forms.Button btn_baja;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_alta;
-        private System.Windows.Forms.Button btn_AltaReserva;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.Button btn_habilitar;
     }

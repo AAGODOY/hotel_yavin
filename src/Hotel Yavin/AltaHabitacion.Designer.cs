@@ -112,6 +112,7 @@
             this.btn_GuardarCliente.TabIndex = 31;
             this.btn_GuardarCliente.Text = "Aceptar";
             this.btn_GuardarCliente.UseVisualStyleBackColor = true;
+            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarCliente_Click);
             // 
             // btn_CancelarCliente
             // 
@@ -121,6 +122,7 @@
             this.btn_CancelarCliente.TabIndex = 30;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
+            this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarCliente_Click);
             // 
             // AltaHabitacion
             // 
@@ -139,6 +141,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AltaHabitacion";
             this.Text = "Alta Habitacion";
+            this.Load += new System.EventHandler(this.AltaHabitacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -191,6 +191,12 @@
     <Compile Include="ModificarFamilia.Designer.cs">
       <DependentUpon>ModificarFamilia.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarHabitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarHabitacion.Designer.cs">
+      <DependentUpon>ModificarHabitacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModificarHuesped.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarFamilia.resx">
       <DependentUpon>ModificarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarHabitacion.resx">
+      <DependentUpon>ModificarHabitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarHuesped.resx">
       <DependentUpon>ModificarHuesped.cs</DependentUpon>

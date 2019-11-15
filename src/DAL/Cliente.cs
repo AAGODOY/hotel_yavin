@@ -65,7 +65,6 @@ namespace DAL
             string query = "UPDATE Cliente SET DVH = " + objUpdate.DVH + "," + " nombre = '" + objUpdate.nombre + "'," + "apellido='" + objUpdate.apellido + "'," + "documento =" + objUpdate.documento + "," + "telefono ='" + objUpdate.telefono + "'," + "email ='" + objUpdate.email + "' WHERE id_cliente = " + objUpdate.id_cliente + "";
 
             return helper.ExecuteNonQuery(query);
-            throw new NotImplementedException();
         }
 
         public int UpdateDVH(int DVH, int id_cliente)
