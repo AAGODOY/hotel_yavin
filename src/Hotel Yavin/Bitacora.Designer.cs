@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bitacora));
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_fechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,13 +38,11 @@
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_bitacora = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_GenerarReporte = new System.Windows.Forms.Button();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bitacora)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -142,19 +139,19 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Usuarios";
             // 
-            // dataGridView1
+            // dgv_bitacora
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 298);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(767, 193);
-            this.dataGridView1.TabIndex = 5;
+            this.dgv_bitacora.AllowUserToAddRows = false;
+            this.dgv_bitacora.AllowUserToDeleteRows = false;
+            this.dgv_bitacora.AllowUserToOrderColumns = true;
+            this.dgv_bitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bitacora.Location = new System.Drawing.Point(12, 298);
+            this.dgv_bitacora.Name = "dgv_bitacora";
+            this.dgv_bitacora.ReadOnly = true;
+            this.dgv_bitacora.RowHeadersVisible = false;
+            this.dgv_bitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_bitacora.Size = new System.Drawing.Size(767, 193);
+            this.dgv_bitacora.TabIndex = 5;
             // 
             // label5
             // 
@@ -175,21 +172,6 @@
             this.btn_GenerarReporte.UseVisualStyleBackColor = true;
             this.btn_GenerarReporte.Click += new System.EventHandler(this.btn_GenerarReporte_Click);
             // 
-            // printDocument1
-            // 
-            this.printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_BeginPrint);
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // Bitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,14 +179,14 @@
             this.ClientSize = new System.Drawing.Size(792, 542);
             this.Controls.Add(this.btn_GenerarReporte);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_bitacora);
             this.Controls.Add(this.groupBox1);
             this.Name = "Bitacora";
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.Bitacora_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bitacora)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,12 +202,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Btn_Buscar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_bitacora;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_GenerarReporte;
         private System.Windows.Forms.CheckedListBox clb_Usuarios;
         private System.Windows.Forms.CheckedListBox clb_criticidad;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BitacoraDataSet" targetNamespace="http://tempuri.org/BitacoraDataSet.xsd" xmlns:mstns="http://tempuri.org/BitacoraDataSet.xsd" xmlns="http://tempuri.org/BitacoraDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BitacoraDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BitacoraDataSet" msprop:Generator_UserDSName="BitacoraDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_RowClassName="BitacoraRow" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_log" msprop:Generator_ColumnVarNameInTable="columnID_log" msprop:Generator_ColumnPropNameInRow="ID_log" msprop:Generator_ColumnPropNameInTable="ID_logColumn" msprop:Generator_UserColumnName="ID_log" type="xs:string" minOccurs="0" />
+              <xs:element name="ID_usuario" msprop:Generator_ColumnVarNameInTable="columnID_usuario" msprop:Generator_ColumnPropNameInRow="ID_usuario" msprop:Generator_ColumnPropNameInTable="ID_usuarioColumn" msprop:Generator_UserColumnName="ID_usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Nombre_usuario" msprop:Generator_ColumnVarNameInTable="columnNombre_usuario" msprop:Generator_ColumnPropNameInRow="Nombre_usuario" msprop:Generator_ColumnPropNameInTable="Nombre_usuarioColumn" msprop:Generator_UserColumnName="Nombre_usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="Criticidad" msprop:Generator_ColumnVarNameInTable="columnCriticidad" msprop:Generator_ColumnPropNameInRow="Criticidad" msprop:Generator_ColumnPropNameInTable="CriticidadColumn" msprop:Generator_UserColumnName="Criticidad" type="xs:string" minOccurs="0" />
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="DVH" msprop:Generator_ColumnVarNameInTable="columnDVH" msprop:Generator_ColumnPropNameInRow="DVH" msprop:Generator_ColumnPropNameInTable="DVHColumn" msprop:Generator_UserColumnName="DVH" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

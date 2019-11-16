@@ -36,22 +36,22 @@ namespace Hotel_Yavin
 
         private void ConfigurarGrilla()
         {
-            dataGridView1.Columns.Add("id_log", "Id");
-            dataGridView1.Columns.Add("id_usuario", "Id Usuario");
-            dataGridView1.Columns.Add("nombre_Usuario", "Nombre Usuario");
-            dataGridView1.Columns.Add("fecha", "Fecha");
-            dataGridView1.Columns.Add("criticidad", "Cricitidad");
-            dataGridView1.Columns.Add("descripcion", "Descripcion");
-            dataGridView1.Columns.Add("DVH", "DVH");
+            dgv_bitacora.Columns.Add("id_log", "Id");
+            dgv_bitacora.Columns.Add("id_usuario", "Id Usuario");
+            dgv_bitacora.Columns.Add("nombre_Usuario", "Nombre Usuario");
+            dgv_bitacora.Columns.Add("fecha", "Fecha");
+            dgv_bitacora.Columns.Add("criticidad", "Cricitidad");
+            dgv_bitacora.Columns.Add("descripcion", "Descripcion");
+            dgv_bitacora.Columns.Add("DVH", "DVH");
         }
 
         private void ActualizarGrilla()
         {
-            dataGridView1.Rows.Clear();
+            dgv_bitacora.Rows.Clear();
              List<BE.Bitacora> lista_logs = bitacora_BLL.SelectAll();
             foreach (BE.Bitacora row in lista_logs)
             {
-                dataGridView1.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
+                dgv_bitacora.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
             }
         }
 
@@ -104,16 +104,22 @@ namespace Hotel_Yavin
 
             //bitacora_BLL.GetFiltros(Convert.ToDateTime(dtp_fechaDesde.Value), Convert.ToDateTime(dtp_fechaHasta.Value), lista_usuarios, lista_criticidades);
             lista_filtrada = bitacora_BLL.GetFiltros(fecha_desde, fecha_hasta, lista_usuarios, lista_criticidades);
-            dataGridView1.Rows.Clear();
+            dgv_bitacora.Rows.Clear();
             foreach (BE.Bitacora row in lista_filtrada)
             {
-                dataGridView1.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
+                dgv_bitacora.Rows.Add(row.id_log, row.id_usuario, row.nombre_usuario, row.fecha, row.criticidad, UTILITIES.Encriptador.Desencriptar(row.descripcion), row.DVH);
             }
             
         }
 
         private void btn_GenerarReporte_Click(object sender, EventArgs e)
         {
+            ReporteBitacora reporteBitacora = new ReporteBitacora(this.dgv_bitacora);
+            reporteBitacora.Show();
+            //this.Hide();
+
+
+            #region Comentarios
             //if (dataGridView1.RowCount > 0)
             //{
             //    if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
@@ -141,8 +147,8 @@ namespace Hotel_Yavin
             //reporte_bitacora.Show();
 
             //SIRVE
-            printPreviewDialog1.Document = printDocument1;
-            printPreviewDialog1.ShowDialog();
+            //printPreviewDialog1.Document = printDocument1;
+            //printPreviewDialog1.ShowDialog();
 
             //CON SpreadsheetLight PERO TENGO QUE CREAR UN EXCEL PREVIAMENTE
             //string pathFile = AppDomain.CurrentDomain.BaseDirectory + "ReporteBitacora.xlsx";
@@ -173,42 +179,13 @@ namespace Hotel_Yavin
             //printDocument1.PrinterSettings = ps;
             //printDocument1.PrintPage += Imprimir;
             //printDocument1.Print();
-        }
-
-        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            //strFormat = new StringFormat();
-            //strFormat.Alignment = StringAlignment.Near;
-            //strFormat.LineAlignment = StringAlignment.Center;
-            //strFormat.Trimming = StringTrimming.EllipsisCharacter;
-            //arrColumnLefts.Clear();
-            //arrColumnWidths.Clear();
-            //iCellHeight = 0;
-            //iRow = 0;
-            //bFirstPage = true;
-            //bNewPage = true;
-            //// Calcular total de ancho
-            //iTotalWidth = 0;
-            //foreach (DataGridViewColumn item in dgv.Columns)
-            //{
-            //    iTotalWidth += item.Width;
-            //}
-        }
-
-        private void Imprimir(object sender, PrintPageEventArgs e)
-        {
-            //Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
-            //e.Graphics.DrawString("REPORTE BITACORA", font, Brushes.Black, new Rectangle(300, 100, 300, 300));
-
-            //PaintEventArgs paint = new PaintEventArgs(e.Graphics, new Rectangle(100, 200, 200, 200));
-            
-            //this.InvokePaint(dataGridView1, paint);
+            #endregion
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Bitmap objMap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
-            dataGridView1.DrawToBitmap(objMap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+            Bitmap objMap = new Bitmap(this.dgv_bitacora.Width, this.dgv_bitacora.Height);
+            dgv_bitacora.DrawToBitmap(objMap, new Rectangle(0, 0, this.dgv_bitacora.Width, this.dgv_bitacora.Height));
 
             e.Graphics.DrawImage(objMap, 250, 120);
             Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Point);
