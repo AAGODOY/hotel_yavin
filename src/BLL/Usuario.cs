@@ -92,8 +92,6 @@ namespace BLL
             DigitoVerificador.CalcularDVV("Usuario");
 
             return nuevoUsu;
-
-            throw new NotImplementedException();
         }
 
         public int Delete(BE.Usuario objBaja)

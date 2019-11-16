@@ -103,7 +103,7 @@ namespace Hotel_Yavin
 
         private void administrarReservasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AdministrarReserva adm_reserva = new AdministrarReserva();
+            AdministrarReserva adm_reserva = new AdministrarReserva(usuario_logueado);
             adm_reserva.Show();
         }
 

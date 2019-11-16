@@ -13,15 +13,18 @@ namespace Hotel_Yavin
     public partial class AdministrarReserva : Form
     {
         BLL.Reserva reserva_BLL = new BLL.Reserva();
+        BE.Usuario usuario_logueado = new BE.Usuario();
 
-        public AdministrarReserva()
+        public AdministrarReserva(BE.Usuario usu)
         {
             InitializeComponent();
+
+            this.usuario_logueado = usu;
         }
 
         private void btn_alta_Click(object sender, EventArgs e)
         {
-            Reserva reserva = new Reserva();
+            Reserva reserva = new Reserva(this.usuario_logueado);
             reserva.Show();
         }
 

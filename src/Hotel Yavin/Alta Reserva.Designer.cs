@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_errorCliente = new System.Windows.Forms.Label();
             this.clb_habitaciones = new System.Windows.Forms.CheckedListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,8 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.clb_servicios = new System.Windows.Forms.CheckedListBox();
             this.cmb_Cliente = new System.Windows.Forms.ComboBox();
-            this.btn_GuardarEmpleado = new System.Windows.Forms.Button();
+            this.btn_GuardarReserva = new System.Windows.Forms.Button();
             this.btn_CancelarEmpleado = new System.Windows.Forms.Button();
+            this.lbl_errorHabitacion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -63,7 +65,7 @@
             // lblFSalida
             // 
             this.lblFSalida.AutoSize = true;
-            this.lblFSalida.Location = new System.Drawing.Point(312, 31);
+            this.lblFSalida.Location = new System.Drawing.Point(345, 31);
             this.lblFSalida.Name = "lblFSalida";
             this.lblFSalida.Size = new System.Drawing.Size(84, 13);
             this.lblFSalida.TabIndex = 1;
@@ -79,7 +81,7 @@
             // 
             // dtpSalida
             // 
-            this.dtpSalida.Location = new System.Drawing.Point(402, 25);
+            this.dtpSalida.Location = new System.Drawing.Point(435, 25);
             this.dtpSalida.Name = "dtpSalida";
             this.dtpSalida.Size = new System.Drawing.Size(194, 20);
             this.dtpSalida.TabIndex = 3;
@@ -97,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 102);
+            this.label2.Location = new System.Drawing.Point(6, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 13);
             this.label2.TabIndex = 6;
@@ -105,7 +107,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 176);
+            this.button1.Location = new System.Drawing.Point(16, 227);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 33);
             this.button1.TabIndex = 8;
@@ -115,6 +117,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_errorHabitacion);
+            this.groupBox1.Controls.Add(this.lbl_errorCliente);
             this.groupBox1.Controls.Add(this.clb_habitaciones);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label3);
@@ -128,17 +132,28 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 291);
+            this.groupBox1.Size = new System.Drawing.Size(677, 342);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserva";
             // 
+            // lbl_errorCliente
+            // 
+            this.lbl_errorCliente.AutoSize = true;
+            this.lbl_errorCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_errorCliente.ForeColor = System.Drawing.Color.Red;
+            this.lbl_errorCliente.Location = new System.Drawing.Point(159, 90);
+            this.lbl_errorCliente.Name = "lbl_errorCliente";
+            this.lbl_errorCliente.Size = new System.Drawing.Size(143, 13);
+            this.lbl_errorCliente.TabIndex = 31;
+            this.lbl_errorCliente.Text = "*Debe seleccionar un cliente";
+            // 
             // clb_habitaciones
             // 
             this.clb_habitaciones.FormattingEnabled = true;
-            this.clb_habitaciones.Location = new System.Drawing.Point(160, 101);
+            this.clb_habitaciones.Location = new System.Drawing.Point(160, 122);
             this.clb_habitaciones.Name = "clb_habitaciones";
-            this.clb_habitaciones.Size = new System.Drawing.Size(136, 79);
+            this.clb_habitaciones.Size = new System.Drawing.Size(166, 79);
             this.clb_habitaciones.TabIndex = 30;
             // 
             // groupBox2
@@ -147,16 +162,16 @@
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(315, 60);
+            this.groupBox2.Location = new System.Drawing.Point(348, 60);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(308, 215);
+            this.groupBox2.Size = new System.Drawing.Size(308, 271);
             this.groupBox2.TabIndex = 29;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Huespedes";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(214, 176);
+            this.button3.Location = new System.Drawing.Point(214, 227);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(83, 33);
             this.button3.TabIndex = 14;
@@ -165,7 +180,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(115, 176);
+            this.button2.Location = new System.Drawing.Point(115, 227);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(83, 33);
             this.button2.TabIndex = 13;
@@ -178,13 +193,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(281, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(281, 187);
             this.dataGridView1.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 196);
+            this.label3.Location = new System.Drawing.Point(6, 241);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 10;
@@ -193,9 +208,9 @@
             // clb_servicios
             // 
             this.clb_servicios.FormattingEnabled = true;
-            this.clb_servicios.Location = new System.Drawing.Point(160, 196);
+            this.clb_servicios.Location = new System.Drawing.Point(160, 239);
             this.clb_servicios.Name = "clb_servicios";
-            this.clb_servicios.Size = new System.Drawing.Size(136, 79);
+            this.clb_servicios.Size = new System.Drawing.Size(166, 79);
             this.clb_servicios.TabIndex = 9;
             // 
             // cmb_Cliente
@@ -203,34 +218,46 @@
             this.cmb_Cliente.FormattingEnabled = true;
             this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
             this.cmb_Cliente.Name = "cmb_Cliente";
-            this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
+            this.cmb_Cliente.Size = new System.Drawing.Size(167, 21);
             this.cmb_Cliente.TabIndex = 5;
             // 
-            // btn_GuardarEmpleado
+            // btn_GuardarReserva
             // 
-            this.btn_GuardarEmpleado.Location = new System.Drawing.Point(552, 319);
-            this.btn_GuardarEmpleado.Name = "btn_GuardarEmpleado";
-            this.btn_GuardarEmpleado.Size = new System.Drawing.Size(89, 29);
-            this.btn_GuardarEmpleado.TabIndex = 28;
-            this.btn_GuardarEmpleado.Text = "Aceptar";
-            this.btn_GuardarEmpleado.UseVisualStyleBackColor = true;
-            this.btn_GuardarEmpleado.Click += new System.EventHandler(this.btn_GuardarEmpleado_Click);
+            this.btn_GuardarReserva.Location = new System.Drawing.Point(599, 370);
+            this.btn_GuardarReserva.Name = "btn_GuardarReserva";
+            this.btn_GuardarReserva.Size = new System.Drawing.Size(89, 29);
+            this.btn_GuardarReserva.TabIndex = 28;
+            this.btn_GuardarReserva.Text = "Aceptar";
+            this.btn_GuardarReserva.UseVisualStyleBackColor = true;
+            this.btn_GuardarReserva.Click += new System.EventHandler(this.btn_GuardarReserva_Click);
             // 
             // btn_CancelarEmpleado
             // 
-            this.btn_CancelarEmpleado.Location = new System.Drawing.Point(458, 319);
+            this.btn_CancelarEmpleado.Location = new System.Drawing.Point(505, 370);
             this.btn_CancelarEmpleado.Name = "btn_CancelarEmpleado";
             this.btn_CancelarEmpleado.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarEmpleado.TabIndex = 27;
             this.btn_CancelarEmpleado.Text = "Cancelar";
             this.btn_CancelarEmpleado.UseVisualStyleBackColor = true;
+            this.btn_CancelarEmpleado.Click += new System.EventHandler(this.btn_CancelarEmpleado_Click);
+            // 
+            // lbl_errorHabitacion
+            // 
+            this.lbl_errorHabitacion.AutoSize = true;
+            this.lbl_errorHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_errorHabitacion.ForeColor = System.Drawing.Color.Red;
+            this.lbl_errorHabitacion.Location = new System.Drawing.Point(159, 208);
+            this.lbl_errorHabitacion.Name = "lbl_errorHabitacion";
+            this.lbl_errorHabitacion.Size = new System.Drawing.Size(167, 13);
+            this.lbl_errorHabitacion.TabIndex = 32;
+            this.lbl_errorHabitacion.Text = "*Debe seleccionar una habitación";
             // 
             // Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 360);
-            this.Controls.Add(this.btn_GuardarEmpleado);
+            this.ClientSize = new System.Drawing.Size(701, 409);
+            this.Controls.Add(this.btn_GuardarReserva);
             this.Controls.Add(this.btn_CancelarEmpleado);
             this.Controls.Add(this.groupBox1);
             this.Name = "Reserva";
@@ -256,7 +283,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckedListBox clb_servicios;
-        private System.Windows.Forms.Button btn_GuardarEmpleado;
+        private System.Windows.Forms.Button btn_GuardarReserva;
         private System.Windows.Forms.Button btn_CancelarEmpleado;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -264,5 +291,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckedListBox clb_habitaciones;
         private System.Windows.Forms.ComboBox cmb_Cliente;
+        private System.Windows.Forms.Label lbl_errorCliente;
+        private System.Windows.Forms.Label lbl_errorHabitacion;
     }
 }

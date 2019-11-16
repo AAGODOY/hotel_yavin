@@ -24,7 +24,17 @@ namespace BLL
 
         public int Add(BE.Reserva objAlta)
         {
-            throw new NotImplementedException();
+            //Seteo valores por defecto
+            objAlta.activo = true;
+            objAlta.estado = "PENDIENTE";
+
+            string cadenaDVH = objAlta.id_usuario.ToString() +  objAlta.id_cliente.ToString() + objAlta.id_habitacion.ToString() + objAlta.activo.ToString() + objAlta.fecha_ingreso.ToString() + objAlta.fecha_salida.ToString();
+            objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            int nuevaReseva = GetInstance().Add(objAlta);
+            DigitoVerificador.CalcularDVV("Reserva");
+
+            return nuevaReseva;
         }
 
         public int Delete(BE.Reserva objBaja)

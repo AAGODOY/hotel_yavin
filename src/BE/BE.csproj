@@ -47,11 +47,13 @@
     <Compile Include="FamiliaPatente.cs" />
     <Compile Include="FamiliaUsuario.cs" />
     <Compile Include="Habitacion.cs" />
+    <Compile Include="Huesped.cs" />
     <Compile Include="ICRUD.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Patente.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="ServAdicional.cs" />
+    <Compile Include="ServAdicionalReserva.cs" />
     <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

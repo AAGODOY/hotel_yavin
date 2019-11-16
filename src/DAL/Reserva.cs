@@ -14,7 +14,10 @@ namespace DAL
 
         public int Add(BE.Reserva objAlta)
         {
-            throw new NotImplementedException();
+            string query = "INSERT INTO Reserva OUTPUT inserted.id_reserva VALUES (" + objAlta.id_usuario + "," + objAlta.id_cliente + "," + objAlta.id_habitacion + "," + Convert.ToInt32(objAlta.activo) + "," + objAlta.DVH + ",'" + objAlta.estado + "'," + "convert(datetime, '" + objAlta.fecha_ingreso.ToString("yyyy-MM-dd HH:mm:ss") + "',101)," + "convert(datetime, '" + objAlta.fecha_salida.ToString("yyyy-MM-dd HH:mm:ss") + "',101)" + ")";
+
+            int nuevoId = (int)helper.ExecuteScalar(query);
+            return nuevoId;
         }
 
         public int Delete(BE.Reserva objBaja)
@@ -48,11 +51,12 @@ namespace DAL
             reserva.id_reserva = dataReader.GetInt32(0);
             reserva.id_usuario = dataReader.GetInt32(1);
             reserva.id_cliente = dataReader.GetInt32(2);
-            reserva.activo = dataReader.GetBoolean(3);
-            reserva.DVH = dataReader.GetInt32(4);
-            reserva.estado = dataReader.GetString(5);
-            reserva.fecha_ingreso = dataReader.GetDateTime(6);
-            reserva.fecha_salida = dataReader.GetDateTime(7);
+            reserva.id_habitacion = dataReader.GetInt32(3);
+            reserva.activo = dataReader.GetBoolean(4);
+            reserva.DVH = dataReader.GetInt32(5);
+            reserva.estado = dataReader.GetString(6);
+            reserva.fecha_ingreso = dataReader.GetDateTime(7);
+            reserva.fecha_salida = dataReader.GetDateTime(8);
 
             return reserva;
         }
