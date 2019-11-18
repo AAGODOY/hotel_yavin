@@ -41,6 +41,7 @@
             this.dgv_bitacora = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_GenerarReporte = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bitacora)).BeginInit();
             this.SuspendLayout();
@@ -56,8 +57,11 @@
             // 
             // dtp_fechaDesde
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtp_fechaDesde, "Bitacora.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.dtp_fechaDesde, System.Windows.Forms.HelpNavigator.Topic);
             this.dtp_fechaDesde.Location = new System.Drawing.Point(85, 19);
             this.dtp_fechaDesde.Name = "dtp_fechaDesde";
+            this.HelpProviderHG.SetShowHelp(this.dtp_fechaDesde, true);
             this.dtp_fechaDesde.Size = new System.Drawing.Size(248, 20);
             this.dtp_fechaDesde.TabIndex = 1;
             // 
@@ -72,8 +76,11 @@
             // 
             // dtp_fechaHasta
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtp_fechaHasta, "Bitacora.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.dtp_fechaHasta, System.Windows.Forms.HelpNavigator.Topic);
             this.dtp_fechaHasta.Location = new System.Drawing.Point(491, 20);
             this.dtp_fechaHasta.Name = "dtp_fechaHasta";
+            this.HelpProviderHG.SetShowHelp(this.dtp_fechaHasta, true);
             this.dtp_fechaHasta.Size = new System.Drawing.Size(248, 20);
             this.dtp_fechaHasta.TabIndex = 3;
             // 
@@ -98,23 +105,32 @@
             // clb_criticidad
             // 
             this.clb_criticidad.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.clb_criticidad, "Bitacora.htm#label4");
+            this.HelpProviderHG.SetHelpNavigator(this.clb_criticidad, System.Windows.Forms.HelpNavigator.Topic);
             this.clb_criticidad.Location = new System.Drawing.Point(491, 55);
             this.clb_criticidad.Name = "clb_criticidad";
+            this.HelpProviderHG.SetShowHelp(this.clb_criticidad, true);
             this.clb_criticidad.Size = new System.Drawing.Size(248, 139);
             this.clb_criticidad.TabIndex = 11;
             // 
             // clb_Usuarios
             // 
             this.clb_Usuarios.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.clb_Usuarios, "Bitacora.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.clb_Usuarios, System.Windows.Forms.HelpNavigator.Topic);
             this.clb_Usuarios.Location = new System.Drawing.Point(85, 55);
             this.clb_Usuarios.Name = "clb_Usuarios";
+            this.HelpProviderHG.SetShowHelp(this.clb_Usuarios, true);
             this.clb_Usuarios.Size = new System.Drawing.Size(248, 139);
             this.clb_Usuarios.TabIndex = 10;
             // 
             // Btn_Buscar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.Btn_Buscar, "Bitacora.htm#Btn_Buscar");
+            this.HelpProviderHG.SetHelpNavigator(this.Btn_Buscar, System.Windows.Forms.HelpNavigator.Topic);
             this.Btn_Buscar.Location = new System.Drawing.Point(654, 214);
             this.Btn_Buscar.Name = "Btn_Buscar";
+            this.HelpProviderHG.SetShowHelp(this.Btn_Buscar, true);
             this.Btn_Buscar.Size = new System.Drawing.Size(85, 23);
             this.Btn_Buscar.TabIndex = 9;
             this.Btn_Buscar.Text = "BUSCAR";
@@ -145,11 +161,14 @@
             this.dgv_bitacora.AllowUserToDeleteRows = false;
             this.dgv_bitacora.AllowUserToOrderColumns = true;
             this.dgv_bitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_bitacora, "Bitacora.htm#dgv_bitacora");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_bitacora, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_bitacora.Location = new System.Drawing.Point(12, 298);
             this.dgv_bitacora.Name = "dgv_bitacora";
             this.dgv_bitacora.ReadOnly = true;
             this.dgv_bitacora.RowHeadersVisible = false;
             this.dgv_bitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_bitacora, true);
             this.dgv_bitacora.Size = new System.Drawing.Size(767, 193);
             this.dgv_bitacora.TabIndex = 5;
             // 
@@ -164,13 +183,20 @@
             // 
             // btn_GenerarReporte
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GenerarReporte, "Bitacora.htm#btn_GenerarReporte");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GenerarReporte, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GenerarReporte.Location = new System.Drawing.Point(682, 497);
             this.btn_GenerarReporte.Name = "btn_GenerarReporte";
+            this.HelpProviderHG.SetShowHelp(this.btn_GenerarReporte, true);
             this.btn_GenerarReporte.Size = new System.Drawing.Size(98, 33);
             this.btn_GenerarReporte.TabIndex = 11;
             this.btn_GenerarReporte.Text = "Generar Reporte";
             this.btn_GenerarReporte.UseVisualStyleBackColor = true;
             this.btn_GenerarReporte.Click += new System.EventHandler(this.btn_GenerarReporte_Click);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // Bitacora
             // 
@@ -181,7 +207,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgv_bitacora);
             this.Controls.Add(this.groupBox1);
+            this.HelpProviderHG.SetHelpKeyword(this, "Bitacora.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "Bitacora";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.Bitacora_Load);
             this.groupBox1.ResumeLayout(false);
@@ -207,5 +236,6 @@
         private System.Windows.Forms.Button btn_GenerarReporte;
         private System.Windows.Forms.CheckedListBox clb_Usuarios;
         private System.Windows.Forms.CheckedListBox clb_criticidad;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

@@ -33,6 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lst_Errores = new System.Windows.Forms.ListBox();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -66,8 +67,11 @@
             // 
             // button1
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button1, "IntegridadBD.htm#button1");
+            this.HelpProviderHG.SetHelpNavigator(this.button1, System.Windows.Forms.HelpNavigator.Topic);
             this.button1.Location = new System.Drawing.Point(452, 290);
             this.button1.Name = "button1";
+            this.HelpProviderHG.SetShowHelp(this.button1, true);
             this.button1.Size = new System.Drawing.Size(89, 32);
             this.button1.TabIndex = 4;
             this.button1.Text = "RECALCULAR";
@@ -77,10 +81,17 @@
             // lst_Errores
             // 
             this.lst_Errores.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.lst_Errores, "IntegridadBD.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.lst_Errores, System.Windows.Forms.HelpNavigator.Topic);
             this.lst_Errores.Location = new System.Drawing.Point(12, 55);
             this.lst_Errores.Name = "lst_Errores";
+            this.HelpProviderHG.SetShowHelp(this.lst_Errores, true);
             this.lst_Errores.Size = new System.Drawing.Size(522, 186);
             this.lst_Errores.TabIndex = 5;
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // IntegridadBD
             // 
@@ -92,7 +103,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "IntegridadBD.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "IntegridadBD";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Integridad de la Base de Datos";
             this.Load += new System.EventHandler(this.IntegridadBD_Load);
             this.ResumeLayout(false);
@@ -107,5 +121,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lst_Errores;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

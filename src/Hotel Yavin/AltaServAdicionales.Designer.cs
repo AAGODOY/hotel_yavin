@@ -34,12 +34,16 @@
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // btn_GuardarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "AltaServAdicionales.htm#btn_GuardarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarCliente.Location = new System.Drawing.Point(169, 102);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarCliente.TabIndex = 41;
             this.btn_GuardarCliente.Text = "Aceptar";
@@ -48,8 +52,11 @@
             // 
             // btn_CancelarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "AltaServAdicionales.htm#btn_CancelarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarCliente.Location = new System.Drawing.Point(74, 102);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarCliente.TabIndex = 40;
             this.btn_CancelarCliente.Text = "Cancelar";
@@ -58,16 +65,22 @@
             // 
             // txt_precio
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_precio, "AltaServAdicionales.htm#label4");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_precio, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_precio.Location = new System.Drawing.Point(134, 62);
             this.txt_precio.Name = "txt_precio";
+            this.HelpProviderHG.SetShowHelp(this.txt_precio, true);
             this.txt_precio.Size = new System.Drawing.Size(123, 20);
             this.txt_precio.TabIndex = 39;
             this.txt_precio.TextChanged += new System.EventHandler(this.txt_precio_TextChanged);
             // 
             // txt_descripcion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_descripcion, "AltaServAdicionales.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_descripcion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_descripcion.Location = new System.Drawing.Point(134, 26);
             this.txt_descripcion.Name = "txt_descripcion";
+            this.HelpProviderHG.SetShowHelp(this.txt_descripcion, true);
             this.txt_descripcion.Size = new System.Drawing.Size(123, 20);
             this.txt_descripcion.TabIndex = 37;
             this.txt_descripcion.TextChanged += new System.EventHandler(this.txt_descripcion_TextChanged);
@@ -92,6 +105,10 @@
             this.label2.Text = "Descripción";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
+            // 
             // AltaServAdicionales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,7 +120,10 @@
             this.Controls.Add(this.txt_descripcion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
+            this.HelpProviderHG.SetHelpKeyword(this, "AltaServAdicionales.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "AltaServAdicionales";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Alta Serv. Adicionales";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,5 +138,6 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

@@ -45,54 +45,76 @@
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_NomUsu = new System.Windows.Forms.Label();
             this.btn_Modificar = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // txt_Domicilio
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Domicilio, "VerDatosDeUsuario.htm#lbl_Domicilio");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Domicilio, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Domicilio.Location = new System.Drawing.Point(145, 185);
             this.txt_Domicilio.Name = "txt_Domicilio";
+            this.HelpProviderHG.SetShowHelp(this.txt_Domicilio, true);
             this.txt_Domicilio.Size = new System.Drawing.Size(179, 20);
             this.txt_Domicilio.TabIndex = 33;
             // 
             // txt_Telefono
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Telefono, "VerDatosDeUsuario.htm#lbl_Telefono");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Telefono, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Telefono.Location = new System.Drawing.Point(145, 159);
             this.txt_Telefono.Name = "txt_Telefono";
+            this.HelpProviderHG.SetShowHelp(this.txt_Telefono, true);
             this.txt_Telefono.Size = new System.Drawing.Size(179, 20);
             this.txt_Telefono.TabIndex = 31;
             // 
             // txt_NumDoc
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NumDoc, "VerDatosDeUsuario.htm#lbl_NumDoc");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NumDoc, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NumDoc.Location = new System.Drawing.Point(145, 107);
             this.txt_NumDoc.Name = "txt_NumDoc";
+            this.HelpProviderHG.SetShowHelp(this.txt_NumDoc, true);
             this.txt_NumDoc.Size = new System.Drawing.Size(179, 20);
             this.txt_NumDoc.TabIndex = 29;
             // 
             // txt_Apellido
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Apellido, "VerDatosDeUsuario.htm#lbl_Apellido");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Apellido, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Apellido.Location = new System.Drawing.Point(145, 81);
             this.txt_Apellido.Name = "txt_Apellido";
+            this.HelpProviderHG.SetShowHelp(this.txt_Apellido, true);
             this.txt_Apellido.Size = new System.Drawing.Size(179, 20);
             this.txt_Apellido.TabIndex = 27;
             // 
             // txt_Email
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Email, "VerDatosDeUsuario.htm#lbl_Email");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Email, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Email.Location = new System.Drawing.Point(145, 133);
             this.txt_Email.Name = "txt_Email";
+            this.HelpProviderHG.SetShowHelp(this.txt_Email, true);
             this.txt_Email.Size = new System.Drawing.Size(179, 20);
             this.txt_Email.TabIndex = 23;
             // 
             // txt_Nombre
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Nombre, "VerDatosDeUsuario.htm#lbl_Nombre");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Nombre, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Nombre.Location = new System.Drawing.Point(145, 51);
             this.txt_Nombre.Name = "txt_Nombre";
+            this.HelpProviderHG.SetShowHelp(this.txt_Nombre, true);
             this.txt_Nombre.Size = new System.Drawing.Size(179, 20);
             this.txt_Nombre.TabIndex = 21;
             // 
             // txt_NomUsu
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NomUsu, "VerDatosDeUsuario.htm#lbl_NomUsu");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NomUsu, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NomUsu.Location = new System.Drawing.Point(145, 22);
             this.txt_NomUsu.Name = "txt_NomUsu";
+            this.HelpProviderHG.SetShowHelp(this.txt_NomUsu, true);
             this.txt_NomUsu.Size = new System.Drawing.Size(179, 20);
             this.txt_NomUsu.TabIndex = 19;
             // 
@@ -135,8 +157,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.comboBox1, "VerDatosDeUsuario.htm#lbl_Area");
+            this.HelpProviderHG.SetHelpNavigator(this.comboBox1, System.Windows.Forms.HelpNavigator.Topic);
             this.comboBox1.Location = new System.Drawing.Point(145, 214);
             this.comboBox1.Name = "comboBox1";
+            this.HelpProviderHG.SetShowHelp(this.comboBox1, true);
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 25;
             // 
@@ -178,12 +203,19 @@
             // 
             // btn_Modificar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_Modificar, "VerDatosDeUsuario.htm#btn_Modificar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_Modificar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_Modificar.Location = new System.Drawing.Point(235, 257);
             this.btn_Modificar.Name = "btn_Modificar";
+            this.HelpProviderHG.SetShowHelp(this.btn_Modificar, true);
             this.btn_Modificar.Size = new System.Drawing.Size(89, 29);
             this.btn_Modificar.TabIndex = 35;
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // VerDatosDeUsuario
             // 
@@ -207,7 +239,10 @@
             this.Controls.Add(this.lbl_Email);
             this.Controls.Add(this.lbl_Nombre);
             this.Controls.Add(this.lbl_NomUsu);
+            this.HelpProviderHG.SetHelpKeyword(this, "VerDatosDeUsuario.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "VerDatosDeUsuario";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Ver Datos De Usuario";
             this.Load += new System.EventHandler(this.VerDatosDeUsuario_Load);
             this.ResumeLayout(false);
@@ -234,5 +269,6 @@
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_NomUsu;
         private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

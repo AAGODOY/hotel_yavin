@@ -36,13 +36,17 @@
             this.txt_nombreBackup = new System.Windows.Forms.TextBox();
             this.nud_particiones = new System.Windows.Forms.NumericUpDown();
             this.lbl_particiones = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.nud_particiones)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_generar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_generar, "GenerarCopiadeSeguridad.htm#btn_generar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_generar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_generar.Location = new System.Drawing.Point(245, 174);
             this.btn_generar.Name = "btn_generar";
+            this.HelpProviderHG.SetShowHelp(this.btn_generar, true);
             this.btn_generar.Size = new System.Drawing.Size(75, 23);
             this.btn_generar.TabIndex = 0;
             this.btn_generar.Text = "Generar";
@@ -69,16 +73,22 @@
             // 
             // txt_ubicacion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_ubicacion, "GenerarCopiadeSeguridad.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_ubicacion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_ubicacion.Location = new System.Drawing.Point(35, 58);
             this.txt_ubicacion.Name = "txt_ubicacion";
             this.txt_ubicacion.ReadOnly = true;
+            this.HelpProviderHG.SetShowHelp(this.txt_ubicacion, true);
             this.txt_ubicacion.Size = new System.Drawing.Size(204, 20);
             this.txt_ubicacion.TabIndex = 3;
             // 
             // btn_examinar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_examinar, "GenerarCopiadeSeguridad.htm#btn_examinar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_examinar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_examinar.Location = new System.Drawing.Point(245, 58);
             this.btn_examinar.Name = "btn_examinar";
+            this.HelpProviderHG.SetShowHelp(this.btn_examinar, true);
             this.btn_examinar.Size = new System.Drawing.Size(75, 23);
             this.btn_examinar.TabIndex = 4;
             this.btn_examinar.Text = "Examinar";
@@ -87,13 +97,18 @@
             // 
             // txt_nombreBackup
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_nombreBackup, "GenerarCopiadeSeguridad.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_nombreBackup, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_nombreBackup.Location = new System.Drawing.Point(35, 137);
             this.txt_nombreBackup.Name = "txt_nombreBackup";
+            this.HelpProviderHG.SetShowHelp(this.txt_nombreBackup, true);
             this.txt_nombreBackup.Size = new System.Drawing.Size(285, 20);
             this.txt_nombreBackup.TabIndex = 5;
             // 
             // nud_particiones
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.nud_particiones, "GenerarCopiadeSeguridad.htm#nud_particiones");
+            this.HelpProviderHG.SetHelpNavigator(this.nud_particiones, System.Windows.Forms.HelpNavigator.Topic);
             this.nud_particiones.Location = new System.Drawing.Point(126, 174);
             this.nud_particiones.Maximum = new decimal(new int[] {
             5,
@@ -107,6 +122,7 @@
             0});
             this.nud_particiones.Name = "nud_particiones";
             this.nud_particiones.ReadOnly = true;
+            this.HelpProviderHG.SetShowHelp(this.nud_particiones, true);
             this.nud_particiones.Size = new System.Drawing.Size(40, 20);
             this.nud_particiones.TabIndex = 6;
             this.nud_particiones.Value = new decimal(new int[] {
@@ -124,6 +140,10 @@
             this.lbl_particiones.TabIndex = 7;
             this.lbl_particiones.Text = "N° de particiones";
             // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
+            // 
             // Generar_Copia_de_Seguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -137,7 +157,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_generar);
+            this.HelpProviderHG.SetHelpKeyword(this, "GenerarCopiadeSeguridad.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "Generar_Copia_de_Seguridad";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Generar Copia de Seguridad";
             this.Load += new System.EventHandler(this.Generar_Copia_de_Seguridad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_particiones)).EndInit();
@@ -156,5 +179,6 @@
         private System.Windows.Forms.TextBox txt_nombreBackup;
         private System.Windows.Forms.NumericUpDown nud_particiones;
         private System.Windows.Forms.Label lbl_particiones;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

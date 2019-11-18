@@ -243,7 +243,7 @@
             // 
             // helpProvider1
             // 
-            this.helpProvider1.HelpNamespace = "Hotel Yavin - Manual Operativo.chm";
+            this.helpProvider1.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // Menu
             // 
@@ -252,8 +252,11 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(623, 229);
             this.Controls.Add(this.menuStrip1);
+            this.helpProvider1.SetHelpKeyword(this, "Menu.htm");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);

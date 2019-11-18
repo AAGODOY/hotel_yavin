@@ -38,12 +38,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // btn_GuardarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "ModificarHabitacion.htm#btn_GuardarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarCliente.Location = new System.Drawing.Point(150, 146);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarCliente.TabIndex = 41;
             this.btn_GuardarCliente.Text = "Aceptar";
@@ -52,8 +56,11 @@
             // 
             // btn_CancelarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "ModificarHabitacion.htm#btn_CancelarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarCliente.Location = new System.Drawing.Point(56, 146);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarCliente.TabIndex = 40;
             this.btn_CancelarCliente.Text = "Cancelar";
@@ -61,29 +68,41 @@
             // 
             // txt_precio
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_precio, "ModificarHabitacion.htm#label4");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_precio, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_precio.Location = new System.Drawing.Point(116, 109);
             this.txt_precio.Name = "txt_precio";
+            this.HelpProviderHG.SetShowHelp(this.txt_precio, true);
             this.txt_precio.Size = new System.Drawing.Size(123, 20);
             this.txt_precio.TabIndex = 39;
             // 
             // txt_numHabitacion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_numHabitacion, "ModificarHabitacion.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_numHabitacion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_numHabitacion.Location = new System.Drawing.Point(116, 78);
             this.txt_numHabitacion.Name = "txt_numHabitacion";
+            this.HelpProviderHG.SetShowHelp(this.txt_numHabitacion, true);
             this.txt_numHabitacion.Size = new System.Drawing.Size(123, 20);
             this.txt_numHabitacion.TabIndex = 38;
             // 
             // txt_descripcion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_descripcion, "ModificarHabitacion.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_descripcion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_descripcion.Location = new System.Drawing.Point(116, 46);
             this.txt_descripcion.Name = "txt_descripcion";
+            this.HelpProviderHG.SetShowHelp(this.txt_descripcion, true);
             this.txt_descripcion.Size = new System.Drawing.Size(123, 20);
             this.txt_descripcion.TabIndex = 37;
             // 
             // txt_TipoHabitacion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_TipoHabitacion, "ModificarHabitacion.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_TipoHabitacion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_TipoHabitacion.Location = new System.Drawing.Point(116, 15);
             this.txt_TipoHabitacion.Name = "txt_TipoHabitacion";
+            this.HelpProviderHG.SetShowHelp(this.txt_TipoHabitacion, true);
             this.txt_TipoHabitacion.Size = new System.Drawing.Size(123, 20);
             this.txt_TipoHabitacion.TabIndex = 36;
             // 
@@ -123,6 +142,10 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Tipo de Habitación";
             // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
+            // 
             // ModificarHabitacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,7 +161,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ModificarHabitacion.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ModificarHabitacion";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "ModificarHabitacion";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -157,5 +183,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

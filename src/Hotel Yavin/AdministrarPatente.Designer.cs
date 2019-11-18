@@ -33,6 +33,7 @@
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,8 +53,11 @@
             // 
             // btn_habilitar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_habilitar, "AdministrarPatente.htm#btn_habilitar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_habilitar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_habilitar.Location = new System.Drawing.Point(228, 247);
             this.btn_habilitar.Name = "btn_habilitar";
+            this.HelpProviderHG.SetShowHelp(this.btn_habilitar, true);
             this.btn_habilitar.Size = new System.Drawing.Size(89, 29);
             this.btn_habilitar.TabIndex = 9;
             this.btn_habilitar.Text = "Habilitar";
@@ -62,8 +66,11 @@
             // 
             // btn_baja
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_baja, "AdministrarPatente.htm#btn_baja");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_baja, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_baja.Location = new System.Drawing.Point(118, 247);
             this.btn_baja.Name = "btn_baja";
+            this.HelpProviderHG.SetShowHelp(this.btn_baja, true);
             this.btn_baja.Size = new System.Drawing.Size(89, 29);
             this.btn_baja.TabIndex = 8;
             this.btn_baja.Text = "Baja";
@@ -72,8 +79,11 @@
             // 
             // btn_modificar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_modificar, "AdministrarPatente.htm#btn_modificar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_modificar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_modificar.Location = new System.Drawing.Point(6, 247);
             this.btn_modificar.Name = "btn_modificar";
+            this.HelpProviderHG.SetShowHelp(this.btn_modificar, true);
             this.btn_modificar.Size = new System.Drawing.Size(89, 29);
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
@@ -86,15 +96,22 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dataGridView1, "AdministrarPatente.htm#dataGridView1");
+            this.HelpProviderHG.SetHelpNavigator(this.dataGridView1, System.Windows.Forms.HelpNavigator.Topic);
             this.dataGridView1.Location = new System.Drawing.Point(6, 30);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(311, 211);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // AdministrarPatente
             // 
@@ -102,7 +119,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 309);
             this.Controls.Add(this.groupBox1);
+            this.HelpProviderHG.SetHelpKeyword(this, "AdministrarPatente.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "AdministrarPatente";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Administrar Patente";
             this.Load += new System.EventHandler(this.Patente_Load);
             this.groupBox1.ResumeLayout(false);
@@ -118,5 +138,6 @@
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_habilitar;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

@@ -40,12 +40,16 @@
             this.lbl_NumDocEmp = new System.Windows.Forms.Label();
             this.txt_NombreCli = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // txt_ApellidoCli
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_ApellidoCli, "ModificarCliente.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_ApellidoCli, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_ApellidoCli.Location = new System.Drawing.Point(135, 40);
             this.txt_ApellidoCli.Name = "txt_ApellidoCli";
+            this.HelpProviderHG.SetShowHelp(this.txt_ApellidoCli, true);
             this.txt_ApellidoCli.Size = new System.Drawing.Size(220, 20);
             this.txt_ApellidoCli.TabIndex = 29;
             // 
@@ -60,8 +64,11 @@
             // 
             // btn_GuardarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "ModificarCliente.htm#btn_GuardarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarCliente.Location = new System.Drawing.Point(266, 152);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarCliente.TabIndex = 27;
             this.btn_GuardarCliente.Text = "Aceptar";
@@ -70,8 +77,11 @@
             // 
             // btn_CancelarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "ModificarCliente.htm#btn_CancelarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarCliente.Location = new System.Drawing.Point(172, 152);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarCliente.TabIndex = 26;
             this.btn_CancelarCliente.Text = "Cancelar";
@@ -80,8 +90,11 @@
             // 
             // txt_MailCli
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_MailCli, "ModificarCliente.htm#lbl_MailCli");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_MailCli, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_MailCli.Location = new System.Drawing.Point(135, 118);
             this.txt_MailCli.Name = "txt_MailCli";
+            this.HelpProviderHG.SetShowHelp(this.txt_MailCli, true);
             this.txt_MailCli.Size = new System.Drawing.Size(220, 20);
             this.txt_MailCli.TabIndex = 25;
             // 
@@ -96,8 +109,11 @@
             // 
             // txt_TelCli
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_TelCli, "ModificarCliente.htm#lbl_TelCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_TelCli, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_TelCli.Location = new System.Drawing.Point(135, 92);
             this.txt_TelCli.Name = "txt_TelCli";
+            this.HelpProviderHG.SetShowHelp(this.txt_TelCli, true);
             this.txt_TelCli.Size = new System.Drawing.Size(220, 20);
             this.txt_TelCli.TabIndex = 23;
             // 
@@ -112,8 +128,11 @@
             // 
             // txt_NumDocCli
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NumDocCli, "ModificarCliente.htm#lbl_NumDocEmp");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NumDocCli, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NumDocCli.Location = new System.Drawing.Point(135, 66);
             this.txt_NumDocCli.Name = "txt_NumDocCli";
+            this.HelpProviderHG.SetShowHelp(this.txt_NumDocCli, true);
             this.txt_NumDocCli.Size = new System.Drawing.Size(220, 20);
             this.txt_NumDocCli.TabIndex = 21;
             this.txt_NumDocCli.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NumDocCli_KeyPress);
@@ -129,8 +148,11 @@
             // 
             // txt_NombreCli
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NombreCli, "ModificarCliente.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NombreCli, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NombreCli.Location = new System.Drawing.Point(135, 12);
             this.txt_NombreCli.Name = "txt_NombreCli";
+            this.HelpProviderHG.SetShowHelp(this.txt_NombreCli, true);
             this.txt_NombreCli.Size = new System.Drawing.Size(220, 20);
             this.txt_NombreCli.TabIndex = 19;
             // 
@@ -142,6 +164,10 @@
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Nombre";
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // ModificarCliente
             // 
@@ -160,7 +186,10 @@
             this.Controls.Add(this.lbl_NumDocEmp);
             this.Controls.Add(this.txt_NombreCli);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ModificarCliente.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ModificarCliente";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "ModificarCliente";
             this.Load += new System.EventHandler(this.ModificarCliente_Load);
             this.ResumeLayout(false);
@@ -182,5 +211,6 @@
         private System.Windows.Forms.Label lbl_NumDocEmp;
         private System.Windows.Forms.TextBox txt_NombreCli;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

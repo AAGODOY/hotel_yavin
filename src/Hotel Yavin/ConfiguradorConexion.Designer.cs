@@ -37,6 +37,7 @@
             this.txt_usuario = new System.Windows.Forms.TextBox();
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.btn_conectar = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -77,41 +78,60 @@
             // 
             // txt_servidor
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_servidor, "ConfiguradorConexion.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_servidor, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_servidor.Location = new System.Drawing.Point(81, 31);
             this.txt_servidor.Name = "txt_servidor";
+            this.HelpProviderHG.SetShowHelp(this.txt_servidor, true);
             this.txt_servidor.Size = new System.Drawing.Size(127, 20);
             this.txt_servidor.TabIndex = 4;
             // 
             // txt_nombreBD
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_nombreBD, "ConfiguradorConexion.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_nombreBD, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_nombreBD.Location = new System.Drawing.Point(81, 81);
             this.txt_nombreBD.Name = "txt_nombreBD";
+            this.HelpProviderHG.SetShowHelp(this.txt_nombreBD, true);
             this.txt_nombreBD.Size = new System.Drawing.Size(127, 20);
             this.txt_nombreBD.TabIndex = 5;
             // 
             // txt_usuario
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_usuario, "ConfiguradorConexion.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_usuario, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_usuario.Location = new System.Drawing.Point(81, 130);
             this.txt_usuario.Name = "txt_usuario";
+            this.HelpProviderHG.SetShowHelp(this.txt_usuario, true);
             this.txt_usuario.Size = new System.Drawing.Size(127, 20);
             this.txt_usuario.TabIndex = 6;
             // 
             // txt_contraseña
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_contraseña, "ConfiguradorConexion.htm#label4");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_contraseña, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_contraseña.Location = new System.Drawing.Point(81, 179);
             this.txt_contraseña.Name = "txt_contraseña";
+            this.HelpProviderHG.SetShowHelp(this.txt_contraseña, true);
             this.txt_contraseña.Size = new System.Drawing.Size(127, 20);
             this.txt_contraseña.TabIndex = 7;
             // 
             // btn_conectar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_conectar, "ConfiguradorConexion.htm#btn_conectar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_conectar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_conectar.Location = new System.Drawing.Point(12, 225);
             this.btn_conectar.Name = "btn_conectar";
+            this.HelpProviderHG.SetShowHelp(this.btn_conectar, true);
             this.btn_conectar.Size = new System.Drawing.Size(261, 34);
             this.btn_conectar.TabIndex = 8;
             this.btn_conectar.Text = "CONECTAR";
             this.btn_conectar.UseVisualStyleBackColor = true;
             this.btn_conectar.Click += new System.EventHandler(this.btn_conectar_Click);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // ConfiguradorConexion
             // 
@@ -127,7 +147,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ConfiguradorConexion.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ConfiguradorConexion";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Configurador de Conexion";
             this.Load += new System.EventHandler(this.ConfiguradorConexion_Load);
             this.ResumeLayout(false);
@@ -146,5 +169,6 @@
         private System.Windows.Forms.TextBox txt_usuario;
         private System.Windows.Forms.TextBox txt_contraseña;
         private System.Windows.Forms.Button btn_conectar;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

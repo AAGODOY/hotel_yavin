@@ -33,6 +33,7 @@
             this.txt_NombreUsu = new System.Windows.Forms.TextBox();
             this.txt_contraseña = new System.Windows.Forms.TextBox();
             this.btn_Ingresar = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -55,28 +56,41 @@
             // 
             // txt_NombreUsu
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NombreUsu, "LogIn.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NombreUsu, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NombreUsu.Location = new System.Drawing.Point(12, 32);
             this.txt_NombreUsu.Name = "txt_NombreUsu";
+            this.HelpProviderHG.SetShowHelp(this.txt_NombreUsu, true);
             this.txt_NombreUsu.Size = new System.Drawing.Size(196, 20);
             this.txt_NombreUsu.TabIndex = 1;
             // 
             // txt_contraseña
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_contraseña, "LogIn.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_contraseña, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_contraseña.Location = new System.Drawing.Point(12, 83);
             this.txt_contraseña.Name = "txt_contraseña";
             this.txt_contraseña.PasswordChar = '*';
+            this.HelpProviderHG.SetShowHelp(this.txt_contraseña, true);
             this.txt_contraseña.Size = new System.Drawing.Size(196, 20);
             this.txt_contraseña.TabIndex = 2;
             // 
             // btn_Ingresar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_Ingresar, "LogIn.htm#btn_Ingresar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_Ingresar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_Ingresar.Location = new System.Drawing.Point(76, 126);
             this.btn_Ingresar.Name = "btn_Ingresar";
+            this.HelpProviderHG.SetShowHelp(this.btn_Ingresar, true);
             this.btn_Ingresar.Size = new System.Drawing.Size(75, 23);
             this.btn_Ingresar.TabIndex = 3;
             this.btn_Ingresar.Text = "INGRESAR";
             this.btn_Ingresar.UseVisualStyleBackColor = true;
             this.btn_Ingresar.Click += new System.EventHandler(this.btn_Ingresar_Click);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // Log_In
             // 
@@ -88,7 +102,10 @@
             this.Controls.Add(this.txt_NombreUsu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "LogIn.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "Log_In";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Log_In";
             this.Load += new System.EventHandler(this.Log_In_Load);
             this.ResumeLayout(false);
@@ -103,5 +120,6 @@
         private System.Windows.Forms.TextBox txt_NombreUsu;
         private System.Windows.Forms.TextBox txt_contraseña;
         private System.Windows.Forms.Button btn_Ingresar;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

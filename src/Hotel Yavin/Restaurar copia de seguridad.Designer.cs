@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_restaurar = new System.Windows.Forms.Button();
             this.dgv_listadoBackups = new System.Windows.Forms.DataGridView();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listadoBackups)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,8 +46,11 @@
             // 
             // btn_restaurar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_restaurar, "Restaurar_copia_de_seguridad.htm#btn_restaurar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_restaurar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_restaurar.Location = new System.Drawing.Point(256, 200);
             this.btn_restaurar.Name = "btn_restaurar";
+            this.HelpProviderHG.SetShowHelp(this.btn_restaurar, true);
             this.btn_restaurar.Size = new System.Drawing.Size(75, 23);
             this.btn_restaurar.TabIndex = 3;
             this.btn_restaurar.Text = "Restaurar";
@@ -59,14 +63,21 @@
             this.dgv_listadoBackups.AllowUserToDeleteRows = false;
             this.dgv_listadoBackups.AllowUserToOrderColumns = true;
             this.dgv_listadoBackups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_listadoBackups, "Restaurar_copia_de_seguridad.htm#dgv_listadoBackups");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_listadoBackups, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_listadoBackups.Location = new System.Drawing.Point(27, 44);
             this.dgv_listadoBackups.MultiSelect = false;
             this.dgv_listadoBackups.Name = "dgv_listadoBackups";
             this.dgv_listadoBackups.ReadOnly = true;
             this.dgv_listadoBackups.RowHeadersVisible = false;
             this.dgv_listadoBackups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_listadoBackups, true);
             this.dgv_listadoBackups.Size = new System.Drawing.Size(304, 150);
             this.dgv_listadoBackups.TabIndex = 4;
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // Restaurar_copia_de_seguridad
             // 
@@ -76,7 +87,10 @@
             this.Controls.Add(this.dgv_listadoBackups);
             this.Controls.Add(this.btn_restaurar);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "Restaurar_copia_de_seguridad.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "Restaurar_copia_de_seguridad";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Restaurar copia de seguridad";
             this.Load += new System.EventHandler(this.Restaurar_copia_de_seguridad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listadoBackups)).EndInit();
@@ -90,5 +104,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_restaurar;
         private System.Windows.Forms.DataGridView dgv_listadoBackups;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

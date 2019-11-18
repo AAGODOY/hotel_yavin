@@ -46,6 +46,7 @@
             this.dtpSalida = new System.Windows.Forms.DateTimePicker();
             this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,8 +54,11 @@
             // 
             // btn_GuardarEmpleado
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarEmpleado, "ModificarReserva.htm#btn_GuardarEmpleado");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarEmpleado, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarEmpleado.Location = new System.Drawing.Point(552, 309);
             this.btn_GuardarEmpleado.Name = "btn_GuardarEmpleado";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarEmpleado, true);
             this.btn_GuardarEmpleado.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarEmpleado.TabIndex = 31;
             this.btn_GuardarEmpleado.Text = "Aceptar";
@@ -62,8 +66,11 @@
             // 
             // btn_CancelarEmpleado
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarEmpleado, "ModificarReserva.htm#btn_CancelarEmpleado");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarEmpleado, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarEmpleado.Location = new System.Drawing.Point(458, 309);
             this.btn_CancelarEmpleado.Name = "btn_CancelarEmpleado";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarEmpleado, true);
             this.btn_CancelarEmpleado.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarEmpleado.TabIndex = 30;
             this.btn_CancelarEmpleado.Text = "Cancelar";
@@ -92,8 +99,11 @@
             // checkedListBox2
             // 
             this.checkedListBox2.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.checkedListBox2, "ModificarReserva.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.checkedListBox2, System.Windows.Forms.HelpNavigator.Topic);
             this.checkedListBox2.Location = new System.Drawing.Point(160, 101);
             this.checkedListBox2.Name = "checkedListBox2";
+            this.HelpProviderHG.SetShowHelp(this.checkedListBox2, true);
             this.checkedListBox2.Size = new System.Drawing.Size(136, 79);
             this.checkedListBox2.TabIndex = 30;
             // 
@@ -112,8 +122,11 @@
             // 
             // button3
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button3, "ModificarReserva.htm#button3");
+            this.HelpProviderHG.SetHelpNavigator(this.button3, System.Windows.Forms.HelpNavigator.Topic);
             this.button3.Location = new System.Drawing.Point(214, 176);
             this.button3.Name = "button3";
+            this.HelpProviderHG.SetShowHelp(this.button3, true);
             this.button3.Size = new System.Drawing.Size(83, 33);
             this.button3.TabIndex = 14;
             this.button3.Text = "Eliminar";
@@ -121,8 +134,11 @@
             // 
             // button2
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button2, "ModificarReserva.htm#button2");
+            this.HelpProviderHG.SetHelpNavigator(this.button2, System.Windows.Forms.HelpNavigator.Topic);
             this.button2.Location = new System.Drawing.Point(115, 176);
             this.button2.Name = "button2";
+            this.HelpProviderHG.SetShowHelp(this.button2, true);
             this.button2.Size = new System.Drawing.Size(83, 33);
             this.button2.TabIndex = 13;
             this.button2.Text = "Modificar";
@@ -132,15 +148,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dataGridView1, "ModificarReserva.htm#dataGridView1");
+            this.HelpProviderHG.SetHelpNavigator(this.dataGridView1, System.Windows.Forms.HelpNavigator.Topic);
             this.dataGridView1.Location = new System.Drawing.Point(16, 19);
             this.dataGridView1.Name = "dataGridView1";
+            this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(281, 151);
             this.dataGridView1.TabIndex = 12;
             // 
             // button1
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button1, "ModificarReserva.htm#button1");
+            this.HelpProviderHG.SetHelpNavigator(this.button1, System.Windows.Forms.HelpNavigator.Topic);
             this.button1.Location = new System.Drawing.Point(16, 176);
             this.button1.Name = "button1";
+            this.HelpProviderHG.SetShowHelp(this.button1, true);
             this.button1.Size = new System.Drawing.Size(83, 33);
             this.button1.TabIndex = 8;
             this.button1.Text = "Agregar";
@@ -158,8 +180,11 @@
             // checkedListBox1
             // 
             this.checkedListBox1.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.checkedListBox1, "ModificarReserva.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.checkedListBox1, System.Windows.Forms.HelpNavigator.Topic);
             this.checkedListBox1.Location = new System.Drawing.Point(160, 196);
             this.checkedListBox1.Name = "checkedListBox1";
+            this.HelpProviderHG.SetShowHelp(this.checkedListBox1, true);
             this.checkedListBox1.Size = new System.Drawing.Size(136, 79);
             this.checkedListBox1.TabIndex = 9;
             // 
@@ -183,8 +208,11 @@
             // 
             // dtpIngreso
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtpIngreso, "ModificarReserva.htm#lblFIngreso");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpIngreso, System.Windows.Forms.HelpNavigator.Topic);
             this.dtpIngreso.Location = new System.Drawing.Point(102, 25);
             this.dtpIngreso.Name = "dtpIngreso";
+            this.HelpProviderHG.SetShowHelp(this.dtpIngreso, true);
             this.dtpIngreso.Size = new System.Drawing.Size(194, 20);
             this.dtpIngreso.TabIndex = 2;
             this.dtpIngreso.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
@@ -200,8 +228,11 @@
             // 
             // dtpSalida
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtpSalida, "ModificarReserva.htm#lblFSalida");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpSalida, System.Windows.Forms.HelpNavigator.Topic);
             this.dtpSalida.Location = new System.Drawing.Point(402, 25);
             this.dtpSalida.Name = "dtpSalida";
+            this.HelpProviderHG.SetShowHelp(this.dtpSalida, true);
             this.dtpSalida.Size = new System.Drawing.Size(194, 20);
             this.dtpSalida.TabIndex = 3;
             this.dtpSalida.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
@@ -209,8 +240,11 @@
             // cmb_Cliente
             // 
             this.cmb_Cliente.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.cmb_Cliente, "ModificarReserva.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.cmb_Cliente, System.Windows.Forms.HelpNavigator.Topic);
             this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
             this.cmb_Cliente.Name = "cmb_Cliente";
+            this.HelpProviderHG.SetShowHelp(this.cmb_Cliente, true);
             this.cmb_Cliente.Size = new System.Drawing.Size(137, 21);
             this.cmb_Cliente.TabIndex = 5;
             // 
@@ -223,6 +257,10 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccionar Cliente";
             // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
+            // 
             // ModificarReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,7 +269,10 @@
             this.Controls.Add(this.btn_GuardarEmpleado);
             this.Controls.Add(this.btn_CancelarEmpleado);
             this.Controls.Add(this.groupBox1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ModificarReserva.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ModificarReserva";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "ModificarReserva";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -261,5 +302,6 @@
         private System.Windows.Forms.DateTimePicker dtpSalida;
         private System.Windows.Forms.ComboBox cmb_Cliente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

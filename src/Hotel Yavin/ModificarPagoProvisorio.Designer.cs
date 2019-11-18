@@ -38,6 +38,7 @@
             this.txt_montoPagado = new System.Windows.Forms.TextBox();
             this.btn_GuardarCliente = new System.Windows.Forms.Button();
             this.btn_CancelarCliente = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -51,8 +52,11 @@
             // 
             // dtp_fechaPago
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtp_fechaPago, "ModificarPagoProvisorio.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.dtp_fechaPago, System.Windows.Forms.HelpNavigator.Topic);
             this.dtp_fechaPago.Location = new System.Drawing.Point(99, 19);
             this.dtp_fechaPago.Name = "dtp_fechaPago";
+            this.HelpProviderHG.SetShowHelp(this.dtp_fechaPago, true);
             this.dtp_fechaPago.Size = new System.Drawing.Size(200, 20);
             this.dtp_fechaPago.TabIndex = 1;
             // 
@@ -103,15 +107,21 @@
             // 
             // txt_montoPagado
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_montoPagado, "ModificarPagoProvisorio.htm#label5");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_montoPagado, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_montoPagado.Location = new System.Drawing.Point(99, 135);
             this.txt_montoPagado.Name = "txt_montoPagado";
+            this.HelpProviderHG.SetShowHelp(this.txt_montoPagado, true);
             this.txt_montoPagado.Size = new System.Drawing.Size(100, 20);
             this.txt_montoPagado.TabIndex = 7;
             // 
             // btn_GuardarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "ModificarPagoProvisorio.htm#btn_GuardarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarCliente.Location = new System.Drawing.Point(210, 173);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarCliente.TabIndex = 29;
             this.btn_GuardarCliente.Text = "Aceptar";
@@ -119,12 +129,19 @@
             // 
             // btn_CancelarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "ModificarPagoProvisorio.htm#btn_CancelarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarCliente.Location = new System.Drawing.Point(116, 173);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarCliente.TabIndex = 28;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // ModificarPagoProvisorio
             // 
@@ -141,7 +158,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtp_fechaPago);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ModificarPagoProvisorio.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ModificarPagoProvisorio";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Modificar Pago Provisorio";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -160,5 +180,6 @@
         private System.Windows.Forms.TextBox txt_montoPagado;
         private System.Windows.Forms.Button btn_GuardarCliente;
         private System.Windows.Forms.Button btn_CancelarCliente;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

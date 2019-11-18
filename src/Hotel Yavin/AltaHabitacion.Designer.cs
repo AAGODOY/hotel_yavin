@@ -38,6 +38,7 @@
             this.txt_precio = new System.Windows.Forms.TextBox();
             this.btn_GuardarCliente = new System.Windows.Forms.Button();
             this.btn_CancelarCliente = new System.Windows.Forms.Button();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label1
@@ -78,36 +79,51 @@
             // 
             // txt_TipoHabitacion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_TipoHabitacion, "AltaHabitacion.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_TipoHabitacion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_TipoHabitacion.Location = new System.Drawing.Point(116, 23);
             this.txt_TipoHabitacion.Name = "txt_TipoHabitacion";
+            this.HelpProviderHG.SetShowHelp(this.txt_TipoHabitacion, true);
             this.txt_TipoHabitacion.Size = new System.Drawing.Size(123, 20);
             this.txt_TipoHabitacion.TabIndex = 4;
             // 
             // txt_descripcion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_descripcion, "AltaHabitacion.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_descripcion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_descripcion.Location = new System.Drawing.Point(116, 54);
             this.txt_descripcion.Name = "txt_descripcion";
+            this.HelpProviderHG.SetShowHelp(this.txt_descripcion, true);
             this.txt_descripcion.Size = new System.Drawing.Size(123, 20);
             this.txt_descripcion.TabIndex = 5;
             // 
             // txt_numHabitacion
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_numHabitacion, "AltaHabitacion.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_numHabitacion, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_numHabitacion.Location = new System.Drawing.Point(116, 86);
             this.txt_numHabitacion.Name = "txt_numHabitacion";
+            this.HelpProviderHG.SetShowHelp(this.txt_numHabitacion, true);
             this.txt_numHabitacion.Size = new System.Drawing.Size(123, 20);
             this.txt_numHabitacion.TabIndex = 6;
             // 
             // txt_precio
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_precio, "AltaHabitacion.htm#label4");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_precio, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_precio.Location = new System.Drawing.Point(116, 117);
             this.txt_precio.Name = "txt_precio";
+            this.HelpProviderHG.SetShowHelp(this.txt_precio, true);
             this.txt_precio.Size = new System.Drawing.Size(123, 20);
             this.txt_precio.TabIndex = 7;
             // 
             // btn_GuardarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "AltaHabitacion.htm#btn_GuardarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarCliente.Location = new System.Drawing.Point(150, 154);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarCliente.TabIndex = 31;
             this.btn_GuardarCliente.Text = "Aceptar";
@@ -116,13 +132,20 @@
             // 
             // btn_CancelarCliente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "AltaHabitacion.htm#btn_CancelarCliente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarCliente.Location = new System.Drawing.Point(56, 154);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarCliente.TabIndex = 30;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
             this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarCliente_Click);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // AltaHabitacion
             // 
@@ -139,7 +162,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.HelpProviderHG.SetHelpKeyword(this, "AltaHabitacion.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "AltaHabitacion";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Alta Habitacion";
             this.Load += new System.EventHandler(this.AltaHabitacion_Load);
             this.ResumeLayout(false);
@@ -159,5 +185,6 @@
         private System.Windows.Forms.TextBox txt_precio;
         private System.Windows.Forms.Button btn_GuardarCliente;
         private System.Windows.Forms.Button btn_CancelarCliente;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

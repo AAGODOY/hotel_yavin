@@ -69,6 +69,7 @@
             this.btn_AsociarPatente = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,8 +83,11 @@
             // 
             // btn_GuardarUsuario
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarUsuario, "ModificarUsuario.htm#btn_GuardarUsuario");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarUsuario, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarUsuario.Location = new System.Drawing.Point(474, 359);
             this.btn_GuardarUsuario.Name = "btn_GuardarUsuario";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarUsuario, true);
             this.btn_GuardarUsuario.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarUsuario.TabIndex = 18;
             this.btn_GuardarUsuario.Text = "Aceptar";
@@ -92,8 +96,11 @@
             // 
             // btn_CancelarUsuario
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarUsuario, "ModificarUsuario.htm#btn_CancelarUsuario");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarUsuario, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarUsuario.Location = new System.Drawing.Point(380, 359);
             this.btn_CancelarUsuario.Name = "btn_CancelarUsuario";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarUsuario, true);
             this.btn_CancelarUsuario.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarUsuario.TabIndex = 17;
             this.btn_CancelarUsuario.Text = "Cancelar";
@@ -105,9 +112,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.HelpProviderHG.SetHelpKeyword(this.tabControl1, "ModificarUsuario.htm#tabControl1");
+            this.HelpProviderHG.SetHelpNavigator(this.tabControl1, System.Windows.Forms.HelpNavigator.Topic);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
+            this.HelpProviderHG.SetShowHelp(this.tabControl1, true);
             this.tabControl1.Size = new System.Drawing.Size(554, 341);
             this.tabControl1.TabIndex = 16;
             this.tabControl1.Tag = "";
@@ -131,9 +141,12 @@
             this.tabPage1.Controls.Add(this.lbl_Nombre);
             this.tabPage1.Controls.Add(this.lbl_NomUsu);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.HelpProviderHG.SetHelpKeyword(this.tabPage1, "ModificarUsuario.htm#tabPage1_0");
+            this.HelpProviderHG.SetHelpNavigator(this.tabPage1, System.Windows.Forms.HelpNavigator.Topic);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.HelpProviderHG.SetShowHelp(this.tabPage1, true);
             this.tabPage1.Size = new System.Drawing.Size(546, 315);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos del Usuario";
@@ -152,8 +165,11 @@
             // 
             // btn_BlanquearPass
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_BlanquearPass, "ModificarUsuario.htm#btn_BlanquearPass");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_BlanquearPass, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_BlanquearPass.Location = new System.Drawing.Point(31, 23);
             this.btn_BlanquearPass.Name = "btn_BlanquearPass";
+            this.HelpProviderHG.SetShowHelp(this.btn_BlanquearPass, true);
             this.btn_BlanquearPass.Size = new System.Drawing.Size(133, 23);
             this.btn_BlanquearPass.TabIndex = 18;
             this.btn_BlanquearPass.Text = "Blanqueo Contraseña";
@@ -161,8 +177,11 @@
             // 
             // btn_Desbloquear
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_Desbloquear, "ModificarUsuario.htm#btn_Desbloquear");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_Desbloquear, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_Desbloquear.Location = new System.Drawing.Point(31, 82);
             this.btn_Desbloquear.Name = "btn_Desbloquear";
+            this.HelpProviderHG.SetShowHelp(this.btn_Desbloquear, true);
             this.btn_Desbloquear.Size = new System.Drawing.Size(133, 23);
             this.btn_Desbloquear.TabIndex = 20;
             this.btn_Desbloquear.Text = "Desbloquear";
@@ -170,8 +189,11 @@
             // 
             // btn_Bloquear
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_Bloquear, "ModificarUsuario.htm#btn_Bloquear");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_Bloquear, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_Bloquear.Location = new System.Drawing.Point(31, 52);
             this.btn_Bloquear.Name = "btn_Bloquear";
+            this.HelpProviderHG.SetShowHelp(this.btn_Bloquear, true);
             this.btn_Bloquear.Size = new System.Drawing.Size(133, 23);
             this.btn_Bloquear.TabIndex = 19;
             this.btn_Bloquear.Text = "Bloquear";
@@ -179,44 +201,62 @@
             // 
             // txt_Domicilio
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Domicilio, "ModificarUsuario.htm#lbl_Domicilio");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Domicilio, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Domicilio.Location = new System.Drawing.Point(134, 184);
             this.txt_Domicilio.Name = "txt_Domicilio";
+            this.HelpProviderHG.SetShowHelp(this.txt_Domicilio, true);
             this.txt_Domicilio.Size = new System.Drawing.Size(179, 20);
             this.txt_Domicilio.TabIndex = 17;
             // 
             // txt_Telefono
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Telefono, "ModificarUsuario.htm#lbl_Telefono");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Telefono, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Telefono.Location = new System.Drawing.Point(134, 158);
             this.txt_Telefono.Name = "txt_Telefono";
+            this.HelpProviderHG.SetShowHelp(this.txt_Telefono, true);
             this.txt_Telefono.Size = new System.Drawing.Size(179, 20);
             this.txt_Telefono.TabIndex = 15;
             // 
             // txt_NumDoc
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NumDoc, "ModificarUsuario.htm#lbl_NumDoc");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NumDoc, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NumDoc.Location = new System.Drawing.Point(134, 106);
             this.txt_NumDoc.Name = "txt_NumDoc";
+            this.HelpProviderHG.SetShowHelp(this.txt_NumDoc, true);
             this.txt_NumDoc.Size = new System.Drawing.Size(179, 20);
             this.txt_NumDoc.TabIndex = 13;
             this.txt_NumDoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_NumDoc_KeyPress);
             // 
             // txt_Apellido
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Apellido, "ModificarUsuario.htm#lbl_Apellido");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Apellido, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Apellido.Location = new System.Drawing.Point(134, 80);
             this.txt_Apellido.Name = "txt_Apellido";
+            this.HelpProviderHG.SetShowHelp(this.txt_Apellido, true);
             this.txt_Apellido.Size = new System.Drawing.Size(179, 20);
             this.txt_Apellido.TabIndex = 11;
             // 
             // txt_Email
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Email, "ModificarUsuario.htm#lbl_Email");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Email, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Email.Location = new System.Drawing.Point(134, 132);
             this.txt_Email.Name = "txt_Email";
+            this.HelpProviderHG.SetShowHelp(this.txt_Email, true);
             this.txt_Email.Size = new System.Drawing.Size(179, 20);
             this.txt_Email.TabIndex = 5;
             // 
             // txt_Nombre
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.txt_Nombre, "ModificarUsuario.htm#lbl_Nombre");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_Nombre, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_Nombre.Location = new System.Drawing.Point(134, 50);
             this.txt_Nombre.Name = "txt_Nombre";
+            this.HelpProviderHG.SetShowHelp(this.txt_Nombre, true);
             this.txt_Nombre.Size = new System.Drawing.Size(179, 20);
             this.txt_Nombre.TabIndex = 3;
             // 
@@ -224,8 +264,11 @@
             // 
             this.txt_NomUsu.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txt_NomUsu.Enabled = false;
+            this.HelpProviderHG.SetHelpKeyword(this.txt_NomUsu, "ModificarUsuario.htm#lbl_NomUsu");
+            this.HelpProviderHG.SetHelpNavigator(this.txt_NomUsu, System.Windows.Forms.HelpNavigator.Topic);
             this.txt_NomUsu.Location = new System.Drawing.Point(134, 21);
             this.txt_NomUsu.Name = "txt_NomUsu";
+            this.HelpProviderHG.SetShowHelp(this.txt_NomUsu, true);
             this.txt_NomUsu.Size = new System.Drawing.Size(179, 20);
             this.txt_NomUsu.TabIndex = 1;
             // 
@@ -303,9 +346,12 @@
             this.tabPage3.Controls.Add(this.btn_AsociarFamilia);
             this.tabPage3.Controls.Add(this.label17);
             this.tabPage3.Controls.Add(this.lbl_FamiliasDisponibles);
+            this.HelpProviderHG.SetHelpKeyword(this.tabPage3, "ModificarUsuario.htm#tabPage3_1");
+            this.HelpProviderHG.SetHelpNavigator(this.tabPage3, System.Windows.Forms.HelpNavigator.Topic);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.HelpProviderHG.SetShowHelp(this.tabPage3, true);
             this.tabPage3.Size = new System.Drawing.Size(546, 315);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Familia";
@@ -318,10 +364,13 @@
             this.dgv_familiasAsociadas.AllowUserToResizeRows = false;
             this.dgv_familiasAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_familiasAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_familiasAsociadas, "ModificarUsuario.htm#dgv_familiasAsociadas");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_familiasAsociadas, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_familiasAsociadas.Location = new System.Drawing.Point(334, 65);
             this.dgv_familiasAsociadas.Name = "dgv_familiasAsociadas";
             this.dgv_familiasAsociadas.RowHeadersVisible = false;
             this.dgv_familiasAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_familiasAsociadas, true);
             this.dgv_familiasAsociadas.Size = new System.Drawing.Size(194, 210);
             this.dgv_familiasAsociadas.TabIndex = 27;
             // 
@@ -333,11 +382,14 @@
             this.dgv_familiasDisponibles.AllowUserToResizeRows = false;
             this.dgv_familiasDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_familiasDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_familiasDisponibles, "ModificarUsuario.htm#dgv_familiasDisponibles");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_familiasDisponibles, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_familiasDisponibles.Location = new System.Drawing.Point(26, 65);
             this.dgv_familiasDisponibles.Name = "dgv_familiasDisponibles";
             this.dgv_familiasDisponibles.RowHeadersVisible = false;
             this.dgv_familiasDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_familiasDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_familiasDisponibles, true);
             this.dgv_familiasDisponibles.Size = new System.Drawing.Size(194, 210);
             this.dgv_familiasDisponibles.TabIndex = 26;
             // 
@@ -361,8 +413,11 @@
             // 
             // btn_DesasociarFamilia
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_DesasociarFamilia, "ModificarUsuario.htm#btn_DesasociarFamilia");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_DesasociarFamilia, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_DesasociarFamilia.Location = new System.Drawing.Point(246, 238);
             this.btn_DesasociarFamilia.Name = "btn_DesasociarFamilia";
+            this.HelpProviderHG.SetShowHelp(this.btn_DesasociarFamilia, true);
             this.btn_DesasociarFamilia.Size = new System.Drawing.Size(55, 37);
             this.btn_DesasociarFamilia.TabIndex = 22;
             this.btn_DesasociarFamilia.Text = "<";
@@ -371,8 +426,11 @@
             // 
             // btn_AsociarFamilia
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_AsociarFamilia, "ModificarUsuario.htm#btn_AsociarFamilia");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_AsociarFamilia, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_AsociarFamilia.Location = new System.Drawing.Point(246, 65);
             this.btn_AsociarFamilia.Name = "btn_AsociarFamilia";
+            this.HelpProviderHG.SetShowHelp(this.btn_AsociarFamilia, true);
             this.btn_AsociarFamilia.Size = new System.Drawing.Size(55, 37);
             this.btn_AsociarFamilia.TabIndex = 21;
             this.btn_AsociarFamilia.Text = ">";
@@ -409,9 +467,12 @@
             this.tabPage4.Controls.Add(this.btn_AsociarPatente);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.label4);
+            this.HelpProviderHG.SetHelpKeyword(this.tabPage4, "ModificarUsuario.htm#tabPage4_2");
+            this.HelpProviderHG.SetHelpNavigator(this.tabPage4, System.Windows.Forms.HelpNavigator.Topic);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.HelpProviderHG.SetShowHelp(this.tabPage4, true);
             this.tabPage4.Size = new System.Drawing.Size(546, 315);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Patente";
@@ -423,10 +484,13 @@
             this.dgv_patentesAsociadas.AllowUserToResizeRows = false;
             this.dgv_patentesAsociadas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_patentesAsociadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_patentesAsociadas, "ModificarUsuario.htm#dgv_patentesAsociadas");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_patentesAsociadas, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_patentesAsociadas.Location = new System.Drawing.Point(335, 65);
             this.dgv_patentesAsociadas.Name = "dgv_patentesAsociadas";
             this.dgv_patentesAsociadas.RowHeadersVisible = false;
             this.dgv_patentesAsociadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_patentesAsociadas, true);
             this.dgv_patentesAsociadas.Size = new System.Drawing.Size(194, 210);
             this.dgv_patentesAsociadas.TabIndex = 27;
             this.dgv_patentesAsociadas.SelectionChanged += new System.EventHandler(this.dgv_patentesAsociadas_SelectionChanged);
@@ -439,11 +503,14 @@
             this.dgv_patentesDisponibles.AllowUserToResizeRows = false;
             this.dgv_patentesDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_patentesDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dgv_patentesDisponibles, "ModificarUsuario.htm#dgv_patentesDisponibles");
+            this.HelpProviderHG.SetHelpNavigator(this.dgv_patentesDisponibles, System.Windows.Forms.HelpNavigator.Topic);
             this.dgv_patentesDisponibles.Location = new System.Drawing.Point(27, 65);
             this.dgv_patentesDisponibles.Name = "dgv_patentesDisponibles";
             this.dgv_patentesDisponibles.RowHeadersVisible = false;
             this.dgv_patentesDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_patentesDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dgv_patentesDisponibles, true);
             this.dgv_patentesDisponibles.Size = new System.Drawing.Size(194, 210);
             this.dgv_patentesDisponibles.TabIndex = 26;
             // 
@@ -468,8 +535,11 @@
             // btn_NegarPatente
             // 
             this.btn_NegarPatente.Enabled = false;
+            this.HelpProviderHG.SetHelpKeyword(this.btn_NegarPatente, "ModificarUsuario.htm#btn_NegarPatente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_NegarPatente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_NegarPatente.Location = new System.Drawing.Point(247, 117);
             this.btn_NegarPatente.Name = "btn_NegarPatente";
+            this.HelpProviderHG.SetShowHelp(this.btn_NegarPatente, true);
             this.btn_NegarPatente.Size = new System.Drawing.Size(55, 106);
             this.btn_NegarPatente.TabIndex = 23;
             this.btn_NegarPatente.Text = "Negar ✍";
@@ -478,8 +548,11 @@
             // 
             // btn_DesasociarPatente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_DesasociarPatente, "ModificarUsuario.htm#btn_DesasociarPatente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_DesasociarPatente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_DesasociarPatente.Location = new System.Drawing.Point(247, 238);
             this.btn_DesasociarPatente.Name = "btn_DesasociarPatente";
+            this.HelpProviderHG.SetShowHelp(this.btn_DesasociarPatente, true);
             this.btn_DesasociarPatente.Size = new System.Drawing.Size(55, 37);
             this.btn_DesasociarPatente.TabIndex = 22;
             this.btn_DesasociarPatente.Text = "<";
@@ -488,8 +561,11 @@
             // 
             // btn_AsociarPatente
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_AsociarPatente, "ModificarUsuario.htm#btn_AsociarPatente");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_AsociarPatente, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_AsociarPatente.Location = new System.Drawing.Point(247, 65);
             this.btn_AsociarPatente.Name = "btn_AsociarPatente";
+            this.HelpProviderHG.SetShowHelp(this.btn_AsociarPatente, true);
             this.btn_AsociarPatente.Size = new System.Drawing.Size(55, 37);
             this.btn_AsociarPatente.TabIndex = 21;
             this.btn_AsociarPatente.Text = ">";
@@ -514,6 +590,10 @@
             this.label4.TabIndex = 19;
             this.label4.Text = "Patentes Disponibles";
             // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
+            // 
             // ModificarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,7 +602,10 @@
             this.Controls.Add(this.btn_GuardarUsuario);
             this.Controls.Add(this.btn_CancelarUsuario);
             this.Controls.Add(this.tabControl1);
+            this.HelpProviderHG.SetHelpKeyword(this, "ModificarUsuario.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "ModificarUsuario";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Modificar Usuario";
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.tabControl1.ResumeLayout(false);
@@ -584,5 +667,6 @@
         private System.Windows.Forms.Button btn_AsociarPatente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

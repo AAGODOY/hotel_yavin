@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_errorHabitacion = new System.Windows.Forms.Label();
             this.lbl_errorCliente = new System.Windows.Forms.Label();
             this.clb_habitaciones = new System.Windows.Forms.CheckedListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,7 @@
             this.cmb_Cliente = new System.Windows.Forms.ComboBox();
             this.btn_GuardarReserva = new System.Windows.Forms.Button();
             this.btn_CancelarEmpleado = new System.Windows.Forms.Button();
-            this.lbl_errorHabitacion = new System.Windows.Forms.Label();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,16 +74,22 @@
             // 
             // dtpIngreso
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtpIngreso, "Alta_Reserva.htm#lblFIngreso");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpIngreso, System.Windows.Forms.HelpNavigator.Topic);
             this.dtpIngreso.Location = new System.Drawing.Point(102, 25);
             this.dtpIngreso.Name = "dtpIngreso";
+            this.HelpProviderHG.SetShowHelp(this.dtpIngreso, true);
             this.dtpIngreso.Size = new System.Drawing.Size(194, 20);
             this.dtpIngreso.TabIndex = 2;
             this.dtpIngreso.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
             // 
             // dtpSalida
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.dtpSalida, "Alta_Reserva.htm#lblFSalida");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpSalida, System.Windows.Forms.HelpNavigator.Topic);
             this.dtpSalida.Location = new System.Drawing.Point(435, 25);
             this.dtpSalida.Name = "dtpSalida";
+            this.HelpProviderHG.SetShowHelp(this.dtpSalida, true);
             this.dtpSalida.Size = new System.Drawing.Size(194, 20);
             this.dtpSalida.TabIndex = 3;
             this.dtpSalida.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
@@ -107,8 +114,11 @@
             // 
             // button1
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button1, "Alta_Reserva.htm#button1");
+            this.HelpProviderHG.SetHelpNavigator(this.button1, System.Windows.Forms.HelpNavigator.Topic);
             this.button1.Location = new System.Drawing.Point(16, 227);
             this.button1.Name = "button1";
+            this.HelpProviderHG.SetShowHelp(this.button1, true);
             this.button1.Size = new System.Drawing.Size(83, 33);
             this.button1.TabIndex = 8;
             this.button1.Text = "Agregar";
@@ -137,6 +147,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Reserva";
             // 
+            // lbl_errorHabitacion
+            // 
+            this.lbl_errorHabitacion.AutoSize = true;
+            this.lbl_errorHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_errorHabitacion.ForeColor = System.Drawing.Color.Red;
+            this.lbl_errorHabitacion.Location = new System.Drawing.Point(159, 208);
+            this.lbl_errorHabitacion.Name = "lbl_errorHabitacion";
+            this.lbl_errorHabitacion.Size = new System.Drawing.Size(167, 13);
+            this.lbl_errorHabitacion.TabIndex = 32;
+            this.lbl_errorHabitacion.Text = "*Debe seleccionar una habitación";
+            // 
             // lbl_errorCliente
             // 
             this.lbl_errorCliente.AutoSize = true;
@@ -151,8 +172,11 @@
             // clb_habitaciones
             // 
             this.clb_habitaciones.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.clb_habitaciones, "Alta_Reserva.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.clb_habitaciones, System.Windows.Forms.HelpNavigator.Topic);
             this.clb_habitaciones.Location = new System.Drawing.Point(160, 122);
             this.clb_habitaciones.Name = "clb_habitaciones";
+            this.HelpProviderHG.SetShowHelp(this.clb_habitaciones, true);
             this.clb_habitaciones.Size = new System.Drawing.Size(166, 79);
             this.clb_habitaciones.TabIndex = 30;
             // 
@@ -171,8 +195,11 @@
             // 
             // button3
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button3, "Alta_Reserva.htm#button3");
+            this.HelpProviderHG.SetHelpNavigator(this.button3, System.Windows.Forms.HelpNavigator.Topic);
             this.button3.Location = new System.Drawing.Point(214, 227);
             this.button3.Name = "button3";
+            this.HelpProviderHG.SetShowHelp(this.button3, true);
             this.button3.Size = new System.Drawing.Size(83, 33);
             this.button3.TabIndex = 14;
             this.button3.Text = "Eliminar";
@@ -180,8 +207,11 @@
             // 
             // button2
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.button2, "Alta_Reserva.htm#button2");
+            this.HelpProviderHG.SetHelpNavigator(this.button2, System.Windows.Forms.HelpNavigator.Topic);
             this.button2.Location = new System.Drawing.Point(115, 227);
             this.button2.Name = "button2";
+            this.HelpProviderHG.SetShowHelp(this.button2, true);
             this.button2.Size = new System.Drawing.Size(83, 33);
             this.button2.TabIndex = 13;
             this.button2.Text = "Modificar";
@@ -191,8 +221,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dataGridView1, "Alta_Reserva.htm#dataGridView1");
+            this.HelpProviderHG.SetHelpNavigator(this.dataGridView1, System.Windows.Forms.HelpNavigator.Topic);
             this.dataGridView1.Location = new System.Drawing.Point(16, 19);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(281, 187);
             this.dataGridView1.TabIndex = 12;
             // 
@@ -208,23 +242,32 @@
             // clb_servicios
             // 
             this.clb_servicios.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.clb_servicios, "Alta_Reserva.htm#label3");
+            this.HelpProviderHG.SetHelpNavigator(this.clb_servicios, System.Windows.Forms.HelpNavigator.Topic);
             this.clb_servicios.Location = new System.Drawing.Point(160, 239);
             this.clb_servicios.Name = "clb_servicios";
+            this.HelpProviderHG.SetShowHelp(this.clb_servicios, true);
             this.clb_servicios.Size = new System.Drawing.Size(166, 79);
             this.clb_servicios.TabIndex = 9;
             // 
             // cmb_Cliente
             // 
             this.cmb_Cliente.FormattingEnabled = true;
+            this.HelpProviderHG.SetHelpKeyword(this.cmb_Cliente, "Alta_Reserva.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.cmb_Cliente, System.Windows.Forms.HelpNavigator.Topic);
             this.cmb_Cliente.Location = new System.Drawing.Point(159, 63);
             this.cmb_Cliente.Name = "cmb_Cliente";
+            this.HelpProviderHG.SetShowHelp(this.cmb_Cliente, true);
             this.cmb_Cliente.Size = new System.Drawing.Size(167, 21);
             this.cmb_Cliente.TabIndex = 5;
             // 
             // btn_GuardarReserva
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarReserva, "Alta_Reserva.htm#btn_GuardarReserva");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarReserva, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_GuardarReserva.Location = new System.Drawing.Point(599, 370);
             this.btn_GuardarReserva.Name = "btn_GuardarReserva";
+            this.HelpProviderHG.SetShowHelp(this.btn_GuardarReserva, true);
             this.btn_GuardarReserva.Size = new System.Drawing.Size(89, 29);
             this.btn_GuardarReserva.TabIndex = 28;
             this.btn_GuardarReserva.Text = "Aceptar";
@@ -233,24 +276,20 @@
             // 
             // btn_CancelarEmpleado
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarEmpleado, "Alta_Reserva.htm#btn_CancelarEmpleado");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarEmpleado, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_CancelarEmpleado.Location = new System.Drawing.Point(505, 370);
             this.btn_CancelarEmpleado.Name = "btn_CancelarEmpleado";
+            this.HelpProviderHG.SetShowHelp(this.btn_CancelarEmpleado, true);
             this.btn_CancelarEmpleado.Size = new System.Drawing.Size(89, 29);
             this.btn_CancelarEmpleado.TabIndex = 27;
             this.btn_CancelarEmpleado.Text = "Cancelar";
             this.btn_CancelarEmpleado.UseVisualStyleBackColor = true;
             this.btn_CancelarEmpleado.Click += new System.EventHandler(this.btn_CancelarEmpleado_Click);
             // 
-            // lbl_errorHabitacion
+            // HelpProviderHG
             // 
-            this.lbl_errorHabitacion.AutoSize = true;
-            this.lbl_errorHabitacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_errorHabitacion.ForeColor = System.Drawing.Color.Red;
-            this.lbl_errorHabitacion.Location = new System.Drawing.Point(159, 208);
-            this.lbl_errorHabitacion.Name = "lbl_errorHabitacion";
-            this.lbl_errorHabitacion.Size = new System.Drawing.Size(167, 13);
-            this.lbl_errorHabitacion.TabIndex = 32;
-            this.lbl_errorHabitacion.Text = "*Debe seleccionar una habitación";
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // Reserva
             // 
@@ -260,7 +299,10 @@
             this.Controls.Add(this.btn_GuardarReserva);
             this.Controls.Add(this.btn_CancelarEmpleado);
             this.Controls.Add(this.groupBox1);
+            this.HelpProviderHG.SetHelpKeyword(this, "Alta_Reserva.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "Reserva";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "Reserva";
             this.Load += new System.EventHandler(this.Reserva_Load);
             this.groupBox1.ResumeLayout(false);
@@ -293,5 +335,6 @@
         private System.Windows.Forms.ComboBox cmb_Cliente;
         private System.Windows.Forms.Label lbl_errorCliente;
         private System.Windows.Forms.Label lbl_errorHabitacion;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }

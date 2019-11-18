@@ -35,6 +35,7 @@
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,8 +58,11 @@
             // btn_refresh
             // 
             this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HelpProviderHG.SetHelpKeyword(this.btn_refresh, "AdministrarUsuario.htm#btn_refresh");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_refresh, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_refresh.Location = new System.Drawing.Point(693, 30);
             this.btn_refresh.Name = "btn_refresh";
+            this.HelpProviderHG.SetShowHelp(this.btn_refresh, true);
             this.btn_refresh.Size = new System.Drawing.Size(28, 32);
             this.btn_refresh.TabIndex = 11;
             this.btn_refresh.Text = "🔄";
@@ -67,8 +71,11 @@
             // 
             // btn_habilitar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_habilitar, "AdministrarUsuario.htm#btn_habilitar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_habilitar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_habilitar.Location = new System.Drawing.Point(632, 292);
             this.btn_habilitar.Name = "btn_habilitar";
+            this.HelpProviderHG.SetShowHelp(this.btn_habilitar, true);
             this.btn_habilitar.Size = new System.Drawing.Size(89, 29);
             this.btn_habilitar.TabIndex = 10;
             this.btn_habilitar.Text = "Habilitar";
@@ -77,8 +84,11 @@
             // 
             // btn_alta
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_alta, "AdministrarUsuario.htm#btn_alta");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_alta, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_alta.Location = new System.Drawing.Point(6, 292);
             this.btn_alta.Name = "btn_alta";
+            this.HelpProviderHG.SetShowHelp(this.btn_alta, true);
             this.btn_alta.Size = new System.Drawing.Size(89, 29);
             this.btn_alta.TabIndex = 9;
             this.btn_alta.Text = "Alta";
@@ -87,8 +97,11 @@
             // 
             // btn_baja
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_baja, "AdministrarUsuario.htm#btn_baja");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_baja, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_baja.Location = new System.Drawing.Point(434, 292);
             this.btn_baja.Name = "btn_baja";
+            this.HelpProviderHG.SetShowHelp(this.btn_baja, true);
             this.btn_baja.Size = new System.Drawing.Size(89, 29);
             this.btn_baja.TabIndex = 8;
             this.btn_baja.Text = "Baja";
@@ -97,8 +110,11 @@
             // 
             // btn_modificar
             // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_modificar, "AdministrarUsuario.htm#btn_modificar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_modificar, System.Windows.Forms.HelpNavigator.Topic);
             this.btn_modificar.Location = new System.Drawing.Point(222, 292);
             this.btn_modificar.Name = "btn_modificar";
+            this.HelpProviderHG.SetShowHelp(this.btn_modificar, true);
             this.btn_modificar.Size = new System.Drawing.Size(89, 29);
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
@@ -111,15 +127,22 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HelpProviderHG.SetHelpKeyword(this.dataGridView1, "AdministrarUsuario.htm#dataGridView1");
+            this.HelpProviderHG.SetHelpNavigator(this.dataGridView1, System.Windows.Forms.HelpNavigator.Topic);
             this.dataGridView1.Location = new System.Drawing.Point(6, 30);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(715, 256);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
+            // 
+            // HelpProviderHG
+            // 
+            this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
             // AdministrarUsuario
             // 
@@ -127,7 +150,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 351);
             this.Controls.Add(this.groupBox1);
+            this.HelpProviderHG.SetHelpKeyword(this, "AdministrarUsuario.htm");
+            this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
             this.Name = "AdministrarUsuario";
+            this.HelpProviderHG.SetShowHelp(this, true);
             this.Text = "AdministrarUsuario";
             this.Load += new System.EventHandler(this.AdministrarUsuario_Load);
             this.groupBox1.ResumeLayout(false);
@@ -145,5 +171,6 @@
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.HelpProvider HelpProviderHG;
     }
 }
