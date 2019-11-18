@@ -18,10 +18,22 @@ namespace Hotel_Yavin
         BLL.Habitacion habitacion_BLL = new BLL.Habitacion();
         BLL.ServAdicional servicios_BLL = new BLL.ServAdicional();
         BLL.Huesped huesped_BLL = new BLL.Huesped();
+        BE.Huesped huesped_BE = new BE.Huesped();
         BE.Reserva reserva_BE = new BE.Reserva();
         BLL.Reserva reserva_BLL = new BLL.Reserva();
         BE.ServAdicionalReserva servAdicionalReserva_BE = new BE.ServAdicionalReserva();
         BLL.ServAdicionalReserva servAdicionalReserva_BLL = new BLL.ServAdicionalReserva();
+        int id_NuevaReserva;
+
+        public Reserva()
+        {
+            InitializeComponent();
+        }
+
+        //public Reserva()
+        //{
+        //    InitializeComponent();
+        //}
 
         public Reserva(BE.Usuario usu)
         {
@@ -34,7 +46,9 @@ namespace Hotel_Yavin
         private void Reserva_Load(object sender, EventArgs e)
         {
             this.CargarDatos();
-            this.ActualizarGrilla();
+
+            //this.ActualizarGrilla();
+            //this.ConfigurarGrilla();
         }
 
         private void CargarDatos()
@@ -70,7 +84,7 @@ namespace Hotel_Yavin
         private void ActualizarGrilla()
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = huesped_BLL.SelectAll();
+            //dataGridView1.DataSource = huesped_BLL.SelectAll();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,8 +116,7 @@ namespace Hotel_Yavin
                 reserva_BE.fecha_ingreso = Convert.ToDateTime(dtpIngreso.Value.Date);
                 reserva_BE.fecha_salida = Convert.ToDateTime(dtpSalida.Value.Date);
 
-                int id_NuevaReserva = reserva_BLL.Add(reserva_BE);
-
+                id_NuevaReserva = reserva_BLL.Add(reserva_BE);
                 MessageBox.Show("Se creó correctamente la reserva");
 
                 //Servicios Adicionales
@@ -115,6 +128,20 @@ namespace Hotel_Yavin
                         servAdicionalReserva_BE.id_reserva = id_NuevaReserva;
                         servAdicionalReserva_BLL.Add(servAdicionalReserva_BE);
                     }
+                }
+
+                //Huesped
+                BE.Huesped huespedAguardar = new BE.Huesped();
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    huespedAguardar.id_reserva = id_NuevaReserva;
+                    huespedAguardar.nombre = item.Cells[2].Value.ToString();
+                    huespedAguardar.apellido = item.Cells[3].Value.ToString();
+                    huespedAguardar.documento = (int)item.Cells[4].Value;
+                    huespedAguardar.telefono = item.Cells[5].Value.ToString();
+                    huespedAguardar.email = item.Cells[6].Value.ToString();
+
+                    huesped_BLL.Add(huespedAguardar);
                 }
 
                 this.Close();
@@ -142,6 +169,32 @@ namespace Hotel_Yavin
             }
 
             return validacion;
+        }
+
+        public void ObtenerDatosHuesped(BE.Huesped huesped)
+        {
+            this.ConfigurarGrilla();
+
+            huesped_BE.nombre = huesped.nombre;
+            huesped_BE.apellido = huesped.apellido;
+            huesped_BE.documento = huesped.documento;
+            huesped_BE.telefono = huesped.telefono;
+            huesped_BE.email = huesped.email;
+            //dataGridView1.Rows.Add(huesped_BE);
+
+            dataGridView1.Rows.Add(huesped_BE.id_huesped, huesped_BE.id_reserva, huesped_BE.nombre, huesped_BE.apellido, huesped_BE.documento, huesped_BE.telefono, huesped_BE.email);
+        }
+    
+        private void ConfigurarGrilla()
+        {
+            dataGridView1.Columns.Add("id_huesped", "ID_huesped");
+            dataGridView1.Columns.Add("id_reserva", "ID_reserva");
+            dataGridView1.Columns.Add("nombre", "Nombre");
+            dataGridView1.Columns.Add("apellido", "Apellido");
+            dataGridView1.Columns.Add("documento", "Documento");
+            dataGridView1.Columns.Add("telefono", "Telefono");
+            dataGridView1.Columns.Add("email", "Email");
+            dataGridView1.Columns[1].Visible = false;
         }
 
         private void btn_CancelarEmpleado_Click(object sender, EventArgs e)

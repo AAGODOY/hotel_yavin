@@ -8,6 +8,19 @@ namespace BLL
 {
     public class Huesped : BE.ICRUD<BE.Huesped>
     {
+        //PATRON SINGLETON
+        private static DAL.Huesped huesped_dal;
+
+        private static DAL.Huesped GetInstance()
+        {
+            if (huesped_dal == null)
+            {
+                huesped_dal = new DAL.Huesped();
+            }
+
+            return huesped_dal;
+        }
+
         public int Add(BE.Huesped objAlta)
         {
             throw new NotImplementedException();
@@ -25,7 +38,7 @@ namespace BLL
 
         public List<BE.Huesped> SelectAll()
         {
-            throw new NotImplementedException();
+            return GetInstance().SelectAll();
         }
     }
 }

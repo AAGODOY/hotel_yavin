@@ -230,11 +230,11 @@
     <Compile Include="AdministrarPatente.Designer.cs">
       <DependentUpon>AdministrarPatente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Alta Reserva.cs">
+    <Compile Include="AltaReserva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alta Reserva.Designer.cs">
-      <DependentUpon>Alta Reserva.cs</DependentUpon>
+    <Compile Include="AltaReserva.Designer.cs">
+      <DependentUpon>AltaReserva.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarReserva.cs">
       <SubType>Form</SubType>
@@ -368,8 +368,8 @@
     <EmbeddedResource Include="AdministrarPatente.resx">
       <DependentUpon>AdministrarPatente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Alta Reserva.resx">
-      <DependentUpon>Alta Reserva.cs</DependentUpon>
+    <EmbeddedResource Include="AltaReserva.resx">
+      <DependentUpon>AltaReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarReserva.resx">
       <DependentUpon>ModificarReserva.cs</DependentUpon>

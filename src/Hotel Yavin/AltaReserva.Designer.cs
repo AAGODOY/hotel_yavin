@@ -220,12 +220,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.HelpProviderHG.SetHelpKeyword(this.dataGridView1, "Alta_Reserva.htm#dataGridView1");
             this.HelpProviderHG.SetHelpNavigator(this.dataGridView1, System.Windows.Forms.HelpNavigator.Topic);
             this.dataGridView1.Location = new System.Drawing.Point(16, 19);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(281, 187);
             this.dataGridView1.TabIndex = 12;
@@ -327,7 +332,6 @@
         private System.Windows.Forms.CheckedListBox clb_servicios;
         private System.Windows.Forms.Button btn_GuardarReserva;
         private System.Windows.Forms.Button btn_CancelarEmpleado;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -336,5 +340,6 @@
         private System.Windows.Forms.Label lbl_errorCliente;
         private System.Windows.Forms.Label lbl_errorHabitacion;
         private System.Windows.Forms.HelpProvider HelpProviderHG;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
