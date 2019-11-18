@@ -48,5 +48,10 @@ namespace BLL
         {
             return GetInstance().Update(objUpdate);
         }
+
+        public List<BE.Habitacion> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta)
+        {
+           return GetInstance().GetFiltros(fecha_desde, fecha_hasta);
+        }
     }
 }

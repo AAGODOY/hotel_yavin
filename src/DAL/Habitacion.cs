@@ -52,6 +52,23 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
+        public List<BE.Habitacion> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta)
+        {
+            string query = "";
+
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Habitacion> habitacionList = new List<BE.Habitacion>();
+                while (dataReader.Read())
+                {
+                    BE.Habitacion habitacion = MapDataReader(dataReader);
+                    habitacionList.Add(habitacion);
+                }
+
+                return habitacionList;
+            }
+        }
+
         private BE.Habitacion MapDataReader(SqlDataReader dataReader)
         {
             BE.Habitacion habitacion = new BE.Habitacion();

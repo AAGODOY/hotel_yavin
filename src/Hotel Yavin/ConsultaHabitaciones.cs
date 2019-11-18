@@ -80,5 +80,10 @@ namespace Hotel_Yavin
             MessageBox.Show("Se habilitó el registro");
             this.ActualizarGrilla();
         }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
