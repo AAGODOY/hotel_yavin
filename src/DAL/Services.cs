@@ -96,7 +96,7 @@ namespace DAL
 	                            )
 	                            END
 	                            BEGIN
-	                            IF(@counter = 2)
+	                            IF(@counter >= 2)
 	                               set @validacion = 1
 	                            ELSE
 	                               set @validacion = 0

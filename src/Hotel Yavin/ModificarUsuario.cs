@@ -287,7 +287,20 @@ namespace Hotel_Yavin
 
         private void btn_DesasociarFamilia_Click(object sender, EventArgs e)
         {
+            bool validacion_final = false;
+            //¿Se cumple la regla general de patentes?
             if (validarUsoPatentesFamSeleccionadas())
+            {
+                validacion_final = true;
+            }
+            //¿Se trata del mismo usuario que tiene la patente asignada de forma directa + en familia?
+            else
+            {
+                if (verificarRepeticionUsuarioPatente())
+                    validacion_final = true;
+            }
+
+            if (validacion_final)
             {
                 foreach (DataGridViewRow fila in dgv_familiasAsociadas.SelectedRows)
                 {
@@ -301,7 +314,23 @@ namespace Hotel_Yavin
             else
             {
                 MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
-            }   
+            }
+
+            //if (validarUsoPatentesFamSeleccionadas())
+            //{
+            //    foreach (DataGridViewRow fila in dgv_familiasAsociadas.SelectedRows)
+            //    {
+            //        //Familias disponibles (+)
+            //        dgv_familiasDisponibles.Rows.Add(fila.Cells[0].Value, fila.Cells[1].Value, fila.Cells[2].Value);
+
+            //        //Familias asociadas (-)
+            //        dgv_familiasAsociadas.Rows.RemoveAt(fila.Index);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("La operación no se puede realizar ya que viola la regla de verificación de uso de patente");
+            //}   
         }
 
         private void btn_AsociarPatente_Click(object sender, EventArgs e)
@@ -470,19 +499,48 @@ namespace Hotel_Yavin
              */
 
             bool validacionRepeticion = false;
-            List<BE.Patente> patSeleccionadasAvalidar = new List<BE.Patente>();
+            List<BE.Patente> patentesAvalidar = new List<BE.Patente>();
 
-
+            //CONDICION: validación de repetición al desasociar patentes
             foreach (DataGridViewRow fila in dgv_patentesAsociadas.SelectedRows)
             {
                 if (this.patentesUsuarioDB.Any(pu => pu.id == (int)fila.Cells[0].Value))
                 {
                     BE.Patente patSeleccionada = (BE.Patente)this.patentesUsuarioDB.Where(pu => pu.id == (int)fila.Cells[0].Value).FirstOrDefault();
-                    patSeleccionadasAvalidar.Add(patSeleccionada);
+                    patentesAvalidar.Add(patSeleccionada);
                 }
             }
 
-            if (BLL.Services.VerificarAsignacionRepetida((int)usuario_seleccionado.Cells[0].Value, patSeleccionadasAvalidar))
+            //CONDICION: validación de repetición al desasociar familia/s
+
+            //1) Familias seleccionadas a validar
+            List<BE.Familia> famSeleccionadasAValidar = new List<BE.Familia>();
+            foreach (DataGridViewRow fila in dgv_familiasAsociadas.SelectedRows)
+            {
+                if (this.familiasUsuarioDB.Any(fu => fu.id == (int)fila.Cells[0].Value))
+                {
+                    BE.Familia famSeleccionada = (BE.Familia)this.familiasUsuarioDB.Where(fu => fu.id == (int)fila.Cells[0].Value).FirstOrDefault();
+                    if (famSeleccionada.activo)
+                    {
+                        famSeleccionadasAValidar.Add(famSeleccionada);
+                    }
+                }
+            }
+
+            //2) Patentes de las familias a validar
+            foreach (BE.Familia fam in famSeleccionadasAValidar)
+            {
+                foreach (BE.Patente pat in famPat_BLL.GetPatentesFamilia(fam.id))
+                {
+                    if (!patentesAvalidar.Any(p => p.id == pat.id))
+                    {
+                        patentesAvalidar.Add(pat);
+                    }
+                }
+            }
+
+            //VALIDACION DE REPETICIÓN
+            if (BLL.Services.VerificarAsignacionRepetida((int)usuario_seleccionado.Cells[0].Value, patentesAvalidar))
             {
                 validacionRepeticion = true;
             }

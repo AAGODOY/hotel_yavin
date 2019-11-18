@@ -34,7 +34,7 @@ namespace Hotel_Yavin
         private void Reserva_Load(object sender, EventArgs e)
         {
             this.CargarDatos();
-            //this.ActualizarGrilla();
+            this.ActualizarGrilla();
         }
 
         private void CargarDatos()
