@@ -39,13 +39,12 @@
             this.lbl_Telefono = new System.Windows.Forms.Label();
             this.lbl_NumDoc = new System.Windows.Forms.Label();
             this.lbl_Apellido = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lbl_Area = new System.Windows.Forms.Label();
             this.lbl_Email = new System.Windows.Forms.Label();
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_NomUsu = new System.Windows.Forms.Label();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txt_Domicilio
@@ -154,26 +153,6 @@
             this.lbl_Apellido.TabIndex = 26;
             this.lbl_Apellido.Text = "Apellido";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.HelpProviderHG.SetHelpKeyword(this.comboBox1, "VerDatosDeUsuario.htm#lbl_Area");
-            this.HelpProviderHG.SetHelpNavigator(this.comboBox1, System.Windows.Forms.HelpNavigator.Topic);
-            this.comboBox1.Location = new System.Drawing.Point(145, 214);
-            this.comboBox1.Name = "comboBox1";
-            this.HelpProviderHG.SetShowHelp(this.comboBox1, true);
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 25;
-            // 
-            // lbl_Area
-            // 
-            this.lbl_Area.AutoSize = true;
-            this.lbl_Area.Location = new System.Drawing.Point(17, 214);
-            this.lbl_Area.Name = "lbl_Area";
-            this.lbl_Area.Size = new System.Drawing.Size(29, 13);
-            this.lbl_Area.TabIndex = 24;
-            this.lbl_Area.Text = "Area";
-            // 
             // lbl_Email
             // 
             this.lbl_Email.AutoSize = true;
@@ -205,23 +184,38 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_Modificar, "VerDatosDeUsuario.htm#btn_Modificar");
             this.HelpProviderHG.SetHelpNavigator(this.btn_Modificar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_Modificar.Location = new System.Drawing.Point(235, 257);
+            this.btn_Modificar.Location = new System.Drawing.Point(235, 232);
             this.btn_Modificar.Name = "btn_Modificar";
             this.HelpProviderHG.SetShowHelp(this.btn_Modificar, true);
             this.btn_Modificar.Size = new System.Drawing.Size(89, 29);
             this.btn_Modificar.TabIndex = 35;
             this.btn_Modificar.Text = "Modificar";
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // HelpProviderHG
             // 
             this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
             // 
+            // btn_cancelar
+            // 
+            this.HelpProviderHG.SetHelpKeyword(this.btn_cancelar, "VerDatosDeUsuario.htm#btn_Modificar");
+            this.HelpProviderHG.SetHelpNavigator(this.btn_cancelar, System.Windows.Forms.HelpNavigator.Topic);
+            this.btn_cancelar.Location = new System.Drawing.Point(140, 232);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.HelpProviderHG.SetShowHelp(this.btn_cancelar, true);
+            this.btn_cancelar.Size = new System.Drawing.Size(89, 29);
+            this.btn_cancelar.TabIndex = 36;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
             // VerDatosDeUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 298);
+            this.ClientSize = new System.Drawing.Size(345, 283);
+            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_Modificar);
             this.Controls.Add(this.txt_Domicilio);
             this.Controls.Add(this.txt_Telefono);
@@ -234,8 +228,6 @@
             this.Controls.Add(this.lbl_Telefono);
             this.Controls.Add(this.lbl_NumDoc);
             this.Controls.Add(this.lbl_Apellido);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.lbl_Area);
             this.Controls.Add(this.lbl_Email);
             this.Controls.Add(this.lbl_Nombre);
             this.Controls.Add(this.lbl_NomUsu);
@@ -263,12 +255,11 @@
         private System.Windows.Forms.Label lbl_Telefono;
         private System.Windows.Forms.Label lbl_NumDoc;
         private System.Windows.Forms.Label lbl_Apellido;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lbl_Area;
         private System.Windows.Forms.Label lbl_Email;
         private System.Windows.Forms.Label lbl_Nombre;
         private System.Windows.Forms.Label lbl_NomUsu;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.HelpProvider HelpProviderHG;
+        private System.Windows.Forms.Button btn_cancelar;
     }
 }

@@ -181,7 +181,7 @@ namespace Hotel_Yavin
 
         private void datosPersonalesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerDatosDeUsuario datosPersonales = new VerDatosDeUsuario();
+            VerDatosDeUsuario datosPersonales = new VerDatosDeUsuario(usuario_logueado);
             datosPersonales.Show();
         }
 
