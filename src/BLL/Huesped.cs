@@ -23,7 +23,7 @@ namespace BLL
 
         public int Add(BE.Huesped objAlta)
         {
-            throw new NotImplementedException();
+            return GetInstance().Add(objAlta);
         }
 
         public int Delete(BE.Huesped objBaja)

@@ -40,13 +40,10 @@ namespace Hotel_Yavin
                 huesped_BE.telefono = txt_Tel.Text;
                 huesped_BE.email = txt_Mail.Text;
 
-                Reserva reserva = new Reserva();
-                reserva.ObtenerDatosHuesped(huesped_BE);
-                //reserva.Show(); con esto me muestra bien la grilla pero pierdo lo que ya tenia
-                this.Hide();
 
-                //huesped_BLL.Add(huesped_BE);
-                //MessageBox.Show("Se creo un nuevo huesped");
+                Reserva reserva = (Reserva)this.Owner;
+                reserva.ObtenerDatosHuesped(huesped_BE);
+                this.Hide();
             }
             else
             {

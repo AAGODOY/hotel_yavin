@@ -13,7 +13,8 @@ namespace DAL
 
         public int Add(BE.Huesped objAlta)
         {
-            throw new NotImplementedException();
+            string query = "INSERT into Huesped VALUES(" + objAlta.id_reserva + ",'" + objAlta.nombre + "','" + objAlta.apellido + "'," + objAlta.documento + ",'" + objAlta.telefono + "','" + objAlta.email + "')";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Delete(BE.Huesped objBaja)
