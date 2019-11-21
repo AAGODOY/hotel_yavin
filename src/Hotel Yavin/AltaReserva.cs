@@ -46,9 +46,8 @@ namespace Hotel_Yavin
         private void Reserva_Load(object sender, EventArgs e)
         {
             this.CargarDatos();
-
-            //this.ActualizarGrilla();
-            //this.ConfigurarGrilla();
+            this.ConfigurarGrilla();
+            //this.ActualizarGrilla(); 
         }
 
         private void CargarDatos()
@@ -90,7 +89,7 @@ namespace Hotel_Yavin
         private void button1_Click(object sender, EventArgs e)
         {
             AltaHuesped huespedes = new AltaHuesped();
-            huespedes.Show();
+            huespedes.Show(this);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -110,7 +109,10 @@ namespace Hotel_Yavin
                 reserva_BE.id_cliente = int.Parse(Regex.Match(cmb_Cliente.SelectedItem.ToString(), @"\d+").Value);
 
                 //Habitacion
-                reserva_BE.id_habitacion = int.Parse(Regex.Match(clb_habitaciones.SelectedItem.ToString(), @"\d+").Value);
+                foreach (var itemSeleccionado in clb_habitaciones.CheckedItems)
+                {
+                    reserva_BE.id_habitacion = int.Parse(Regex.Match(itemSeleccionado.ToString(), @"\d+").Value);
+                }
 
                 //Fechas
                 reserva_BE.fecha_ingreso = Convert.ToDateTime(dtpIngreso.Value.Date);
@@ -173,8 +175,6 @@ namespace Hotel_Yavin
 
         public void ObtenerDatosHuesped(BE.Huesped huesped)
         {
-            this.ConfigurarGrilla();
-
             huesped_BE.nombre = huesped.nombre;
             huesped_BE.apellido = huesped.apellido;
             huesped_BE.documento = huesped.documento;
@@ -194,6 +194,7 @@ namespace Hotel_Yavin
             dataGridView1.Columns.Add("documento", "Documento");
             dataGridView1.Columns.Add("telefono", "Telefono");
             dataGridView1.Columns.Add("email", "Email");
+            dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
         }
 
