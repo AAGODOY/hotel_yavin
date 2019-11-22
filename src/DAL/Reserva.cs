@@ -22,7 +22,8 @@ namespace DAL
 
         public int Delete(BE.Reserva objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Reserva SET estado= 'CANCELADA' WHERE id_reserva= " + objBaja.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.Reserva> SelectAll()

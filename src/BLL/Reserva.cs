@@ -39,7 +39,7 @@ namespace BLL
 
         public int Delete(BE.Reserva objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
         }
 
         public List<BE.Reserva> SelectAll()

@@ -248,6 +248,12 @@
     <Compile Include="ModificarServAdicional.Designer.cs">
       <DependentUpon>ModificarServAdicional.cs</DependentUpon>
     </Compile>
+    <Compile Include="OpcionesAdicionalesReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OpcionesAdicionalesReserva.Designer.cs">
+      <DependentUpon>OpcionesAdicionalesReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReporteBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarServAdicional.resx">
       <DependentUpon>ModificarServAdicional.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpcionesAdicionalesReserva.resx">
+      <DependentUpon>OpcionesAdicionalesReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReporteBitacora.resx">
       <DependentUpon>ReporteBitacora.cs</DependentUpon>
