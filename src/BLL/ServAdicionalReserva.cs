@@ -29,7 +29,7 @@ namespace BLL
 
         public int Delete(BE.ServAdicionalReserva objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
         }
 
         public int Update(BE.ServAdicionalReserva objUpdate)
@@ -40,6 +40,11 @@ namespace BLL
         public List<BE.ServAdicionalReserva> SelectAll()
         {
             throw new NotImplementedException();
+        }
+
+        public List<BE.ServAdicional> GetServicioReserva(int id_reserva)
+        {
+            return GetInstance().GetServicioReserva(id_reserva);
         }
     }
 }
