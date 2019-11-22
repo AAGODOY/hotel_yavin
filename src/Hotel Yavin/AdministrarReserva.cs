@@ -30,7 +30,7 @@ namespace Hotel_Yavin
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
-            ModificarReserva mod_reserva = new ModificarReserva();
+            ModificarReserva mod_reserva = new ModificarReserva(dataGridView1.CurrentRow, this.usuario_logueado);
             mod_reserva.Show();
         }
 

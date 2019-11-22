@@ -49,7 +49,12 @@ namespace BLL
 
         public int Update(BE.Reserva objUpdate)
         {
-            throw new NotImplementedException();
+            string cadenaDVH = objUpdate.id_usuario.ToString() + objUpdate.id_cliente.ToString() + objUpdate.id_habitacion.ToString() + objUpdate.activo.ToString() + objUpdate.fecha_ingreso.ToString() + objUpdate.fecha_salida.ToString();
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            int resultado = GetInstance().Update(objUpdate);
+
+            DigitoVerificador.CalcularDVV("Reserva");
+            return resultado;
         }
     }
 }

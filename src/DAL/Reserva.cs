@@ -42,7 +42,9 @@ namespace DAL
 
         public int Update(BE.Reserva objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Reserva SET id_usuario= " + objUpdate.id_usuario + "," + "id_cliente= " + objUpdate.id_cliente + "," + "id_habitacion= " + objUpdate.id_habitacion + "," + "DVH =" + objUpdate.DVH + "," + "fecha_ingreso= convert(datetime, '" + objUpdate.fecha_ingreso.ToString("yyyy-MM-dd HH:mm:ss") + "',101)," + " fecha_salida= convert(datetime, '" + objUpdate.fecha_salida.ToString("yyyy-MM-dd HH:mm:ss") + "',101) WHERE id_reserva= " + objUpdate.id_reserva + "";
+
+            return helper.ExecuteNonQuery(query);
         }
 
         private BE.Reserva MapDataReader(SqlDataReader dataReader)

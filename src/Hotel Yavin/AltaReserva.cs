@@ -30,11 +30,6 @@ namespace Hotel_Yavin
             InitializeComponent();
         }
 
-        //public Reserva()
-        //{
-        //    InitializeComponent();
-        //}
-
         public Reserva(BE.Usuario usu)
         {
             InitializeComponent();
@@ -47,7 +42,6 @@ namespace Hotel_Yavin
         {
             this.CargarDatos();
             this.ConfigurarGrilla();
-            //this.ActualizarGrilla(); 
         }
 
         private void CargarDatos()
@@ -78,24 +72,6 @@ namespace Hotel_Yavin
             {
                clb_servicios.Items.Add(servicio.id_servicio + " " + servicio.descripcion);
             }
-        }
-
-        private void ActualizarGrilla()
-        {
-            dataGridView1.DataSource = null;
-            //dataGridView1.DataSource = huesped_BLL.SelectAll();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AltaHuesped huespedes = new AltaHuesped();
-            huespedes.Show(this);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ModificarHuesped mod_huesped = new ModificarHuesped();
-            mod_huesped.Show();
         }
 
         private void btn_GuardarReserva_Click(object sender, EventArgs e)
@@ -158,7 +134,7 @@ namespace Hotel_Yavin
         {
             bool validacion = true;
 
-            if (cmb_Cliente.SelectedItem == "Seleccionar")
+            if (cmb_Cliente.SelectedItem.ToString() == "Seleccionar")
             {
                 this.lbl_errorCliente.Visible = true;
                 validacion = false;
@@ -180,9 +156,17 @@ namespace Hotel_Yavin
             huesped_BE.documento = huesped.documento;
             huesped_BE.telefono = huesped.telefono;
             huesped_BE.email = huesped.email;
-            //dataGridView1.Rows.Add(huesped_BE);
 
             dataGridView1.Rows.Add(huesped_BE.id_huesped, huesped_BE.id_reserva, huesped_BE.nombre, huesped_BE.apellido, huesped_BE.documento, huesped_BE.telefono, huesped_BE.email);
+        }
+
+        public void ModificarDatosHuesped(BE.Huesped huesped)
+        {
+            dataGridView1.CurrentRow.Cells[2].Value = huesped.nombre;
+            dataGridView1.CurrentRow.Cells[3].Value = huesped.apellido;
+            dataGridView1.CurrentRow.Cells[4].Value = huesped.documento;
+            dataGridView1.CurrentRow.Cells[5].Value = huesped.telefono;
+            dataGridView1.CurrentRow.Cells[6].Value = huesped.email;
         }
     
         private void ConfigurarGrilla()
@@ -201,6 +185,23 @@ namespace Hotel_Yavin
         private void btn_CancelarEmpleado_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AltaHuesped huespedes = new AltaHuesped();
+            huespedes.Show(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ModificarHuesped mod_huesped = new ModificarHuesped(dataGridView1.CurrentRow);
+            mod_huesped.Show(this);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
         }
     }
 }
