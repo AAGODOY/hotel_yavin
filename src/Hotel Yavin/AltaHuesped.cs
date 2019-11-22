@@ -40,10 +40,19 @@ namespace Hotel_Yavin
                 huesped_BE.telefono = txt_Tel.Text;
                 huesped_BE.email = txt_Mail.Text;
 
+                if (Owner.Text == "Reserva")
+                {
+                    Reserva reserva = (Reserva)this.Owner;
+                    reserva.ObtenerDatosHuesped(huesped_BE);
+                    this.Hide();
+                }
+                else
+                {
+                    ModificarReserva mod_reserva = (ModificarReserva)this.Owner;
+                    mod_reserva.ObtenerDatosHuesped(huesped_BE);
+                    this.Hide();
+                }
 
-                Reserva reserva = (Reserva)this.Owner;
-                reserva.ObtenerDatosHuesped(huesped_BE);
-                this.Hide();
             }
             else
             {

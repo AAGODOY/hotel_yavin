@@ -19,17 +19,35 @@ namespace DAL
 
         public int Delete(BE.Huesped objBaja)
         {
-            throw new NotImplementedException();
+            string query = "DELETE from Huesped WHERE id_huesped= " + objBaja.id_huesped + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Update(BE.Huesped objUpdate)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Huesped SET nombre= '" + objUpdate.nombre + "', apellido= '" + objUpdate.apellido + "', documento= " + objUpdate.documento + ", telefono= '" + objUpdate.telefono + "', email= '" + objUpdate.email + "' WHERE id_huesped= " + objUpdate.id_huesped + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public List<BE.Huesped> SelectAll()
         {
             string query = "Select * From Huesped";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Huesped> huespedList = new List<BE.Huesped>();
+                while (dataReader.Read())
+                {
+                    BE.Huesped huesped = MapDataReader(dataReader);
+                    huespedList.Add(huesped);
+                }
+                return huespedList;
+            }
+        }
+
+        public List<BE.Huesped> GetHuespedReserva(int id_reserva)
+        {
+            string query = "select * from huesped where id_reserva = " + id_reserva + "";
+
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {
                 List<BE.Huesped> huespedList = new List<BE.Huesped>();

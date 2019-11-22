@@ -28,17 +28,22 @@ namespace BLL
 
         public int Delete(BE.Huesped objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
         }
 
         public int Update(BE.Huesped objUpdate)
         {
-            throw new NotImplementedException();
+            return GetInstance().Update(objUpdate);
         }
 
         public List<BE.Huesped> SelectAll()
         {
             return GetInstance().SelectAll();
+        }
+
+        public List<BE.Huesped> GetHuespedReserva(int id_reserva)
+        {
+            return GetInstance().GetHuespedReserva(id_reserva);
         }
     }
 }
