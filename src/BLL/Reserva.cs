@@ -42,6 +42,21 @@ namespace BLL
             return GetInstance().Delete(objBaja);
         }
 
+        public int Habilitar(BE.Reserva objhabilitar)
+        {
+            return GetInstance().Habilitar(objhabilitar);
+        }
+
+        public int SetEnCurso(BE.Reserva objUpdate)
+        {
+            return GetInstance().SetEnCurso(objUpdate);
+        }
+
+        public int SetFinalizada(BE.Reserva objUpdate)
+        {
+            return GetInstance().SetFinalizada(objUpdate);
+        }
+
         public List<BE.Reserva> SelectAll()
         {
             return GetInstance().SelectAll();

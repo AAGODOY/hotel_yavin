@@ -42,6 +42,7 @@
     <Compile Include="Backup.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Cobranza.cs" />
     <Compile Include="DigitoVerificador.cs" />
     <Compile Include="Familia.cs" />
     <Compile Include="FamiliaPatente.cs" />

@@ -42,5 +42,47 @@ namespace Hotel_Yavin
                 MessageBox.Show("No se puede realizar la acción debido al estado de la reserva");
 	        }
         }
+
+        private void btn_habilitar_Click(object sender, EventArgs e)
+        {
+            if (reserva_seleccionada.Cells[6].Value.ToString() == "CANCELADA")
+            {
+                reserva_BLL.Habilitar(reserva_BE);
+                MessageBox.Show("Se habilitó la reserva");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Solo se pueden habilitar reservas canceladas");
+            }
+        }
+
+        private void btn_EnCurso_Click(object sender, EventArgs e)
+        {
+            if (reserva_seleccionada.Cells[6].Value.ToString() == "PENDIENTE")
+            {
+                reserva_BLL.SetEnCurso(reserva_BE);
+                MessageBox.Show("Se modificó el estado de la reserva a: EN CURSO");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Solo pueden estar 'En Curso' las reservas 'Pendientes'");
+            }
+        }
+
+        private void btn_finalizada_Click(object sender, EventArgs e)
+        {
+            if (reserva_seleccionada.Cells[6].Value.ToString() == "EN CURSO")
+            {
+                reserva_BLL.SetFinalizada(reserva_BE);
+                MessageBox.Show("Se modificó el estado de la reserva a: FINALIZADA");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Solo pueden estar 'Finalizadas' las reservas que se encuentran 'En Curso'");
+            }
+        }
     }
 }

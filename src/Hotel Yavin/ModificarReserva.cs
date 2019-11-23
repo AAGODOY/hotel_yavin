@@ -28,6 +28,8 @@ namespace Hotel_Yavin
         List<BE.Huesped> huespedes = new List<BE.Huesped>();
         BE.Huesped huesped_BE = new BE.Huesped();
         List<int> huespedesEliminados = new List<int>();
+        BE.Cobranza Cobranza_BE = new BE.Cobranza();
+        BLL.Cobranza Cobranza_BLL = new BLL.Cobranza();
 
         public ModificarReserva()
         {
@@ -151,6 +153,12 @@ namespace Hotel_Yavin
                         }
                     }
                 }
+
+                //MODIFICO LA COBRANZA ASOCIADA A LA RESERVA MODIFICADA
+                Cobranza_BE.id_reserva = (int)this.reserva_seleccionada.Cells[0].Value;
+                TimeSpan cant_dias = reserva_BE.fecha_salida.Date - reserva_BE.fecha_ingreso.Date;
+                int dias = cant_dias.Days;
+                Cobranza_BLL.Update(Cobranza_BE, Convert.ToInt32(dias));
 
                 this.Close();
             }

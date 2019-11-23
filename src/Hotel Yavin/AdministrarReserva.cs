@@ -32,14 +32,14 @@ namespace Hotel_Yavin
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "CANCELADA")
+                if (dataGridView1.CurrentRow.Cells[6].Value.ToString() != "CANCELADA" && dataGridView1.CurrentRow.Cells[6].Value.ToString() != "FINALIZADA")
                 {
                     ModificarReserva mod_reserva = new ModificarReserva(dataGridView1.CurrentRow, this.usuario_logueado);
                     mod_reserva.Show();
                 }
                 else
                 {
-                    MessageBox.Show("No se puede modificar una Reserva Cancelada");
+                    MessageBox.Show("No se puede modificar una Reserva Cancelada o Finalizada");
                 }
             }
             else

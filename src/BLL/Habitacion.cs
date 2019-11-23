@@ -25,7 +25,6 @@ namespace BLL
         public int Add(BE.Habitacion objAlta)
         {
             objAlta.activo = true;
-            objAlta.estado = "DISPONIBLE";
             return GetInstance().Add(objAlta);    
         }
 

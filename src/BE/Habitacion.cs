@@ -10,7 +10,6 @@ namespace BE
     {
         public int id_habitacion { get; set; }
         public bool activo { get; set; }
-        public string estado { get; set; }
         public string tipo_habitacion { get; set; }
         public string descripcion { get; set; }
         public string Nro_habitacion { get; set; }

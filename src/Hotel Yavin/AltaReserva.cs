@@ -23,6 +23,8 @@ namespace Hotel_Yavin
         BLL.Reserva reserva_BLL = new BLL.Reserva();
         BE.ServAdicionalReserva servAdicionalReserva_BE = new BE.ServAdicionalReserva();
         BLL.ServAdicionalReserva servAdicionalReserva_BLL = new BLL.ServAdicionalReserva();
+        BE.Cobranza Cobranza_BE = new BE.Cobranza();
+        BLL.Cobranza Cobranza_BLL = new BLL.Cobranza();
         int id_NuevaReserva;
 
         public Reserva()
@@ -121,6 +123,12 @@ namespace Hotel_Yavin
 
                     huesped_BLL.Add(huespedAguardar);
                 }
+
+                //CREO UN REGISTRO EN COBRANZA ASOCIADO A LA RESERVA CREADA
+                Cobranza_BE.id_reserva = id_NuevaReserva;
+                TimeSpan cant_dias = reserva_BE.fecha_salida.Date - reserva_BE.fecha_ingreso.Date;
+                int dias = cant_dias.Days;
+                Cobranza_BLL.Add(Cobranza_BE, Convert.ToInt32(dias));
 
                 this.Close();
             }

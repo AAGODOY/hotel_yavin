@@ -81,6 +81,7 @@
             this.btn_habilitar.TabIndex = 4;
             this.btn_habilitar.Text = "Habilitar Reserva";
             this.btn_habilitar.UseVisualStyleBackColor = true;
+            this.btn_habilitar.Click += new System.EventHandler(this.btn_habilitar_Click);
             // 
             // btn_EnCurso
             // 
@@ -90,6 +91,7 @@
             this.btn_EnCurso.TabIndex = 5;
             this.btn_EnCurso.Text = "Reserva En Curso";
             this.btn_EnCurso.UseVisualStyleBackColor = true;
+            this.btn_EnCurso.Click += new System.EventHandler(this.btn_EnCurso_Click);
             // 
             // btn_finalizada
             // 
@@ -99,6 +101,7 @@
             this.btn_finalizada.TabIndex = 6;
             this.btn_finalizada.Text = "Reserva Finalizada";
             this.btn_finalizada.UseVisualStyleBackColor = true;
+            this.btn_finalizada.Click += new System.EventHandler(this.btn_finalizada_Click);
             // 
             // OpcionesAdicionalesReserva
             // 

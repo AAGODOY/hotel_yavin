@@ -54,7 +54,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.dtp_fechaPago, "ModificarPagoProvisorio.htm#label1");
             this.HelpProviderHG.SetHelpNavigator(this.dtp_fechaPago, System.Windows.Forms.HelpNavigator.Topic);
-            this.dtp_fechaPago.Location = new System.Drawing.Point(99, 19);
+            this.dtp_fechaPago.Location = new System.Drawing.Point(130, 19);
             this.dtp_fechaPago.Name = "dtp_fechaPago";
             this.HelpProviderHG.SetShowHelp(this.dtp_fechaPago, true);
             this.dtp_fechaPago.Size = new System.Drawing.Size(200, 20);
@@ -72,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(96, 65);
+            this.label3.Location = new System.Drawing.Point(127, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 3;
@@ -83,14 +83,14 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(108, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Total";
+            this.label4.Text = "Total (Subtotal + IVA)";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 100);
+            this.label5.Location = new System.Drawing.Point(127, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 5;
@@ -109,17 +109,17 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.txt_montoPagado, "ModificarPagoProvisorio.htm#label5");
             this.HelpProviderHG.SetHelpNavigator(this.txt_montoPagado, System.Windows.Forms.HelpNavigator.Topic);
-            this.txt_montoPagado.Location = new System.Drawing.Point(99, 135);
+            this.txt_montoPagado.Location = new System.Drawing.Point(130, 135);
             this.txt_montoPagado.Name = "txt_montoPagado";
             this.HelpProviderHG.SetShowHelp(this.txt_montoPagado, true);
-            this.txt_montoPagado.Size = new System.Drawing.Size(100, 20);
+            this.txt_montoPagado.Size = new System.Drawing.Size(89, 20);
             this.txt_montoPagado.TabIndex = 7;
             // 
             // btn_GuardarCliente
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_GuardarCliente, "ModificarPagoProvisorio.htm#btn_GuardarCliente");
             this.HelpProviderHG.SetHelpNavigator(this.btn_GuardarCliente, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_GuardarCliente.Location = new System.Drawing.Point(210, 173);
+            this.btn_GuardarCliente.Location = new System.Drawing.Point(241, 176);
             this.btn_GuardarCliente.Name = "btn_GuardarCliente";
             this.HelpProviderHG.SetShowHelp(this.btn_GuardarCliente, true);
             this.btn_GuardarCliente.Size = new System.Drawing.Size(89, 29);
@@ -131,7 +131,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_CancelarCliente, "ModificarPagoProvisorio.htm#btn_CancelarCliente");
             this.HelpProviderHG.SetHelpNavigator(this.btn_CancelarCliente, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_CancelarCliente.Location = new System.Drawing.Point(116, 173);
+            this.btn_CancelarCliente.Location = new System.Drawing.Point(147, 176);
             this.btn_CancelarCliente.Name = "btn_CancelarCliente";
             this.HelpProviderHG.SetShowHelp(this.btn_CancelarCliente, true);
             this.btn_CancelarCliente.Size = new System.Drawing.Size(89, 29);
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 217);
+            this.ClientSize = new System.Drawing.Size(350, 217);
             this.Controls.Add(this.btn_GuardarCliente);
             this.Controls.Add(this.btn_CancelarCliente);
             this.Controls.Add(this.txt_montoPagado);

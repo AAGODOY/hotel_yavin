@@ -26,6 +26,24 @@ namespace DAL
             return helper.ExecuteNonQuery(query);
         }
 
+        public int Habilitar(BE.Reserva objhabilitar)
+        {
+            string query = "UPDATE Reserva SET estado= 'PENDIENTE' WHERE id_reserva= " + objhabilitar.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public int SetEnCurso(BE.Reserva objUpdate)
+        {
+            string query = "UPDATE Reserva SET estado= 'EN CURSO' WHERE id_reserva= " + objUpdate.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public int SetFinalizada(BE.Reserva objUpdate)
+        {
+            string query = "UPDATE Reserva SET estado= 'FINALIZADA' WHERE id_reserva= " + objUpdate.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
         public List<BE.Reserva> SelectAll()
         {
             string query = "Select * From Reserva";

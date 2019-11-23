@@ -14,7 +14,7 @@ namespace DAL
 
         public int Add(BE.Habitacion objAlta)
         {
-            string query = "INSERT INTO Habitacion VALUES (" + Convert.ToInt32(objAlta.activo) + ",'" + objAlta.estado + "','" + objAlta.tipo_habitacion + "','" + objAlta.descripcion + "','" + objAlta.Nro_habitacion + "'," + objAlta.precio + "" + ")";
+            string query = "INSERT INTO Habitacion VALUES (" + Convert.ToInt32(objAlta.activo) + ",'" + objAlta.tipo_habitacion + "','" + objAlta.descripcion + "','" + objAlta.Nro_habitacion + "'," + objAlta.precio + "" + ")";
             return helper.ExecuteNonQuery(query);
         }
 
@@ -74,11 +74,10 @@ namespace DAL
             BE.Habitacion habitacion = new BE.Habitacion();
             habitacion.id_habitacion = dataReader.GetInt32(0);
             habitacion.activo = dataReader.GetBoolean(1);
-            habitacion.estado = dataReader.GetString(2);
-            habitacion.tipo_habitacion = dataReader.GetString(3);
-            habitacion.descripcion = dataReader.GetString(4);
-            habitacion.Nro_habitacion = dataReader.GetString(5);
-            habitacion.precio = dataReader.GetDouble(6);
+            habitacion.tipo_habitacion = dataReader.GetString(2);
+            habitacion.descripcion = dataReader.GetString(3);
+            habitacion.Nro_habitacion = dataReader.GetString(4);
+            habitacion.precio = dataReader.GetDouble(5);
 
             return habitacion;
         }
