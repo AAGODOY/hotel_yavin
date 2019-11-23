@@ -99,7 +99,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Usuario usuario in familiaUsuariosDB)
             {
-                dgv_UsuariosAsociadosAfamilia.Rows.Add(usuario.id, usuario.activo, usuario.nom_usuario, usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
+                dgv_UsuariosAsociadosAfamilia.Rows.Add(usuario.id, usuario.activo, UTILITIES.Encriptador.Desencriptar(usuario.nom_usuario), usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
             }
 
             //CARGAR: Usuarios disponibles
@@ -120,7 +120,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Usuario usuario in usuariosUI)
             {
-                dgv_UsuariosDisponibles.Rows.Add(usuario.id, usuario.activo, usuario.nom_usuario, usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
+                dgv_UsuariosDisponibles.Rows.Add(usuario.id, usuario.activo, UTILITIES.Encriptador.Desencriptar(usuario.nom_usuario), usuario.nombre, usuario.apellido, usuario.documento, usuario.domicilio, usuario.telefono, usuario.email, usuario.contraseña, usuario.cant_ingresos_incorrectos, usuario.DVH, usuario.es_primer_login, usuario.id_idioma);
             }
         }
 

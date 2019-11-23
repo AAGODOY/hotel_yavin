@@ -111,7 +111,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Familia familia in familiasUsuarioDB)
             {
-                dgv_familiasAsociadas.Rows.Add(familia.id, familia.descripcion, familia.activo);
+                dgv_familiasAsociadas.Rows.Add(familia.id, UTILITIES.Encriptador.Desencriptar(familia.descripcion), familia.activo);
             }
 
             //CARGAR: familias disponibles
@@ -132,7 +132,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Familia familia in familiasUI)
             {
-                dgv_familiasDisponibles.Rows.Add(familia.id, familia.descripcion, familia.activo);
+                dgv_familiasDisponibles.Rows.Add(familia.id, UTILITIES.Encriptador.Desencriptar(familia.descripcion), familia.activo);
             }
         }
 

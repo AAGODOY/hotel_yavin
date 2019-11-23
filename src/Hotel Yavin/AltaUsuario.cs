@@ -130,7 +130,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Familia familia in familia_BLL.SelectAll())
             {
-                dgv_FamiliasDisponibles.Rows.Add(familia.id, familia.descripcion, familia.activo);
+                dgv_FamiliasDisponibles.Rows.Add(familia.id, UTILITIES.Encriptador.Desencriptar(familia.descripcion), familia.activo);
             }
         }
 
