@@ -24,9 +24,9 @@ namespace BLL
 
         public int Add(BE.Cliente objAlta)
         {
+            objAlta.activo = true;
             string cadenaDVH = objAlta.activo.ToString() + objAlta.nombre.ToString() + objAlta.apellido.ToString() + objAlta.documento.ToString() + objAlta.telefono.ToString() + objAlta.email.ToString();
             objAlta.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
-            objAlta.activo = true;
 
             int nuevoCliente = GetInstance().Add(objAlta);
             DigitoVerificador.CalcularDVV("Cliente");
@@ -77,6 +77,11 @@ namespace BLL
 
             DigitoVerificador.CalcularDVV("Cliente");
             return resultado;
+        }
+
+        public int UpdateDVH(int DVH, int id_cliente)
+        {
+            return GetInstance().UpdateDVH(DVH, id_cliente);
         }
     }
 }

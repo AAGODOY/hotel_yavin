@@ -20,13 +20,13 @@ namespace DAL
 
         public int Delete(BE.Cliente objBaja)
         {
-            string query = "UPDATE Cliente SET activo = 0 where id_cliente =" + objBaja.id_cliente + "";
+            string query = "UPDATE Cliente SET activo = 0, DVH= " + objBaja.DVH + " where id_cliente =" + objBaja.id_cliente + "";
             return helper.ExecuteNonQuery(query);
         }
 
         public int Habilitar(BE.Cliente objHabilitar)
         {
-            string query = "UPDATE Cliente SET activo = 1 where id_cliente= " + objHabilitar.id_cliente + "";
+            string query = "UPDATE Cliente SET activo = 1, DVH= " + objHabilitar.DVH + " where id_cliente= " + objHabilitar.id_cliente + "";
             return helper.ExecuteNonQuery(query);
         }
         

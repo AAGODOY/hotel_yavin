@@ -59,9 +59,12 @@ namespace BLL
                 listaErrores.Add(reserva);
             }
 
-            return listaErrores;
+            foreach (string cliente in VerificarIntegridadCliente())
+            {
+                listaErrores.Add(cliente);
+            }
 
-                //VerificarIntegridadCliente();
+            return listaErrores;
         }
 
         private static List<string> VerificarIntegridadUsuario()
@@ -140,29 +143,43 @@ namespace BLL
             return ErrorIntegridad_Bitacora;
         }
 
-        //private static List<string> VerificarIntegridadCliente()
-        //{
-        //    //List<BE.Cliente> listCliente_BE = new List<BE.Cliente>();
-        //    //BLL.Cliente cliente_BLL = new Cliente();
+        private static List<string> VerificarIntegridadCliente()
+        {
+            List<string> ErrorIntegridad_Cliente = new List<string>();
+            List<BE.Cliente> listCliente_BE = new List<BE.Cliente>();
+            BLL.Cliente cliente_BLL = new Cliente();
+            listCliente_BE = cliente_BLL.SelectAll();
 
-        //    //listCliente_BE = cliente_BLL.SelectAll();
+            foreach (BE.Cliente item in listCliente_BE)
+            {
+                string cadenaDVH = item.activo.ToString() + item.nombre.ToString() + item.apellido.ToString() + item.documento.ToString() + item.telefono.ToString() + item.email.ToString();
+                int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+                if (item.DVH == DVHCalculado)
+                {
+                    Console.WriteLine("DVH correcto");
+                }
+                else
+                {
+                    string str = "Cliente - Inconsistencia en la entidad Cliente en el registro numero (ID): " + item.id_cliente;
+                    ErrorIntegridad_Cliente.Add(str);
+                }
+            }
 
-        //    //foreach (BE.Cliente item in listCliente_BE)
-        //    //{
-        //    //    string cadenaDVH = item.activo.ToString() + item.nombre.ToString() + item.apellido.ToString() + item.documento.ToString() + item.telefono.ToString() + item.email.ToString();
-        //    //    int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
-        //    //    if (item.DVH == DVHCalculado)
-        //    //    {
-        //    //        return true;
-        //    //    }
-        //    //    else
-        //    //    {
-        //    //        return false;
-        //    //    }
-        //    //}
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("Cliente");
 
+            if (DVVCalculado == GetDVV("Cliente"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad Cliente al calcular el DVV";
+                ErrorIntegridad_Cliente.Add(str);
+            }
 
-        //}
+            return ErrorIntegridad_Cliente;
+        }
 
         private static List<string> VerificarIntegridadReserva()
         {

@@ -48,6 +48,8 @@ namespace Hotel_Yavin
             if (txt_NombreCli.Text != "" && txt_ApellidoCli.Text != "" && txt_NumDocCli.Text != "" && txt_TelCli.Text != "" && txt_MailCli.Text != "")
             {
                 cliente_BE.id_cliente = (int)cliente_seleccionado.Cells[0].Value;
+                cliente_BE.activo = Convert.ToBoolean(cliente_seleccionado.Cells[1].Value);
+                cliente_BE.DVH = Convert.ToInt32(cliente_seleccionado.Cells[2].Value);
                 cliente_BE.nombre = txt_NombreCli.Text;
                 cliente_BE.apellido = txt_ApellidoCli.Text;
                 cliente_BE.documento = Convert.ToInt32(txt_NumDocCli.Text);
