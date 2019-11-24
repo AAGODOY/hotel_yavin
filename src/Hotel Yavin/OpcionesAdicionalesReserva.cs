@@ -27,6 +27,11 @@ namespace Hotel_Yavin
 
         private void OpcionesAdicionalesReserva_Load(object sender, EventArgs e)
         {
+            btn_Baja.Enabled = BLL.ConfigUsuario.ValidarAcceso("Cancelar Reserva");
+            btn_habilitar.Enabled = BLL.ConfigUsuario.ValidarAcceso("Habilitar Reserva");
+            btn_EnCurso.Enabled = BLL.ConfigUsuario.ValidarAcceso("Reserva En Curso");
+            btn_finalizada.Enabled = BLL.ConfigUsuario.ValidarAcceso("Reserva Finalizada");
+
             txt_id.Text = reserva_seleccionada.Cells[0].Value.ToString();
             reserva_BE.id_reserva = (int)reserva_seleccionada.Cells[0].Value;
             cobranza_BE.id_reserva = (int)reserva_seleccionada.Cells[0].Value;
