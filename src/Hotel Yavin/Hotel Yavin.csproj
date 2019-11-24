@@ -99,6 +99,12 @@
     <Compile Include="AltaHabitacion.Designer.cs">
       <DependentUpon>AltaHabitacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="AltaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AltaPago.Designer.cs">
+      <DependentUpon>AltaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="AltaServAdicionales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,11 +218,11 @@
     <Compile Include="ModificarIdioma.Designer.cs">
       <DependentUpon>ModificarIdioma.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarPagoProvisorio.cs">
+    <Compile Include="ModificarPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarPagoProvisorio.Designer.cs">
-      <DependentUpon>ModificarPagoProvisorio.cs</DependentUpon>
+    <Compile Include="ModificarPago.Designer.cs">
+      <DependentUpon>ModificarPago.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarPatente.cs">
       <SubType>Form</SubType>
@@ -310,6 +316,9 @@
     <EmbeddedResource Include="AltaHabitacion.resx">
       <DependentUpon>AltaHabitacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AltaPago.resx">
+      <DependentUpon>AltaPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AltaServAdicionales.resx">
       <DependentUpon>AltaServAdicionales.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,8 +374,8 @@
     <EmbeddedResource Include="ModificarIdioma.resx">
       <DependentUpon>ModificarIdioma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarPagoProvisorio.resx">
-      <DependentUpon>ModificarPagoProvisorio.cs</DependentUpon>
+    <EmbeddedResource Include="ModificarPago.resx">
+      <DependentUpon>ModificarPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarPatente.resx">
       <DependentUpon>ModificarPatente.cs</DependentUpon>

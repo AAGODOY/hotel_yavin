@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Hotel_Yavin
 {
-    public partial class ModificarPagoProvisorio : Form
+    public partial class AltaPago : Form
     {
-        public ModificarPagoProvisorio()
+        public AltaPago()
         {
             InitializeComponent();
+        }
+
+        private void btn_GuardarCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_CancelarCliente_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
