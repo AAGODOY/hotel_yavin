@@ -35,8 +35,8 @@
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_alta = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpSalida = new System.Windows.Forms.DateTimePicker();
+            this.dtpIngreso = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
@@ -52,13 +52,13 @@
             this.groupBox1.Controls.Add(this.btn_modificar);
             this.groupBox1.Controls.Add(this.btn_alta);
             this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpSalida);
+            this.groupBox1.Controls.Add(this.dtpIngreso);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(619, 239);
+            this.groupBox1.Size = new System.Drawing.Size(619, 310);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtrar Busqueda";
@@ -68,7 +68,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_habilitar, "ConsultaHabitaciones.htm#btn_habilitar");
             this.HelpProviderHG.SetHelpNavigator(this.btn_habilitar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_habilitar.Location = new System.Drawing.Point(519, 187);
+            this.btn_habilitar.Location = new System.Drawing.Point(520, 281);
             this.btn_habilitar.Name = "btn_habilitar";
             this.HelpProviderHG.SetShowHelp(this.btn_habilitar, true);
             this.btn_habilitar.Size = new System.Drawing.Size(75, 23);
@@ -81,7 +81,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_Buscar, "ConsultaHabitaciones.htm#btn_Buscar");
             this.HelpProviderHG.SetHelpNavigator(this.btn_Buscar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_Buscar.Location = new System.Drawing.Point(25, 187);
+            this.btn_Buscar.Location = new System.Drawing.Point(26, 281);
             this.btn_Buscar.Name = "btn_Buscar";
             this.HelpProviderHG.SetShowHelp(this.btn_Buscar, true);
             this.btn_Buscar.Size = new System.Drawing.Size(75, 23);
@@ -94,7 +94,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_baja, "ConsultaHabitaciones.htm#btn_baja");
             this.HelpProviderHG.SetHelpNavigator(this.btn_baja, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_baja.Location = new System.Drawing.Point(438, 187);
+            this.btn_baja.Location = new System.Drawing.Point(439, 281);
             this.btn_baja.Name = "btn_baja";
             this.HelpProviderHG.SetShowHelp(this.btn_baja, true);
             this.btn_baja.Size = new System.Drawing.Size(75, 23);
@@ -107,7 +107,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_modificar, "ConsultaHabitaciones.htm#btn_modificar");
             this.HelpProviderHG.SetHelpNavigator(this.btn_modificar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_modificar.Location = new System.Drawing.Point(358, 187);
+            this.btn_modificar.Location = new System.Drawing.Point(359, 281);
             this.btn_modificar.Name = "btn_modificar";
             this.HelpProviderHG.SetShowHelp(this.btn_modificar, true);
             this.btn_modificar.Size = new System.Drawing.Size(75, 23);
@@ -120,7 +120,7 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_alta, "ConsultaHabitaciones.htm#btn_alta");
             this.HelpProviderHG.SetHelpNavigator(this.btn_alta, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_alta.Location = new System.Drawing.Point(277, 187);
+            this.btn_alta.Location = new System.Drawing.Point(278, 281);
             this.btn_alta.Name = "btn_alta";
             this.HelpProviderHG.SetShowHelp(this.btn_alta, true);
             this.btn_alta.Size = new System.Drawing.Size(75, 23);
@@ -144,29 +144,29 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
-            this.dataGridView1.Size = new System.Drawing.Size(569, 111);
+            this.dataGridView1.Size = new System.Drawing.Size(569, 195);
             this.dataGridView1.TabIndex = 3;
             // 
-            // dateTimePicker2
+            // dtpSalida
             // 
-            this.HelpProviderHG.SetHelpKeyword(this.dateTimePicker2, "ConsultaHabitaciones.htm#label2");
-            this.HelpProviderHG.SetHelpNavigator(this.dateTimePicker2, System.Windows.Forms.HelpNavigator.Topic);
-            this.dateTimePicker2.Location = new System.Drawing.Point(394, 27);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.HelpProviderHG.SetShowHelp(this.dateTimePicker2, true);
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 2;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.HelpProviderHG.SetHelpKeyword(this.dtpSalida, "ConsultaHabitaciones.htm#label2");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpSalida, System.Windows.Forms.HelpNavigator.Topic);
+            this.dtpSalida.Location = new System.Drawing.Point(394, 27);
+            this.dtpSalida.Name = "dtpSalida";
+            this.HelpProviderHG.SetShowHelp(this.dtpSalida, true);
+            this.dtpSalida.Size = new System.Drawing.Size(200, 20);
+            this.dtpSalida.TabIndex = 2;
+            this.dtpSalida.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
-            // dateTimePicker1
+            // dtpIngreso
             // 
-            this.HelpProviderHG.SetHelpKeyword(this.dateTimePicker1, "ConsultaHabitaciones.htm#label1");
-            this.HelpProviderHG.SetHelpNavigator(this.dateTimePicker1, System.Windows.Forms.HelpNavigator.Topic);
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 27);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.HelpProviderHG.SetShowHelp(this.dateTimePicker1, true);
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.HelpProviderHG.SetHelpKeyword(this.dtpIngreso, "ConsultaHabitaciones.htm#label1");
+            this.HelpProviderHG.SetHelpNavigator(this.dtpIngreso, System.Windows.Forms.HelpNavigator.Topic);
+            this.dtpIngreso.Location = new System.Drawing.Point(99, 27);
+            this.dtpIngreso.Name = "dtpIngreso";
+            this.HelpProviderHG.SetShowHelp(this.dtpIngreso, true);
+            this.dtpIngreso.Size = new System.Drawing.Size(200, 20);
+            this.dtpIngreso.TabIndex = 1;
             // 
             // label2
             // 
@@ -194,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 270);
+            this.ClientSize = new System.Drawing.Size(639, 343);
             this.Controls.Add(this.groupBox1);
             this.HelpProviderHG.SetHelpKeyword(this, "ConsultaHabitaciones.htm");
             this.HelpProviderHG.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.Topic);
@@ -212,8 +212,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpSalida;
+        private System.Windows.Forms.DateTimePicker dtpIngreso;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;

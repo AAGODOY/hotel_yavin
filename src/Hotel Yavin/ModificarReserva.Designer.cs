@@ -172,6 +172,7 @@
             this.dtpIngreso.Size = new System.Drawing.Size(194, 20);
             this.dtpIngreso.TabIndex = 2;
             this.dtpIngreso.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
+            this.dtpIngreso.ValueChanged += new System.EventHandler(this.dtpIngreso_ValueChanged);
             // 
             // dtpSalida
             // 
@@ -183,6 +184,7 @@
             this.dtpSalida.Size = new System.Drawing.Size(194, 20);
             this.dtpSalida.TabIndex = 3;
             this.dtpSalida.Value = new System.DateTime(2019, 6, 17, 0, 0, 0, 0);
+            this.dtpSalida.ValueChanged += new System.EventHandler(this.dtpSalida_ValueChanged);
             // 
             // cmb_Cliente
             // 

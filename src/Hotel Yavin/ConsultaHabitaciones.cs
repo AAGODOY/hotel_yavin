@@ -83,7 +83,11 @@ namespace Hotel_Yavin
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
+            DateTime fecha_ingreso = Convert.ToDateTime(dtpIngreso.Value.Date);
+            DateTime fecha_salida = Convert.ToDateTime(dtpSalida.Value.Date);
 
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = habitacion_BLL.GetFiltros(fecha_ingreso, fecha_salida);
         }
     }
 }

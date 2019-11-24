@@ -54,7 +54,21 @@ namespace DAL
 
         public List<BE.Habitacion> GetFiltros(DateTime fecha_desde, DateTime fecha_hasta)
         {
-            string query = "";
+            string query = @"DECLARE @fechaIngreso DATE = '" + fecha_desde + @"'
+                            DECLARE @fechaSalida DATE = '" + fecha_hasta + @"'
+
+                            SELECT * FROM Habitacion
+                            EXCEPT
+                            SELECT h.id_habitacion, h.activo, h.tipo_habitacion, h.descripcion, h.nro_habitacion, h.precio
+                            FROM Habitacion h
+                            INNER JOIN Reserva r ON h.id_habitacion = r.id_habitacion
+                            WHERE 
+                            r.estado IN ('PENDIENTE','EN CURSO') AND
+                            ( 
+	                            (r.fecha_ingreso BETWEEN @fechaIngreso AND @fechaSalida) 
+	                            AND 
+	                            (r.fecha_salida BETWEEN @fechaIngreso AND @fechaSalida) 
+                            )";
 
             using (SqlDataReader dataReader = helper.ExecuteReader(query))
             {

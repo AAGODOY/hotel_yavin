@@ -70,7 +70,7 @@ namespace Hotel_Yavin
                 {
                     reserva_BE.id_habitacion = int.Parse(Regex.Match(itemSeleccionado.ToString(), @"\d+").Value);
                 }
-                
+
 
                 //Fechas
                 reserva_BE.fecha_ingreso = Convert.ToDateTime(dtpIngreso.Value.Date);
@@ -95,24 +95,24 @@ namespace Hotel_Yavin
 
                     //Se evaluan si se sacaron servicios
                     for (int i = 0; i < clb_servicios.Items.Count; i++)
-			        {
-			            if (!clb_servicios.GetItemChecked(i))
-	                    {
+                    {
+                        if (!clb_servicios.GetItemChecked(i))
+                        {
                             if (this.serviciosReserva_lista.Any(pu => pu.id_servicio == int.Parse(Regex.Match(clb_servicios.Items[i].ToString(), @"\d+").Value)))
-	                        {
+                            {
                                 servAdicionalReserva_BE.id_servicio = int.Parse(Regex.Match(clb_servicios.Items[i].ToString(), @"\d+").Value);
                                 servAdicionalReserva_BE.id_reserva = (int)this.reserva_seleccionada.Cells[0].Value;
                                 ServicioReserva_BLL.Delete(servAdicionalReserva_BE);
-	                        }
-	                    }
-			        }
+                            }
+                        }
+                    }
                 }
 
                 //Huesped
                 BE.Huesped huespedAguardar = new BE.Huesped();
                 BE.Huesped huespedAmodificar = new BE.Huesped();
                 BE.Huesped huespedAeliminar = new BE.Huesped();
-                
+
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
                     //si se repite verificar si se modificaron los campos
@@ -131,7 +131,7 @@ namespace Hotel_Yavin
                             huesped_BLL.Update(huespedAmodificar);
                         }
                     }
-                    
+
                     if (!huespedes.Any(h => h.id_reserva == (int)item.Cells[1].Value))
                     {
                         //si no se repite agregar los nuevos huespedes
@@ -141,7 +141,7 @@ namespace Hotel_Yavin
                         huespedAguardar.documento = (int)item.Cells[4].Value;
                         huespedAguardar.telefono = item.Cells[5].Value.ToString();
                         huespedAguardar.email = item.Cells[6].Value.ToString();
-                        
+
                         huesped_BLL.Add(huespedAguardar);
                     }
                     else
@@ -165,7 +165,7 @@ namespace Hotel_Yavin
             else
             {
                 MessageBox.Show("Validar campos");
-            } 
+            }
         }
 
         private void ObtenerDatos()
@@ -312,5 +312,54 @@ namespace Hotel_Yavin
             dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
         }
 
+        private void dtpIngreso_ValueChanged(object sender, EventArgs e)
+        {
+            if (ValidarMargenFechas())
+            {
+                this.ActualizarHabitaciones();
+            }
+        }
+
+        private void dtpSalida_ValueChanged(object sender, EventArgs e)
+        {
+            if (ValidarMargenFechas())
+            {
+                this.ActualizarHabitaciones();
+            }
+        }
+
+        private bool ValidarMargenFechas()
+        {
+            if (Convert.ToDateTime(dtpIngreso.Value.Date) != Convert.ToDateTime(reserva_seleccionada.Cells[7].Value) || Convert.ToDateTime(dtpSalida.Value.Date) != Convert.ToDateTime(reserva_seleccionada.Cells[8].Value))
+            {
+                clb_habitaciones.Enabled = false;
+
+                if (Convert.ToDateTime(dtpIngreso.Value.Date) <= Convert.ToDateTime(dtpSalida.Value.Date))
+                {
+                    clb_habitaciones.Enabled = true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            return clb_habitaciones.Enabled;
+        }
+
+        private void ActualizarHabitaciones()
+        {
+            this.clb_habitaciones.Items.Clear();
+            DateTime fecha_ingreso = Convert.ToDateTime(dtpIngreso.Value.Date);
+            DateTime fecha_salida = Convert.ToDateTime(dtpSalida.Value.Date);
+
+            List<BE.Habitacion> habitaciones_filtro = new List<BE.Habitacion>();
+            habitaciones_filtro = habitacion_BLL.GetFiltros(fecha_ingreso, fecha_salida);
+
+            foreach (BE.Habitacion habitacion in habitaciones_filtro)
+            {
+                clb_habitaciones.Items.Add(habitacion.id_habitacion + " " + habitacion.tipo_habitacion + " " + habitacion.descripcion);
+            }
+        }
     }
 }
