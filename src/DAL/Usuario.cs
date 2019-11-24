@@ -144,25 +144,8 @@ namespace DAL
 
         public int modificarContraseña(int id_usuario, string pwActual, string nuevaPw)
         {
-            //string validacionPw = "SELECT * from Usuario where contraseña ='" + pwActual + "'";
-            //string query = "UPDATE Usuario SET contraseña = '" + nuevaPw + "', es_primer_login = 0 where contraseña ='" + pwActual + "'";
-            //helper.ExecuteReader(validacionPw);
-            //SqlDataReader dataReader;
-            //dataReader = helper.ExecuteReader(validacionPw);
-            
-            //if (dataReader.HasRows)
-            //{
-            //    helper.ExecuteNonQuery(query);
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-
             string query = "UPDATE Usuario SET contraseña = '" + nuevaPw + "', es_primer_login = 0 where contraseña ='" + pwActual + "' AND id_usuario= " + id_usuario + "";
             return helper.ExecuteNonQuery(query);
-
         }
 
         public string GetContraseña(int id_usuario)

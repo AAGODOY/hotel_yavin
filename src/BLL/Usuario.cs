@@ -175,10 +175,11 @@ namespace BLL
         {
             try
             {
-                usu.contraseña = UTILITIES.Encriptador.Encriptar(pwActual);
+                usu.contraseña = UTILITIES.Encriptador.Encriptar(nuevaPw);
+                string pawActual = UTILITIES.Encriptador.Encriptar(pwActual);
                 usu.nom_usuario = UTILITIES.Encriptador.Encriptar(usu.nom_usuario);
                 usu.es_primer_login = false;
-                int resultado = GetInstance().modificarContraseña(usu.id, usu.contraseña, UTILITIES.Encriptador.Encriptar(nuevaPw));
+                int resultado = GetInstance().modificarContraseña(usu.id, pawActual, usu.contraseña);
                 
                 string cadenaDVH = usu.activo.ToString() + usu.nom_usuario.ToString() + usu.nombre.ToString() + usu.apellido.ToString() + usu.documento.ToString() + usu.domicilio.ToString() + usu.telefono.ToString() + usu.email.ToString() + usu.contraseña.ToString() + usu.cant_ingresos_incorrectos.ToString() + usu.es_primer_login.ToString() + usu.id_idioma.ToString();
                 usu.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
