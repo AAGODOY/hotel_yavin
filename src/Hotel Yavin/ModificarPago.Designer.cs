@@ -86,6 +86,7 @@
             this.btn_GuardarCliente.TabIndex = 29;
             this.btn_GuardarCliente.Text = "Aceptar";
             this.btn_GuardarCliente.UseVisualStyleBackColor = true;
+            this.btn_GuardarCliente.Click += new System.EventHandler(this.btn_GuardarCliente_Click);
             // 
             // btn_CancelarCliente
             // 
@@ -98,6 +99,7 @@
             this.btn_CancelarCliente.TabIndex = 28;
             this.btn_CancelarCliente.Text = "Cancelar";
             this.btn_CancelarCliente.UseVisualStyleBackColor = true;
+            this.btn_CancelarCliente.Click += new System.EventHandler(this.btn_CancelarCliente_Click);
             // 
             // HelpProviderHG
             // 

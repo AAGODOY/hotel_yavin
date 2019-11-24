@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.lbl_totalAPagar = new System.Windows.Forms.Label();
+            this.label_2 = new System.Windows.Forms.Label();
             this.lbl_totalPagado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_habilitar = new System.Windows.Forms.Button();
             this.btn_alta = new System.Windows.Forms.Button();
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
@@ -45,11 +44,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lbl_totalAPagar);
+            this.groupBox1.Controls.Add(this.label_2);
             this.groupBox1.Controls.Add(this.lbl_totalPagado);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btn_habilitar);
             this.groupBox1.Controls.Add(this.btn_alta);
             this.groupBox1.Controls.Add(this.btn_baja);
             this.groupBox1.Controls.Add(this.btn_modificar);
@@ -61,28 +59,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pago/s";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(367, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "$";
-            // 
             // lbl_totalAPagar
             // 
             this.lbl_totalAPagar.AutoSize = true;
-            this.lbl_totalAPagar.Location = new System.Drawing.Point(284, 244);
+            this.lbl_totalAPagar.Location = new System.Drawing.Point(358, 244);
             this.lbl_totalAPagar.Name = "lbl_totalAPagar";
-            this.lbl_totalAPagar.Size = new System.Drawing.Size(77, 13);
-            this.lbl_totalAPagar.TabIndex = 13;
-            this.lbl_totalAPagar.Text = "Total a Pagar: ";
+            this.lbl_totalAPagar.Size = new System.Drawing.Size(13, 13);
+            this.lbl_totalAPagar.TabIndex = 14;
+            this.lbl_totalAPagar.Text = "$";
+            // 
+            // label_2
+            // 
+            this.label_2.AutoSize = true;
+            this.label_2.Location = new System.Drawing.Point(284, 244);
+            this.label_2.Name = "label_2";
+            this.label_2.Size = new System.Drawing.Size(77, 13);
+            this.label_2.TabIndex = 13;
+            this.label_2.Text = "Total a Pagar: ";
             // 
             // lbl_totalPagado
             // 
             this.lbl_totalPagado.AutoSize = true;
-            this.lbl_totalPagado.Location = new System.Drawing.Point(85, 244);
+            this.lbl_totalPagado.Location = new System.Drawing.Point(79, 244);
             this.lbl_totalPagado.Name = "lbl_totalPagado";
             this.lbl_totalPagado.Size = new System.Drawing.Size(13, 13);
             this.lbl_totalPagado.TabIndex = 12;
@@ -97,26 +95,14 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Total Pagado: ";
             // 
-            // btn_habilitar
-            // 
-            this.HelpProviderHG.SetHelpKeyword(this.btn_habilitar, "AdministrarPago.htm#btn_habilitar");
-            this.HelpProviderHG.SetHelpNavigator(this.btn_habilitar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_habilitar.Location = new System.Drawing.Point(334, 277);
-            this.btn_habilitar.Name = "btn_habilitar";
-            this.HelpProviderHG.SetShowHelp(this.btn_habilitar, true);
-            this.btn_habilitar.Size = new System.Drawing.Size(89, 29);
-            this.btn_habilitar.TabIndex = 10;
-            this.btn_habilitar.Text = "Habilitar";
-            this.btn_habilitar.UseVisualStyleBackColor = true;
-            // 
             // btn_alta
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_alta, "AdministrarPago.htm#btn_alta");
             this.HelpProviderHG.SetHelpNavigator(this.btn_alta, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_alta.Location = new System.Drawing.Point(9, 277);
+            this.btn_alta.Location = new System.Drawing.Point(6, 277);
             this.btn_alta.Name = "btn_alta";
             this.HelpProviderHG.SetShowHelp(this.btn_alta, true);
-            this.btn_alta.Size = new System.Drawing.Size(89, 29);
+            this.btn_alta.Size = new System.Drawing.Size(99, 29);
             this.btn_alta.TabIndex = 9;
             this.btn_alta.Text = "Alta";
             this.btn_alta.UseVisualStyleBackColor = true;
@@ -126,22 +112,23 @@
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_baja, "AdministrarPago.htm#btn_baja");
             this.HelpProviderHG.SetHelpNavigator(this.btn_baja, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_baja.Location = new System.Drawing.Point(226, 277);
+            this.btn_baja.Location = new System.Drawing.Point(321, 277);
             this.btn_baja.Name = "btn_baja";
             this.HelpProviderHG.SetShowHelp(this.btn_baja, true);
-            this.btn_baja.Size = new System.Drawing.Size(89, 29);
+            this.btn_baja.Size = new System.Drawing.Size(99, 29);
             this.btn_baja.TabIndex = 8;
             this.btn_baja.Text = "Baja";
             this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
             // btn_modificar
             // 
             this.HelpProviderHG.SetHelpKeyword(this.btn_modificar, "AdministrarPago.htm#btn_modificar");
             this.HelpProviderHG.SetHelpNavigator(this.btn_modificar, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_modificar.Location = new System.Drawing.Point(119, 277);
+            this.btn_modificar.Location = new System.Drawing.Point(164, 277);
             this.btn_modificar.Name = "btn_modificar";
             this.HelpProviderHG.SetShowHelp(this.btn_modificar, true);
-            this.btn_modificar.Size = new System.Drawing.Size(89, 29);
+            this.btn_modificar.Size = new System.Drawing.Size(99, 29);
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
@@ -159,6 +146,7 @@
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.HelpProviderHG.SetShowHelp(this.dataGridView1, true);
             this.dataGridView1.Size = new System.Drawing.Size(414, 211);
@@ -190,14 +178,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_habilitar;
         private System.Windows.Forms.Button btn_alta;
         private System.Windows.Forms.Button btn_baja;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.HelpProvider HelpProviderHG;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_totalAPagar;
+        private System.Windows.Forms.Label label_2;
         private System.Windows.Forms.Label lbl_totalPagado;
         private System.Windows.Forms.Label label1;
     }

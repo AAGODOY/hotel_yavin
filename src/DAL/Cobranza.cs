@@ -37,7 +37,18 @@ namespace DAL
 
         public List<BE.Cobranza> SelectAll()
         {
-            throw new NotImplementedException();
+            string query = "SELECT * FROM Cobranza";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                List<BE.Cobranza> cobranzaList = new List<BE.Cobranza>();
+                while (dataReader.Read())
+                {
+                    BE.Cobranza cobranza = MapDataReader(dataReader);
+                    cobranzaList.Add(cobranza);
+                }
+
+                return cobranzaList;
+            }
         }
 
         public List<double> GetPrecios(int id_reserva)
@@ -62,6 +73,24 @@ namespace DAL
 
                 return preciosList;
             }
+        }
+
+        public int SetPagado(int id_reserva)
+        {
+            string query = "UPDATE Cobranza SET estado= 'PAGADO' WHERE id_reserva= " + id_reserva + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
+        private BE.Cobranza MapDataReader(SqlDataReader dataReader)
+        {
+            BE.Cobranza cobranza = new BE.Cobranza();
+            cobranza.id_cobro = dataReader.GetInt32(0);
+            cobranza.id_reserva = dataReader.GetInt32(1);
+            cobranza.estado = dataReader.GetString(2);
+            cobranza.subtotal = dataReader.GetDouble(3);
+            cobranza.total = dataReader.GetDouble(4);
+
+            return cobranza;
         }
     }
 }

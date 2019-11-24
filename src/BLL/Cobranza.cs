@@ -76,9 +76,14 @@ namespace BLL
             return GetInstance().Update(objUpdate);
         }
 
+        public int SetPagado(int id_reserva)
+        {
+            return GetInstance().SetPagado(id_reserva);
+        }
+
         public List<BE.Cobranza> SelectAll()
         {
-            throw new NotImplementedException();
+            return GetInstance().SelectAll();
         }
     }
 }

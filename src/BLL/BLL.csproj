@@ -51,6 +51,7 @@
     <Compile Include="Huesped.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Cobranza.cs" />
+    <Compile Include="Pago.cs" />
     <Compile Include="Patente.cs" />
     <Compile Include="Reserva.cs" />
     <Compile Include="RestaurarBackup.cs" />
