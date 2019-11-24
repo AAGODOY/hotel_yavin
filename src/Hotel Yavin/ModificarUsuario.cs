@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Hotel_Yavin
 {
@@ -50,8 +51,6 @@ namespace Hotel_Yavin
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             btn_BlanquearPass.Enabled = BLL.ConfigUsuario.ValidarAcceso("Blanquear Constraseña");
-            btn_Bloquear.Enabled = BLL.ConfigUsuario.ValidarAcceso("Bloquear Usuario");
-            btn_Desbloquear.Enabled = BLL.ConfigUsuario.ValidarAcceso("Desbloquear Usuario");
         }
 
         private void ConfigurarGrilla()
@@ -546,6 +545,22 @@ namespace Hotel_Yavin
             }
 
             return validacionRepeticion;
+        }
+
+        private void btn_BlanquearPass_Click(object sender, EventArgs e)
+        {
+            usu_BE.id = (int)usuario_seleccionado.Cells[0].Value;
+            usu_BLL.BlanquearContraseña(usu_BE);
+
+            SaveFileDialog savefileDialog = new SaveFileDialog();
+            savefileDialog.ShowDialog();
+            FileStream F = File.Create(savefileDialog.FileName);
+            F.Close();
+            StreamWriter sw = File.AppendText(savefileDialog.FileName);
+            sw.WriteLine("Se blanqueó la contraseña del usuario " + txt_NomUsu.Text + ". Su nueva contraseña es: " + usu_BLL.GetContraseña(usu_BE.id));
+            sw.Close();
+
+            MessageBox.Show("Se envió la nueva contraseña al mail del usuario");
         }
 
     }

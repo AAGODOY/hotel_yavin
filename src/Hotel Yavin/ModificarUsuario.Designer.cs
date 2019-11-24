@@ -34,8 +34,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_BlanquearPass = new System.Windows.Forms.Button();
-            this.btn_Desbloquear = new System.Windows.Forms.Button();
-            this.btn_Bloquear = new System.Windows.Forms.Button();
             this.txt_Domicilio = new System.Windows.Forms.TextBox();
             this.txt_Telefono = new System.Windows.Forms.TextBox();
             this.txt_NumDoc = new System.Windows.Forms.TextBox();
@@ -154,11 +152,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_BlanquearPass);
-            this.groupBox1.Controls.Add(this.btn_Desbloquear);
-            this.groupBox1.Controls.Add(this.btn_Bloquear);
-            this.groupBox1.Location = new System.Drawing.Point(350, 21);
+            this.groupBox1.Location = new System.Drawing.Point(337, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(193, 124);
+            this.groupBox1.Size = new System.Drawing.Size(193, 62);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones Adicionales";
@@ -174,30 +170,7 @@
             this.btn_BlanquearPass.TabIndex = 18;
             this.btn_BlanquearPass.Text = "Blanqueo Contraseña";
             this.btn_BlanquearPass.UseVisualStyleBackColor = true;
-            // 
-            // btn_Desbloquear
-            // 
-            this.HelpProviderHG.SetHelpKeyword(this.btn_Desbloquear, "ModificarUsuario.htm#btn_Desbloquear");
-            this.HelpProviderHG.SetHelpNavigator(this.btn_Desbloquear, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_Desbloquear.Location = new System.Drawing.Point(31, 82);
-            this.btn_Desbloquear.Name = "btn_Desbloquear";
-            this.HelpProviderHG.SetShowHelp(this.btn_Desbloquear, true);
-            this.btn_Desbloquear.Size = new System.Drawing.Size(133, 23);
-            this.btn_Desbloquear.TabIndex = 20;
-            this.btn_Desbloquear.Text = "Desbloquear";
-            this.btn_Desbloquear.UseVisualStyleBackColor = true;
-            // 
-            // btn_Bloquear
-            // 
-            this.HelpProviderHG.SetHelpKeyword(this.btn_Bloquear, "ModificarUsuario.htm#btn_Bloquear");
-            this.HelpProviderHG.SetHelpNavigator(this.btn_Bloquear, System.Windows.Forms.HelpNavigator.Topic);
-            this.btn_Bloquear.Location = new System.Drawing.Point(31, 52);
-            this.btn_Bloquear.Name = "btn_Bloquear";
-            this.HelpProviderHG.SetShowHelp(this.btn_Bloquear, true);
-            this.btn_Bloquear.Size = new System.Drawing.Size(133, 23);
-            this.btn_Bloquear.TabIndex = 19;
-            this.btn_Bloquear.Text = "Bloquear";
-            this.btn_Bloquear.UseVisualStyleBackColor = true;
+            this.btn_BlanquearPass.Click += new System.EventHandler(this.btn_BlanquearPass_Click);
             // 
             // txt_Domicilio
             // 
@@ -648,8 +621,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_BlanquearPass;
-        private System.Windows.Forms.Button btn_Desbloquear;
-        private System.Windows.Forms.Button btn_Bloquear;
         private System.Windows.Forms.DataGridView dgv_familiasAsociadas;
         private System.Windows.Forms.DataGridView dgv_familiasDisponibles;
         private System.Windows.Forms.Label label15;

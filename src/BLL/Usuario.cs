@@ -202,5 +202,23 @@ namespace BLL
         {
             return UTILITIES.Encriptador.Desencriptar(GetInstance().GetContraseña(id_usuario));
         }
+
+        public void BlanquearContraseña(BE.Usuario usu)
+        {
+            usu = GetInstance().SelectById(usu.id);
+            usu.es_primer_login = true;
+
+            //creo contraseña aleatoria
+            string pwAleatoria = GetRandomPw();
+
+            //encripto contraseña aleatoria
+            usu.contraseña = UTILITIES.Encriptador.Encriptar(pwAleatoria);
+
+            string cadenaDVH = usu.activo.ToString() + usu.nom_usuario.ToString() + usu.nombre.ToString() + usu.apellido.ToString() + usu.documento.ToString() + usu.domicilio.ToString() + usu.telefono.ToString() + usu.email.ToString() + usu.contraseña.ToString() + usu.cant_ingresos_incorrectos.ToString() + usu.es_primer_login.ToString() + usu.id_idioma.ToString();
+            usu.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            GetInstance().BlanquearContraseña(usu);
+            DigitoVerificador.CalcularDVV("Usuario");
+        }
     }
 }

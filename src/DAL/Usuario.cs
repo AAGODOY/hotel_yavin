@@ -154,6 +154,11 @@ namespace DAL
             return Convert.ToString(helper.ExecuteScalar(query));
         }
 
+        public void BlanquearContraseña(BE.Usuario usu)
+        {
+            string query = "UPDATE Usuario SET contraseña = '" + usu.contraseña + "', es_primer_login = 1 where id_usuario= " + usu.id + "";
+        }
+
         private BE.Usuario MapDataReader(SqlDataReader dataReader)
         {
             BE.Usuario usu = new BE.Usuario();
