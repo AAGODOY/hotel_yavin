@@ -54,10 +54,14 @@ namespace BLL
                 listaErrores.Add(usuPat);
             }
 
+            foreach (string reserva in VerificarIntegridadReserva())
+            {
+                listaErrores.Add(reserva);
+            }
+
             return listaErrores;
 
                 //VerificarIntegridadCliente();
-                //VerificarIntegridadReserva();
         }
 
         private static List<string> VerificarIntegridadUsuario()
@@ -160,28 +164,42 @@ namespace BLL
 
         //}
 
-        private static bool VerificarIntegridadReserva()
+        private static List<string> VerificarIntegridadReserva()
         {
-            //List<BE.Reserva> listReserva_BE = new List<BE.Reserva>();
-            //BLL.Reserva reserva_BLL = new Reserva();
+            List<string> ErrorIntegridad_Reserva = new List<string>();
+            List<BE.Reserva> listReserva_BE = new List<BE.Reserva>();
+            BLL.Reserva reserva_BLL = new Reserva();
+            listReserva_BE = reserva_BLL.SelectAll();
 
-            //listReserva_BE = reserva_BLL.SelectAll();
+            foreach (BE.Reserva item in listReserva_BE)
+            {
+                string cadenaDVH = item.id_usuario.ToString() + item.id_cliente.ToString() + item.id_habitacion.ToString() + item.activo.ToString() + item.fecha_ingreso.ToString() + item.fecha_salida.ToString();
+                int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+                if (item.DVH == DVHCalculado)
+                {
+                    Console.WriteLine("DVH correcto");
+                }
+                else
+                {
+                    string str = "Reserva - Inconsistencia en la entidad Reserva en el registro numero (ID): " + item.id_reserva;
+                    ErrorIntegridad_Reserva.Add(str);
+                }
+            }
 
-            //foreach (BE.Reserva item in listReserva_BE)
-            //{
-            //    string cadenaDVH = item.activo.ToString() + item.estado.ToString() + item.fecha_ingreso.ToString() + item.fecha_salida.ToString();
-            //    int DVHCalculado = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
-            //    if (item.DVH == DVHCalculado)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
+            DAL.DigitoVerificador digitoVerificador_DAL = new DAL.DigitoVerificador();
+            int DVVCalculado = digitoVerificador_DAL.ObtenerSumaDVH("Reserva");
 
-            return false;
+            if (DVVCalculado == GetDVV("Reserva"))
+            {
+                Console.WriteLine("DVV correcto");
+            }
+            else
+            {
+                string str = "Inconsistencia en la entidad Reserva al calcular el DVV";
+                ErrorIntegridad_Reserva.Add(str);
+            }
+
+            return ErrorIntegridad_Reserva;
         }
 
         private static List<string> VerificarIntegridadFamiliaPatente()

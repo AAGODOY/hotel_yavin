@@ -22,25 +22,25 @@ namespace DAL
 
         public int Delete(BE.Reserva objBaja)
         {
-            string query = "UPDATE Reserva SET estado= 'CANCELADA' WHERE id_reserva= " + objBaja.id_reserva + "";
+            string query = "UPDATE Reserva SET estado= 'CANCELADA', activo= " + Convert.ToInt32(objBaja.activo) + ", DVH = " + objBaja.DVH + "WHERE id_reserva= " + objBaja.id_reserva + "";
             return helper.ExecuteNonQuery(query);
         }
 
         public int Habilitar(BE.Reserva objhabilitar)
         {
-            string query = "UPDATE Reserva SET estado= 'PENDIENTE' WHERE id_reserva= " + objhabilitar.id_reserva + "";
+            string query = "UPDATE Reserva SET estado= 'PENDIENTE', activo= " + Convert.ToInt32(objhabilitar.activo) + ", DVH = " + objhabilitar.DVH + " WHERE id_reserva= " + objhabilitar.id_reserva + "";
             return helper.ExecuteNonQuery(query);
         }
 
         public int SetEnCurso(BE.Reserva objUpdate)
         {
-            string query = "UPDATE Reserva SET estado= 'EN CURSO' WHERE id_reserva= " + objUpdate.id_reserva + "";
+            string query = "UPDATE Reserva SET estado= 'EN CURSO', DVH = " + objUpdate.DVH + " WHERE id_reserva= " + objUpdate.id_reserva + "";
             return helper.ExecuteNonQuery(query);
         }
 
         public int SetFinalizada(BE.Reserva objUpdate)
         {
-            string query = "UPDATE Reserva SET estado= 'FINALIZADA' WHERE id_reserva= " + objUpdate.id_reserva + "";
+            string query = "UPDATE Reserva SET estado= 'FINALIZADA', DVH = " + objUpdate.DVH + " WHERE id_reserva= " + objUpdate.id_reserva + "";
             return helper.ExecuteNonQuery(query);
         }
 
@@ -59,10 +59,31 @@ namespace DAL
             }
         }
 
+        public BE.Reserva SelectById(int id)
+        {
+            string query = "Select * From Reserva where id_reserva =" + id + "";
+            using (SqlDataReader dataReader = helper.ExecuteReader(query))
+            {
+                BE.Reserva reserva = new BE.Reserva();
+                while (dataReader.Read())
+                {
+                    reserva = MapDataReader(dataReader);
+                }
+
+                return reserva;
+            }
+        }
+
         public int Update(BE.Reserva objUpdate)
         {
             string query = "UPDATE Reserva SET id_usuario= " + objUpdate.id_usuario + "," + "id_cliente= " + objUpdate.id_cliente + "," + "id_habitacion= " + objUpdate.id_habitacion + "," + "DVH =" + objUpdate.DVH + "," + "fecha_ingreso= convert(datetime, '" + objUpdate.fecha_ingreso.ToString("yyyy-MM-dd HH:mm:ss") + "',101)," + " fecha_salida= convert(datetime, '" + objUpdate.fecha_salida.ToString("yyyy-MM-dd HH:mm:ss") + "',101) WHERE id_reserva= " + objUpdate.id_reserva + "";
 
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public int UpdateDVH(int DVH, int id_reserva)
+        {
+            string query = "UPDATE Reserva SET DVH =" + DVH + " WHERE id_reserva= " + id_reserva + "";
             return helper.ExecuteNonQuery(query);
         }
 

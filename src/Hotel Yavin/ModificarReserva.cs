@@ -58,6 +58,9 @@ namespace Hotel_Yavin
             if (validarCampos())
             {
                 reserva_BE.id_reserva = (int)this.reserva_seleccionada.Cells[0].Value;
+                reserva_BE.activo = Convert.ToBoolean(this.reserva_seleccionada.Cells[4].Value);
+                reserva_BE.DVH = (int)this.reserva_seleccionada.Cells[5].Value;
+                reserva_BE.estado = this.reserva_seleccionada.Cells[6].Value.ToString();
 
                 //Usuario
                 reserva_BE.id_usuario = this.usuario_logueado.id;
@@ -193,6 +196,7 @@ namespace Hotel_Yavin
             cmb_Cliente.Text = clienteDeLaReserva;
 
             //CARGA DE HABITACIONES
+            clb_habitaciones.Enabled = true;
             List<BE.Habitacion> habitaciones = new List<BE.Habitacion>();
             habitaciones = habitacion_BLL.SelectAll();
 

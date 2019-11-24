@@ -46,6 +46,7 @@ namespace Hotel_Yavin
                 this.RecalcularDigitosBitacora();
                 this.RecalcularDigitosFamiliaPatente();
                 this.RecalcularDigitosUsuarioPatente();
+                this.RecalcularDigitosReserva();
                 
                 MessageBox.Show("Se recalcularon los dígitos correctamente");
                 bitacora_ALTA.RegistrarEnBitacora(this.usuario_logueado, DateTime.Now, "Se recalcularon los Digitos Verificadores");
@@ -130,6 +131,24 @@ namespace Hotel_Yavin
             }
 
             BLL.DigitoVerificador.CalcularDVV("UsuarioPatente");
+        }
+
+        private void RecalcularDigitosReserva()
+        {
+            //RECALCULO DVH Y DVV DE LA TABLA RESERVA
+            BLL.Reserva reserva_BLL = new BLL.Reserva();
+            BE.Reserva reserva_BE = new BE.Reserva();
+            List<BE.Reserva> lista_reserva = new List<BE.Reserva>();
+            lista_reserva = reserva_BLL.SelectAll();
+            string cadena = "";
+            foreach (BE.Reserva item in lista_reserva)
+            {
+                cadena = item.id_usuario.ToString() + item.id_cliente.ToString() + item.id_habitacion.ToString() + item.activo.ToString() + item.fecha_ingreso.ToString() + item.fecha_salida.ToString();
+                int valorDVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadena);
+                reserva_BLL.UpdateDVH(valorDVH, item.id_reserva);
+            }
+
+            BLL.DigitoVerificador.CalcularDVV("Reserva");
         }
     }
 }

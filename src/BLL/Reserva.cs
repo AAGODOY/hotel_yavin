@@ -39,22 +39,60 @@ namespace BLL
 
         public int Delete(BE.Reserva objBaja)
         {
-            return GetInstance().Delete(objBaja);
+            objBaja = GetInstance().SelectById(objBaja.id_reserva);
+            objBaja.activo = false;
+            objBaja.estado = "CANCELADA";
+
+            string cadenaDVH = objBaja.id_usuario.ToString() + objBaja.id_cliente.ToString() + objBaja.id_habitacion.ToString() + objBaja.activo.ToString() + objBaja.fecha_ingreso.ToString() + objBaja.fecha_salida.ToString();
+            objBaja.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            int resultado =  GetInstance().Delete(objBaja);
+            DigitoVerificador.CalcularDVV("Reserva");
+
+            return resultado;
         }
 
         public int Habilitar(BE.Reserva objhabilitar)
         {
-            return GetInstance().Habilitar(objhabilitar);
+            objhabilitar = GetInstance().SelectById(objhabilitar.id_reserva);
+            objhabilitar.activo = true;
+            objhabilitar.estado = "PENDIENTE";
+
+            string cadenaDVH = objhabilitar.id_usuario.ToString() + objhabilitar.id_cliente.ToString() + objhabilitar.id_habitacion.ToString() + objhabilitar.activo.ToString() + objhabilitar.fecha_ingreso.ToString() + objhabilitar.fecha_salida.ToString();
+            objhabilitar.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            
+            int resultado = GetInstance().Habilitar(objhabilitar);
+            DigitoVerificador.CalcularDVV("Reserva");
+
+            return resultado;
         }
 
         public int SetEnCurso(BE.Reserva objUpdate)
         {
-            return GetInstance().SetEnCurso(objUpdate);
+            objUpdate = GetInstance().SelectById(objUpdate.id_reserva);
+            objUpdate.estado = "EN CURSO";
+
+            string cadenaDVH = objUpdate.id_usuario.ToString() + objUpdate.id_cliente.ToString() + objUpdate.id_habitacion.ToString() + objUpdate.activo.ToString() + objUpdate.fecha_ingreso.ToString() + objUpdate.fecha_salida.ToString();
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+            
+            int resultado = GetInstance().SetEnCurso(objUpdate);
+            DigitoVerificador.CalcularDVV("Reserva");
+
+            return resultado;
         }
 
         public int SetFinalizada(BE.Reserva objUpdate)
         {
-            return GetInstance().SetFinalizada(objUpdate);
+            objUpdate = GetInstance().SelectById(objUpdate.id_reserva);
+            objUpdate.estado = "FINALIZADA";
+
+            string cadenaDVH = objUpdate.id_usuario.ToString() + objUpdate.id_cliente.ToString() + objUpdate.id_habitacion.ToString() + objUpdate.activo.ToString() + objUpdate.fecha_ingreso.ToString() + objUpdate.fecha_salida.ToString();
+            objUpdate.DVH = UTILITIES.DigitoVerificador.ObtenerDVH(cadenaDVH);
+
+            int resultado = GetInstance().SetFinalizada(objUpdate);
+            DigitoVerificador.CalcularDVV("Reserva");
+
+            return resultado;
         }
 
         public List<BE.Reserva> SelectAll()
@@ -71,5 +109,11 @@ namespace BLL
             DigitoVerificador.CalcularDVV("Reserva");
             return resultado;
         }
+
+        public int UpdateDVH(int DVH, int id_reserva)
+        {
+            return GetInstance().UpdateDVH(DVH, id_reserva);
+        }
+
     }
 }
