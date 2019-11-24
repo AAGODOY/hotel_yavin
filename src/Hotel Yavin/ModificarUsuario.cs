@@ -144,7 +144,7 @@ namespace Hotel_Yavin
             this.patentesUsuarioDB = usuPat_BLL.GetPatentesIndividuales(id_usuario);
             foreach (BE.Patente patente in patentesUsuarioDB)
             {
-                dgv_patentesAsociadas.Rows.Add(patente.id, patente.descripcion, patente.activo, usuPat_BLL.GetUsuarioPatente(id_usuario, patente.id).patenteNegada);
+                dgv_patentesAsociadas.Rows.Add(patente.id, UTILITIES.Encriptador.Desencriptar(patente.descripcion), patente.activo, usuPat_BLL.GetUsuarioPatente(id_usuario, patente.id).patenteNegada);
             }
 
             //CARGAR: patentes disponibles
@@ -165,7 +165,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Patente patente in patentesUI)
             {
-                dgv_patentesDisponibles.Rows.Add(patente.id, patente.descripcion, patente.activo);
+                dgv_patentesDisponibles.Rows.Add(patente.id, UTILITIES.Encriptador.Desencriptar(patente.descripcion), patente.activo);
             }
         }
 

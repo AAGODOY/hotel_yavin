@@ -133,7 +133,7 @@ namespace Hotel_Yavin
             this.familiaPatentesDB = famPat_BLL.GetPatentesFamilia(id_familia);
             foreach (BE.Patente patente in familiaPatentesDB)
             {
-                dgv_patentesAsociadasAfamilia.Rows.Add(patente.id, patente.descripcion, patente.activo);
+                dgv_patentesAsociadasAfamilia.Rows.Add(patente.id, UTILITIES.Encriptador.Desencriptar(patente.descripcion), patente.activo);
             }
 
             //CARGAR: patentes disponibles
@@ -154,7 +154,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Patente patente in patentesUI)
             {
-                dgv_patentesDisponibles.Rows.Add(patente.id, patente.descripcion, patente.activo);
+                dgv_patentesDisponibles.Rows.Add(patente.id, UTILITIES.Encriptador.Desencriptar(patente.descripcion), patente.activo);
             }
         }
 

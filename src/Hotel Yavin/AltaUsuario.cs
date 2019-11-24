@@ -125,7 +125,7 @@ namespace Hotel_Yavin
 
             foreach (BE.Patente patente in pat_BLL.SelectAll())
             {
-                dgv_patentesDisponibles.Rows.Add(patente.id, patente.descripcion, patente.activo);
+                dgv_patentesDisponibles.Rows.Add(patente.id, UTILITIES.Encriptador.Desencriptar(patente.descripcion), patente.activo);
             }
 
             foreach (BE.Familia familia in familia_BLL.SelectAll())
