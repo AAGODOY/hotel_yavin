@@ -46,7 +46,12 @@ namespace BLL
 
         public int Delete(BE.Cobranza objBaja)
         {
-            throw new NotImplementedException();
+            return GetInstance().Delete(objBaja);
+        }
+
+        public int Habilitar(BE.Cobranza objHabilitar)
+        {
+            return GetInstance().Habilitar(objHabilitar);
         }
 
         public int Update(BE.Cobranza objUpdate)

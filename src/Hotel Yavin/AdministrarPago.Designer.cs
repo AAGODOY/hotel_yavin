@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_totalAPagar = new System.Windows.Forms.Label();
+            this.lbl_totalPagado = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_habilitar = new System.Windows.Forms.Button();
             this.btn_alta = new System.Windows.Forms.Button();
             this.btn_baja = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.HelpProviderHG = new System.Windows.Forms.HelpProvider();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_totalPagado = new System.Windows.Forms.Label();
-            this.lbl_totalAPagar = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,42 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pago/s";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(367, 244);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "$";
+            // 
+            // lbl_totalAPagar
+            // 
+            this.lbl_totalAPagar.AutoSize = true;
+            this.lbl_totalAPagar.Location = new System.Drawing.Point(284, 244);
+            this.lbl_totalAPagar.Name = "lbl_totalAPagar";
+            this.lbl_totalAPagar.Size = new System.Drawing.Size(77, 13);
+            this.lbl_totalAPagar.TabIndex = 13;
+            this.lbl_totalAPagar.Text = "Total a Pagar: ";
+            // 
+            // lbl_totalPagado
+            // 
+            this.lbl_totalPagado.AutoSize = true;
+            this.lbl_totalPagado.Location = new System.Drawing.Point(85, 244);
+            this.lbl_totalPagado.Name = "lbl_totalPagado";
+            this.lbl_totalPagado.Size = new System.Drawing.Size(13, 13);
+            this.lbl_totalPagado.TabIndex = 12;
+            this.lbl_totalPagado.Text = "$";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 244);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Total Pagado: ";
             // 
             // btn_habilitar
             // 
@@ -109,6 +145,7 @@
             this.btn_modificar.TabIndex = 7;
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
+            this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
             // 
             // dataGridView1
             // 
@@ -130,42 +167,6 @@
             // HelpProviderHG
             // 
             this.HelpProviderHG.HelpNamespace = "Hotel_Yavin_manual.chm";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 244);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Total Pagado: ";
-            // 
-            // lbl_totalPagado
-            // 
-            this.lbl_totalPagado.AutoSize = true;
-            this.lbl_totalPagado.Location = new System.Drawing.Point(85, 244);
-            this.lbl_totalPagado.Name = "lbl_totalPagado";
-            this.lbl_totalPagado.Size = new System.Drawing.Size(13, 13);
-            this.lbl_totalPagado.TabIndex = 12;
-            this.lbl_totalPagado.Text = "$";
-            // 
-            // lbl_totalAPagar
-            // 
-            this.lbl_totalAPagar.AutoSize = true;
-            this.lbl_totalAPagar.Location = new System.Drawing.Point(284, 244);
-            this.lbl_totalAPagar.Name = "lbl_totalAPagar";
-            this.lbl_totalAPagar.Size = new System.Drawing.Size(77, 13);
-            this.lbl_totalAPagar.TabIndex = 13;
-            this.lbl_totalAPagar.Text = "Total a Pagar: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(367, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "$";
             // 
             // AdministrarPago
             // 

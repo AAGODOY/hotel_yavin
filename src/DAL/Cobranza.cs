@@ -19,7 +19,14 @@ namespace DAL
 
         public int Delete(BE.Cobranza objBaja)
         {
-            throw new NotImplementedException();
+            string query = "UPDATE Cobranza SET estado= 'CANCELADO' WHERE id_reserva= " + objBaja.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
+        }
+
+        public int Habilitar(BE.Cobranza objHabilitar)
+        {
+            string query = "UPDATE Cobranza SET estado= 'PENDIENTE' WHERE id_reserva= " + objHabilitar.id_reserva + "";
+            return helper.ExecuteNonQuery(query);
         }
 
         public int Update(BE.Cobranza objUpdate)
